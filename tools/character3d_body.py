@@ -176,7 +176,9 @@ def constant(name):
 def leg_weights(point):
     x, y, z = point
     side = 'Left' if x >= 0 else 'Right'
-    pelvis = smoothstep(.79, .94, z)
+    # The complete waist belongs to the pelvis. Letting the thighs tug vertices
+    # as high as the belt folds the upper shell through the rigid shirt/belt.
+    pelvis = smoothstep(.73, .86, z)
     upper = smoothstep(.44, .64, z)
     return {'Spine': pelvis, side+'Thigh': (1-pelvis)*upper,
             side+'Shin': (1-pelvis)*(1-upper)}
@@ -254,7 +256,9 @@ def build_body():
         thumb = ellipsoid(side+'Thumb', (sign*.247,-.103,.915), (.022,.023,.039), mats['Skin'])
         add(union(side+'Hand',[palm,thumb],.007), constant(side+'Hand'))
         add(limb(side+'Thigh',JOINTS[side+'hip'],JOINTS[side+'knee'],.063,.052,mats['Skin']), leg_weights)
-        add(limb(side+'Shin',JOINTS[side+'knee'],JOINTS[side+'ankle'],.052,.033,mats['Skin']), constant(side+'Shin'))
+        # Match the surrounding trouser knee blend. A rigid shin below a blended
+        # trouser knee protruded through the fabric during knee flexion.
+        add(limb(side+'Shin',JOINTS[side+'knee'],JOINTS[side+'ankle'],.052,.033,mats['Skin']), leg_weights)
         add(ellipsoid(side+'Foot',(sign*.10,-.055,.091),(.050,.114,.069),mats['Skin']),constant(side+'Foot'))
     add(loft('Shirt',[(0,0,.91,.149,.102),(0,0,1.04,.151,.104),
                       (0,-.012,1.20,.166,.109),(0,-.025,1.39,.198,.110),

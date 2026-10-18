@@ -212,3 +212,15 @@ authoring/construction approach; camera depth handles overlap. The first procedu
 model has deliberately preliminary face/surface detail and is not approval to replace
 the painted cartoon identity. Preserve all approved art and the separate 2D studies.
 See CHARACTER_3D_STUDY.md for construction, tooling, private-input and game boundaries.
+
+## Painted complete-geometry candidate
+
+The owner finds the overall movement acceptable but rejects angular construction
+shapes, hand/bag penetration and remaining trouser defects. The complete model must
+fit the original cartoon face, clothing and environment. A first surface-painting
+study now rounds the forms, repairs sampled arm clearance and trouser knee weights,
+and registers the original paintings onto complete surfaces. A clean jacket
+reference supplies cloth without a second baked bag/strap. This first mapping
+attempt still has visible face/projection and tailoring differences; it is not a
+replacement visual approval. Keep the original drawings as the target. See
+CHARACTER_PAINT_WORKFLOW.md for the actual approach and consulted free resources.

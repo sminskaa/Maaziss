@@ -9,7 +9,9 @@ import sys,json,math,random,hashlib
 import bpy
 from mathutils import Vector,Quaternion,Matrix
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
-OUT=ROOT/'build/checks/character3d';OUT.mkdir(parents=True,exist_ok=True)
+OUT=ROOT/'build/checks/painted-character';OUT.mkdir(parents=True,exist_ok=True)
+from character3d_fit import apply_art_geometry,adjust_arm_targets
+from character3d_textures import paint_coordinates,assign_blender_paint
 random.seed(19)
 
 def material(name,color):
@@ -36,6 +38,7 @@ def box(name,loc,scale,mat,bone='Spine',group=None,bevel=.012):
  return finish(o,name,mat,bone,group)
 
 def tube(name,points,radius,mat,bone='Head',group=None):
+ bpy.ops.object.select_all(action='DESELECT')
  cu=bpy.data.curves.new(name,'CURVE');cu.dimensions='3D';cu.resolution_u=10;cu.bevel_depth=radius;cu.bevel_resolution=2;cu.use_fill_caps=True
  sp=cu.splines.new('BEZIER');sp.bezier_points.add(len(points)-1)
  for p,xyz in zip(sp.bezier_points,points):p.co=xyz;p.handle_left_type=p.handle_right_type='AUTO'
@@ -151,9 +154,10 @@ def export():
    if not groups:groups=[(index['Spine'],1)]
    total=sum(v for _,v in groups);groups += [(0,0)]*(4-len(groups));ids.extend(i for i,_ in groups);weights.extend(round(w/total,6) for _,w in groups)
   mat=o.data.materials[0] if o.data.materials else None;color=list(mat.diffuse_color[:3]) if mat else [.4,.4,.4]
-  objects.append({'name':o.name,'group':category(o),'positions':pos,'normals':normals,'indices':[i for tri in mesh.loop_triangles for i in tri.vertices],'skinIndices':ids,'skinWeights':weights,'color':color})
+  item={'name':o.name,'group':category(o),'positions':pos,'normals':normals,'indices':[i for tri in mesh.loop_triangles for i in tri.vertices],'skinIndices':ids,'skinWeights':weights,'color':color}
+  item.update(paint_coordinates(item));objects.append(item)
   ob.to_mesh_clear()
- data={'version':1,'purpose':'Complete 3D construction study; not finished Maziss painted art','bones':bones,'objects':objects,'motion':motion(bones)}
+ data={'version':2,'purpose':'Original-art surface mapping study on complete geometry; likeness still under review','bones':bones,'objects':objects,'motion':motion(bones)}
  (OUT/'model-private.json').write_text(json.dumps(data,separators=(',',':')))
  # Keep a usable animated authoring file as well as the offline viewer export.
  # The FBX-derived action stays in ignored build output, never the public source.
@@ -193,11 +197,26 @@ def motion(bones):
    u=(canonical(j[k+'Elbow'])-canonical(j[k+'Shoulder'])).normalized();v=(canonical(j[k+'Wrist'])-canonical(j[k+'Elbow'])).normalized()
    elbow=shoulder+u*(rest[side+'UpperArm'][1]-rest[side+'UpperArm'][0]).length;wrist=elbow+v*(rest[side+'ForeArm'][1]-rest[side+'ForeArm'][0]).length
    targets[side+'UpperArm']=(shoulder,elbow);targets[side+'ForeArm']=(elbow,wrist);targets[side+'Hand']=(wrist,wrist+v*(rest[side+'Hand'][1]-rest[side+'Hand'][0]).length)
+  targets=adjust_arm_targets(targets,rest,OBJECTS)
   frames.append([{'head':list(targets[b['name']][0]),'tail':list(targets[b['name']][1])} for b in bones])
  idle_shift=Vector((0,0,-.014))
- return {'cycleSeconds':data['cycleSeconds'],'source':data['source']['filename'],'frames':frames,'idle':[{'head':list(Vector(b['head'])+idle_shift),'tail':list(Vector(b['tail'])+idle_shift)} for b in bones]}
+ idle=adjust_arm_targets({b['name']:(Vector(b['head'])+idle_shift,Vector(b['tail'])+idle_shift) for b in bones},rest,OBJECTS)
+ return {'cycleSeconds':data['cycleSeconds'],'source':data['source']['filename'],'frames':frames,'idle':[{'head':list(idle[b['name']][0]),'tail':list(idle[b['name']][1])} for b in bones]}
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 from character3d_body import build_body
 built=build_body();ARM=built['armature'];OBJECTS=list(built['objects'])
-head();bag();export()
+head();bag();OBJECTS=apply_art_geometry(ARM,OBJECTS)
+# Seat the complete portrait closer to the collar. This is a rest-surface fit,
+# not bone scaling; every head part and its painting registration move together.
+for obj in OBJECTS:
+ obj['part_group']=category(obj)
+ if obj.get('part_group') in ('Head and neck','Eyes','Mouth','Hair'):
+  for vertex in obj.data.vertices:
+   point=obj.matrix_world@vertex.co;point.z-=.055
+   vertex.co=obj.matrix_world.inverted()@point
+ if obj.name.startswith(('Tool handle','Tool shaft','Spanner ring')):
+  for vertex in obj.data.vertices:
+   point=obj.matrix_world@vertex.co;point.z=.963+(point.z-.963)*.55
+   vertex.co=obj.matrix_world.inverted()@point
+assign_blender_paint(OBJECTS,ROOT);export()

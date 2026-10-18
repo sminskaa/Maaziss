@@ -124,8 +124,12 @@ not part of the public checkout. See
 
 ## Complete 3D character construction study
 
-The new authoring experiment builds complete body, clothing and equipment geometry
-instead of continuing to patch cutout images. Its face/materials are preliminary;
+The authoring experiment builds complete body, clothing and equipment geometry
+instead of continuing to patch cutout images. A first painted pass now registers
+the original drawings onto smoother surfaces, with separate clean jacket art and
+sampled hand/bag clearance. Face likeness, seams and tailoring remain unfinished;
 the approved painted cartoon style remains the target. See
 [CHARACTER_3D_STUDY.md](docs/CHARACTER_3D_STUDY.md) for build steps, private motion
-requirements and scope. Generated model/preview files are excluded from Git.
+requirements and scope, and [CHARACTER_PAINT_WORKFLOW.md](docs/CHARACTER_PAINT_WORKFLOW.md)
+for the painting approach and free learning resources. Generated model/preview files
+are excluded from Git.

@@ -55,8 +55,8 @@ plays actual rendered frames without requiring WebGL. Neither is game integratio
 ```sh
 blender -b --python tools/build_character_3d.py
 python3 tools/build_character_3d_preview.py
-python3 tools/capture_character_3d.py
-python3 tests/browser_character3d.py
+python3 tools/capture_painted_character.py
+python3 tests/browser_painted_character.py
 ```
 
 The full builder requires retained ignored `private/motion/fbx-motion.json`; no raw
@@ -73,7 +73,7 @@ Captures/tests use installed Playwright/Chromium. Native Windows and Godot execu
 are separate checks. See `production/QA_CHARACTER_3D.md` for actual scoped results.
 
 
-## Current review evidence
+## Earlier construction evidence
 
 Frozen build `62773eacf060` passed 32 focused independent checks. All 138 exported
 mesh objects have closed welded triangle-edge topology; the main jacket, shirt and
@@ -90,3 +90,35 @@ they do not establish artistic success or native Windows/player performance.
 Visual review confirms improved long rear strap placement. Upper-shoulder tailoring,
 small waist surface intersections, simple hands/face, fabric detail and secondary
 movement remain open. Do not treat complete geometry as finished garment fit.
+
+## First painted pass
+
+The owner accepts the overall motion but reports hand/bag penetration, apparent
+trouser gaps and an angular model that loses the cartoon style. The next candidate
+rounds the silhouette and registers the original face, trousers, boots and bag
+onto complete surfaces. A new clean jacket reference removes baked equipment.
+Packed images and actual UV layers are retained in the ignored authoring `.blend`;
+the live browser uses the same registered coordinates. Head surfaces sit closer
+to the collar and tool silhouettes are shorter above the bag. Separate fixed-length
+arm IK clears the bag; shared shin/trouser knee weights prevent skin breakthrough.
+
+Current output is `build/checks/painted-character/`. The HTML reviews are
+`visual-preview/maziss-painted-3d.html` (live model) and
+`visual-preview/maziss-painted-rendered.html` (actual rendered frames, no WebGL).
+The earlier plain-construction HTML is preserved for comparison. Generated model
+and motion inputs remain private. Original PNGs and the Godot runtime are unchanged.
+
+Face/projection seams, shoulder tailoring, hands and convincing original likeness
+still require art refinement. This is a first painting-registration study; it
+does not yet reproduce the drawing convincingly from every angle. See
+`CHARACTER_PAINT_WORKFLOW.md`, `production/CHARACTER_FIT_REVIEW.md` and
+`production/QA_PAINTED_CHARACTER.md` for method, resources and scoped evidence.
+
+Frozen painted build `98259839b0e0` passed 26 focused independent checks. It has
+106 complete objects and 145,468 vertices. The actual authoring file packs all
+three reference images and retains all three UV registrations on painted meshes.
+Evaluated hand/forearm triangles clear bag/tool triangles in idle plus all supplied
+cycle samples; skin/pant intersections remain confined to closed caps inside boots.
+The rendered HTML contains 192 actual walking frames across eight angles plus
+standing views. These results support an intermediate art review, not approval
+of the face, silhouette, painting or arbitrary future motion.

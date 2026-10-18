@@ -9,7 +9,7 @@ The final product is intended to be an offline desktop Godot game.
 | In-game graphics | Original SVG placeholders; not the approved painted cartoon presentation |
 | Approved visual direction | `art/proposals/apartment-cartoon-v2.png`; retained unchanged |
 | Painted walking experiment | Separate HTML/Canvas study in `walking/`; previous revisions rejected by owner |
-| Complete-geometry study | Procedural Blender model and offline HTML reviewer, with independent body/clothing parts and FBX retarget; preliminary appearance, no Godot integration |
+| Complete-geometry study | Rounded Blender model with separate body/clothing/equipment, packed original-art textures and FBX retarget; first painting-registration study, unfinished likeness/tailoring, no Godot integration |
 | Reference-based walk | Owner finds revision 7 much better but still observes disappearing parts in revision 8; complete-geometry construction study now evaluates a different authoring approach |
 | Voice | Development-only synthesis tool and accepted sample voice; personal recordings/models/audio excluded; no in-game speech |
 | World/story | Owner-established facts in STORY_BIBLE.md; opening puzzle in OPENING.md |

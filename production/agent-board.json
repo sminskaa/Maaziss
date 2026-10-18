@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T18:20:09.321357+00:00",
+  "updated_at": "2026-10-18T19:09:40.180735+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -664,6 +664,79 @@
         "No private motion arrays in public files"
       ],
       "result": "Native worker completed final report on frozen 62773eacf060: 32 checks passed, zero failures, 138 closed objects, 24 finite posed-geometry samples, 32 actual walking renders and four anatomy views. Correct camera overlap and improved rear strap inspected. Ready for construction review; shoulder/waist fit, finished art and Windows/Godot performance remain unapproved."
+    },
+    {
+      "id": "ART-006",
+      "role": "Character art / coordinator",
+      "title": "Map the approved painted drawings onto smoother complete geometry",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Research and implement a multi-view reference-texture art pass with a closer face, smoother forms, clothing details and room comparison. Preserve approved original PNGs and FBX cycle. Correct fit rather than claim topology proves appearance.",
+      "allowed_files": [
+        "tools/build_character_3d.py",
+        "tools/character3d_textures.py",
+        "tools/build_character_3d_preview.py",
+        "tools/capture_character_3d.py",
+        "character3d/",
+        "docs/",
+        "visual-preview/",
+        "tools/capture_painted_character.py",
+        "art/walking/maziss-clean-garment-reference.png",
+        "art/walking/PAINTED_3D_REFERENCES.md",
+        "README.md"
+      ],
+      "deliverable": "visual-preview/maziss-painted-3d.html",
+      "acceptance": [
+        "Actual original drawings used as surface textures, not just solid colors",
+        "Face/proportions and wardrobe move toward original cartoon design",
+        "Multi-angle actual renders including approved room",
+        "Candid comparison and remaining limits"
+      ],
+      "result": "Intermediate original-art mapping study98259839b0e0 completed. Real UVs/packed paintings, rounded forms, corrected trouser registration and sampled bag clearance. Rendered HTML has192actualframes/eightangles with original-drawing comparison. Face/shoulder/pigment seams remain; owner review required before final character acceptance."
+    },
+    {
+      "id": "MODEL-002",
+      "role": "Geometry / rig fitting",
+      "title": "Smooth the rig and repair hand/bag and knee/cloth intersections",
+      "status": "completed",
+      "agent": "/root/painted_geometry_fit",
+      "objective": "Make complete geometry visibly smoother, merge facial lumps into a coherent face, reduce protruding eyes, improve hands/clothing details, match underbody weights and ensure hand/forearm clears intact bag with fixed-length IK. Follow-up after actual painted renders: round angular jacket shoulder peaks and hair tuft silhouette while retaining rig/UV registration; geometry only.",
+      "allowed_files": [
+        "tools/character3d_body.py",
+        "tools/character3d_fit.py",
+        "production/CHARACTER_FIT_REVIEW.md",
+        "build/checks/painted-character/"
+      ],
+      "deliverable": "tools/character3d_fit.py",
+      "acceptance": [
+        "Closed weighted meshes retained",
+        "No hand/bag intersection in sampled poses or idle; no hiding geometry",
+        "Shin and pant weight transitions fit correctly through knees",
+        "Smooth forms and original cartoon proportions guide change",
+        "Report actual fit evidence and limits"
+      ],
+      "result": "Rounded complete meshes and matched trouser/shin skinning. Worker verified145,468vertices, all closed/connected/skinned; idle plus36samples show zero hand/forearm-vs-bag/tool intersections. Final painted registration is separately under QA."
+    },
+    {
+      "id": "QA-011",
+      "role": "Independent painted character QA",
+      "title": "Inspect reference-textured character against style and continuity feedback",
+      "status": "completed",
+      "agent": "/root/painted_character_qa",
+      "objective": "Review actual final rendered angles in room and neutral stage, collisions/pants continuity and texture attachment. Avoid art-quality claims from numerical passes.",
+      "allowed_files": [
+        "tests/browser_painted_character.py",
+        "production/QA_PAINTED_CHARACTER.md",
+        "build/checks/painted-character/qa/"
+      ],
+      "deliverable": "production/QA_PAINTED_CHARACTER.md",
+      "acceptance": [
+        "Inspect actual model at multiple phases/views",
+        "Check true hand/bag clearance and source image mapping",
+        "Distinguish moved-toward-style from finished likeness",
+        "No private input arrays/media in public deliverables"
+      ],
+      "result": "Native QA completed:26focusedchecks pass on98259839b0e0; actual32renders inspected, packed images/UVs verified,37poseBVHqueries show nohand/forearmbag intersections and noexposedpantbreakthrough. Recommendation: intermediate review only; face, tailoring and paint seams remain."
     }
   ],
   "events": [
@@ -956,6 +1029,41 @@
       "time": "2026-10-18T18:20:09.321357+00:00",
       "task": "QA-010",
       "event": "Native worker completed final 32-pass report on 62773eacf060. Coordinator read findings, inspected actual renders, verified original art/runtime hashes and saved animated Blender model. Rendered 224-frame HTML checked across 24 angle/mode cases offline with no errors or network requests. Ready for owner construction review, not visual replacement or merge approval."
+    },
+    {
+      "time": "2026-10-18T18:38:17.161072+00:00",
+      "task": "ART-006",
+      "event": "Owner accepts general motion but reports hand/bag intersection, disappearing pant fragments and angular style mismatch. Requested actual original drawings on smoother reference-based geometry; recorded geometry and independent QA scopes."
+    },
+    {
+      "time": "2026-10-18T18:47:39.788454+00:00",
+      "task": "MODEL-002",
+      "event": "Native geometry worker completed; coordinator read hand/bag and knee-weight report. Hook integrated into painted candidate. Final textured appearance is not yet checked."
+    },
+    {
+      "time": "2026-10-18T18:49:13.134081+00:00",
+      "task": "MODEL-002",
+      "event": "Coordinator inspected actual painted renders and found angular shoulder peaks and oversized pointed tufts. Recording bounded geometry polish follow-up before restarting same worker."
+    },
+    {
+      "time": "2026-10-18T18:51:48.312027+00:00",
+      "task": "MODEL-002",
+      "event": "Native worker completed silhouette polish and reran geometry/37-pose clearance. Coordinator integrated packed images and real UV layers in Blender plus matching browser painting coordinates. QA brief already recorded; candidate under visual inspection."
+    },
+    {
+      "time": "2026-10-18T18:52:08.924878+00:00",
+      "task": "QA-011",
+      "event": "Native tool confirmed /root/painted_character_qa started. Scope: actual painted renders, texture/UV integrity, sampled garment/collision evidence and candid visual limitations."
+    },
+    {
+      "time": "2026-10-18T19:06:03.653536+00:00",
+      "task": "ART-006",
+      "event": "Actual rendered inspection and independent QA found projection artifacts and missing authoring UVs. Coordinator corrected shared category stamping, seated head, shortened tools, constrained cloth registration and removed discontinuous head UV jumps. Frozen98259839b0e0 is under final QA and actual-frame recapture; likeness remains an intermediate study."
+    },
+    {
+      "time": "2026-10-18T19:09:40.180735+00:00",
+      "task": "QA-011",
+      "event": "Native QA worker completed final report. Coordinator read26-pass result and actual captures. Independently checked rendered HTML32angle/mode/setting cases offline,192frames, controls, mobile overflow, zero runtime/network errors, matching output/source hashes. No finished-art or Godot integration approval claimed."
     }
   ]
 }
