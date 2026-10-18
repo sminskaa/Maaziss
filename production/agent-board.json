@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T19:25:43.744783+00:00",
+  "updated_at": "2026-10-18T19:44:32.190443+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -762,6 +762,92 @@
         "Record tested delivery route without claiming platform root cause"
       ],
       "result": "Owner confirmed850KB no-script/native-video HTML displays correctly; prior10\u201318MB model reviews failed while older2\u20132.5MB HTML worked. Browser playback/seeking pass with page scripting enabled/disabled. Picture-only fallback79KB. Platform root cause unknown; reusable compact builder saved. No worker spawned for this bounded repair."
+    },
+    {
+      "id": "RESEARCH-002",
+      "role": "Coordinator / character workflow research",
+      "title": "Replace failed sprite projection with reference-based modeling",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Read actual modeling-from-concept, topology, UV and stylized shading resources; identify source of distortions; choose a geometry-first method and build a new honest candidate.",
+      "allowed_files": [
+        "docs/",
+        "tools/",
+        "character3d/",
+        "production/",
+        "visual-preview/",
+        "build/checks/character-rebuild/"
+      ],
+      "deliverable": "docs/CHARACTER_REBUILD_RESEARCH.md",
+      "acceptance": [
+        "Link sources actually accessed and distinguish availability limits",
+        "Stop full-character screenshot projections",
+        "Fit face/silhouette/proportions before surface detail",
+        "Retain original approved art and accepted motion"
+      ],
+      "result": "Read actual official Blender reference-image, mirror, retopology, UV, shading and Studio overview resources plus topology guidance. Saved new geometry-first method and exact resume checkpoint. Owner requested pause before replacement modeling; no new model/animation claimed."
+    },
+    {
+      "id": "RESEARCH-003",
+      "role": "Free tool / license and compute research",
+      "title": "Evaluate free image-to-3D and character-modeling tools",
+      "status": "completed",
+      "agent": "/root/free_character_tools",
+      "objective": "Review official repositories and licenses for tools that might convert concept art into usable complete characters; check real local CPU/GPU feasibility and identify suitable free modeling aids. No paid cloud services, training runs or model-weight downloads.",
+      "allowed_files": [
+        "production/FREE_CHARACTER_TOOLS_RESEARCH.md",
+        "build/checks/character-rebuild/research/"
+      ],
+      "deliverable": "production/FREE_CHARACTER_TOOLS_RESEARCH.md",
+      "acceptance": [
+        "Official URLs and actual access evidence",
+        "Separate code license/model license/service pricing",
+        "Check available hardware and operational prerequisites",
+        "Recommend feasible workflow without promising likeness from generic reconstructions"
+      ],
+      "result": "Native research worker completed nine-tool official-source/license/hardware report,20successfulfetches. Blender usable; MPFB/TripoSR optional, GPU/gated/restricted-license tools unsuitable as prerequisites. No installs, weight downloads, accounts or paid use."
+    },
+    {
+      "id": "MODEL-003",
+      "role": "Character sculpt / geometry",
+      "title": "Reconstruct Maziss\u2019s recognizable forms from original front and profile drawings",
+      "status": "paused",
+      "agent": null,
+      "objective": "After method research, model a coherent face, measured proportions and designed hair silhouette rather than wrapping screenshots; keep movement rig unchanged.",
+      "allowed_files": [
+        "tools/character3d_sculpt.py",
+        "production/CHARACTER_SCULPT_REVIEW.md",
+        "build/checks/character-rebuild/"
+      ],
+      "deliverable": "tools/character3d_sculpt.py",
+      "acceptance": [
+        "Actual original-art landmarks guide geometry",
+        "No projected portrait or repeated face textures",
+        "Front/side/three-quarter actual renders inspected",
+        "Motion reference and original PNGs preserved"
+      ],
+      "result": "Not started. Owner requested immediate allowance pause; recorded brief retained for later resume."
+    },
+    {
+      "id": "QA-012",
+      "role": "Independent shape and delivery review",
+      "title": "Inspect rebuilt character against the approved design and rejected mapping",
+      "status": "paused",
+      "agent": null,
+      "objective": "Review actual geometry in front/profile/oblique views and walking; inspect continuity and compare recognizable traits; validate compact delivery.",
+      "allowed_files": [
+        "tests/browser_rebuilt_character.py",
+        "production/QA_REBUILT_CHARACTER.md",
+        "build/checks/character-rebuild/qa/"
+      ],
+      "deliverable": "production/QA_REBUILT_CHARACTER.md",
+      "acceptance": [
+        "Actual new geometry without screenshot projection",
+        "Candid likeness/silhouette findings",
+        "Preserved timing and proper camera overlap",
+        "Compact self-contained review validated"
+      ],
+      "result": "Not started. Owner requested immediate allowance pause; recorded brief retained for later resume."
     }
   ],
   "events": [
@@ -1094,6 +1180,21 @@
       "time": "2026-10-18T19:25:43.744783+00:00",
       "task": "DELIVERY-001",
       "event": "Owner explicitly confirmed compact review displays correctly. Coordinator recorded small native-video HTML as primary delivery method, retained actual model frames and original motion/art, and saved reusable encoding helper. No platform renderer repair or official file-size limit is claimed."
+    },
+    {
+      "time": "2026-10-18T19:38:51.960110+00:00",
+      "task": "RESEARCH-002",
+      "event": "Owner rejected painted projection candidate as unrecognizable and distorted. Coordinator acknowledged method failure and starts external research before a geometry-first rebuild; bounded free-tool research scope recorded."
+    },
+    {
+      "time": "2026-10-18T19:39:21.624564+00:00",
+      "task": "RESEARCH-003",
+      "event": "Native tool confirmed /root/free_character_tools started official-source tool/license/hardware research. No modeling worker started before workflow research."
+    },
+    {
+      "time": "2026-10-18T19:44:32.190443+00:00",
+      "task": "RESEARCH-002",
+      "event": "Owner requested allowance pause. Coordinator stopped before replacement modeling, read completed native research report and saved docs/RESUME_CHARACTER_REBUILD.md with exact files, source access, implementation proposal, rejected-method guardrails and remaining tasks. Research worker completed; no modeling or QA worker was started."
     }
   ]
 }

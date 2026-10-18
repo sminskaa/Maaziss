@@ -224,3 +224,15 @@ reference supplies cloth without a second baked bag/strap. This first mapping
 attempt still has visible face/projection and tailoring differences; it is not a
 replacement visual approval. Keep the original drawings as the target. See
 CHARACTER_PAINT_WORKFLOW.md for the actual approach and consulted free resources.
+
+## Owner rejection of whole-sprite projection
+
+The owner strongly rejects the painted3D candidate: the portrait repeats and
+smears across the sides, clothing mixes together and Maziss is unrecognizable.
+Original drawings remain accepted; the earlier3D movement remains useful. Do not
+continue wrapping/blending full dressed sprites over a generic model. Research
+reference-based modeling, then fit actual facial forms, hair, silhouette and outfit
+geometry to the original design. Evaluate neutral-material front/profile/oblique
+views before UV painting. Research has been saved, but the owner requested an
+allowance pause before a replacement model was built. See
+CHARACTER_REBUILD_RESEARCH.md and RESUME_CHARACTER_REBUILD.md.

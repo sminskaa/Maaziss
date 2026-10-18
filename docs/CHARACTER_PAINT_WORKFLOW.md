@@ -1,5 +1,10 @@
 # From the drawings to an animated cartoon character
 
+**Historical rejected attempt.** The owner rejected this projection candidate on
+18 October2026 as distorted and unrecognizable. It is not the recommended next
+method. Read `CHARACTER_REBUILD_RESEARCH.md` and `RESUME_CHARACTER_REBUILD.md` for
+the geometry-first replacement plan and exact allowance-pause checkpoint.
+
 The current approach builds complete body and garment surfaces, binds them to a
 shared skeleton and attaches paintings to their rest surfaces. Camera depth
 determines overlap. Separating complete items avoids the old sprite-mask holes;

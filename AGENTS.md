@@ -34,6 +34,12 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   of the chat renderer. Keep larger live models optional. Use
   `python3 tools/build_compact_character_review.py` after rendering the painted
   model; it re-encodes actual retained frames without changing art or motion.
+- The owner rejected the latest whole-sprite projection as distorted and
+  unrecognizable. Preserve the original drawings and useful existing3D motion;
+  reconstruct the recognizable shapes before UV painting. Do not keep patching
+  repeated portrait projections. Research and the explicit allowance-pause state
+  are saved in `docs/RESUME_CHARACTER_REBUILD.md`; no replacement model was built
+  before that pause.
 
 ## Agent operation
 
