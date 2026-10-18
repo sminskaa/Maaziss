@@ -9,16 +9,17 @@
 </style>
 </head>
 <body><main>
-<h1>Maziss: first character with corrected legs — revision 4</h1>
+<h1>Maziss: human-reference walking — revision 5</h1>
 <p>Click the floor. Maziss finds a route around the furniture. Click again to change his destination.</p>
 <div class="stage"><img id="room-fallback" src="__BACKGROUND_URL__" alt="Maziss’s room. The interactive character appears when the walking example finishes loading." style="display:block;width:100%;height:auto"><canvas style="display:none" id="room" width="1932" height="814" tabindex="0" role="application" aria-label="Maziss apartment walking study" aria-describedby="instructions status">Your browser needs canvas support for this walking example.</canvas></div>
 <nav aria-label="Walking controls"><button id="reset" type="button">Reset position</button><button id="pause" type="button" aria-pressed="false">Pause</button><label><input type="checkbox" id="debug">Show walkable area</label><label><input type="checkbox" id="feet">Show footsteps</label></nav>
+<nav aria-label="Animation review"><label><input type="checkbox" id="study">Walk cycle study</label><button data-view="left">Left</button><button data-view="right">Right</button><button data-view="front">Toward camera</button><button data-view="back">Away from camera</button><button id="step">Next frame</button><label>Playback <select id="playback"><option value="1">Normal</option><option value="0.5">Half speed</option><option value="0.25">Quarter speed</option></select></label></nav>
 <p id="status" role="status" aria-live="polite">Loading the walking example… If this message remains, open this HTML file in your browser.</p>
 <p id="instructions" class="note">Keyboard: focus the room, then use arrow keys to choose a nearby destination. <kbd>Home</kbd> resets, <kbd>Esc</kbd> stops, and <kbd>Space</kbd> pauses. A gold ring marks the destination; a dotted link means a click was adjusted to reachable floor.</p>
 <noscript><p>This walking example needs JavaScript enabled in your browser.</p></noscript>
 <footer class="note">Movement study using the approved art direction. No inventory, dialogue or puzzle actions here yet. Everything needed is inside this file; no account or connection is required.</footer>
 </main>
-<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";</script>
+<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const REFERENCE_MOTION=__REFERENCE_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";</script>
 <script>__NAVIGATION_JS__</script>
 <script>__GAIT_JS__</script>
 <script>__DEMO_JS__</script>

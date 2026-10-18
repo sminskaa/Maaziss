@@ -9,8 +9,8 @@ No Python or AI tool is required to play through the Godot editor.
 
 This is an unfinished source checkpoint. The playable Godot room still uses SVG
 placeholder art. The approved painted artwork and separate HTML walking experiment
-are not integrated; the owner rejected the previous walking animation and the
-video-based correction is paused. See [current status](docs/PROJECT_STATUS.md),
+are not integrated; the previous walking animation was rejected and the
+new video-reference revision awaits owner review. See [current status](docs/PROJECT_STATUS.md),
 [planned work](docs/BACKLOG.md), and [how agents are assigned](docs/AGENT_WORKFLOW.md).
 
 Feature requests and bugs belong in [GitHub Issues](https://github.com/sminskaa/Maaziss/issues).

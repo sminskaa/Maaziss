@@ -29,12 +29,13 @@ def main() -> None:
     sprites=json.loads((ROOT/'walking/original-sprites.json').read_text())
     replacements = {
         '__ROOM_DATA__':json.dumps(room,separators=(',',':')),
+        '__REFERENCE_DATA__':(ROOT/'walking/reference-motion.json').read_text(),
         '__RIG_DATA__':json.dumps(sprites,separators=(',',':')),
         '__BACKGROUND_URL__':embedded_image(ART/'apartment-background.png',False),
         '__RIG_ATLAS_URL__':embedded_image(ART/'maziss-side-atlas.png',True),
         '__DEPTH_ATLAS_URL__':embedded_image(ART/'maziss-depth-atlas.png',True),
         '__NAVIGATION_JS__':(ROOT/'walking/navigation.js').read_text(),
-        '__GAIT_JS__':(ROOT/'walking/gait.js').read_text(),
+        '__GAIT_JS__':(ROOT/'walking/reference-gait.js').read_text(),
         '__DEMO_JS__':(ROOT/'walking/demo.js').read_text(),
     }
     html = (ROOT/'walking/index.template.html').read_text()
@@ -42,7 +43,7 @@ def main() -> None:
         if html.count(key)!=1:
             raise ValueError(f'Expected exactly one {key} placeholder')
         html=html.replace(key,value)
-    source_paths=['walking/room.json','walking/navigation.js','walking/gait.js','walking/demo.js',
+    source_paths=['walking/room.json','walking/navigation.js','walking/reference-gait.js','walking/reference-motion.json','walking/demo.js',
                   'walking/index.template.html','tools/build_walking_demo.py',
                   'art/walking/apartment-background.png','art/walking/maziss-side-atlas.png',
                   'art/walking/maziss-depth-atlas.png', 'walking/original-sprites.json']
@@ -54,10 +55,10 @@ def main() -> None:
     target.parent.chmod(0o755)
     target.write_text(html)
     target.chmod(0o644)
-    revision=target.parent/'maziss-walking-v4.html'
+    revision=target.parent/'maziss-walking-v5.html'
     revision.write_bytes(target.read_bytes())
     revision.chmod(0o644)
-    evidence=ROOT/'build/checks/walking-original-legs'
+    evidence=ROOT/'build/checks/reference-walk'
     evidence.mkdir(parents=True,exist_ok=True)
     (evidence/'build-manifest.json').write_text(json.dumps({'built_at':datetime.now(timezone.utc).isoformat(),'build':identity,'source_sha256':hashes,'output_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'bytes':target.stat().st_size},indent=2)+'\n')
     print(f'Created {target.relative_to(ROOT)} ({target.stat().st_size:,} bytes); build {identity[:12]}')

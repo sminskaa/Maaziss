@@ -126,3 +126,13 @@ and distorted crossed legs in depth views. No walking revision is approved. Reta
 the first character appearance, but stop presenting contact/navigation test passes as
 proof of natural gait. Use inspected human motion and animator-authored pose guidance;
 see WALKING_REFERENCES.md for sources, access limits and the next side-view study.
+
+## Measured walking study (revision 5)
+
+The retained owner footage now supplies a measured side-view stride and contact
+timing. The original character atlas remains the drawing source. Motion is solved
+in a forward/vertical plane before depth projection; actual painted side-view soles
+are registered to their contacts. The HTML adds four study views, slow playback and
+frame stepping. This is a new candidate for owner review, not approved animation.
+See WALKING_DEMO.md and production/QA_REFERENCE_WALK.md for evidence and remaining
+limits. The playable Godot room has not adopted this study yet.

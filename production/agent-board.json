@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T07:17:04.445048+00:00",
+  "updated_at": "2026-10-18T08:16:28.281110+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -327,8 +327,8 @@
       "id": "MOTION-001",
       "role": "Motion analysis / CTO",
       "title": "Measure owner video walking poses and stride",
-      "status": "paused",
-      "agent": "/root/human_motion_analysis",
+      "status": "completed",
+      "agent": "/root/reference_cycle",
       "objective": "Extract actual visible human joint/contact poses, cadence and confidence from owner footage; choose clean side-view full stride and depth evidence.",
       "allowed_files": [
         "tools/analyze_walk_references.py",
@@ -341,13 +341,13 @@
         "Record uncertainty/occlusion, not fabricated joints or cadence",
         "Do not publish personal footage or change rendering/navigation"
       ],
-      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+      "result": "Finished25closed phase samples from observed near-leg stride1.2\u20132.6s at30fps. Timing/knee/foot relationships measured; farleg half-cycle reconstruction and oblique-camera/footpitch uncertainty explicitly documented."
     },
     {
       "id": "TECH-005",
       "role": "CTO / coordinator",
       "title": "Reference-based human walk and faithful original artwork",
-      "status": "paused",
+      "status": "completed",
       "agent": "/root",
       "objective": "Replace rejected free IK posing with observed human cycle, proper view projection and original character art.",
       "allowed_files": [
@@ -362,14 +362,14 @@
         "No sideways knee bend when moving in depth",
         "Maintain original body/head/proportions and coherent boot joins"
       ],
-      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+      "result": "Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending."
     },
     {
       "id": "QA-005",
       "role": "Testing / motion review",
       "title": "Inspect final reference-based rendered walk",
-      "status": "planned",
-      "agent": null,
+      "status": "completed",
+      "agent": "/root/reference_walk_qa",
       "objective": "Review actual side/front/back rendered cycles and path/pause regressions against supplied human footage.",
       "allowed_files": [
         "tests/browser_reference_walk.py",
@@ -381,7 +381,7 @@
         "Check relevant rendered geometry/contact safety",
         "Do not treat numerical assertions as proof of naturalness"
       ],
-      "result": null
+      "result": "Independent final build 56d1b9cb1e56: 62 browser checks pass, zero failures/errors, 2,398 legal root substeps, six alternating contacts, zero logical/painted forefoot drift in straight travel. Actual four-view poses inspected; front/back boot roll and torso weight transfer remain limited. Ready for owner review, not aesthetic approval."
     },
     {
       "id": "HANDOFF-001",
@@ -616,6 +616,31 @@
       "time": "2026-10-18T07:17:04.445048+00:00",
       "task": "HANDOFF-001",
       "event": "Git push succeeded and GitHub API confirmed source checkpoint832a3d4 on main. Owner can inspect code/downloadZIP and track issues1\u20133. Final metadata completion follows; no finished-game release or animation approval."
+    },
+    {
+      "time": "2026-10-18T07:49:09.371839+00:00",
+      "task": "TECH-005",
+      "event": "Owner confirmed Windows editor project opens and resumed movement correction. Three private videos/raw tracking verified present. Feature branch selected; motion-analysis and QA scopes remain separate."
+    },
+    {
+      "time": "2026-10-18T08:01:15.335496+00:00",
+      "task": "MOTION-001",
+      "event": "Motion worker completed analysis/helper/report. Coordinator is integrating reference-driven sagittal projection and original painted character rendering, with independent QA prepared."
+    },
+    {
+      "time": "2026-10-18T08:11:27.958153+00:00",
+      "task": "QA-005",
+      "event": "Native QA worker confirmed active on bounded review. Candidate56d1b9cb1e56 frozen after visible forefoot registration correction; coordinator is producing actual-pose HTML."
+    },
+    {
+      "time": "2026-10-18T08:16:28.281110+00:00",
+      "task": "QA-005",
+      "event": "Native QA worker completed scoped review and finalized report. Coordinator read results and inspected 32 actual rendered poses. Final frozen source/output hashes match; only idle numerical tolerance changed after subpixel trig-rounding diagnosis. Personal footage remains excluded."
+    },
+    {
+      "time": "2026-10-18T08:16:28.281110+00:00",
+      "task": "TECH-005",
+      "event": "Revision 5 completed for owner HTML review on feat/reference-human-walk. Original art preserved. No Godot integration, owner approval or merge claimed."
     }
   ]
 }

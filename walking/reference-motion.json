@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "purpose": "Measured side-view human pose relationships; retarget to original Maziss proportions.",
+  "source": {
+    "filename": "Video Projectbiks.mp4",
+    "sha256": "9214df22c5db2c8ba1965f60c63e9683ed91bf52d4393059c8b6996abdefeff3",
+    "tracking_sha256": "defe0ceda44fb8bc773f183185c6fbf651ca615495e404ba282d45ee63afd6e9",
+    "frames": [
+      36,
+      78
+    ],
+    "seconds": [
+      1.2,
+      2.6
+    ],
+    "fps": 30.0,
+    "private_footage_embedded": false
+  },
+  "coordinates": {
+    "angle": "degrees from downward vertical; positive points thigh/shin forward",
+    "forward": "actor travel direction; image-left in selected pass",
+    "up": "positive toward head; hip-relative ankle_up is normally negative",
+    "length": "approximate standing crown-to-sole height; original character lengths take precedence",
+    "foot_pitch": "positive toe-up from heel-to-toe vector; measured2D and uncertain at push-off"
+  },
+  "cycle_seconds": 1.4,
+  "cadence_steps_per_minute": 85.714,
+  "estimated_stride_body_heights": 0.700054,
+  "contact_window": [
+    0,
+    0.69
+  ],
+  "heel_rise_window": [
+    0.48,
+    0.69
+  ],
+  "swing_window": [
+    0.69,
+    1
+  ],
+  "phase_zero": "near/left heel contact; opposite leg sampled at phase+0.5",
+  "near_leg": "left-labelled MediaPipe landmarks23/25/27/29/31",
+  "far_leg": "reconstructed from near-leg curve with half-cycle offset; not independently measured",
+  "normalization": {
+    "standing_body_height_pixels": 420,
+    "standing_height_uncertainty": "approximately5percent; visually estimated crown/sole, elevated camera",
+    "thigh_median": 0.218831,
+    "shin_median": 0.213743,
+    "minimum_joint_visibility": 0.96065
+  },
+  "processing": [
+    "MediaPipe0.10.21 full pose landmark cache; no rerun of retained tracking needed",
+    "Use clean near-leg cycle; far leg is occluded and not reliable enough for its own curve",
+    "Circular Gaussian smoothing, sigma0.035cycle;24samples plus identical closing sample",
+    "Small negative tracking knee-flex values are bounded at3degrees; source contact estimates are approximate",
+    "Pelvis vertical camera trend removed linearly; foot pitch range-fit[-45,10]deg is explicitly approximate",
+    "Do not project these image2D knee offsets directly into front/back views; use sagittal-plane geometry"
+  ],
+  "uncertainties": [
+    "Single oblique2D video does not measure ground-plane3D positions or ankle rotation accurately",
+    "Footwear blur/heel-toe landmarks make measured foot pitch particularly uncertain",
+    "Video container30fps does not independently establish unaltered original playback speed",
+    "Start/end contact frames and stance boundary are visually estimated within about2frames",
+    "This is a motion reference, not proof that a retargeted painted animation is natural"
+  ],
+  "samples": [
+    {
+      "phase": 0.0,
+      "thigh_deg": 31.478309,
+      "shin_deg": 11.890655,
+      "foot_pitch_deg": -0.882349,
+      "ankle_forward": 0.164135,
+      "ankle_up": -0.41317,
+      "pelvis_up": 0.000785,
+      "knee_flex_deg": 19.587654,
+      "fitted_foot_pitch_deg": -0.882349,
+      "contact": true
+    },
+    {
+      "phase": 0.041667,
+      "thigh_deg": 32.867391,
+      "shin_deg": 13.478738,
+      "foot_pitch_deg": 1.669499,
+      "ankle_forward": 0.175701,
+      "ankle_up": -0.409479,
+      "pelvis_up": -0.00081,
+      "knee_flex_deg": 19.388653,
+      "fitted_foot_pitch_deg": 1.669499,
+      "contact": true
+    },
+    {
+      "phase": 0.083333,
+      "thigh_deg": 31.939385,
+      "shin_deg": 10.263735,
+      "foot_pitch_deg": 0.993024,
+      "ankle_forward": 0.160543,
+      "ankle_up": -0.407892,
+      "pelvis_up": -0.002898,
+      "knee_flex_deg": 21.67565,
+      "fitted_foot_pitch_deg": 0.993024,
+      "contact": true
+    },
+    {
+      "phase": 0.125,
+      "thigh_deg": 30.415346,
+      "shin_deg": 6.111943,
+      "foot_pitch_deg": -2.054522,
+      "ankle_forward": 0.139324,
+      "ankle_up": -0.404329,
+      "pelvis_up": -0.007644,
+      "knee_flex_deg": 24.303403,
+      "fitted_foot_pitch_deg": -2.054522,
+      "contact": true
+    },
+    {
+      "phase": 0.166667,
+      "thigh_deg": 29.84884,
+      "shin_deg": 1.744695,
+      "foot_pitch_deg": -5.73752,
+      "ankle_forward": 0.120486,
+      "ankle_up": -0.400921,
+      "pelvis_up": -0.013104,
+      "knee_flex_deg": 28.104145,
+      "fitted_foot_pitch_deg": -5.73752,
+      "contact": true
+    },
+    {
+      "phase": 0.208333,
+      "thigh_deg": 27.885076,
+      "shin_deg": -2.138774,
+      "foot_pitch_deg": -7.907513,
+      "ankle_forward": 0.098731,
+      "ankle_up": -0.401152,
+      "pelvis_up": -0.015906,
+      "knee_flex_deg": 30.02385,
+      "fitted_foot_pitch_deg": -7.907513,
+      "contact": true
+    },
+    {
+      "phase": 0.25,
+      "thigh_deg": 23.623058,
+      "shin_deg": -5.277321,
+      "foot_pitch_deg": -8.766117,
+      "ankle_forward": 0.072053,
+      "ankle_up": -0.402016,
+      "pelvis_up": -0.01667,
+      "knee_flex_deg": 28.900379,
+      "fitted_foot_pitch_deg": -8.766117,
+      "contact": true
+    },
+    {
+      "phase": 0.291667,
+      "thigh_deg": 21.210207,
+      "shin_deg": -8.768551,
+      "foot_pitch_deg": -8.995438,
+      "ankle_forward": 0.051849,
+      "ankle_up": -0.402123,
+      "pelvis_up": -0.016138,
+      "knee_flex_deg": 29.978758,
+      "fitted_foot_pitch_deg": -8.995438,
+      "contact": true
+    },
+    {
+      "phase": 0.333333,
+      "thigh_deg": 19.911684,
+      "shin_deg": -12.143625,
+      "foot_pitch_deg": -9.133936,
+      "ankle_forward": 0.035066,
+      "ankle_up": -0.402888,
+      "pelvis_up": -0.014288,
+      "knee_flex_deg": 32.055309,
+      "fitted_foot_pitch_deg": -9.133936,
+      "contact": true
+    },
+    {
+      "phase": 0.375,
+      "thigh_deg": 17.502256,
+      "shin_deg": -14.48949,
+      "foot_pitch_deg": -9.664559,
+      "ankle_forward": 0.015748,
+      "ankle_up": -0.404698,
+      "pelvis_up": -0.010557,
+      "knee_flex_deg": 31.991746,
+      "fitted_foot_pitch_deg": -9.664559,
+      "contact": true
+    },
+    {
+      "phase": 0.416667,
+      "thigh_deg": 12.673293,
+      "shin_deg": -15.894873,
+      "foot_pitch_deg": -11.268165,
+      "ankle_forward": -0.011143,
+      "ankle_up": -0.405758,
+      "pelvis_up": -0.005008,
+      "knee_flex_deg": 28.568166,
+      "fitted_foot_pitch_deg": -11.268165,
+      "contact": true
+    },
+    {
+      "phase": 0.458333,
+      "thigh_deg": 4.602462,
+      "shin_deg": -15.750839,
+      "foot_pitch_deg": -13.45463,
+      "ankle_forward": -0.043271,
+      "ankle_up": -0.405303,
+      "pelvis_up": -0.00058,
+      "knee_flex_deg": 20.353301,
+      "fitted_foot_pitch_deg": -13.45463,
+      "contact": true
+    },
+    {
+      "phase": 0.5,
+      "thigh_deg": -3.221106,
+      "shin_deg": -16.724658,
+      "foot_pitch_deg": -14.626575,
+      "ankle_forward": -0.073645,
+      "ankle_up": -0.402931,
+      "pelvis_up": -0.000825,
+      "knee_flex_deg": 13.503552,
+      "fitted_foot_pitch_deg": -14.626575,
+      "contact": true
+    },
+    {
+      "phase": 0.541667,
+      "thigh_deg": -8.122633,
+      "shin_deg": -21.315653,
+      "foot_pitch_deg": -15.60739,
+      "ankle_forward": -0.104736,
+      "ankle_up": -0.396107,
+      "pelvis_up": -0.00623,
+      "knee_flex_deg": 13.19302,
+      "fitted_foot_pitch_deg": -15.60739,
+      "contact": true
+    },
+    {
+      "phase": 0.583333,
+      "thigh_deg": -11.421208,
+      "shin_deg": -27.893038,
+      "foot_pitch_deg": -16.814036,
+      "ankle_forward": -0.138702,
+      "ankle_up": -0.387174,
+      "pelvis_up": -0.013146,
+      "knee_flex_deg": 16.47183,
+      "fitted_foot_pitch_deg": -16.814036,
+      "contact": true
+    },
+    {
+      "phase": 0.625,
+      "thigh_deg": -12.515624,
+      "shin_deg": -35.09397,
+      "foot_pitch_deg": -20.484152,
+      "ankle_forward": -0.169379,
+      "ankle_up": -0.378924,
+      "pelvis_up": -0.01722,
+      "knee_flex_deg": 22.578346,
+      "fitted_foot_pitch_deg": -20.484152,
+      "contact": true
+    },
+    {
+      "phase": 0.666667,
+      "thigh_deg": -9.341781,
+      "shin_deg": -42.826535,
+      "foot_pitch_deg": -31.21926,
+      "ankle_forward": -0.185527,
+      "ankle_up": -0.369431,
+      "pelvis_up": -0.017959,
+      "knee_flex_deg": 33.484754,
+      "fitted_foot_pitch_deg": -31.21926,
+      "contact": true
+    },
+    {
+      "phase": 0.708333,
+      "thigh_deg": -3.882873,
+      "shin_deg": -49.367672,
+      "foot_pitch_deg": -47.308123,
+      "ankle_forward": -0.184906,
+      "ankle_up": -0.358316,
+      "pelvis_up": -0.015462,
+      "knee_flex_deg": 45.484799,
+      "fitted_foot_pitch_deg": -45,
+      "contact": false
+    },
+    {
+      "phase": 0.75,
+      "thigh_deg": 3.419237,
+      "shin_deg": -52.401606,
+      "foot_pitch_deg": -57.243735,
+      "ankle_forward": -0.163685,
+      "ankle_up": -0.348195,
+      "pelvis_up": -0.010003,
+      "knee_flex_deg": 55.820843,
+      "fitted_foot_pitch_deg": -45,
+      "contact": false
+    },
+    {
+      "phase": 0.791667,
+      "thigh_deg": 11.328901,
+      "shin_deg": -48.014797,
+      "foot_pitch_deg": -50.38241,
+      "ankle_forward": -0.118063,
+      "ankle_up": -0.351116,
+      "pelvis_up": -0.004467,
+      "knee_flex_deg": 59.343698,
+      "fitted_foot_pitch_deg": -45,
+      "contact": false
+    },
+    {
+      "phase": 0.833333,
+      "thigh_deg": 17.970734,
+      "shin_deg": -37.914858,
+      "foot_pitch_deg": -34.182353,
+      "ankle_forward": -0.062456,
+      "ankle_up": -0.371049,
+      "pelvis_up": -0.001761,
+      "knee_flex_deg": 55.885592,
+      "fitted_foot_pitch_deg": -34.182353,
+      "contact": false
+    },
+    {
+      "phase": 0.875,
+      "thigh_deg": 24.206822,
+      "shin_deg": -26.401139,
+      "foot_pitch_deg": -20.027409,
+      "ankle_forward": -0.005224,
+      "ankle_up": -0.393257,
+      "pelvis_up": -0.000163,
+      "knee_flex_deg": 50.607961,
+      "fitted_foot_pitch_deg": -20.027409,
+      "contact": false
+    },
+    {
+      "phase": 0.916667,
+      "thigh_deg": 27.840353,
+      "shin_deg": -12.246617,
+      "foot_pitch_deg": -11.797003,
+      "ankle_forward": 0.056587,
+      "ankle_up": -0.407716,
+      "pelvis_up": 0.00128,
+      "knee_flex_deg": 40.08697,
+      "fitted_foot_pitch_deg": -11.797003,
+      "contact": false
+    },
+    {
+      "phase": 0.958333,
+      "thigh_deg": 28.913784,
+      "shin_deg": 2.426445,
+      "foot_pitch_deg": -6.495036,
+      "ankle_forward": 0.116733,
+      "ankle_up": -0.414683,
+      "pelvis_up": 0.001856,
+      "knee_flex_deg": 26.487339,
+      "fitted_foot_pitch_deg": -6.495036,
+      "contact": false
+    },
+    {
+      "phase": 1.0,
+      "thigh_deg": 31.478309,
+      "shin_deg": 11.890655,
+      "foot_pitch_deg": -0.882349,
+      "ankle_forward": 0.164135,
+      "ankle_up": -0.41317,
+      "pelvis_up": 0.000785,
+      "knee_flex_deg": 19.587654,
+      "fitted_foot_pitch_deg": -0.882349,
+      "contact": true
+    }
+  ]
+}

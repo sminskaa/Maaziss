@@ -1,47 +1,29 @@
-# Resume Maziss human walking correction
+# Walking task checkpoint
 
-Owner asked to pause because allowance was nearly exhausted. This checkpoint records
-actual retained work; a new animation has not been implemented or reviewed.
+The allowance pause was resumed. The owner confirmed that the existing project opens
+in Windows Godot. The three private recordings and raw side tracking were retained.
+A new reference-driven revision 5 HTML study now exists on the feature branch and
+awaits owner review before integration; it is not merged into the playable Godot room.
 
-## Preserved
+## Current files
 
-- Main project: /workspace/Maaziss. Original approved art and walking v1–v4 HTML remain.
-  V4 is rejected by owner; no natural walking cycle is approved.
-- Three owner reference videos remain under /workspace/attachments. Exact paths and
-  metadata are in the local, unversioned docs/WALKING_FOOTAGE_INTAKE.md. Side reference: Video Projectbiks.mp4.
-- Local analysis environment: .local/motion/venv, MediaPipe0.10.21/OpenCV4.11.0.86.
-  MediaPipe's bundled full pose model was available. No paid service/API used.
-- Actual raw side tracking is retained at build/checks/reference-motion/raw-side.json.
-- The previous native worker /root/human_motion_analysis is no longer active.
-  Its final normalized reference-motion.json and report were not saved before pause.
+- `walking/reference-motion.json`: 25 closed samples of the selected visible leg,
+  frames 36–78 / 1.2–2.6 seconds of the side video. Opposite leg reconstructed by phase.
+- `tools/analyze_walk_references.py` and `production/MOTION_REFERENCE_ANALYSIS.md`:
+  measured reference extraction, camera/occlusion limits and reproducible method.
+- `walking/reference-gait.js` and `walking/demo.js`: sagittal motion projection,
+  original atlas rendering, foot contact and review controls.
+- `visual-preview/maziss-walking-v5.html`: self-contained motion review; ignored by Git.
+- `production/QA_REFERENCE_WALK.md`: independent scope/evidence/limitations.
+- `docs/WALKING_DEMO.md`: reproduction and current animation limits.
 
-## Preliminary findings reported by the worker
+The first Maziss design and approved room PNG are preserved. Previous v1–v4 HTML
+versions remain local history and are not approved animation. Personal videos and raw
+tracking stay outside GitHub; local exact paths remain in the ignored intake note.
+Future fresh tracing requires those private inputs; replay of the generated study
+uses only original art and normalized motion data.
 
-Treat these as preliminary until the raw tracking and frames are reviewed again:
-central side stride frames60–100 (2.000–3.333s at30fps), approximately1.33s per stride;
-right heel contact near frame60, left heel contact aroundframes78–80, right toe-off
-aroundframe84. Exported playback speed was not independently verified. Toe landmarks
-are noisy on motion blur; hip/knee/ankle observations are more useful. Earlier worker
-reported peak swing knee flexion around65–70degrees nearframes68–69; verify before use.
-
-## Next work
-
-1. Inspect retained tracking and exact reference frames; finish normalized pose samples
-   with measured timing, visibility and honest uncertainty. Save reproducible analysis
-   helper and production/MOTION_REFERENCE_ANALYSIS.md; do not invent missing values.
-2. Retarget observed pose relationships to FIRST Maziss artwork/proportions. Replace
-   rejected screen-space knee solving: solve/project human leg motion in its sagittal
-   plane so front/back knees do not bend sideways. Do not copy actor image coordinates
-   directly because footage uses an elevated, oblique camera.
-3. Review an actual side-view cycle before expanding directions. Preserve original
-   face/body/boots. Avoid renewed redesign and excessive cutout distortion.
-4. Inspect rendered movement, stance, low swing-foot clearance, weight transfer, arm
-   coordination, depth views and stop/turn transitions. Numeric tests alone cannot
-   establish naturalness. Independent QA remains unstarted.
-5. Deliver self-contained HTML in visual-preview with0644 permissions and0755 folder.
-   Embedded chat images fail for owner; HTML panel works. Do not expose personal videos
-   in previews or shipped game. Final game remains offline desktop Godot.
-
-Task briefs: MOTION-001, TECH-005 and QA-005 in production/agent-board.json. No commits
-or GitHub push were made. No new environment configuration draft was saved for motion
-analysis; reproducible setup still needs to be documented if this tool is retained.
+Next: owner reviews the actual v5 motion and records feedback on issue #2. Further
+cleanup or native Godot integration follows that decision; avoid silently merging
+unapproved art/movement into the game. Windows source launch is confirmed, but
+remaining issue #1 save/offline checks are not inferred from that confirmation.

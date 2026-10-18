@@ -58,8 +58,9 @@ independent review, then owner feedback. The coordinator combines CEO and liaiso
 responsibilities. Activate Art, Story, CTO, QA or Research only when the task needs
 them. For a coding increment the CTO worker implements; QA checks separately.
 
-Current priorities are in [BACKLOG.md](BACKLOG.md). The reference-based walking task
-is paused and unapproved; the first Windows local run is the immediate owner check.
+Current priorities are in [BACKLOG.md](BACKLOG.md). The owner confirms that the
+project opens on Windows. The reference-based walking study has resumed and its
+revision 5 awaits creative review; broader Windows input/save/offline checks remain.
 Before substantial work, show named assignments, allowed files, review criteria and
 the worker limit. Future increments use feature branches and pull requests; the owner
 controls creative acceptance and merge decisions. The initial checkpoint establishes

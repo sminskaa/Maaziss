@@ -3,11 +3,11 @@
   const canvas=document.getElementById('room'),ctx=canvas.getContext('2d');
   const status=document.getElementById('status'),pauseButton=document.getElementById('pause');
   const nav=new MazissNavigation.Navigation(ROOM),background=new Image(),atlas=new Image(),depthAtlas=new Image();
-  const gait=new MazissGait.Gait({isWalkable:p=>nav.isWalkable(p)});
+  const gait=new MazissReferenceGait.Gait(REFERENCE_MOTION,{isWalkable:p=>nav.isWalkable(p)});
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   let pos={...ROOM.start},waypoints=[],target=null,requested=null,speed=0,travel=0,facing=1;
   let paused=false,debug=false,showFeet=false,lastTime=null,ready=false,moving=false,direction='right';
-  let travelDirection={x:1,y:0},pose=null,upperMotion=0,renderMetrics=null;
+  let travelDirection={x:1,y:0},pose=null,renderMetrics=null,study=false,studyDirection={x:1,y:0},playback=1;
   const samples=[{...pos,time:0}],commands=[],gaitSamples=[];
   const baseHeightAt=()=>370+110*Math.max(0,Math.min(1,(pos.y-530)/240));
   const heightAt=()=>baseHeightAt();
@@ -17,7 +17,7 @@
   function recordPose(){gaitSamples.push({time:performance.now(),position:{...pos},height:heightAt(),speed,moving,paused,direction,pose,render:renderMetrics});if(gaitSamples.length>6000)gaitSamples.splice(0,1000);}
   function goTo(x,y) {
     if(!ready)return {status:'loading',path:[]};
-    const result=nav.findPath(pos,{x,y});
+    study=false;document.getElementById('study').checked=false;const result=nav.findPath(pos,{x,y});
     commands.push({x,y,status:result.status,time:performance.now()});if(commands.length>100)commands.shift();
     if(!result.target){say('That spot is out of reach. Choose the room floor.');return result;}
     waypoints=result.path.slice(1).map(p=>({...p}));target={...result.target};requested={x,y};
@@ -25,7 +25,7 @@
     else say(result.status==='adjusted'?'Walking to the nearest clear floor beside that spot.':'Walking…');
     return result;
   }
-  function reset(){pos={...ROOM.start};waypoints=[];target=null;requested=null;speed=0;travel=0;moving=false;facing=1;direction='right';travelDirection={x:1,y:0};pose=gait.reset(pos,heightAt());record();recordPose();say('Reset. Click an open patch of floor.');}
+  function reset(){study=false;document.getElementById('study').checked=false;pos={...ROOM.start};waypoints=[];target=null;requested=null;speed=0;travel=0;moving=false;facing=1;direction='right';travelDirection={x:1,y:0};pose=gait.reset(pos,heightAt());record();recordPose();say('Reset. Click an open patch of floor.');}
   function setPaused(value){paused=value;pauseButton.textContent=paused?'Resume':'Pause';pauseButton.setAttribute('aria-pressed',String(paused));lastTime=null;say(paused?'Paused.':waypoints.length?'Walking…':'Ready. Click an open patch of floor.');}
   function remainingDistance(){let total=0,previous=pos;for(const p of waypoints){total+=MazissNavigation.distance(previous,p);previous=p;}return total;}
   function update(dt){
@@ -36,7 +36,8 @@
     // Depth is compressed by the room perspective. Match projected speed to
     // projected stride so walking away does not become rapid little steps.
     const projection=.4+.6*Math.abs(aim.x-pos.x)/Math.max(aimDistance,1e-6);
-    const desired=Math.min((350+90*perspective)*projection,Math.sqrt(2*1100*remaining));
+    const pace=heightAt()*REFERENCE_MOTION.estimated_stride_body_heights/REFERENCE_MOTION.cycle_seconds*1.3;
+    const desired=Math.min(pace*projection,Math.sqrt(2*1100*remaining));
     speed+=Math.max(-1250*dt,Math.min(1050*dt,desired-speed));
     let budget=Math.min(remaining,Math.max(0,speed*dt));moving=budget>0.001;
     while(budget>0&&waypoints.length){
@@ -75,36 +76,67 @@
     clipSource(part.poly);ctx.drawImage(image,0,0);ctx.restore();
   }
   function originalBoot(image,part,leg,scale,side){
-    const sole={x:leg.ground.x,y:leg.ground.y-leg.lift},angle=leg.bootAngle;
-    const dx=(part.cuff[0]-part.sole[0])*scale*(side?facing:1),dy=(part.cuff[1]-part.sole[1])*scale;
-    const cuff={x:sole.x+Math.cos(angle)*dx-Math.sin(angle)*dy,y:sole.y+Math.sin(angle)*dx+Math.cos(angle)*dy};
-    return {cuff,draw:()=>{
-      ctx.save();ctx.translate(sole.x,sole.y);ctx.rotate(angle);ctx.scale((side?facing:1)*scale,scale);ctx.translate(-part.sole[0],-part.sole[1]);
+    const directionSign=side?facing:(leg.hip.x>pose.pelvis.x?-1:1);
+    const angle=side?facing*(Math.atan2(16,54)-leg.bootAngle):0;
+    // Side boots pivot about the anatomical ankle. For depth views use the
+    // original front/back boot drawing, with a low projected swing clearance.
+    const sourceAnkle=side?[326,403]:(direction==='up'?[211,830]:[216,407]);
+    let anchor=side?{...leg.ankle}:{x:leg.ground.x,y:leg.ground.y-(part.sole[1]-sourceAnkle[1])*scale-(leg.stance?0:Math.min(heightAt()*.035,leg.lift))};
+    // Register actual painted sole ink to the planted forefoot, rather than
+    // pinning an anatomical ankle while the visible boot slides around it.
+    const sourceContact=side?[380,417]:part.sole;
+    const contactX=(sourceContact[0]-sourceAnkle[0])*scale*directionSign,contactY=(sourceContact[1]-sourceAnkle[1])*scale;
+    const offset={x:Math.cos(angle)*contactX-Math.sin(angle)*contactY,y:Math.sin(angle)*contactX+Math.cos(angle)*contactY};
+    if(side){
+      const release=leg.stance?1:Math.max(0,1-(leg.phase-.69)/.10);
+      const weight=release*release*(3-2*release);
+      anchor={x:anchor.x+(leg.toe.x-offset.x-anchor.x)*weight,y:anchor.y+(leg.toe.y-offset.y-anchor.y)*weight};
+    }
+    const paintedContact={x:anchor.x+offset.x,y:anchor.y+offset.y};
+    const dx=(part.cuff[0]-sourceAnkle[0])*scale*directionSign,dy=(part.cuff[1]-sourceAnkle[1])*scale;
+    const cuff={x:anchor.x+Math.cos(angle)*dx-Math.sin(angle)*dy,y:anchor.y+Math.sin(angle)*dx+Math.cos(angle)*dy};
+    return {cuff,paintedContact,sourceContact,draw:()=>{
+      ctx.save();ctx.translate(anchor.x,anchor.y);ctx.rotate(angle);ctx.scale(directionSign*scale,scale);ctx.translate(-sourceAnkle[0],-sourceAnkle[1]);
       clipSource(part.poly);ctx.drawImage(image,0,0);ctx.restore();
     }};
   }
-  function originalUpper(image,f,h,side,index){
-    const scale=h/f.h,width=f.w*scale;
-    ctx.save();ctx.translate(pos.x,pos.y);if(side)ctx.scale(facing,1);
-
-    // Clip only the old trousers/feet. Keep the actual original head, jacket,
-    // bag, arms and their existing painted frame-to-frame acting.
-    let poly=side?[[0,0],[1,0],[1,.62],[.77,.62],[.69,.545],[.58,.60],[.44,.545],[.40,.62],[0,.62]]:
-      direction==='up'?[[0,0],[1,0],[1,.66],[.60,.66],[.60,.55],[.56,.63],[.45,.63],[.35,.55],[.20,.55],[.18,.66],[0,.66]]:
+  const armMasks={
+    Side:[{pivot:[225,133],poly:[[215,116],[237,130],[229,161],[216,184],[209,210],[211,228],[207,252],[189,259],[176,250],[182,231],[184,210],[190,181],[189,160],[202,138]]},
+          {pivot:[286,137],poly:[[279,126],[295,139],[307,170],[323,196],[341,216],[361,232],[357,249],[342,251],[326,237],[308,226],[297,209],[285,184],[278,160]]}],
+    Front:[{pivot:[202,143],poly:[[192,125],[214,138],[207,185],[201,218],[199,247],[198,281],[176,290],[164,279],[168,249],[171,214],[172,192],[180,154]]},
+           {pivot:[313,140],poly:[[299,123],[321,131],[333,168],[338,201],[337,227],[344,270],[330,287],[313,285],[308,263],[307,225],[304,193],[294,157]]}],
+    Back:[{pivot:[202,573],poly:[[187,552],[211,563],[203,606],[198,641],[198,672],[197,704],[175,710],[161,696],[167,665],[170,637],[168,615],[177,580]]},
+          {pivot:[315,574],poly:[[300,551],[325,561],[334,602],[340,640],[338,673],[338,703],[316,708],[306,691],[310,662],[308,639],[300,599],[294,573]]}]
+  };
+  function originalUpper(image,f,h,side,suffix){
+    const scale=h/f.h,hip=suffix==='Side'?[267,237]:suffix==='Back'?[252,665]:[258,239];
+    const masks=armMasks[suffix];
+    ctx.save();ctx.translate(pose.pelvis.x,pose.pelvis.y);if(side)ctx.scale(facing,1);ctx.scale(scale,scale);ctx.translate(-hip[0],-hip[1]);
+    const body=side?[[0,0],[1,0],[1,.62],[.77,.62],[.69,.545],[.58,.60],[.44,.545],[.40,.62],[0,.62]]:
+      suffix==='Back'?[[0,0],[1,0],[1,.66],[.60,.66],[.60,.55],[.56,.63],[.45,.63],[.35,.55],[.20,.55],[.18,.66],[0,.66]]:
       [[0,0],[1,0],[1,.66],[.82,.66],[.79,.55],[.64,.55],[.56,.63],[.46,.63],[.40,.55],[.40,.66],[0,.66]];
-    clipSource(poly.map(p=>[-width*f.footX+p[0]*width,-h+p[1]*h]));
-    ctx.drawImage(image,f.x,f.y,f.w,f.h,-width*f.footX,-h,width,h);ctx.restore();
+    function path(points){ctx.moveTo(...points[0]);for(const p of points.slice(1))ctx.lineTo(...p);ctx.closePath();}
+    // Preserve the first painted head/jacket/bag; separate the actual original
+    // arms, rather than replacing the character or cycling inconsistent bodies.
+    ctx.save();ctx.beginPath();path(body.map(p=>[f.x+p[0]*f.w,f.y+p[1]*f.h]));ctx.clip();
+    ctx.beginPath();ctx.rect(f.x-1,f.y-1,f.w+2,f.h+2);for(const arm of masks)path(arm.poly);ctx.clip('evenodd');
+    ctx.drawImage(image,f.x,f.y,f.w,f.h,f.x,f.y,f.w,f.h);ctx.restore();
+    const angles=[];
+    masks.forEach((arm,i)=>{
+      const leg=pose.legs[i],swing=(leg.arm-.14*pose.blend)*.48;
+      const angle=side?(i?.38:-.20)*pose.blend+swing:(i?1:-1)*Math.sin((pose.phase+i*.5)*Math.PI*2)*.035*pose.blend;
+      angles.push(angle);ctx.save();ctx.translate(...arm.pivot);ctx.rotate(angle);
+      if(!side)ctx.scale(1,1+Math.sin((pose.phase+i*.5)*Math.PI*2)*.035*pose.blend);
+      ctx.translate(-arm.pivot[0],-arm.pivot[1]);ctx.beginPath();path(arm.poly);ctx.clip();ctx.drawImage(image,f.x,f.y,f.w,f.h,f.x,f.y,f.w,f.h);ctx.restore();
+    });ctx.restore();return angles;
   }
   function character(){
-    const h=heightAt(),initial=travel===0,side=!initial&&(direction==='left'||direction==='right');
+    const h=heightAt(),initial=travel===0&&!study,side=!initial&&Math.abs(pose.yaw.x)>.65;
+    if(!initial){facing=pose.yaw.x>=0?1:-1;direction=side?(facing<0?'left':'right'):(pose.yaw.y<0?'up':'down');}
     const suffix=side?'Side':direction==='up'?'Back':'Front',image=side?atlas:depthAtlas;
-    const active=speed>0||pose.legs.some(l=>!l.stance),sequence=direction==='up'?[5,6,7,6]:[1,2,3,2];
-    const index=side?(active?Math.floor(travel/24)%8:0):(active?sequence[Math.floor(travel/24)%4]:(direction==='up'?4:0));
-    const f=(side?SPRITES.frames:SPRITES.depthFrames)[index];
+    const index=suffix==='Back'?4:0,f=(side?SPRITES.frames:SPRITES.depthFrames)[index];
     ctx.save();ctx.translate(pos.x,pos.y);ctx.fillStyle='#140f1b66';ctx.beginPath();ctx.ellipse(0,-2,h*.14,11,0,0,Math.PI*2);ctx.fill();ctx.restore();
     if(initial){
-      // The starting character is byte-for-byte the original atlas frame,
-      // drawn with the first proposal's exact size and anchoring.
       ctx.drawImage(depthAtlas,f.x,f.y,f.w,f.h,pos.x-f.w*h/f.h*f.footX,pos.y-h,f.w*h/f.h,h);
       renderMetrics={source:'first-proposal',originalFrame:index,initial:true};
     }else{
@@ -113,10 +145,10 @@
         const boot=originalBoot(image,source.boot,leg,scale,side);
         sourcePart(image,source.thigh,leg.hip,leg.knee,scale);
         sourcePart(image,source.shin,leg.knee,boot.cuff,scale);
-        boot.draw();joins.push({id:leg.id,shinEnd:boot.cuff,bootCuff:boot.cuff});
+        boot.draw();joins.push({id:leg.id,shinEnd:boot.cuff,bootCuff:boot.cuff,paintedContact:boot.paintedContact,sourceContact:boot.sourceContact});
       }
-      originalUpper(image,f,h,side,index);
-      renderMetrics={source:'first-proposal',originalFrame:index,joins,baseHeight:h};
+      const arms=originalUpper(image,f,h,side,suffix);
+      renderMetrics={source:'first-proposal',originalFrame:index,joins,baseHeight:h,view:suffix,armAngles:arms};
     }
     if(showFeet){
       for(const leg of pose.legs){
@@ -141,10 +173,9 @@
     character();
   }
   function tick(now){
-    const dt=lastTime===null?0:Math.min(0.04,Math.max(0,(now-lastTime)/1000));lastTime=now;
-    if(ready){const previous={...pos};update(dt);const moved=Math.hypot(pos.x-previous.x,pos.y-previous.y)>1e-6;
-      pose=gait.update(pos,heightAt(),paused?0:dt,moved,travelDirection);
-      if(!paused)upperMotion+=(Number(moved)-upperMotion)*Math.min(1,dt*9);
+    const dt=lastTime===null?0:Math.min(0.04,Math.max(0,(now-lastTime)/1000))*playback;lastTime=now;
+    if(ready){const previous={...pos};if(!study)update(dt);const moved=Math.hypot(pos.x-previous.x,pos.y-previous.y)>1e-6;
+      pose=gait.update(pos,heightAt(),paused?0:dt,moved,study?studyDirection:travelDirection,study);
       draw();recordPose();}
     requestAnimationFrame(tick);
   }
@@ -160,9 +191,17 @@
   pauseButton.addEventListener('click',()=>setPaused(!paused));
   document.getElementById('debug').addEventListener('change',event=>{debug=event.target.checked;});
   document.getElementById('feet').addEventListener('change',event=>{showFeet=event.target.checked;});
-  document.addEventListener('visibilitychange',()=>{lastTime=null;});
+  document.getElementById('study').addEventListener('change',event=>{study=event.target.checked;waypoints=[];speed=0;moving=false;gait.records={};say(study?'Cycle study: choose a view. The character walks in place.':'Room mode: click the floor.');});
+  document.getElementById('step').addEventListener('click',()=>{study=true;document.getElementById('study').checked=true;setPaused(true);pose=gait.update(pos,heightAt(),1/30,false,studyDirection,true);draw();recordPose();});
+  document.getElementById('playback').addEventListener('change',event=>{playback=Number(event.target.value);});
+  for(const button of document.querySelectorAll('[data-view]'))button.addEventListener('click',()=>{
+    study=true;document.getElementById('study').checked=true;studyDirection={left:{x:-1,y:0},right:{x:1,y:0},front:{x:0,y:1},back:{x:0,y:-1}}[button.dataset.view];
+    const world={x:studyDirection.x,y:studyDirection.y/.36};gait.yawAngle=Math.atan2(world.y,world.x);gait.yaw={x:Math.cos(gait.yawAngle),y:Math.sin(gait.yawAngle)};
+    waypoints=[];speed=0;moving=false;gait.records={};say('Cycle study: '+button.textContent+'. Click the floor to return to room movement.');
+  });
+  document.addEventListener('visibilitychange' ,()=>{lastTime=null;});
   window.mazissWalk={goTo,reset,nav,navigation:nav,geometry:ROOM,
-    getState:()=>({ready,position:{...pos},speed,moving,paused,facing,direction,travel,pose:gait.getPose(),render:renderMetrics,target:target?{...target}:null,requested:requested?{...requested}:null,path:waypoints.map(p=>({...p})),samples:samples.map(p=>({...p})),commands:commands.map(p=>({...p}))}),
+    getState:()=>({ready,position:{...pos},speed,moving,paused,facing,direction,travel,study,pose,render:renderMetrics,target:target?{...target}:null,requested:requested?{...requested}:null,path:waypoints.map(p=>({...p})),samples:samples.map(p=>({...p})),commands:commands.map(p=>({...p}))}),
     getGaitSamples:()=>JSON.parse(JSON.stringify(gaitSamples))};
   let loaded=0;function load(){if(++loaded===3){ready=true;pose=gait.getPose();document.getElementById('room-fallback').hidden=true;document.getElementById('room-fallback').style.display='none';canvas.style.display='block';say('Ready. Click an open patch of floor.');}}
   background.onload=atlas.onload=depthAtlas.onload=load;background.onerror=atlas.onerror=depthAtlas.onerror=()=>say('The embedded artwork could not be loaded. Please report this preview error.');

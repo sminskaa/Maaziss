@@ -9,11 +9,11 @@ The final product is intended to be an offline desktop Godot game.
 | In-game graphics | Original SVG placeholders; not the approved painted cartoon presentation |
 | Approved visual direction | `art/proposals/apartment-cartoon-v2.png`; retained unchanged |
 | Painted walking experiment | Separate HTML/Canvas study in `walking/`; previous revisions rejected by owner |
-| Reference-based walk | Paused, unfinished; preliminary local tracking exists but no new animation is approved |
+| Reference-based walk | Revision 5 HTML candidate built from owner video; independent/owner review before Godot integration |
 | Voice | Development-only synthesis tool and accepted sample voice; personal recordings/models/audio excluded; no in-game speech |
 | World/story | Owner-established facts in STORY_BIBLE.md; opening puzzle in OPENING.md |
 | Later scenes/cutscene | Not implemented |
-| Windows | Source can be opened with standard Godot; cloud validation is Linux, owner Windows run pending |
+| Windows | Owner confirms project opens in Windows Godot; broader save/offline/input walkthrough remains pending |
 | Agents | Bounded task workers, not permanently running directors; snapshot in production/index.html |
 
 Start with [Windows setup](WINDOWS_SETUP.md), [the backlog](BACKLOG.md), and
