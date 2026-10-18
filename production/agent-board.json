@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T13:56:02.742681+00:00",
+  "updated_at": "2026-10-18T18:20:09.321357+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -596,6 +596,74 @@
         "Do not edit runtime renderer or assets"
       ],
       "result": "Native worker completed 44 passing checks on frozen 5c3d7d3fcda2; 100 actual whole poses and 80 isolated item captures. No sampled garment/leather holes or fragments above stated thresholds; cuff and paired-shoe pixel checks pass. Visual neck/shoulder correction confirmed. Repaired 2D rig retains some old satchel texture below rigid replacement; no naturalness, Windows or Godot acceptance claimed."
+    },
+    {
+      "id": "TECH-009",
+      "role": "3D character / coordinator",
+      "title": "Replace cutout-only construction with a complete 3D rig study",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Build complete view-independent head/face/equipment geometry, integrate worker body and garment rig, retarget existing bilateral FBX and deliver offline HTML inspection. Preserve all approved painted assets; no claim of finished visual match.",
+      "allowed_files": [
+        "tools/build_character_3d.py",
+        "tools/build_character_3d_preview.py",
+        "character3d/",
+        "docs/",
+        "build/checks/character3d/",
+        "visual-preview/",
+        "tools/capture_character_3d.py"
+      ],
+      "deliverable": "visual-preview/maziss-3d-study.html",
+      "acceptance": [
+        "Actual complete geometry, no disappearing cutouts",
+        "Camera handles front/back overlap via depth",
+        "Original approved style remains baseline; new model explicitly a construction study",
+        "FBX retarget and inspectable per-item visibility",
+        "No raw/private motion published"
+      ],
+      "result": "Completed construction study 62773eacf060 with 138 closed meshes / 37,876 vertices on 14 bones: complete head, face, anatomy, clothing, equipment, surface-fitted strap and actual FBX retarget. Offline model inspector plus 224 rendered frames across eight angles. Saved animated Blender file loads. Preliminary face/tailoring and waist fit remain; approved painted assets and Godot unchanged."
+    },
+    {
+      "id": "MODEL-001",
+      "role": "3D modeling / rigging worker",
+      "title": "Construct closed body segments and complete garment meshes",
+      "status": "completed",
+      "agent": "/root/model_body_rig",
+      "objective": "Build a Blender Python module with separate closed limbs/torso and continuous skinned jacket/shirt/trousers/belt/boots. Use shared anatomically coherent bones and well-covered joints; avoid literal disconnected floating flat cutouts.",
+      "allowed_files": [
+        "tools/character3d_body.py",
+        "production/MODEL_3D_BODY.md",
+        "build/checks/character3d/"
+      ],
+      "deliverable": "tools/character3d_body.py",
+      "acceptance": [
+        "Actual closed 3D meshes and armature weights",
+        "Distinct upper/lower arms/hands/legs/feet and individual clothes",
+        "Garments continue across elbows/knees/hips",
+        "No edits to coordinator head/preview files"
+      ],
+      "result": "Native worker completed 22 connected closed skinned anatomy/garment meshes, 27,118 vertices. Actual phase render isolated/fixed thigh skin breakthrough with garment-matched weights and covered-cap clearance. No geometry hidden. Source/report completed; complete-model QA remains separate."
+    },
+    {
+      "id": "QA-010",
+      "role": "Independent 3D continuity QA",
+      "title": "Review all-angle construction, visibility and walking",
+      "status": "completed",
+      "agent": "/root/complete_model_qa",
+      "objective": "Review generated model/actual rendered angles and animation, material/object presence, hidden-surface depth and interface; distinguish continuity from final art quality.",
+      "allowed_files": [
+        "tests/browser_character3d.py",
+        "production/QA_CHARACTER_3D.md",
+        "build/checks/character3d/qa/"
+      ],
+      "deliverable": "production/QA_CHARACTER_3D.md",
+      "acceptance": [
+        "Actual renders across angles and poses",
+        "Body/clothing independent object visibility controls",
+        "Candid modeling and style limitations",
+        "No private motion arrays in public files"
+      ],
+      "result": "Native worker completed final report on frozen 62773eacf060: 32 checks passed, zero failures, 138 closed objects, 24 finite posed-geometry samples, 32 actual walking renders and four anatomy views. Correct camera overlap and improved rear strap inspected. Ready for construction review; shoulder/waist fit, finished art and Windows/Godot performance remain unapproved."
     }
   ],
   "events": [
@@ -873,6 +941,21 @@
       "time": "2026-10-18T13:56:02.742681+00:00",
       "task": "QA-009",
       "event": "Native worker completed final test/report. Coordinator read report, inspected actual side/front poses and phase sheet, and verified source/output hashes and unchanged original artwork/FBX gait. 44 focused checks passed; no full navigation rerun because routing unchanged. Revision 8 ready for private owner review."
+    },
+    {
+      "time": "2026-10-18T14:42:57.891157+00:00",
+      "task": "TECH-009",
+      "event": "Owner requests independently complete anatomy and garments from every angle after repeated cutout discontinuities. Coordinator begins complete 3D construction study; original painted look retained as target, not claimed matched by first model."
+    },
+    {
+      "time": "2026-10-18T18:16:18.904250+00:00",
+      "task": "TECH-009",
+      "event": "Resumed after owner allowance reset. Existing final tests and rendered film had completed despite interrupted reporting. Read actual32-pass result and inspected final images. Corrected concrete strap burial by raycasting outer clothing; new frozen62773eacf060 under scoped independent QA, film regenerated."
+    },
+    {
+      "time": "2026-10-18T18:20:09.321357+00:00",
+      "task": "QA-010",
+      "event": "Native worker completed final 32-pass report on 62773eacf060. Coordinator read findings, inspected actual renders, verified original art/runtime hashes and saved animated Blender model. Rendered 224-frame HTML checked across 24 angle/mode cases offline with no errors or network requests. Ready for owner construction review, not visual replacement or merge approval."
     }
   ]
 }

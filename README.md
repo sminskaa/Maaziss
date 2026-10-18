@@ -10,7 +10,7 @@ No Python or AI tool is required to play through the Godot editor.
 This is an unfinished source checkpoint. The playable Godot room still uses SVG
 placeholder art. The approved painted artwork and separate HTML walking experiment
 are not integrated; the previous walking animation was rejected and the
-new clothing-continuity revision awaits owner review. See [current status](docs/PROJECT_STATUS.md),
+complete 3D construction study is under review. See [current status](docs/PROJECT_STATUS.md),
 [planned work](docs/BACKLOG.md), and [how agents are assigned](docs/AGENT_WORKFLOW.md).
 
 Feature requests and bugs belong in [GitHub Issues](https://github.com/sminskaa/Maaziss/issues).
@@ -120,3 +120,12 @@ and Pillow: `python3 tools/build_walking_demo.py`. Open
 an approved replacement for the Godot game. Raw references and derived motion are
 not part of the public checkout. See
 [WALKING_DEMO.md](docs/WALKING_DEMO.md) for controls, scope and limitations.
+
+
+## Complete 3D character construction study
+
+The new authoring experiment builds complete body, clothing and equipment geometry
+instead of continuing to patch cutout images. Its face/materials are preliminary;
+the approved painted cartoon style remains the target. See
+[CHARACTER_3D_STUDY.md](docs/CHARACTER_3D_STUDY.md) for build steps, private motion
+requirements and scope. Generated model/preview files are excluded from Git.

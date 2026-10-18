@@ -200,3 +200,15 @@ skeletal cuffs, removing the previous extra screen-space cuff displacement.
 The supplied FBX motion and timing are unchanged. This remains 2D layered animation,
 not a set of 3D garment models or cloth simulation; natural foreshortening and
 simplified turns still require visual judgement. See production/QA_CLOTHING_WALK.md.
+
+
+## Complete-geometry study requested by owner
+
+The owner still observes disappearing pieces after revision 8 and requests complete
+anatomy (head/neck, eyes, mouth, arms, hands, legs, feet) and separate continuous
+clothes/equipment, understood from every angle. Stop treating more sprite-mask
+patches as the long-term solution. A complete 3D rig is now being evaluated as an
+authoring/construction approach; camera depth handles overlap. The first procedural
+model has deliberately preliminary face/surface detail and is not approval to replace
+the painted cartoon identity. Preserve all approved art and the separate 2D studies.
+See CHARACTER_3D_STUDY.md for construction, tooling, private-input and game boundaries.
