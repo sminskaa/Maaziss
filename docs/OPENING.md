@@ -51,8 +51,10 @@ References below are editorial IDs; runtime state names and journal choice IDs a
 
 Proposed leaflet copy, with no invented address or identity for Morgrave:
 
-> **MORGRAVE — JOB FAIR**  
-> **PAID WORK OUTSIDE THE CITY**  
+> **MORGRAVE — JOB FAIR**
+>
+> **PAID WORK OUTSIDE THE CITY**
+>
 > **TRANSPORT INCLUDED**
 
 The leaflet must state all three useful facts directly: job fair, paid work outside the city, transport included. A joke, distressed font, tiny print or automatic dismissal must not obscure them. The restriction is a practical complication; the advertisement neither lifts it nor establishes whether Maziss could bypass it. Later story work will establish where he pursues the lead and which methods are possible.
