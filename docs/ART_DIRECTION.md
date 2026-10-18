@@ -154,3 +154,19 @@ attempt before the FBX comparison. Slight exaggeration is welcome if motion rema
 smooth, coherent and recognizably human. Revision 6 retains the original textures
 and uses authored smooth transitions, shared painted cuff geometry and a calibrated
 neutral stance. No FBX/video data is used. It remains a candidate until owner review.
+
+## Revision 6 feedback and requested FBX attempt
+
+The owner finds motion slightly better but reports these unresolved visible defects:
+
+- Side-view idle boots point upward; standing soles must be visually planted.
+- The far arm appears in front of the body; every body part must respect camera perspective.
+- Front-view resting boots lean sideways; neutral feet must remain upright and grounded.
+- Detached ghost fragments appear ahead of the character; remove source-mask remnants.
+- Trouser bottoms detach and follow boots. Trouser cuffs belong to continuous trousers,
+  with the boot top aligned underneath; boot masks must not carry pieces of trousers.
+
+The owner authorized using the supplied FBX files for the next attempt. Modest
+cartoon exaggeration remains acceptable when motion is smooth and coherent. Work
+was paused at the owner's request before the FBX extraction/render revision was
+completed, to preserve remaining allowance. No revision 7 has been delivered.

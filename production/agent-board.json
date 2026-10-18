@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T09:07:34.199731+00:00",
+  "updated_at": "2026-10-18T09:22:55.967158+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -484,6 +484,73 @@
         "Report limitations; numeric checks do not approve motion"
       ],
       "result": "Independent final review: 48 checks pass, zero failures/errors. Actual directional, start/settle and detail frames inspected. Peak knee speed 374 degrees/s versus 567 provisional; flat stance drift 0.00245 pixels. Resume and mode-switch regression checks pass. Depth/turning limitations remain; ready for owner comparison, not creative approval."
+    },
+    {
+      "id": "MOTION-002",
+      "role": "FBX motion extraction / CTO",
+      "title": "Inspect provided FBX walks and extract continuous skeleton reference",
+      "status": "paused",
+      "agent": "/root/fbx_motion_extract",
+      "objective": "Select an ordinary human walk from owner files, inspect skeleton/timing, normalize a loop and retain 3D joint/foot rotation data for camera projection.",
+      "allowed_files": [
+        "tools/extract_fbx_walk.py",
+        "private/motion/",
+        "build/checks/fbx-motion/",
+        "production/FBX_MOTION_REVIEW.md"
+      ],
+      "deliverable": "production/FBX_MOTION_REVIEW.md",
+      "acceptance": [
+        "Actually import the supplied FBX files and document selected source/hash/frame span",
+        "Preserve original temporal continuity; no invented measured motion",
+        "Keep raw FBX and derived animation data private until reuse rights known",
+        "No edits to renderer or other worker files"
+      ],
+      "result": "Worker started, then explicitly interrupted after owner requested allowance pause. No completed extraction/helper/report was present at checkpoint; inspect any worker checkpoint on resume."
+    },
+    {
+      "id": "TECH-007",
+      "role": "CTO / art integration coordinator",
+      "title": "FBX-driven walk and coherent painted body-part rendering",
+      "status": "paused",
+      "agent": "/root",
+      "objective": "Use actual FBX motion while fixing upward neutral boots, sideways front boots, far-arm draw order, stray pixels and detached trouser cuff fragments.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_fbx_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v7.html",
+      "acceptance": [
+        "Original character design retained",
+        "Neutral boots visually planted in side/front views",
+        "Far arm and far leg remain behind body from camera perspective",
+        "Trouser remains connected, boot mask contains no detached trouser fragments",
+        "No ghost pieces in character silhouette",
+        "Actual supplied FBX drives the motion"
+      ],
+      "result": "Saved exact owner feedback and resume instructions. Rendering and FBX revision not implemented yet; original assets and all 16 FBX inputs retained."
+    },
+    {
+      "id": "QA-008",
+      "role": "Independent rendering and motion QA",
+      "title": "Inspect FBX revision against five owner screenshot defects",
+      "status": "planned",
+      "agent": null,
+      "objective": "Independently inspect actual colored silhouettes, neutral views and walking/transition frames; verify FBX provenance and appropriate routing/control regressions.",
+      "allowed_files": [
+        "tests/browser_fbx_walk.py",
+        "production/QA_FBX_WALK.md"
+      ],
+      "deliverable": "production/QA_FBX_WALK.md",
+      "acceptance": [
+        "Inspect actual boot bottoms and pant seam, not just mathematical joints",
+        "Check far-arm occlusion and stray disconnected pixels",
+        "Frame/speed/pose continuity and room navigation remain reviewable",
+        "Record remaining limitations and avoid naturalness guarantees"
+      ],
+      "result": "Not started; wait for resumed implementation and inspectable FBX candidate."
     }
   ],
   "events": [
@@ -726,6 +793,16 @@
       "time": "2026-10-18T09:07:34.199731+00:00",
       "task": "QA-007",
       "event": "After a concrete resume-weight discontinuity was found and corrected, native QA repeated affected validation on cdeb00514796: 48 checks passed, sources frozen. Final rendered captures refreshed. This supersedes the earlier candidate for delivery; owner approval remains pending."
+    },
+    {
+      "time": "2026-10-18T09:21:20.949506+00:00",
+      "task": "TECH-007",
+      "event": "Owner reported five visible defects in revision6 and authorized FBX comparison. Bounded extraction and QA tasks recorded. Coordinator owns rendering; original image assets preserved."
+    },
+    {
+      "time": "2026-10-18T09:22:55.967158+00:00",
+      "task": "TECH-007",
+      "event": "Owner requested immediate pause to preserve remaining allowance. Native FBX worker explicitly interrupted. Saved detailed resume checkpoint; no FBX revision or new test pass claimed."
     }
   ]
 }
