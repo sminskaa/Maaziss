@@ -1,89 +1,90 @@
-# Walking study — human reference (revision 5)
+# Walking study — image-guided revision 6
 
-Open `visual-preview/maziss-walking-v5.html`, or the latest `maziss-walking.html`.
-The owner sees self-contained HTML in the panel; native chat images still fail.
-The review page is generated locally, not served by an external game service.
+Open `visual-preview/maziss-walking-v6.html`, or the latest `maziss-walking.html`.
+HTML works in the owner's panel; embedded chat pictures still do not. This is a
+separate art/motion study, not the playable Godot apartment.
 
-## What changed
+## Owner direction and reference boundary
 
-Revision 4 was rejected: human knees/feet moved unnaturally, especially in depth.
-Revision 5 uses a measured near-leg stride from the owner's side-view footage:
-frames 36–78 at 30 fps, approximately 1.4 seconds. Twenty-four filtered phase samples plus
-an identical closing sample are stored in `walking/reference-motion.json`. The other
-leg is reconstructed with a half-cycle offset. Exact source/uncertainty and the
-analysis method are in `production/MOTION_REFERENCE_ANALYSIS.md`.
+The owner rejected revision 5: jerky motion, sudden knee extension and boots ahead
+of the body at rest. Modest cartoon exaggeration is welcome if movement remains
+smooth, coherent and recognizably human. Preserve the first Maziss design.
 
-The new `walking/reference-gait.js` evaluates the leg in its forward/vertical plane
-before projecting into room depth. It retains a forward-bending human knee instead
-of solving a screen-space knee out to the side. Grounded toe contacts can remain
-planted while the heel rises. Contact extension is fitted to Maziss's proportions;
-copying oblique tracking angles literally would introduce a crouch. Heel-rise foot
-pitch is bounded to 35 degrees; that fit is not an exact ankle measurement.
+This candidate uses only the three supplied image sheets as qualitative pose
+references. The running boy sheet helps identify exaggeration to avoid; the two
+adult side-view sheets inform stance, passing and recovery. They do not specify
+frame durations or reliable ground heights. Timing and curves are authored, not
+measured or traced motion. The 16 FBX files are saved privately for a subsequent
+comparison and have not been imported. Previous video tracking is not used by this
+cycle. No supplied reference images, recordings or FBX files are embedded or committed.
+See `production/IMAGE_WALK_BRIEF.md` for the independent image review.
 
-In side views, an opaque point on the original painted forefoot sole is registered
-to that planted toe. The boot and trouser cuff use the same transform, so fixing
-model contacts also fixes the visible sole instead of letting it slide around the
-ankle. Registration releases gradually after lift-off. Depth views still use their
-original flat boot drawings and need further foot-roll refinement.
+## Motion construction
 
-The first original source atlases, head, jacket, bag, trousers and boots are retained.
-Original arm pixels are masked and moved at their shoulders with restrained opposing
-swing, while the torso follows the pelvis. No source PNG is edited or replaced with a
-new character. The game pace scales the recorded cycle for room travel (1.3× nominal
-cadence at constant height); in-place study uses the reference 1.4-second cycle. Phase
-follows distance during travel. Heading uses angle interpolation, including 180-degree
-turns. Existing room geometry and obstacle routing are retained.
+`walking/image-motion.json` records provenance, pose intentions, authored cadence,
+60% stance and original painted-boot geometry. `walking/image-gait.js` uses smooth
+foot trajectories with matched position/velocity at contact and loop boundaries.
+A foot rolls from heel contact through flat support to toe-off. During swing its
+support height is interpolated separately from rotation: forcing an airborne shoe
+against an imaginary floor caused an abrupt knee tug as it rotated through flat.
+The leg folds early in swing and has a longer interval to extend before landing.
+
+Knees are solved against the painted boot cuff actually drawn, before rendering.
+Soft reach limits avoid the straight-leg singularity and abrupt pelvis clamps.
+Neutral sole positions are centered around the pelvis using opaque source heel and
+forefoot pixels. Starting and returning to rest use smooth transitions and foot
+recovery; the initial pose uses the same articulated renderer as later idle poses.
+
+Original head, clothing, bag, trousers and boot textures remain unchanged. Modest
+opposing arm swing, pelvis motion and torso rocking provide secondary movement.
+The same forward/vertical leg model is projected into front/back views, where
+original directional boot drawings remain a limited approximation. Movement phase
+follows room travel; the in-place study uses an authored 1.08-second full cycle.
 
 ## Review controls
 
-- Click room floor to walk and change destination.
-- Use Left, Right, Toward camera or Away from camera for an in-place cycle study.
-  This study intentionally has treadmill-style foot travel; judge stationary contacts
-  in room movement, not from an in-place animation against an unmoving background.
-- Pause freezes the pose; Next frame advances 1/30 second in study mode.
-- Playback offers normal, half and quarter speed. Reset exits the study.
-- Show footsteps marks the model's heel projections; the toe is the planted anchor
-  during the loaded/heel-rise part of a moving step.
+- Click floor to walk; a later click changes the route. Existing obstacle routing
+  and root clearance are retained.
+- Left, Right, Toward camera and Away from camera show an in-place cycle. Feet
+  intentionally travel against the stationary floor in this treadmill-style view.
+- The live close-up shows the actual same character render at a larger scale.
+- Stand still exits the study/route and lets the recovery finish. Use this to
+  examine resting foot alignment. Reset restores the initial resting pose.
+- Pause freezes motion. Next frame advances 1/30 second of the study. Half/quarter
+  playback helps inspect knees, shoe roll and the loop boundary.
+- Show footsteps and Show walkable area are optional developer review overlays.
 
-## Original design and limits
+## Validation and limits
 
-The approved room composition and original character PNGs remain unchanged. Depth
-views use projected leg motion with original flat front/back boot drawings. Full 3D
-boot roll, torso twist, lateral weight transfer, refined stopping/turn transitions,
-foreground masking and a production sprite cleanup remain refinement work. This is
-an improved motion-review candidate, not a claim of finished animation or owner
-approval. Inspect normal-speed rendered motion; geometry checks alone cannot prove
-naturalness.
+Final frozen build `cdeb00514796` passed 48 focused checks with no failures or browser
+errors. Independent evidence and candid visual findings are in
+`production/QA_IMAGE_WALK.md`.
+Tests check onset/settling, pose continuity, painted contact, original source use,
+routing, controls and offline execution. They do not certify naturalness. The owner
+still decides whether the actual moving character is convincing.
 
-Godot's playable apartment remains unchanged and still uses SVG placeholders. This
-HTML study is separate; integrating accepted art/motion into the actual offline
-Godot game is GitHub issue #3, after the owner's creative review of issue #2. Personal
-recordings, face images and raw tracking are excluded from GitHub and previews.
+Front/back foot perspective, directional drawing changes during turns, foreground
+occlusion, clothing deformation and full production animation remain limited. This
+single-layer room checks the navigation root, not full-body 3D collision. No native
+Windows run of the HTML is inferred from Linux Chromium checks. The separate Godot
+room still uses its earlier placeholder graphics; integrating accepted art/motion
+is issue #3, after creative review of issue #2.
 
 ## Reproduction
 
 ```sh
 python3 tools/build_walking_demo.py
-python3 tests/browser_reference_walk.py
-python3 tools/capture_reference_review.py
+python3 tests/browser_image_walk.py
+python3 tools/capture_image_walk.py
 ```
 
-The builder needs Python/Pillow. The browser tools need Playwright and Chromium
-(`/usr/bin/chromium` in this workspace). The source analysis helper can regenerate
-normalized data from the existing private cache using Python's standard library;
-optional fresh tracking uses MediaPipe 0.10.21 / OpenCV 4.11.0.86. Neither model nor
-private footage is needed to play the already-built HTML or final game.
+The builder uses Python/Pillow. Browser tools use Playwright/Chromium in this
+workspace. The output embeds its art/code and needs no runtime network or AI.
+`build/checks/image-walk/build-manifest.json` records source/output identity.
+`visual-preview/maziss-walking-v6-poses.html` contains actual rendered phase captures.
+Previews are local, ignored by Git, readable with mode 0644, in a 0755 directory.
+Previous v1–v5 HTML and the video-analysis helper/data remain historical references;
+they are not approved and are not inputs to this new animation engine.
 
-The current build/source identity is recorded under `build/checks/reference-walk/`.
-Independent QA is `production/QA_REFERENCE_WALK.md`. The review output contains actual
-rendered phase captures under `visual-preview/maziss-walking-v5-poses.html`, not new
-painted assets or personal video frames. Preview files are 0644 and directory 0755.
-
-Final build `56d1b9cb1e56` passed 62 focused browser checks. The reviewer inspected
-all four views and confirmed alternating contacts, coherent painted boot joins and
-zero loaded forefoot drift in the measured straight traverse. Direct local-file
-navigation is blocked by this workspace's managed Chromium policy; an embedded copy
-did animate with browser networking disabled. Owner visual approval remains pending.
-
-The final target remains a locally installed, offline desktop Godot game, with bundled
-assets, text/audio and local saves, without required AI/API/login/server connections.
+The final target remains an installed, offline desktop Godot game with bundled
+art, text/audio and local saves. This review does not change that target.

@@ -1,9 +1,10 @@
 (function () {
   'use strict';
   const canvas=document.getElementById('room'),ctx=canvas.getContext('2d');
+  const detail=document.getElementById('detail'),detailContext=detail.getContext('2d');
   const status=document.getElementById('status'),pauseButton=document.getElementById('pause');
   const nav=new MazissNavigation.Navigation(ROOM),background=new Image(),atlas=new Image(),depthAtlas=new Image();
-  const gait=new MazissReferenceGait.Gait(REFERENCE_MOTION,{isWalkable:p=>nav.isWalkable(p)});
+  const gait=new MazissImageGait.Gait(IMAGE_MOTION,{isWalkable:p=>nav.isWalkable(p)});
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   let pos={...ROOM.start},waypoints=[],target=null,requested=null,speed=0,travel=0,facing=1;
   let paused=false,debug=false,showFeet=false,lastTime=null,ready=false,moving=false,direction='right';
@@ -36,7 +37,7 @@
     // Depth is compressed by the room perspective. Match projected speed to
     // projected stride so walking away does not become rapid little steps.
     const projection=.4+.6*Math.abs(aim.x-pos.x)/Math.max(aimDistance,1e-6);
-    const pace=heightAt()*REFERENCE_MOTION.estimated_stride_body_heights/REFERENCE_MOTION.cycle_seconds*1.3;
+    const pace=heightAt()*IMAGE_MOTION.stride_height_ratio/IMAGE_MOTION.cycle_seconds;
     const desired=Math.min(pace*projection,Math.sqrt(2*1100*remaining));
     speed+=Math.max(-1250*dt,Math.min(1050*dt,desired-speed));
     let budget=Math.min(remaining,Math.max(0,speed*dt));moving=budget>0.001;
@@ -55,7 +56,7 @@
   }
   function polygon(poly){ctx.beginPath();poly.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();}
   // Source joints and masks are sampled directly from the FIRST character atlas.
-  // No replacement character artwork, body scaling, posture or shoulder rig.
+  // Original character textures are retained; limbs are articulated at runtime.
   const originalLegs={
     Side:{thigh:{a:[270,240],b:[302,312],poly:[[247,225],[280,225],[324,300],[324,321],[297,331],[276,300],[246,254]]},
       shin:{a:[302,312],b:[326,373],poly:[[294,300],[321,300],[339,359],[340,381],[309,387],[295,349],[286,326]]},
@@ -76,28 +77,18 @@
     clipSource(part.poly);ctx.drawImage(image,0,0);ctx.restore();
   }
   function originalBoot(image,part,leg,scale,side){
-    const directionSign=side?facing:(leg.hip.x>pose.pelvis.x?-1:1);
-    const angle=side?facing*(Math.atan2(16,54)-leg.bootAngle):0;
-    // Side boots pivot about the anatomical ankle. For depth views use the
-    // original front/back boot drawing, with a low projected swing clearance.
-    const sourceAnkle=side?[326,403]:(direction==='up'?[211,830]:[216,407]);
-    let anchor=side?{...leg.ankle}:{x:leg.ground.x,y:leg.ground.y-(part.sole[1]-sourceAnkle[1])*scale-(leg.stance?0:Math.min(heightAt()*.035,leg.lift))};
-    // Register actual painted sole ink to the planted forefoot, rather than
-    // pinning an anatomical ankle while the visible boot slides around it.
-    const sourceContact=side?[380,417]:part.sole;
-    const contactX=(sourceContact[0]-sourceAnkle[0])*scale*directionSign,contactY=(sourceContact[1]-sourceAnkle[1])*scale;
-    const offset={x:Math.cos(angle)*contactX-Math.sin(angle)*contactY,y:Math.sin(angle)*contactX+Math.cos(angle)*contactY};
-    if(side){
-      const release=leg.stance?1:Math.max(0,1-(leg.phase-.69)/.10);
-      const weight=release*release*(3-2*release);
-      anchor={x:anchor.x+(leg.toe.x-offset.x-anchor.x)*weight,y:anchor.y+(leg.toe.y-offset.y-anchor.y)*weight};
-    }
-    const paintedContact={x:anchor.x+offset.x,y:anchor.y+offset.y};
-    const dx=(part.cuff[0]-sourceAnkle[0])*scale*directionSign,dy=(part.cuff[1]-sourceAnkle[1])*scale;
-    const cuff={x:anchor.x+Math.cos(angle)*dx-Math.sin(angle)*dy,y:anchor.y+Math.sin(angle)*dx+Math.cos(angle)*dy};
+    // The leg was solved against THIS painted cuff, not a separate ankle that
+    // is subsequently moved by shoe registration. All joins share one geometry.
+    const cuff=leg.cuff,sourceContact=side?IMAGE_MOTION.source_foot.ball:part.sole;
+    const angle=IMAGE_MOTION.source_foot.neutral_rotation_radians+leg.bootAngle,c=Math.cos(angle),s=Math.sin(angle);
+    const transformPoint=p=>{const x=(p[0]-part.cuff[0])*scale,y=(p[1]-part.cuff[1])*scale,f=c*x-s*y,v=s*x+c*y;
+      return {x:cuff.x+pose.yaw.x*f,y:cuff.y+pose.yaw.y*.36*f+v};};
+    const paintedContact=side?transformPoint(sourceContact):leg.sole;
     return {cuff,paintedContact,sourceContact,draw:()=>{
-      ctx.save();ctx.translate(anchor.x,anchor.y);ctx.rotate(angle);ctx.scale(directionSign*scale,scale);ctx.translate(-sourceAnkle[0],-sourceAnkle[1]);
-      clipSource(part.poly);ctx.drawImage(image,0,0);ctx.restore();
+      if(!side){sourcePart(image,{a:part.cuff,b:part.sole,poly:part.poly},cuff,leg.sole,scale);return;}
+      ctx.save();ctx.translate(cuff.x,cuff.y);
+      ctx.transform(pose.yaw.x*c*scale,(pose.yaw.y*.36*c+s)*scale,-pose.yaw.x*s*scale,(-pose.yaw.y*.36*s+c)*scale,0,0);
+      ctx.translate(-part.cuff[0],-part.cuff[1]);clipSource(part.poly);ctx.drawImage(image,0,0);ctx.restore();
     }};
   }
   const armMasks={
@@ -111,7 +102,7 @@
   function originalUpper(image,f,h,side,suffix){
     const scale=h/f.h,hip=suffix==='Side'?[267,237]:suffix==='Back'?[252,665]:[258,239];
     const masks=armMasks[suffix];
-    ctx.save();ctx.translate(pose.pelvis.x,pose.pelvis.y);if(side)ctx.scale(facing,1);ctx.scale(scale,scale);ctx.translate(-hip[0],-hip[1]);
+    ctx.save();ctx.translate(pose.pelvis.x,pose.pelvis.y);ctx.rotate(pose.torso.angle);if(side)ctx.scale(facing,1);ctx.scale(scale,scale);ctx.translate(-hip[0],-hip[1]);
     const body=side?[[0,0],[1,0],[1,.62],[.77,.62],[.69,.545],[.58,.60],[.44,.545],[.40,.62],[0,.62]]:
       suffix==='Back'?[[0,0],[1,0],[1,.66],[.60,.66],[.60,.55],[.56,.63],[.45,.63],[.35,.55],[.20,.55],[.18,.66],[0,.66]]:
       [[0,0],[1,0],[1,.66],[.82,.66],[.79,.55],[.64,.55],[.56,.63],[.46,.63],[.40,.55],[.40,.66],[0,.66]];
@@ -123,23 +114,20 @@
     ctx.drawImage(image,f.x,f.y,f.w,f.h,f.x,f.y,f.w,f.h);ctx.restore();
     const angles=[];
     masks.forEach((arm,i)=>{
-      const leg=pose.legs[i],swing=(leg.arm-.14*pose.blend)*.48;
-      const angle=side?(i?.38:-.20)*pose.blend+swing:(i?1:-1)*Math.sin((pose.phase+i*.5)*Math.PI*2)*.035*pose.blend;
+      const leg=pose.legs[i];
+      const angle=side?(i?.555:-.325)+leg.arm*pose.blend:(i?1:-1)*Math.sin((pose.phase+i*.5)*Math.PI*2)*.035*pose.blend;
       angles.push(angle);ctx.save();ctx.translate(...arm.pivot);ctx.rotate(angle);
       if(!side)ctx.scale(1,1+Math.sin((pose.phase+i*.5)*Math.PI*2)*.035*pose.blend);
       ctx.translate(-arm.pivot[0],-arm.pivot[1]);ctx.beginPath();path(arm.poly);ctx.clip();ctx.drawImage(image,f.x,f.y,f.w,f.h,f.x,f.y,f.w,f.h);ctx.restore();
     });ctx.restore();return angles;
   }
   function character(){
-    const h=heightAt(),initial=travel===0&&!study,side=!initial&&Math.abs(pose.yaw.x)>.65;
-    if(!initial){facing=pose.yaw.x>=0?1:-1;direction=side?(facing<0?'left':'right'):(pose.yaw.y<0?'up':'down');}
+    const h=heightAt(),side=Math.abs(pose.yaw.x)>.65;
+    facing=pose.yaw.x>=0?1:-1;direction=side?(facing<0?'left':'right'):(pose.yaw.y<0?'up':'down');
     const suffix=side?'Side':direction==='up'?'Back':'Front',image=side?atlas:depthAtlas;
     const index=suffix==='Back'?4:0,f=(side?SPRITES.frames:SPRITES.depthFrames)[index];
     ctx.save();ctx.translate(pos.x,pos.y);ctx.fillStyle='#140f1b66';ctx.beginPath();ctx.ellipse(0,-2,h*.14,11,0,0,Math.PI*2);ctx.fill();ctx.restore();
-    if(initial){
-      ctx.drawImage(depthAtlas,f.x,f.y,f.w,f.h,pos.x-f.w*h/f.h*f.footX,pos.y-h,f.w*h/f.h,h);
-      renderMetrics={source:'first-proposal',originalFrame:index,initial:true};
-    }else{
+    {
       const source=originalLegs[suffix],reference=side?SPRITES.frames[0]:SPRITES.depthFrames[suffix==='Back'?4:0],scale=h/reference.h,joins=[];
       for(const leg of [...pose.legs].sort((a,b)=>a.ground.y-b.ground.y)){
         const boot=originalBoot(image,source.boot,leg,scale,side);
@@ -171,6 +159,9 @@
       ctx.strokeStyle='#ffd978';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(target.x,target.y,17,7,0,0,Math.PI*2);ctx.stroke();
     }
     character();
+    const closeHeight=heightAt()*1.12,closeWidth=closeHeight*2/3;
+    detailContext.clearRect(0,0,detail.width,detail.height);
+    detailContext.drawImage(canvas,pos.x-closeWidth/2,pos.y-heightAt()*1.06,closeWidth,closeHeight,0,0,detail.width,detail.height);
   }
   function tick(now){
     const dt=lastTime===null?0:Math.min(0.04,Math.max(0,(now-lastTime)/1000))*playback;lastTime=now;
@@ -188,6 +179,7 @@
     else if(event.code==='Space'){event.preventDefault();setPaused(!paused);}
   });
   document.getElementById('reset').addEventListener('click',reset);
+  document.getElementById('stand').addEventListener('click',()=>{study=false;document.getElementById('study').checked=false;waypoints=[];target=null;speed=0;moving=false;say('Coming to rest.');});
   pauseButton.addEventListener('click',()=>setPaused(!paused));
   document.getElementById('debug').addEventListener('change',event=>{debug=event.target.checked;});
   document.getElementById('feet').addEventListener('change',event=>{showFeet=event.target.checked;});

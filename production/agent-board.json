@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T08:16:28.281110+00:00",
+  "updated_at": "2026-10-18T09:07:34.199731+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -362,7 +362,7 @@
         "No sideways knee bend when moving in depth",
         "Maintain original body/head/proportions and coherent boot joins"
       ],
-      "result": "Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending."
+      "result": "Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending. Owner subsequently rejected revision 5 for jerks, sudden knee extension and resting foot alignment."
     },
     {
       "id": "QA-005",
@@ -424,6 +424,66 @@
         "Report untested Windows behavior; do not claim native Windows testing"
       ],
       "result": "Independent candidate source ZIP audit passed: 94 curated files+manifest, required game/docs present, no personal recording/model/cache/preview payload. Windows instructions reviewed; native Windows run remains owner task."
+    },
+    {
+      "id": "ART-005",
+      "role": "Art / motion reference review",
+      "title": "Image-only human walking brief",
+      "status": "completed",
+      "agent": "/root/image_walk_advisor",
+      "objective": "Interpret the three supplied motion sheets without opening FBX/video; identify useful poses and biomechanics limits for a fluid adult walk.",
+      "allowed_files": [
+        "production/IMAGE_WALK_BRIEF.md"
+      ],
+      "deliverable": "production/IMAGE_WALK_BRIEF.md",
+      "acceptance": [
+        "Distinguish running or exaggerated poses from normal walking",
+        "Define contact/down/passing/up sequencing and planted-foot relationships",
+        "Preserve first Maziss design; document timing cannot be measured from static sheets"
+      ],
+      "result": "Reviewed three static sheets: useful silhouettes but not measured timing; first is running, adult sheets have ground/length inconsistencies. Identified near-extension IK clamp and later painted-boot adjustment as snap risks. Wrote bounded keypose/contact brief; no FBX/video opened."
+    },
+    {
+      "id": "TECH-006",
+      "role": "CTO / coordinator",
+      "title": "Smooth image-guided walk, neutral alignment and starts/stops",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Build an image-only candidate before using the newly uploaded FBX files, correcting discontinuous knees/feet and initial/ending pose.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_image_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v6.html",
+      "acceptance": [
+        "Neutral ankles sit beneath pelvis without teleporting when starting/stopping",
+        "Continuous swing, contact roll and knee extension",
+        "Retain original design and safe room routes",
+        "No use of FBX or video data in this candidate"
+      ],
+      "result": "Built image-only revision 6 from qualitative sheets with authored smooth contact curves, shared painted-cuff IK, neutral alignment and start/stop recovery. Added live close-up and Stand still; interrupted settling retains current torso/arm weight. Final build cdeb00514796; original PNGs unchanged. No FBX/video imported; owner comparison pending; Godot unchanged."
+    },
+    {
+      "id": "QA-007",
+      "role": "Independent motion QA",
+      "title": "Review rendered image-guided walking and transition continuity",
+      "status": "completed",
+      "agent": "/root/image_walk_qa",
+      "objective": "Inspect actual rendered cycle and start/stop motion, challenge naturalness claims, test relevant regressions.",
+      "allowed_files": [
+        "tests/browser_image_walk.py",
+        "production/QA_IMAGE_WALK.md"
+      ],
+      "deliverable": "production/QA_IMAGE_WALK.md",
+      "acceptance": [
+        "Inspect normal/slow side and depth poses, no abrupt knee extension or neutral misalignment",
+        "Check phase/transition continuity and geometry under timing variation",
+        "Report limitations; numeric checks do not approve motion"
+      ],
+      "result": "Independent final review: 48 checks pass, zero failures/errors. Actual directional, start/settle and detail frames inspected. Peak knee speed 374 degrees/s versus 567 provisional; flat stance drift 0.00245 pixels. Resume and mode-switch regression checks pass. Depth/turning limitations remain; ready for owner comparison, not creative approval."
     }
   ],
   "events": [
@@ -641,6 +701,31 @@
       "time": "2026-10-18T08:16:28.281110+00:00",
       "task": "TECH-005",
       "event": "Revision 5 completed for owner HTML review on feat/reference-human-walk. Original art preserved. No Godot integration, owner approval or merge claimed."
+    },
+    {
+      "time": "2026-10-18T08:46:24.728254+00:00",
+      "task": "TECH-006",
+      "event": "Owner completed reference intake: three image sheets and16FBX files. Next candidate is explicitly images-only; FBX files saved outside repository and remain unopened. Coordinator owns implementation; bounded art and independent QA briefs recorded."
+    },
+    {
+      "time": "2026-10-18T08:53:08.818067+00:00",
+      "task": "ART-005",
+      "event": "Native art/motion worker completed brief. Owner clarified modest cartoon exaggeration is welcome if fluid, coherent and recognizably human. Coordinator is building an image-only version; no raw media parsed."
+    },
+    {
+      "time": "2026-10-18T09:03:44.526131+00:00",
+      "task": "QA-007",
+      "event": "Native worker completed independent final review on frozen0eb839b17586. Coordinator inspected actual32phase sheet and read report. Visual caveats retained; numerical checks do not establish naturalness. No FBX/video imported."
+    },
+    {
+      "time": "2026-10-18T09:03:44.526131+00:00",
+      "task": "TECH-006",
+      "event": "Completed image-only HTML candidate with live close-up and explicit recovery to rest. FBX comparison remains deferred as owner requested. No Godot art integration or owner approval/merge claimed."
+    },
+    {
+      "time": "2026-10-18T09:07:34.199731+00:00",
+      "task": "QA-007",
+      "event": "After a concrete resume-weight discontinuity was found and corrected, native QA repeated affected validation on cdeb00514796: 48 checks passed, sources frozen. Final rendered captures refreshed. This supersedes the earlier candidate for delivery; owner approval remains pending."
     }
   ]
 }

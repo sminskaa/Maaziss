@@ -136,3 +136,21 @@ are registered to their contacts. The HTML adds four study views, slow playback 
 frame stepping. This is a new candidate for owner review, not approved animation.
 See WALKING_DEMO.md and production/QA_REFERENCE_WALK.md for evidence and remaining
 limits. The playable Godot room has not adopted this study yet.
+
+## Owner rejection of revision 5
+
+The owner finds revision 5 less bad but still far from natural human walking:
+movement lacks fluidity, feet are misaligned with the torso at rest, knees straighten
+abruptly, and motion is jerky. Treat this version as rejected despite its technical
+test passes. Preserve the original character design. The owner is seeking further
+references and asked whether animated FBX files can be inspected. Evaluate continuous
+skeletal animation and neutral standing alignment before another motion proposal;
+do not present numerical contact checks as proof of visual success.
+
+## Image-guided attempt and permitted exaggeration
+
+The owner supplied three pose sheets and 16 FBX references, requesting an image-only
+attempt before the FBX comparison. Slight exaggeration is welcome if motion remains
+smooth, coherent and recognizably human. Revision 6 retains the original textures
+and uses authored smooth transitions, shared painted cuff geometry and a calibrated
+neutral stance. No FBX/video data is used. It remains a candidate until owner review.

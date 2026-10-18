@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Maziss — agent activity board</title><style>
 body{background:#152128;color:#f5e8ce;font:17px/1.55 system-ui;margin:0;padding:24px}main{max-width:1150px;margin:auto}h1,h2,h3{line-height:1.2}h2{margin-top:38px}article,.notice{background:#22353d;border:1px solid #63766d;border-radius:10px;padding:20px;margin:18px 0}.notice{border-color:#e6b65f}.tag{color:#efbf69;font-weight:bold}p{margin:12px 0}code,pre{font-size:14px;overflow-wrap:anywhere}pre{white-space:pre-wrap;background:#122027;padding:16px;border-radius:8px}summary{cursor:pointer;color:#efbf69}details{margin:14px 0}table{border-collapse:collapse;width:100%}td,th{padding:12px;border-bottom:1px solid #506166;text-align:left}li{margin:8px 0}time,.muted{color:#bec9c7}a{color:#efbf69}
-</style><main><h1>Maziss — agent activity board</h1><div class="notice"><strong>Recorded snapshot, not live monitoring.</strong><p>Last observed update: 18 October 2026, 10:16:28 CEST</p><p>Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.</p><p>This page cannot start, stop or watch native agents itself. Ask the coordinating assistant to check the real agent status and update the board. Browser refresh only reloads the saved snapshot.</p></div><h2>Actual assignments</h2><article><div class="tag">COORD-001 · CEO / coordinator</div>
+</style><main><h1>Maziss — agent activity board</h1><div class="notice"><strong>Recorded snapshot, not live monitoring.</strong><p>Last observed update: 18 October 2026, 11:07:34 CEST</p><p>Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.</p><p>This page cannot start, stop or watch native agents itself. Ask the coordinating assistant to check the real agent status and update the board. Browser refresh only reloads the saved snapshot.</p></div><h2>Actual assignments</h2><article><div class="tag">COORD-001 · CEO / coordinator</div>
 <h3>Set up visible agent roles and activity board</h3><p><strong>Task status:</strong> completed</p>
 <p><strong>Actual worker:</strong> <code>/root</code></p>
 <p>Persist owner decisions and make real delegation understandable.</p><p><strong>Deliverable:</strong> Readable HTML board and beginner workflow guide</p>
@@ -557,7 +557,7 @@ production animation/occlusion, and native game integration/performance.
 <p><strong>Actual worker:</strong> <code>/root</code></p>
 <p>Replace rejected free IK posing with observed human cycle, proper view projection and original character art.</p><p><strong>Deliverable:</strong> visual-preview/maziss-walking-v5.html</p>
 <details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/, tools/build_walking_demo.py, docs/WALKING_DEMO.md, visual-preview/</p><ul><li>Use observed pose timing and knee/foot relationships</li><li>No sideways knee bend when moving in depth</li><li>Maintain original body/head/proportions and coherent boot joins</li></ul></details>
-<p><strong>Result:</strong> Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending.</p></article><article><div class="tag">QA-005 · Testing / motion review</div>
+<p><strong>Result:</strong> Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending. Owner subsequently rejected revision 5 for jerks, sudden knee extension and resting foot alignment.</p></article><article><div class="tag">QA-005 · Testing / motion review</div>
 <h3>Inspect final reference-based rendered walk</h3><p><strong>Task status:</strong> completed</p>
 <p><strong>Actual worker:</strong> <code>/root/reference_walk_qa</code></p>
 <p>Review actual side/front/back rendered cycles and path/pause regressions against supplied human footage.</p><p><strong>Deliverable:</strong> production/QA_REFERENCE_WALK.md</p>
@@ -690,7 +690,214 @@ Proceed with the source checkpoint and the owner&#x27;s first Windows import/pla
 Keep the unapproved painted animation as a separate task.
 
 No source files were changed by QA; this report is the only assigned output.
-</pre></details></article><h2>Defined roles</h2><p>A defined role is a set of instructions. It does not mean another agent is running. The coordinator and liaison are currently the same assistant.</p><table><thead><tr><th>Role</th><th>Activation</th></tr></thead><tbody><tr><td>CEO / coordinator</td><td>Current assistant; also human–AI liaison</td></tr><tr><td>Art director</td><td>On demand</td></tr><tr><td>Story director</td><td>Not started for this increment</td></tr><tr><td>CTO</td><td>On demand; coordinator currently handles board tooling</td></tr><tr><td>Testing director / QA</td><td>On demand</td></tr><tr><td>Research director</td><td>Not started for this increment</td></tr><tr><td>Human–AI liaison</td><td>Current assistant; same session as coordinator</td></tr></tbody></table><h2>Observed activity</h2><ol><li><time>18 October 2026, 10:16:28 CEST</time> · <strong>TECH-005</strong>: Revision 5 completed for owner HTML review on feat/reference-human-walk. Original art preserved. No Godot integration, owner approval or merge claimed.</li><li><time>18 October 2026, 10:16:28 CEST</time> · <strong>QA-005</strong>: Native QA worker completed scoped review and finalized report. Coordinator read results and inspected 32 actual rendered poses. Final frozen source/output hashes match; only idle numerical tolerance changed after subpixel trig-rounding diagnosis. Personal footage remains excluded.</li><li><time>18 October 2026, 10:11:27 CEST</time> · <strong>QA-005</strong>: Native QA worker confirmed active on bounded review. Candidate56d1b9cb1e56 frozen after visible forefoot registration correction; coordinator is producing actual-pose HTML.</li><li><time>18 October 2026, 10:01:15 CEST</time> · <strong>MOTION-001</strong>: Motion worker completed analysis/helper/report. Coordinator is integrating reference-driven sagittal projection and original painted character rendering, with independent QA prepared.</li><li><time>18 October 2026, 09:49:09 CEST</time> · <strong>TECH-005</strong>: Owner confirmed Windows editor project opens and resumed movement correction. Three private videos/raw tracking verified present. Feature branch selected; motion-analysis and QA scopes remain separate.</li><li><time>18 October 2026, 09:17:04 CEST</time> · <strong>HANDOFF-001</strong>: Git push succeeded and GitHub API confirmed source checkpoint832a3d4 on main. Owner can inspect code/downloadZIP and track issues1–3. Final metadata completion follows; no finished-game release or animation approval.</li><li><time>18 October 2026, 09:16:29 CEST</time> · <strong>HANDOFF-001</strong>: Source and clean archive import/startup plus2,505state assertions passed. QA completed archive/privacy/instruction audit. Created GitHub issues1–3 for Windows verification, motion correction and art integration.</li><li><time>18 October 2026, 09:10:02 CEST</time> · <strong>HANDOFF-001</strong>: Owner authorized GitHub/local Godot workflow and selected Windows. Read-only Git access confirms remote main still equals initial commit. Coordinator prepares baseline; independent handoff audit brief recorded.</li><li><time>18 October 2026, 09:00:25 CEST</time> · <strong>TECH-005</strong>: Recovered retained raw side tracking and wrote durable resume checkpoint after allowance pause. Native motion worker is inactive; normalized cycle and renderer still unfinished.</li><li><time>18 October 2026, 00:45:37 CEST</time> · <strong>MOTION-001</strong>: Recorded bounded motion-analysis and QA briefs before delegation. Coordinator implements original-art rendering separately.</li><li><time>18 October 2026, 00:12:32 CEST</time> · <strong>RESEARCH-001</strong>: Coordinator completed reference research after owner rejected v4. Saved linked sources/access limits, reference-only HTML and optional filming instructions. No new animation is claimed.</li><li><time>18 October 2026, 00:02:51 CEST</time> · <strong>TECH-004</strong>: Completed first-character rollback and leg-only correction. 21 browser checks passed on final HTML; source hashes confirm accepted gait/navigation unchanged and no replacement rig asset used. No worker delegation; owner aesthetic review pending.</li><li><time>18 October 2026, 00:00:49 CEST</time> · <strong>TECH-004</strong>: Owner rejected v3 appearance and requested first proposal with leg correction only. Coordinator restored original atlases; no worker started for this bounded rollback.</li><li><time>17 October 2026, 23:55:02 CEST</time> · <strong>QA-004</strong>: QA worker reported completed scope: 33 browser checks and leg/navigation regressions pass. Coordinator verified tested output hash and packaged actual pose captures. No blocking defect identified; owner decides naturalness and likeness.</li><li><time>17 October 2026, 23:53:50 CEST</time> · <strong>ART-004</strong>: Native art worker completed scoped source/proportion review and inspected two corrected browser captures. Approved reference preserved; no owner aesthetic approval claimed.</li><li><time>17 October 2026, 23:53:07 CEST</time> · <strong>TECH-003</strong>: Built revision 3: restored body/leg ratio, modest independent shoulder swing, 6 degree lean and shared boot-cuff/trouser endpoint. Preserved v1/v2 HTML and prepared same-scale HTML comparison. Native Art and QA workers are reviewing.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>QA-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>TECH-003</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>ART-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Owner confirmed final offline desktop target. Recorded bundled assets/local saves/no required runtime AI or server in AGENTS.md and story bible. HTML remains the interim review route.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>QA-003</strong>: Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>TECH-002</strong>: Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared.</li><li><time>17 October 2026, 23:27:54 CEST</time> · <strong>TECH-002</strong>: Coordinator delegated actual articulated-gait implementation to /root/gait_cto; preserved rejected v1 HTML and test evidence for comparison.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>QA-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>TECH-002</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>ART-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Native agent status confirmed CTO and QA workers completed. Coordinator read final QA report and verified all source/output hashes against tested build 9e16a0fbb447.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>TECH-001</strong>: Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>ART-002</strong>: Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending.</li><li><time>17 October 2026, 23:08:07 CEST</time> · <strong>TECH-001</strong>: Native status confirmed /root/walking_cto running. Coordinator is preparing separate artwork.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>QA-002</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>TECH-001</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>ART-002</strong>: Task brief recorded; coordinator started asset work.</li><li><time>17 October 2026, 23:00:24 CEST</time> · <strong>COORD-001</strong>: Coordinator completed setup. Verified 3 task cards, 2 embedded reports, expandable details, narrow layouts and preview permissions. Both worker tasks were already confirmed completed by native status tools.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>QA-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>ART-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>QA-001</strong>: Native agent tool confirmed worker running: /root/qa_director_demo</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>ART-001</strong>: Native agent tool confirmed worker running: /root/art_director_demo</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>QA-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>ART-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>COORD-001</strong>: Started agent workflow setup after owner request. Native status showed only /root running.</li></ol><h2>How to use the team</h2><details open><summary>Beginner workflow guide</summary><pre># Learning to use agents on Maziss
+</pre></details></article><article><div class="tag">ART-005 · Art / motion reference review</div>
+<h3>Image-only human walking brief</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/image_walk_advisor</code></p>
+<p>Interpret the three supplied motion sheets without opening FBX/video; identify useful poses and biomechanics limits for a fluid adult walk.</p><p><strong>Deliverable:</strong> production/IMAGE_WALK_BRIEF.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/IMAGE_WALK_BRIEF.md</p><ul><li>Distinguish running or exaggerated poses from normal walking</li><li>Define contact/down/passing/up sequencing and planted-foot relationships</li><li>Preserve first Maziss design; document timing cannot be measured from static sheets</li></ul></details>
+<p><strong>Result:</strong> Reviewed three static sheets: useful silhouettes but not measured timing; first is running, adult sheets have ground/length inconsistencies. Identified near-extension IK clamp and later painted-boot adjustment as snap risks. Wrote bounded keypose/contact brief; no FBX/video opened.</p><details><summary>Read the worker’s report</summary><pre># Image-only walking brief — ART-005
+
+Reviewed the three image sheets supplied in this conversation and read the current
+`walking/reference-gait.js` and `walking/demo.js`. No FBX, video, video tracking or
+new motion capture was opened or used for this brief. Static sheets show poses;
+they do not establish frame durations, joint velocities or a measured human cycle.
+
+## What the sheets support
+
+- The twelve-pose boy sheet reads as stylized running: high recovery knee, markedly
+  raised trailing foot and apparent flight poses. Use its alternating limb and
+  overlapping silhouette ideas, not its stride, lift or contact schedule for Maziss.
+- The two adult side-view sheets provide clearer straight/loaded-leg, recovery,
+  foot-passing and opposing-arm silhouettes. Their very similar layouts are not
+  independent measurements. Their ground heights, apparent limb lengths and contact
+  relationships vary; the stretched fifth pose is an exaggerated illustration.
+  Do not trace all poses or assign equal time to every illustration.
+- None supplies reliable front/back anatomy or an idle-to-walk transition. These
+  must be authored conservatively and labelled as interpretation.
+
+## Proposed adult walk construction
+
+The following is an animator-authored starting schedule, not timing extracted from
+the images. One full cycle contains two steps. Mirror the first half for the other
+leg, while keeping physical left/right identities stable.
+
+| Full-cycle phase | Pose intention | Contact and weight |
+| --- | --- | --- |
+| 0.00 | First heel meets ground; opposite leg trails | Brief double support; avoid a locked leading knee |
+| 0.08–0.12 | Down/recoil | Leading foot settles; leading knee absorbs weight; rear heel rises |
+| 0.23–0.27 | Passing | Loaded foot beneath pelvis; recovering ankle passes close to it, toe clear |
+| 0.37–0.42 | Up/recovery | Support heel lifts; recovery knee advances, then shin opens progressively |
+| 0.50 | Opposite contact | Transfer load smoothly; repeat with sides exchanged |
+| 0.58–0.62 | Opposite down | Mirror first recoil |
+| 0.73–0.77 | Opposite passing | Mirror first passing |
+| 0.87–0.92 | Opposite up | Mirror first up |
+| 1.00 | Original contact | Identical pose and velocity to phase zero |
+
+Start with approximately 60–62% stance per leg, creating short double-support
+windows and no flight. Choose a comfortable adult cadence by visual review rather
+than treating the sheets as a stopwatch. Keep recovery ankle clearance low and
+avoid the boy sheet&#x27;s running kick. A modest knee bend may remain at maximum
+extension; the knee must not flick from bent to locked and back.
+
+Use continuous positions and velocities through contact, toe-off, passing and loop
+wrap. A cubic curve is useful only when its tangents are controlled: an overshooting
+cubic can introduce new joint reversals. For a planted side foot, roll from heel
+contact to flat support to forefoot/toe support; do not pin the toe through all of
+stance while rotating a heel-first landing around it. On the swing leg, let the
+shin unfold gradually before landing rather than straightening at a phase boundary.
+
+Keep pelvis motion small, with two gentle rises/falls per stride. Retain the original
+slight forward lean and painted proportions. Opposing arms should have quiet arcs
+and soft changes of direction, with a small upper-body response. Do not stretch
+limbs or change the face, jacket, bag, boots or overall design to achieve a pose.
+
+## Specific implementation risks in revision 5
+
+These are source-level explanations consistent with the owner&#x27;s symptoms, not a
+claim that static code inspection proves every rendered defect&#x27;s cause.
+
+1. `sample()` linearly interpolates joint angles. Its slope changes at every sample
+   boundary, so a continuous angle can still produce visibly abrupt velocity changes.
+2. The knee solve contains `sqrt(limb² - halfReach²)` close to full extension.
+   The slope becomes very large near maximum reach; clipping reach and pelvis height
+   creates further changes of slope. Maintain a smooth reach margin and verify knee
+   angular velocity, rather than solving into the singularity and then clamping it.
+3. Hard `stance` changes, separate support/swing ankle formulas and the late-stance
+   pitch rule can disagree at toe-off. Match pose and tangent on both sides of the
+   transition. Contact release must not replace one target with an unrelated one.
+4. The rendered boot is repositioned after anatomical ankle solving. Its derived cuff
+   then becomes the rendered shin endpoint. This means a geometrically valid knee/
+   ankle can still yield a visually distorted leg. Define one consistent painted
+   boot-to-cuff calibration and solve against the endpoint actually drawn.
+5. A single neutral angle does not establish visible standing alignment. The original
+   boot has a long forward toe and its source ankle/contact/cuff differ. Author a
+   neutral silhouette with the supporting sole region beneath the torso/pelvis and
+   plausible ankle/knee alignment; inspect actual pixels at both facing directions.
+6. Initial rendering uses a whole sprite, while subsequent idle rendering uses the
+   articulated pieces. The first and subsequent rest silhouettes must agree, or the
+   transition can jump even if a mathematical blend has reached zero.
+
+## Acceptance review
+
+Inspect continuous playback first, then slow playback and individual frames. Show
+side views first to isolate mechanics, then front/back. Review at least two cycles
+and multiple start/stop phases; a single pleasant contact sheet cannot establish
+fluidity. Watch planted painted soles, knee speed, cuff alignment, pelvis/feet at
+rest, arm reversals, loop wrap and stopping without a foot teleport. Check a full
+direction reversal separately. Numerical continuity/contact checks are useful
+diagnostics; the owner still decides whether it looks human and preserves Maziss.
+
+Deliver this as an image-guided candidate before studying the uploaded FBX files.
+Keep supplied reference imagery outside public assets until reuse rights are known.
+</pre></details></article><article><div class="tag">TECH-006 · CTO / coordinator</div>
+<h3>Smooth image-guided walk, neutral alignment and starts/stops</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Build an image-only candidate before using the newly uploaded FBX files, correcting discontinuous knees/feet and initial/ending pose.</p><p><strong>Deliverable:</strong> visual-preview/maziss-walking-v6.html</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/, tools/build_walking_demo.py, tools/capture_image_walk.py, docs/, visual-preview/</p><ul><li>Neutral ankles sit beneath pelvis without teleporting when starting/stopping</li><li>Continuous swing, contact roll and knee extension</li><li>Retain original design and safe room routes</li><li>No use of FBX or video data in this candidate</li></ul></details>
+<p><strong>Result:</strong> Built image-only revision 6 from qualitative sheets with authored smooth contact curves, shared painted-cuff IK, neutral alignment and start/stop recovery. Added live close-up and Stand still; interrupted settling retains current torso/arm weight. Final build cdeb00514796; original PNGs unchanged. No FBX/video imported; owner comparison pending; Godot unchanged.</p></article><article><div class="tag">QA-007 · Independent motion QA</div>
+<h3>Review rendered image-guided walking and transition continuity</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/image_walk_qa</code></p>
+<p>Inspect actual rendered cycle and start/stop motion, challenge naturalness claims, test relevant regressions.</p><p><strong>Deliverable:</strong> production/QA_IMAGE_WALK.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: tests/browser_image_walk.py, production/QA_IMAGE_WALK.md</p><ul><li>Inspect normal/slow side and depth poses, no abrupt knee extension or neutral misalignment</li><li>Check phase/transition continuity and geometry under timing variation</li><li>Report limitations; numeric checks do not approve motion</li></ul></details>
+<p><strong>Result:</strong> Independent final review: 48 checks pass, zero failures/errors. Actual directional, start/settle and detail frames inspected. Peak knee speed 374 degrees/s versus 567 provisional; flat stance drift 0.00245 pixels. Resume and mode-switch regression checks pass. Depth/turning limitations remain; ready for owner comparison, not creative approval.</p><details><summary>Read the worker’s report</summary><pre># QA-007 — image-guided walking revision 6
+
+**Recommendation: ready for another owner comparison in the HTML panel.** This
+does not approve naturalness or production integration. The final frozen build
+passed 48 scoped browser checks with no failed checks or JavaScript errors.
+
+This is an image-only animation study; no FBX or owner-video motion was imported
+by this QA assignment.
+
+The owner rejected revision 5 for jerky movement, abrupt knee extension and resting
+feet displaced from the torso. The relevant checks therefore cover complete
+start/stop transitions and neutral alignment as well as the repeating cycle.
+
+## Review method
+
+`tests/browser_image_walk.py` exercises the actual embedded HTML renderer, captures
+eight poses in each direction, checks neutral sole placement, and samples the
+embedded gait class deterministically at 120 Hz through starting, walking,
+settling and idle. A separate 240 Hz steady-cycle sample reports knee angular
+speed and minimum bend. Root navigation, pause, playback timing and browser
+network-disabled execution receive scoped regression checks.
+
+The suite also interrupts a partially settled pose and switches fully active
+room/study modes. It verifies that upper-body blend resumes from its current
+weight instead of suddenly dropping toward zero. The coordinator identified and
+corrected this additional arm/torso transition discontinuity during final review.
+
+Technical bounds detect teleports and abrupt angular changes. They do not certify
+natural human movement. Rendered side and depth-view poses require visual review;
+creative acceptance remains with the owner.
+
+## Findings and final visual assessment
+
+The first candidate retained Maziss&#x27;s original painted appearance. In the rendered
+idle pose the boots were below the hips rather than extended ahead of the body.
+The side-view key poses were more coherent than revision 5, while front/back views
+still showed substantially less apparent knee and arm motion.
+
+The initial candidate&#x27;s late-swing knee speed reached approximately 567 degrees
+per second. Despite continuous joint positions, this rapid extension could still
+read as a snap. QA reported the finding to the coordinator before final review;
+the coordinator revised swing-clearance timing, shoe-roll support and leg-reach
+softness before the final frozen build. The final deterministic measurement is
+374.39 degrees per second. This reduction is an engineering comparison, not a
+human-motion quality score.
+
+QA inspected eight actual rendered poses in each of the four directions, six
+painted starting frames, six painted settling frames, initial and post-route idle,
+and twelve separately captured poses from the actual `#detail` canvas. The side
+sequence shows clearer alternating contact, passing and swing, with the source
+boots attached to the trousers. No gross source-mask gap was visible in these
+captures. Starting leaves the neutral pose progressively; settling returns both
+feet underneath the pelvis without an immediate pose replacement. The original
+body, head, bag and character proportions remain recognizable.
+
+Front/back movement is still visibly stiffer than side movement: shallow knee
+projection, flat original boot drawings and restrained upper-body movement limit
+its weight shift and depth cues. Directional artwork changes and full torso twist
+remain approximate. Those are material limits for the next owner comparison,
+not reasons to call this finished animation.
+
+## Final evidence
+
+- Build: `cdeb0051479636cb524fbd3d70a8d314991295fa9328963d2d063f6dbf9d1bf3`.
+- HTML SHA-256: `1ce88dd76c34a693e13b7bb1cb73dc17bb540d12677312878f2c212a9995cadb`.
+- Browser: Chromium 154.0.8037.57.
+- Result: 48 checks passed, 0 failed; 0 JavaScript runtime errors.
+- Initial sole-base displacement from the pelvis: at most 5.32 scene pixels.
+- Maximum cuff movement per deterministic 120 Hz transition step: 7.23 pixels.
+- Maximum knee-angle change per deterministic 120 Hz transition step: 3.52 degrees.
+- Maximum steady-cycle knee speed at 240 Hz: 374.39 degrees per second.
+- Minimum steady-cycle knee bend: 18.92 degrees; no straight-leg IK singularity.
+- Maximum painted flat-sole drift across 125 observed loaded-stance pairs:
+  0.00245 scene pixels during aligned straight traversal.
+- Initial, stand-after-study and arrived idle poses were checked; paused study and
+  paused room movement freeze the complete pose.
+- Interrupted settling resumed from blend 0.892626 to 0.892653; fully active
+  room/study/room switching retained blend 1 throughout.
+- Playback, five-cycle frame-step timing, furniture routing and wall rejection
+  passed. The browser made only its HTML document request, and a separate embedded
+  copy animated with browser networking disabled.
+- Reviewed runtime source and HTML hashes remained unchanged throughout the run.
+
+`tests/browser_image_walk.py` produces
+`build/checks/image-walk/browser-results.json`, actual pose/transition PNGs and
+`qa-contact-sheet.html`. Additional closeup captures used for visual review are
+under `build/checks/image-walk/detail-review/`. These generated review artifacts
+remain outside source control.
+
+## Limits
+
+- No claim of naturalness follows from joint joins, finite positions, or a passing
+  numerical suite alone.
+- The source drawings and runtime projection remain a 2D puppet approximation,
+  especially in front/back views and direction changes.
+- The Godot game and final animation integration are outside this HTML study.
+- Direct local-file navigation is blocked by managed Chromium policy. The suite
+  checks an embedded copy with browser networking disabled instead.
+</pre></details></article><h2>Defined roles</h2><p>A defined role is a set of instructions. It does not mean another agent is running. The coordinator and liaison are currently the same assistant.</p><table><thead><tr><th>Role</th><th>Activation</th></tr></thead><tbody><tr><td>CEO / coordinator</td><td>Current assistant; also human–AI liaison</td></tr><tr><td>Art director</td><td>On demand</td></tr><tr><td>Story director</td><td>Not started for this increment</td></tr><tr><td>CTO</td><td>On demand; coordinator currently handles board tooling</td></tr><tr><td>Testing director / QA</td><td>On demand</td></tr><tr><td>Research director</td><td>Not started for this increment</td></tr><tr><td>Human–AI liaison</td><td>Current assistant; same session as coordinator</td></tr></tbody></table><h2>Observed activity</h2><ol><li><time>18 October 2026, 11:07:34 CEST</time> · <strong>QA-007</strong>: After a concrete resume-weight discontinuity was found and corrected, native QA repeated affected validation on cdeb00514796: 48 checks passed, sources frozen. Final rendered captures refreshed. This supersedes the earlier candidate for delivery; owner approval remains pending.</li><li><time>18 October 2026, 11:03:44 CEST</time> · <strong>TECH-006</strong>: Completed image-only HTML candidate with live close-up and explicit recovery to rest. FBX comparison remains deferred as owner requested. No Godot art integration or owner approval/merge claimed.</li><li><time>18 October 2026, 11:03:44 CEST</time> · <strong>QA-007</strong>: Native worker completed independent final review on frozen0eb839b17586. Coordinator inspected actual32phase sheet and read report. Visual caveats retained; numerical checks do not establish naturalness. No FBX/video imported.</li><li><time>18 October 2026, 10:53:08 CEST</time> · <strong>ART-005</strong>: Native art/motion worker completed brief. Owner clarified modest cartoon exaggeration is welcome if fluid, coherent and recognizably human. Coordinator is building an image-only version; no raw media parsed.</li><li><time>18 October 2026, 10:46:24 CEST</time> · <strong>TECH-006</strong>: Owner completed reference intake: three image sheets and16FBX files. Next candidate is explicitly images-only; FBX files saved outside repository and remain unopened. Coordinator owns implementation; bounded art and independent QA briefs recorded.</li><li><time>18 October 2026, 10:16:28 CEST</time> · <strong>TECH-005</strong>: Revision 5 completed for owner HTML review on feat/reference-human-walk. Original art preserved. No Godot integration, owner approval or merge claimed.</li><li><time>18 October 2026, 10:16:28 CEST</time> · <strong>QA-005</strong>: Native QA worker completed scoped review and finalized report. Coordinator read results and inspected 32 actual rendered poses. Final frozen source/output hashes match; only idle numerical tolerance changed after subpixel trig-rounding diagnosis. Personal footage remains excluded.</li><li><time>18 October 2026, 10:11:27 CEST</time> · <strong>QA-005</strong>: Native QA worker confirmed active on bounded review. Candidate56d1b9cb1e56 frozen after visible forefoot registration correction; coordinator is producing actual-pose HTML.</li><li><time>18 October 2026, 10:01:15 CEST</time> · <strong>MOTION-001</strong>: Motion worker completed analysis/helper/report. Coordinator is integrating reference-driven sagittal projection and original painted character rendering, with independent QA prepared.</li><li><time>18 October 2026, 09:49:09 CEST</time> · <strong>TECH-005</strong>: Owner confirmed Windows editor project opens and resumed movement correction. Three private videos/raw tracking verified present. Feature branch selected; motion-analysis and QA scopes remain separate.</li><li><time>18 October 2026, 09:17:04 CEST</time> · <strong>HANDOFF-001</strong>: Git push succeeded and GitHub API confirmed source checkpoint832a3d4 on main. Owner can inspect code/downloadZIP and track issues1–3. Final metadata completion follows; no finished-game release or animation approval.</li><li><time>18 October 2026, 09:16:29 CEST</time> · <strong>HANDOFF-001</strong>: Source and clean archive import/startup plus2,505state assertions passed. QA completed archive/privacy/instruction audit. Created GitHub issues1–3 for Windows verification, motion correction and art integration.</li><li><time>18 October 2026, 09:10:02 CEST</time> · <strong>HANDOFF-001</strong>: Owner authorized GitHub/local Godot workflow and selected Windows. Read-only Git access confirms remote main still equals initial commit. Coordinator prepares baseline; independent handoff audit brief recorded.</li><li><time>18 October 2026, 09:00:25 CEST</time> · <strong>TECH-005</strong>: Recovered retained raw side tracking and wrote durable resume checkpoint after allowance pause. Native motion worker is inactive; normalized cycle and renderer still unfinished.</li><li><time>18 October 2026, 00:45:37 CEST</time> · <strong>MOTION-001</strong>: Recorded bounded motion-analysis and QA briefs before delegation. Coordinator implements original-art rendering separately.</li><li><time>18 October 2026, 00:12:32 CEST</time> · <strong>RESEARCH-001</strong>: Coordinator completed reference research after owner rejected v4. Saved linked sources/access limits, reference-only HTML and optional filming instructions. No new animation is claimed.</li><li><time>18 October 2026, 00:02:51 CEST</time> · <strong>TECH-004</strong>: Completed first-character rollback and leg-only correction. 21 browser checks passed on final HTML; source hashes confirm accepted gait/navigation unchanged and no replacement rig asset used. No worker delegation; owner aesthetic review pending.</li><li><time>18 October 2026, 00:00:49 CEST</time> · <strong>TECH-004</strong>: Owner rejected v3 appearance and requested first proposal with leg correction only. Coordinator restored original atlases; no worker started for this bounded rollback.</li><li><time>17 October 2026, 23:55:02 CEST</time> · <strong>QA-004</strong>: QA worker reported completed scope: 33 browser checks and leg/navigation regressions pass. Coordinator verified tested output hash and packaged actual pose captures. No blocking defect identified; owner decides naturalness and likeness.</li><li><time>17 October 2026, 23:53:50 CEST</time> · <strong>ART-004</strong>: Native art worker completed scoped source/proportion review and inspected two corrected browser captures. Approved reference preserved; no owner aesthetic approval claimed.</li><li><time>17 October 2026, 23:53:07 CEST</time> · <strong>TECH-003</strong>: Built revision 3: restored body/leg ratio, modest independent shoulder swing, 6 degree lean and shared boot-cuff/trouser endpoint. Preserved v1/v2 HTML and prepared same-scale HTML comparison. Native Art and QA workers are reviewing.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>QA-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>TECH-003</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>ART-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Owner confirmed final offline desktop target. Recorded bundled assets/local saves/no required runtime AI or server in AGENTS.md and story bible. HTML remains the interim review route.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>QA-003</strong>: Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>TECH-002</strong>: Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared.</li><li><time>17 October 2026, 23:27:54 CEST</time> · <strong>TECH-002</strong>: Coordinator delegated actual articulated-gait implementation to /root/gait_cto; preserved rejected v1 HTML and test evidence for comparison.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>QA-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>TECH-002</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>ART-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Native agent status confirmed CTO and QA workers completed. Coordinator read final QA report and verified all source/output hashes against tested build 9e16a0fbb447.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>TECH-001</strong>: Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>ART-002</strong>: Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending.</li><li><time>17 October 2026, 23:08:07 CEST</time> · <strong>TECH-001</strong>: Native status confirmed /root/walking_cto running. Coordinator is preparing separate artwork.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>QA-002</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>TECH-001</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>ART-002</strong>: Task brief recorded; coordinator started asset work.</li><li><time>17 October 2026, 23:00:24 CEST</time> · <strong>COORD-001</strong>: Coordinator completed setup. Verified 3 task cards, 2 embedded reports, expandable details, narrow layouts and preview permissions. Both worker tasks were already confirmed completed by native status tools.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>QA-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>ART-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>QA-001</strong>: Native agent tool confirmed worker running: /root/qa_director_demo</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>ART-001</strong>: Native agent tool confirmed worker running: /root/art_director_demo</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>QA-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>ART-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>COORD-001</strong>: Started agent workflow setup after owner request. Native status showed only /root running.</li></ol><h2>How to use the team</h2><details open><summary>Beginner workflow guide</summary><pre># Learning to use agents on Maziss
 
 ## What is running?
 

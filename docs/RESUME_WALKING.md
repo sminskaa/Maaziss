@@ -1,29 +1,31 @@
 # Walking task checkpoint
 
-The allowance pause was resumed. The owner confirmed that the existing project opens
-in Windows Godot. The three private recordings and raw side tracking were retained.
-A new reference-driven revision 5 HTML study now exists on the feature branch and
-awaits owner review before integration; it is not merged into the playable Godot room.
+The owner rejected revision 5 despite its technical passes: jerky movement, abrupt
+knee extension and feet misaligned at rest. Three illustrated sheets and 16 FBX
+files were then supplied. The owner explicitly requests an image-only attempt
+first, with FBX comparison afterward. Slight cartoon exaggeration is acceptable if
+fluid, coherent and recognizably human.
 
-## Current files
+## Current candidate
 
-- `walking/reference-motion.json`: 25 closed samples of the selected visible leg,
-  frames 36–78 / 1.2–2.6 seconds of the side video. Opposite leg reconstructed by phase.
-- `tools/analyze_walk_references.py` and `production/MOTION_REFERENCE_ANALYSIS.md`:
-  measured reference extraction, camera/occlusion limits and reproducible method.
-- `walking/reference-gait.js` and `walking/demo.js`: sagittal motion projection,
-  original atlas rendering, foot contact and review controls.
-- `visual-preview/maziss-walking-v5.html`: self-contained motion review; ignored by Git.
-- `production/QA_REFERENCE_WALK.md`: independent scope/evidence/limitations.
-- `docs/WALKING_DEMO.md`: reproduction and current animation limits.
+- `walking/image-motion.json`: qualitative reference provenance and authored poses,
+  timing and painted-boot calibration. No video or FBX data used.
+- `walking/image-gait.js`: continuous foot trajectories, shared boot-cuff IK,
+  neutral alignment, early swing fold, gradual extension and start/stop recovery.
+- `walking/demo.js`: original texture rendering, live close-up and Stand still.
+- `visual-preview/maziss-walking-v6.html`: self-contained review; ignored by Git.
+- `production/IMAGE_WALK_BRIEF.md` and `production/QA_IMAGE_WALK.md`: independent
+  reference interpretation and actual rendered validation, with limits.
+- `docs/WALKING_DEMO.md`: reproduction and scope.
 
-The first Maziss design and approved room PNG are preserved. Previous v1–v4 HTML
-versions remain local history and are not approved animation. Personal videos and raw
-tracking stay outside GitHub; local exact paths remain in the ignored intake note.
-Future fresh tracing requires those private inputs; replay of the generated study
-uses only original art and normalized motion data.
+The original character PNGs and approved room are unchanged. Previous v1–v5 outputs
+remain local history. The FBX downloads and private intake manifest remain outside
+public source; they have not been imported for the image-only candidate. The
+private manifest is `private/motion/fbx-intake.json`. Do not publish raw inputs or
+silently use them in the image-only comparison.
 
-Next: owner reviews the actual v5 motion and records feedback on issue #2. Further
-cleanup or native Godot integration follows that decision; avoid silently merging
-unapproved art/movement into the game. Windows source launch is confirmed, but
-remaining issue #1 save/offline checks are not inferred from that confirmation.
+Next: owner reviews revision 6 motion. Then evaluate a normal walking FBX for a
+separate comparison if needed; do not mix the two sources and claim an image-only
+result. Main Godot still uses placeholder art. Windows project opening is confirmed;
+broader offline/save/input checks remain issue #1. No creative acceptance or merge
+is implied by numerical QA or by opening the existing Godot project.
