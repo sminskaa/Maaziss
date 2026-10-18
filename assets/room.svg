@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="540" viewBox="0 0 1280 540">
+<defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#ba9c74"/><stop offset=".55" stop-color="#d5bb83"/><stop offset="1" stop-color="#ad8965"/></linearGradient>
+  <linearGradient id="side" x1="0" x2="1"><stop stop-color="#655c5b"/><stop offset="1" stop-color="#9b846d"/></linearGradient>
+  <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#73594b"/><stop offset="1" stop-color="#3c3c43"/></linearGradient>
+  <linearGradient id="door" x1="0" x2="1" y2=".7"><stop stop-color="#777f74"/><stop offset=".5" stop-color="#586c64"/><stop offset="1" stop-color="#3c524f"/></linearGradient>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b38b5d"/><stop offset=".5" stop-color="#8d6245"/><stop offset="1" stop-color="#604b41"/></linearGradient>
+  <linearGradient id="sofa" x1="0" y1="0" x2=".4" y2="1"><stop stop-color="#b36045"/><stop offset=".55" stop-color="#874b43"/><stop offset="1" stop-color="#623a3b"/></linearGradient>
+  <linearGradient id="cushion" x1="0" x2=".25" y2="1"><stop stop-color="#bc7454"/><stop offset="1" stop-color="#955342"/></linearGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7cb3b2"/><stop offset=".6" stop-color="#c1d1b2"/><stop offset="1" stop-color="#f5d19a"/></linearGradient>
+  <linearGradient id="metal" x1="0" x2="1"><stop stop-color="#49616a"/><stop offset=".45" stop-color="#93a69a"/><stop offset=".7" stop-color="#aab7a3"/><stop offset="1" stop-color="#4d6668"/></linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#f0dcaa"/><stop offset="1" stop-color="#c5ac7a"/></linearGradient>
+  <radialGradient id="light"><stop stop-color="#fff0b3" stop-opacity=".25"/><stop offset="1" stop-color="#fff0b3" stop-opacity="0"/></radialGradient>
+</defs>
+<!-- The apartment is an original illustration. Every silhouette is part of the scene, not a photograph or external asset. -->
+<path fill="url(#wall)" d="M0 0h1280v397L0 408Z"/>
+<path fill="#d9bc82" opacity=".36" d="M190 29l641-13 250 35 199 56v201l-342 49-721-19Z"/>
+<path fill="url(#side)" d="M0 0h46l34 360L0 402Z"/>
+<path fill="#8d7865" d="M1227 0h53v407l-47-42Z"/>
+<path fill="#564b43" d="M0 366l82-20 1149 10 49 27v26L0 423Z"/>
+<path fill="url(#floor)" d="M0 398l80-35 1153 7 47 32v138H0Z"/>
+<g fill="none" stroke="#332f36" stroke-width="3" opacity=".66">
+ <path d="M648 366L51 540M711 365l-291 175M759 365l101 175M805 367l411 173M828 367l452 119M587 365L0 482M894 368l386 69"/>
+ <path d="M0 432l1280 6M0 477l1280 12M0 527l1280 10"/>
+</g>
+<g fill="none" stroke="#ad8860" stroke-width="2" opacity=".25"><path d="M358 438l192-2m374 10l211 2M489 493l141-2m-392 3l74-2M909 519l157 3M103 456l84-5M672 403h48M1033 402l81 3"/></g>
+<g fill="none" stroke="#473c39" stroke-width="1.3" opacity=".12">
+ <path d="M18 65l17-2m22 47l15 2m20-23l13-2M24 163l9 1m46-57l12 1M118 65l17-2m22 47l15 2m20-23l13-2M124 163l9 1m46-57l12 1M218 65l17-2m22 47l15 2m20-23l13-2M224 163l9 1m46-57l12 1M318 65l17-2m22 47l15 2m20-23l13-2M324 163l9 1m46-57l12 1M418 65l17-2m22 47l15 2m20-23l13-2M424 163l9 1m46-57l12 1M518 65l17-2m22 47l15 2m20-23l13-2M524 163l9 1m46-57l12 1"/>
+ <path d="M618 65l17-2m22 47l15 2m20-23l13-2M624 163l9 1m46-57l12 1M718 65l17-2m22 47l15 2m20-23l13-2M724 163l9 1m46-57l12 1M818 65l17-2m22 47l15 2m20-23l13-2M824 163l9 1m46-57l12 1M918 65l17-2m22 47l15 2m20-23l13-2M924 163l9 1m46-57l12 1M1018 65l17-2m22 47l15 2m20-23l13-2M1024 163l9 1m46-57l12 1M1118 65l17-2m22 47l15 2m20-23l13-2M1124 163l9 1m46-57l12 1M1218 65l17-2m22 47l15 2"/>
+ <path d="M18 215l17-2m22 47l15 2m20-23l13-2M24 313l9 1m46-57l12 1M118 215l17-2m22 47l15 2m20-23l13-2M124 313l9 1m46-57l12 1M218 215l17-2m22 47l15 2m20-23l13-2M224 313l9 1m46-57l12 1M318 215l17-2m22 47l15 2m20-23l13-2M324 313l9 1m46-57l12 1M418 215l17-2m22 47l15 2m20-23l13-2M424 313l9 1m46-57l12 1M518 215l17-2m22 47l15 2m20-23l13-2M524 313l9 1m46-57l12 1"/>
+ <path d="M618 215l17-2m22 47l15 2m20-23l13-2M624 313l9 1m46-57l12 1M718 215l17-2m22 47l15 2m20-23l13-2M724 313l9 1m46-57l12 1M818 215l17-2m22 47l15 2m20-23l13-2M824 313l9 1m46-57l12 1M918 215l17-2m22 47l15 2m20-23l13-2M924 313l9 1m46-57l12 1M1018 215l17-2m22 47l15 2m20-23l13-2M1024 313l9 1m46-57l12 1M1118 215l17-2m22 47l15 2m20-23l13-2M1124 313l9 1m46-57l12 1M1218 215l17-2m22 47l15 2"/>
+</g>
+<!-- Crooked rafters, exposed old conduit, and sagging plaster. -->
+<path d="M0 0h1280v29l-328-11-189 15-430-6L0 45Z" fill="#403e40"/>
+<path d="M0 7l334 10 427-3 190-7 329 11v10l-328-11-191 16-428-7L0 44Z" fill="#695548"/>
+<path d="M467 0l19 9 10 50-15 22-7-42-20-39M1037 0l-16 60-17-2 12-58" fill="#51483f"/>
+<g fill="none" stroke-linecap="round"><path d="M84 29l6 31 34 11 11 25 21 7m-32-32l-5-19M1160 28l-14 26 7 19-17 29 9 12M713 132l-18 22 9 24-15 20m15-20l20 8M452 256l-14 20 5 35-18 15" stroke="#806f59" stroke-width="2.5"/><path d="M665 35v-5h166v18l54 8" stroke="#4b4b46" stroke-width="8"/><path d="M665 35v-5h166v18l54 8" stroke="#96967d" stroke-width="3"/></g>
+<path d="M660 78l25-3 15 33-48 4Z" fill="#716c58" stroke="#403e3a" stroke-width="3"/>
+<path d="M671 31l3 47" stroke="#373b37" stroke-width="4"/>
+<path d="M657 108q18 18 38-3" fill="#e5c685" stroke="#574a3d" stroke-width="3"/>
+<ellipse cx="680" cy="151" rx="96" ry="98" fill="url(#light)"/>
+<g fill="#e3c997" opacity=".28"><path d="M307 257l38-6 5 7-41 4Z"/><path d="M728 77l20-4 28 2-3 9-47 2Z"/><path d="M1123 190l61-3 14 13-74 9Z"/><path d="M223 268l49 4 7 16-63-3Z"/></g>
+<!-- A tiny old sink: the taps and boiler are intentionally legible at adventure-game scale. -->
+<path d="M39 93l151-8 15 179-159 9Z" fill="#655f55" opacity=".35"/>
+<path d="M48 101l132-8 9 132-130 15Z" fill="#aba891" stroke="#3e4442" stroke-width="4"/>
+<path d="M57 111l113-7 7 110-112 13Z" fill="#6c8986"/>
+<path d="M62 119l102-7 6 47-104 12Z" fill="#8fa39a"/>
+<path d="M73 123l3 27m7-29l1 8M157 169l-3 32M80 199l26-4" stroke="#bac5ad" stroke-width="3" opacity=".5"/>
+<path d="M62 171l25-18-2 21 31-8-14 24 37-3-13 18 42 5" fill="none" stroke="#3b5557" stroke-width="2"/>
+<path d="M39 232l154-13 18 27-160 18Z" fill="#c6c8b1" stroke="#3c4442" stroke-width="4"/>
+<path d="M58 235l119-9 6 13-119 12Z" fill="#4e6869"/>
+<path d="M51 262l159-16-10 28-136 15Z" fill="url(#metal)" stroke="#3d4441" stroke-width="4"/>
+<path d="M120 283v27q0 19 20 18l31-3v-34" fill="none" stroke="#394b4b" stroke-width="14"/>
+<path d="M119 284v26q0 15 21 14l31-3v-31" fill="none" stroke="#85958b" stroke-width="5"/>
+<path d="M126 232v-28q0-15 15-15h13v13h-13v28" fill="url(#metal)" stroke="#3d4441" stroke-width="3"/>
+<path d="M150 203l14-1-4 6-9 1" fill="#9aac9e" stroke="#3d4441" stroke-width="2"/>
+<path d="M124 206l-13 1m7-7l1 13" stroke="#553e37" stroke-width="5"/>
+<path d="M165 239l10-4 10 1-6 7-13 1Z" fill="#cfa573" stroke="#6f664e" stroke-width="2"/>
+<path d="M200 133l20 4-5 72-20-1Z" fill="#d1c9a5" stroke="#655f50" stroke-width="2"/>
+<path d="M203 152l12 2m-12 9l10 2m-13 11l12 2m-13 9l12 2" stroke="#a19778" stroke-width="2"/>
+<!-- Work notices and unpaid correspondence. The UI supplies all narrative text. -->
+<path d="M238 69l196-10 12 179-194 13Z" fill="#5d4a3e" stroke="#3f3835" stroke-width="5"/>
+<path d="M249 78l175-9 12 160-174 11Z" fill="#9c7954"/>
+<path d="M258 89l58-5 5 81-57 4Z" fill="url(#paper)" stroke="#6e604a" stroke-width="2"/>
+<path d="M330 87l81 5-4 56-80-4Z" fill="#c4c5a2" stroke="#655f4d" stroke-width="2"/>
+<path d="M282 165l89-15 10 67-90 15Z" fill="#dcb68a" stroke="#67543f" stroke-width="2"/>
+<path d="M379 156l43-3 4 56-44 3Z" fill="#eee0ad" stroke="#67543f" stroke-width="2"/>
+<g fill="none" stroke="#857b5f" stroke-width="2.5"><path d="M269 108l36-3m-35 10l31-2m-30 10l37-3m-35 12l26-2m-26 13l23-2M340 104l58 3m-58 7l54 3m-53 7l37 2M301 183l53-8m-51 19l58-9m-56 18l36-5M392 169l21-1m-21 9l19-1m-19 9l23-1"/></g>
+<g fill="#85503d" stroke="#473e35" stroke-width="1.5"><circle cx="282" cy="92" r="4"/><circle cx="364" cy="94" r="4"/><circle cx="327" cy="168" r="4"/><circle cx="401" cy="160" r="4"/></g>
+<path d="M265 207l14-2-1 12-13 1Z" fill="#6f7e72"/>
+<path d="M313 65l28-3 3 12-29 2Z" fill="#b7a979" opacity=".7"/>
+<!-- Door. It is stout, unwelcoming, and has acquired several incompatible locks. -->
+<path d="M475 72l166-8 10 315-176 1Z" fill="#4d4540" stroke="#3d3836" stroke-width="5"/>
+<path d="M490 80l137-5 8 289-146 3Z" fill="url(#door)" stroke="#293d3d" stroke-width="4"/>
+<path d="M500 90l115-4 4 101-116 1Z" fill="#50665c" stroke="#89917a" stroke-width="2"/>
+<path d="M508 99l101-4 3 83-103 1Z" fill="#65796a" stroke="#3c534d" stroke-width="3"/>
+<path d="M503 201l119-1 5 149-121 3Z" fill="#415a53" stroke="#81907a" stroke-width="2"/>
+<path d="M513 211l99-1 5 129-102 3Z" fill="#536c5f" stroke="#324d47" stroke-width="3"/>
+<path d="M500 95v72m19 54l1 99m78-219l3 52M526 254l-2 60M535 107l2 40" stroke="#a2a182" stroke-width="2" opacity=".32"/>
+<path d="M617 120l10 1v19l-10-1m4 152l9 1v23l-9-1" fill="#8e896d" stroke="#343d36" stroke-width="2"/>
+<path d="M494 208l25-2 3 19-25 2Z" fill="#44413a" stroke="#282e2d" stroke-width="2"/>
+<path d="M508 213l35-2 1 7-34 3Z" fill="#b4a678" stroke="#3f433a" stroke-width="2"/>
+<path d="M508 231l14-1 1 17-14 2Z" fill="#9f9168" stroke="#3a3d33" stroke-width="2"/>
+<path d="M514 238v6" stroke="#292d2b" stroke-width="3"/>
+<path d="M559 125l36-1 1 19-37 1Z" fill="#b4a27a" stroke="#41483d" stroke-width="2"/>
+<path d="M567 130l17-1m-15 7l13-1" stroke="#5b5944" stroke-width="3"/>
+<path d="M480 366l166-2 8 13-184 3Z" fill="#aa9973" stroke="#44443b" stroke-width="3"/>
+<path d="M508 384l114-2 12 21-144 2Z" fill="#8a7d64" stroke="#3e3e37" stroke-width="3"/>
+<path d="M511 391l108-2M515 398l109-2" stroke="#574f43" stroke-width="2"/>
+<!-- Window with an invented river city. No narrative leaflet is baked in; the game reveals it. -->
+<path d="M778 67l224-14 11 238-231 11Z" fill="#65584a" stroke="#453e37" stroke-width="6"/>
+<path d="M792 77l197-12 10 211-204 10Z" fill="url(#sky)" stroke="#c6ac7a" stroke-width="5"/>
+<path d="M798 121q33-20 62-10t42-9m22 29q35-20 66-14" fill="none" stroke="#f2e3bd" stroke-width="11" opacity=".65"/>
+<g stroke="#718a83" stroke-width="2" fill="#8fa392"><path d="M799 202l10-29 18 12 3-32 17-2 9 23 20-10 6 31 24-9 11-40 13 3 5 28 21 12 10-22 20 17 7-31 16 24 5 86-201 10Z"/></g>
+<path d="M797 231l41-3 10-10 24 1 9-14 34 5 23 14 60-3 1 55-202 10Z" fill="#aaba9e"/>
+<path d="M801 250q29-16 55-10t58 5 84-8v38l-198 11Z" fill="#c8c7a1"/>
+<path d="M935 205l1-67 13-15 10 16 1 68" fill="#7a9387" stroke="#5a7b76" stroke-width="3"/>
+<path d="M941 145l11-1m-8 17l8-1m-7 16l8-1" stroke="#bed0ae" stroke-width="3"/>
+<path d="M943 124l4-15 3 16" stroke="#476969" stroke-width="2" fill="none"/>
+<path d="M803 259q53-10 106-4t89-7v28l-199 11Z" fill="#779991"/>
+<path d="M809 269l41-3m21 4l41-1m24-8l34-1" stroke="#c5d2b0" stroke-width="2"/>
+<path d="M884 70l11-1 6 210-13 1Z" fill="#9c7953" stroke="#4c4c3f" stroke-width="3"/>
+<path d="M794 173l198-12 1 12-198 12Z" fill="#ad8c5f" stroke="#4e5140" stroke-width="3"/>
+<path d="M787 289l222-13 18 17-244 17Z" fill="#d1b486" stroke="#49463b" stroke-width="4"/>
+<path d="M786 309l240-16-6 10-233 17Z" fill="#876d52" stroke="#4d433a" stroke-width="3"/>
+<path d="M897 219l15-1 1 26-13 1Z" fill="#584c3c" stroke="#3d3e32" stroke-width="2"/>
+<path d="M908 229l18-4 3 6-20 5" fill="#b2a278" stroke="#4b4838" stroke-width="2"/>
+<path d="M780 77l-21 10 6 188 24-16Z" fill="#698077" stroke="#454c40" stroke-width="4"/>
+<path d="M763 100l15-7m-14 24l14-7m-13 25l14-7m-13 24l13-7m-12 25l13-7m-12 25l13-7m-12 25l13-7m-13 24l14-7m-13 25l14-7" stroke="#3d5b56" stroke-width="3"/>
+<path d="M1006 58l17 11 12 197-24 12Z" fill="#61776d" stroke="#454c40" stroke-width="4"/>
+<path d="M1012 83l12 5m-11 14l12 5m-11 14l13 5m-11 14l12 5m-11 14l12 5m-11 15l13 5m-11 14l12 5m-11 14l12 5m-11 15l12 5m-11 14l12 5" stroke="#39584f" stroke-width="3"/>
+<path d="M804 315l-93 120 294-4-27-126Z" fill="#efd59a" opacity=".12"/>
+<!-- Sofa: a worn, angular survivor. The leftmost cushion can hide a small metal strip. -->
+<ellipse cx="241" cy="470" rx="191" ry="25" fill="#262c32" opacity=".45"/>
+<path d="M80 418l27 2-9 55-24-2Zm271 0l28-1 11 54-27 3Z" fill="#4d3e37" stroke="#302e30" stroke-width="4"/>
+<path d="M91 312q14-19 53-17l180 9q36-5 43 20l9 101-290-3Z" fill="url(#sofa)" stroke="#3d3434" stroke-width="5"/>
+<path d="M109 316q6-11 31-9l73 5 4 73-106 1Z" fill="#9e5c49" stroke="#643e39" stroke-width="3"/>
+<path d="M224 311l91 4q31-6 33 16l8 53-132 4Z" fill="#a1614b" stroke="#643e39" stroke-width="3"/>
+<path d="M123 319l-2 49m13-47l-2 51m-3-44l65 4M245 325l68 3m-69 5l3 40" stroke="#cc8d61" stroke-width="2" opacity=".4"/>
+<path d="M84 379l135-4 10 40-143 6Z" fill="url(#cushion)" stroke="#583c37" stroke-width="4"/>
+<path d="M228 378l132-5 15 42-140 6Z" fill="url(#cushion)" stroke="#583c37" stroke-width="4"/>
+<path d="M91 386l122-5m24 4l118-6" stroke="#df9a68" stroke-width="3" opacity=".55"/>
+<path d="M83 420l289-6 11 37-297 5Z" fill="#844a40" stroke="#463435" stroke-width="4"/>
+<path d="M93 431l269-5" stroke="#b16a4c" stroke-width="3"/>
+<path d="M67 348q-15 1-14 25l7 62q0 18 20 17l26-2-4-85q-2-19-35-17Z" fill="url(#sofa)" stroke="#3d3434" stroke-width="5"/>
+<path d="M360 346q29-11 34 17l9 68q2 18-18 18l-28 1-6-82q-1-14 9-22Z" fill="url(#sofa)" stroke="#3d3434" stroke-width="5"/>
+<path d="M63 363q16-10 31 3M362 361q17-10 26 3" fill="none" stroke="#d88c5e" stroke-width="3" opacity=".6"/>
+<path d="M302 334l29 5-5 26-26-5Z" fill="#6e8170" stroke="#403f35" stroke-width="2"/>
+<path d="M303 332l-1 10m11-8l-2 9m12-7l-2 9m-21 11l9 2m14 5l1-9" stroke="#c4b785" stroke-width="2"/>
+<path d="M138 438l15-2 5 8 18-4 13 8" fill="none" stroke="#412f30" stroke-width="3"/>
+<path d="M142 439l1-5m12 8l1-8m10 8l2-5m9 8l3-5" stroke="#b19469" stroke-width="2"/>
+<!-- A crooked coat hook and a work coat, beyond the main clickable objects. -->
+<path d="M703 184l26-2 2 14-27 2Z" fill="#805e43" stroke="#4a4136" stroke-width="3"/>
+<path d="M717 187v12q-1 11-12 9" stroke="#55564a" stroke-width="5" fill="none"/>
+<path d="M707 204l-24 24-9 68 21 4 5-26 4 77 52-1-8-78 11 30 22-10-25-67-27-19-10 12Z" fill="#626d66" stroke="#3b4541" stroke-width="4"/>
+<path d="M707 205l11 27 11-26m-11 27l13 113m-34-93l6-23m43 30l-9-30" stroke="#959984" stroke-width="2" fill="none"/>
+<path d="M705 283l15-1 1 22-17 1Z" fill="#52615b" stroke="#373f3b" stroke-width="2"/>
+<path d="M741 301l9 1 1 19-10-1Z" fill="#877c5d" stroke="#41473c" stroke-width="2"/>
+<!-- Workshop desk and repaired, entirely fictional pre-collapse machinery. -->
+<ellipse cx="1139" cy="456" rx="132" ry="25" fill="#292e32" opacity=".43"/>
+<path d="M1030 336l21-3-4 116-21 6Zm168-9l22 4 13 118-21-1Z" fill="#66503e" stroke="#3d3833" stroke-width="4"/>
+<path d="M1016 326l200-11 27 16-222 17Z" fill="#bd9764" stroke="#4a3d32" stroke-width="4"/>
+<path d="M1021 348l222-17-1 17-219 17Z" fill="url(#wood)" stroke="#4a3d32" stroke-width="4"/>
+<path d="M1049 360l165-11 5 73-171 10Z" fill="#7c5c43" stroke="#423b33" stroke-width="4"/>
+<path d="M1060 367l145-9 2 26-146 9Z" fill="#997349" stroke="#514431" stroke-width="2"/>
+<path d="M1062 400l146-10 2 25-147 9Z" fill="#8b6946" stroke="#514431" stroke-width="2"/>
+<path d="M1113 371l31-2 1 8-32 2Zm3 33l31-2 1 7-32 2Z" fill="#b2a57c" stroke="#4f4c39" stroke-width="2"/>
+<path d="M1035 333l30-2m117-7l23-1m-90 13l49-4" stroke="#ddbc81" stroke-width="2"/>
+<path d="M1095 277l71-4 9 49-78 5Z" fill="#647d75" stroke="#354745" stroke-width="4"/>
+<path d="M1103 283l48-3 6 30-52 4Z" fill="#304e4e" stroke="#a5b496" stroke-width="2"/>
+<path d="M1109 302l10-8 6 5 11-12 13 12" fill="none" stroke="#8ead8d" stroke-width="2"/>
+<path d="M1161 286l5 0m-4 9l6-1m-5 9l6-1" stroke="#bcb997" stroke-width="3"/>
+<path d="M1112 327l30-2-1 7-31 2Z" fill="#425950"/>
+<path d="M1174 312q18-23 25-7t-11 22" stroke="#3d4e45" stroke-width="4" fill="none"/>
+<path d="M1038 314l33-2 2 15-34 2Z" fill="#d1bc86" stroke="#68583c" stroke-width="2"/>
+<path d="M1041 307l31-1 2 8-33 2Z" fill="#8b5a42" stroke="#554333" stroke-width="2"/>
+<path d="M1044 303l31-3 1 8-33 2Z" fill="#7a8b76" stroke="#4d5443" stroke-width="2"/>
+<path d="M1195 284l20-2 4 33-20 3Z" fill="#b7b598" stroke="#515b4b" stroke-width="3"/>
+<path d="M1197 288l17-1m-10-4l-3-22m9 21l7-25m-10 25l-1-31" stroke="#534b3a" stroke-width="3"/>
+<path d="M1154 251l8-25 24-10-2-32" stroke="#3c4943" stroke-width="7" fill="none"/>
+<path d="M1162 228l5-5 17-8" stroke="#a0a187" stroke-width="2" fill="none"/>
+<path d="M1166 186q16-21 31-3l12 28-57-2Z" fill="#50756d" stroke="#3a4a43" stroke-width="4"/>
+<path d="M1156 210l49 2q-25 16-49-2Z" fill="#dec78d" stroke="#3a4a43" stroke-width="3"/>
+<path d="M1154 257l27-2 1 9-29 2Z" fill="#65796b" stroke="#384b42" stroke-width="3"/>
+<!-- A crate, old newspapers, and a small pot: foreground texture with a clear walking area. -->
+<path d="M838 406l83-7 15 54-90 11Z" fill="#796348" stroke="#3d3c33" stroke-width="4"/>
+<path d="M840 416l83-7m-80 23l86-9m-84 23l89-10m-76-32l9 54m39-58l10 54" stroke="#ae8e5f" stroke-width="4"/>
+<path d="M855 400l55-5 5 15-57 5Z" fill="#c0a273" stroke="#5d513a" stroke-width="2"/>
+<path d="M868 398l23-2 2 12-24 2Z" fill="#aa7a57"/>
+<path d="M447 445l60-5 24 10-64 10Z" fill="#bfac85" stroke="#584c3d" stroke-width="2"/>
+<path d="M449 441l48-9 24 10-54 13Z" fill="#dbcca6" stroke="#584c3d" stroke-width="2"/>
+<path d="M460 442l26-5m-12 9l17-3m8-4l9 4" stroke="#96876a" stroke-width="2"/>
+<path d="M15 467q26-13 45-3l-5 45-34 1Z" fill="#8d5d46" stroke="#363a33" stroke-width="4"/>
+<path d="M13 465q27-12 49-2l-2 11q-22-7-45 2Z" fill="#b57c55" stroke="#403d33" stroke-width="3"/>
+<path d="M39 464q-18-28-9-43 17 10 11 37m1-2q7-37 27-39 1 27-26 45m-5-13q-30-7-27-26 22 1 27 26" fill="#5e7761" stroke="#364c40" stroke-width="3"/>
+<path d="M1226 442l35-3 19 14v67l-40-4Z" fill="#655548" stroke="#373938" stroke-width="4"/>
+<path d="M1234 456l46 12m-43 6l43 12m-39 7l39 10" stroke="#8c7252" stroke-width="3"/>
+<!-- Vignette edges are simple opaque shapes, keeping the SVG fast and portable. -->
+<path d="M0 0h8v540H0ZM1272 0h8v540h-8Z" fill="#292e32" opacity=".25"/>
+</svg>

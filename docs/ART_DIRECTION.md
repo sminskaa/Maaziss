@@ -1,0 +1,128 @@
+# Visual and interaction direction
+
+Owner references: Day of the Tentacle (original and redrawn examples), Space Quest VI,
+Sam & Max, and Discworld / Discworld II. These establish visual goals, not a source
+of game assets or a requirement to reproduce their characters, logos or rooms.
+
+## Approved starting point
+
+On 17 October 2026, the owner approved `art/proposals/apartment-cartoon-v2.png` as the
+starting point for the game's visual style. Preserve the original image unchanged.
+Use its painted cartoon texture, ink outlines, palette, warm/cool lighting, room
+furnishings and more restrained door/window geometry as the baseline for future work.
+Maziss is visible in this approved scene composition. Further character turnaround,
+animation, asset separation and gameplay readability work must stay consistent with
+this baseline; approval is not a claim that production assets are already complete.
+Record proposed departures for owner review instead of silently replacing the style.
+
+## Visual goals
+
+- Painted cartoon backgrounds with visible drawing, expressive architecture,
+  exaggerated silhouettes and perspective; avoid restrained flat-vector geometry.
+  Owner feedback: retain the painted style, colours, lighting, furniture and texture,
+  but make door and window frames mostly straight and plausibly constructed. Slight
+  handmade irregularity is welcome; extreme bowed or banana-shaped frames are not.
+- Rich colour and purposeful light: warm lived-in interiors, cool city daylight,
+  coloured shadows, strong foreground framing and depth.
+- Environmental details tell the story of an inhabitant and support readable objects.
+  Maziss is poor, practical and untidy; his workspace contains signs of actual repairs.
+- Original fantasy city with limited remnants of ancient electronics. A broken device
+  is not an excuse to give the story unrestricted technological solutions.
+- Maziss must be visible in scene-composition reviews so his scale and relationship
+  to the room can be judged. A character-free background alone is insufficient.
+  Expressive character proportions and acting will need a separate design pass.
+  The current playable character sprite remains a placeholder.
+- The references include both pixel-era and higher-resolution art. Pixelation is not
+  mandated; first settle the drawing, shapes and colour design.
+
+`art/proposals/apartment-cartoon-v1.png` is an AI-generated art proposal, revised from
+an initial generation using OpenAI image generation on 17 October 2026. It is not yet
+approved or installed as the playable background. Some props and perspective remain
+provisional; avoid treating the distant city silhouette, incidental skull, or mechanical
+clutter as new narrative canon. The image has no character or UI and does not yet
+provide separate layers or animated window states. The art folder is excluded from
+Godot import/export. User reference screenshots are not shipped as game assets.
+
+## Revised scene composition
+
+`art/proposals/apartment-cartoon-v2.png` retains the approved colour, texture, lighting
+and furnishing direction, straightens the door and window frames, and adds a full-body
+design for Maziss. It was edited from v1 using OpenAI image generation. The original
+v1 is retained. The owner has approved v2 as the visual starting point; finer character
+production details remain open, and incidental props do not establish new plot facts. This is a scene composition,
+not a ready-made background/sprite package: it must be separated into production assets
+before replacing the playable SVG room and character. The scene is available through
+`visual-preview/maziss-art-revision-2.html` and the stable preview index.
+
+## Controls
+
+The bottom panel exposes Give, Pick up, Use, Look at, Talk to, Pull, Push, Close and
+Open. A selected verb applies on left-click. Clicking empty walkable floor moves
+Maziss instead. Right-click examines a room object or inventory item while preserving
+the selected verb. The action line describes the intended verb and target.
+
+Inventory objects have persistent graphical icons and readable labels. Select Use or
+Give, then an item, then its target. Selecting another inventory icon with Use attempts
+a combination. Invalid attempts never destroy items. Look at or right-click reads an
+item; a bag panel provides an alternative with labelled controls.
+
+The apartment deliberately has no NPC, so Talk to and Give cannot start a conversation
+or transfer an item yet. No useful item-to-item combination is required here. Push and
+Pull have distinct safe responses but no staged mechanism in this first room. These
+verbs must receive scene-specific behaviours when such targets are introduced.
+
+The strip frees the catch with Use. Open releases the leaflet; Pick up collects it.
+Close can shut the window after collection; Open can reopen it without duplicating
+items. The loose leaflet must be taken before closing so it cannot be trapped or lost.
+
+Movement is currently a smooth translation of the placeholder sprite within a clear
+floor corridor. It is not a completed walking cycle, full navigation mesh, automatic
+walk-to-object interaction, or a multi-room movement system. Its position is temporary
+presentation state, not stored in the puzzle save.
+
+
+## Separate walking study
+
+The approved composition now also has separate working room/character assets under
+`art/walking/`, used in `visual-preview/maziss-walking.html`. That study demonstrates
+obstacle-aware animated movement, while the main Godot game still uses its earlier
+placeholder assets. See WALKING_DEMO.md and the independent QA_WALKING_REVIEW.md for
+what was checked and what still needs owner motion feedback and game integration.
+
+
+## Owner motion correction
+
+The owner rejected the first walking cycle: travel was too slow, the same foot stayed
+ahead, feet slid rather than alternating, arm movement was excessive, and the torso
+leaned too far forward. Treat that gait as rejected, not approved animation. Revised
+walking must show alternating planted feet and swing, quiet arms, a mostly upright
+posture with only slight forward lean, and a faster comfortable pace. Changing frame
+numbers or passing path tests does not demonstrate a correct human walk.
+
+
+## Proportion and motion correction after articulated review
+
+The owner accepts the alternating leg movement, but rejects the v2 cutout proportions,
+rigid arms/torso, fully straight posture and boot-to-leg discontinuity. Preserve the
+new leg mechanics while using v1 overall character proportions as reference. Restore
+a slight forward bend (less than v1, more than v2), modest opposing arm swing and
+small torso motion. Boots must join the trouser legs at their actual ankle/cuff
+location. Do not interpret requests for less motion or bend as requests for none.
+
+
+## Owner rollback: first character, legs only
+
+After reviewing revision 3, the owner rejected further proportion/upper-body tuning.
+Use the actual revision 1 character drawings as the baseline and apply only the
+accepted alternating leg mechanism. Preserve the original head, torso, arms, posture,
+proportions and boot artwork. Do not continue refining the replacement rig. Revision 4
+is this constrained rollback, with the original atlases sampled at runtime.
+
+
+## Walking reference correction (18 October 2026)
+
+Owner rejected revision 4: unnatural human leg motion, including sideways knee bends
+and distorted crossed legs in depth views. No walking revision is approved. Retain
+the first character appearance, but stop presenting contact/navigation test passes as
+proof of natural gait. Use inspected human motion and animator-authored pose guidance;
+see WALKING_REFERENCES.md for sources, access limits and the next side-view study.

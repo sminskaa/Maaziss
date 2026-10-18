@@ -1,0 +1,28 @@
+name: Game feature or creative task
+description: Define one reviewable increment before starting agents.
+title: "[Task] "
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should the player or owner be able to do or see?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Include human visual/story review where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: assignment
+    attributes:
+      label: Assignment and scope
+      description: Worker roles/names, allowed files, reviewer, and usage limit. Default at most two workers.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Result and evidence
+      description: Actual checks, playable/visual review, known limits and owner decision.

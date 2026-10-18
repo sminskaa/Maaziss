@@ -1,0 +1,733 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maziss — agent activity board</title><style>
+body{background:#152128;color:#f5e8ce;font:17px/1.55 system-ui;margin:0;padding:24px}main{max-width:1150px;margin:auto}h1,h2,h3{line-height:1.2}h2{margin-top:38px}article,.notice{background:#22353d;border:1px solid #63766d;border-radius:10px;padding:20px;margin:18px 0}.notice{border-color:#e6b65f}.tag{color:#efbf69;font-weight:bold}p{margin:12px 0}code,pre{font-size:14px;overflow-wrap:anywhere}pre{white-space:pre-wrap;background:#122027;padding:16px;border-radius:8px}summary{cursor:pointer;color:#efbf69}details{margin:14px 0}table{border-collapse:collapse;width:100%}td,th{padding:12px;border-bottom:1px solid #506166;text-align:left}li{margin:8px 0}time,.muted{color:#bec9c7}a{color:#efbf69}
+</style><main><h1>Maziss — agent activity board</h1><div class="notice"><strong>Recorded snapshot, not live monitoring.</strong><p>Last observed update: 18 October 2026, 09:16:29 CEST</p><p>Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.</p><p>This page cannot start, stop or watch native agents itself. Ask the coordinating assistant to check the real agent status and update the board. Browser refresh only reloads the saved snapshot.</p></div><h2>Actual assignments</h2><article><div class="tag">COORD-001 · CEO / coordinator</div>
+<h3>Set up visible agent roles and activity board</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Persist owner decisions and make real delegation understandable.</p><p><strong>Deliverable:</strong> Readable HTML board and beginner workflow guide</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: AGENTS.md, agents/ROLES.md, production/agent-board.json, tools/build_agent_board.py, production/index.html, docs/AGENT_WORKFLOW.md, docs/ART_DIRECTION.md</p><ul><li>Record the approved visual baseline</li><li>List actual worker assignments and evidence</li><li>Label snapshots and inactive roles honestly</li></ul></details>
+<p><strong>Result:</strong> Saved approved visual baseline and seven role definitions; reviewed two real worker reports; HTML board passed browser, report-expansion, narrow-layout and readability checks.</p></article><article><div class="tag">ART-001 · Art director</div>
+<h3>Translate approved visual baseline into a production brief</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/art_director_demo</code></p>
+<p>Review approved v2 artwork and identify concrete asset work for the next increment.</p><p><strong>Deliverable:</strong> production/ART_BASELINE_REVIEW.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/ART_BASELINE_REVIEW.md</p><ul><li>Preserve approved style and restrained frames</li><li>Distinguish composition from background and animation assets</li><li>Give a bounded next-step asset checklist</li></ul></details>
+<p><strong>Result:</strong> Completed and coordinator-reviewed. Wrote ART_BASELINE_REVIEW.md: preserve approved v2; prepare separate background, Maziss and aligned interactive states. No artwork or gameplay changed.</p><details><summary>Read the worker’s report</summary><pre># ART-001 — Approved visual baseline review
+
+Role: Art director. Scope: review and next-increment brief only.
+
+## Owner-approved direction
+
+Use `art/proposals/apartment-cartoon-v2.png` as the preserved visual starting point.
+The owner approved its painted cartoon look, rich colour, texture and lighting, with
+Maziss visible and the door/window straighter than the earlier version.
+
+The image shows the traits to carry forward: expressive ink contours, warm amber
+interior light against turquoise city light, worn red upholstery, handmade timber,
+repair clutter, and dark foreground shapes framing the room. The mostly straight
+door and window frames can retain modest drawing irregularity. Do not restore the
+extreme curved frames or replace this direction with the earlier flat-vector look.
+
+Maziss&#x27;s visible pose establishes a useful scale and silhouette in the room. It does
+not settle every character detail: the story bible still leaves his age and detailed
+appearance open. The city skyline, incidental skull and individual gadgets are
+visual suggestions, not new plot facts or established technology capabilities.
+
+## What still needs production work
+
+This is one composed image. Maziss, furniture, shadows and the window are painted
+together. It is not yet a clean background plus independently movable character,
+foreground layers, inventory icons, or open/closed window states. A character cut
+from the image would leave missing room detail behind him, and one pose does not
+provide walking or interaction animation. The composition&#x27;s presence does not mean
+it has replaced the playable room&#x27;s placeholder assets.
+
+The metal strip, window catch and loose leaflet must become easy to identify at
+the actual game display size. Decorative detail alone does not prove this. The
+lower floor also needs a layout check with the nine-verb panel and inventory shown.
+
+## Proposed next increment — one production-ready room layout proof
+
+These are Art Director suggestions, not newly approved canon or completed work:
+
+1. Preserve v2 unchanged. Make a separate clean background with the room behind
+   Maziss reconstructed, keeping the accepted framing, palette and furniture.
+2. Prepare one transparent full-body Maziss idle sprite at the approved scene scale.
+   Add a small front/side/back reference sheet to resolve clothing and proportions
+   consistently before attempting a walking cycle. Keep design questions explicit.
+3. Separate only what this opening needs: a foreground mask for overlap, the window
+   in closed/open states, the catch, the loose leaflet, and the sofa search area.
+   Supply a readable metal-strip icon and leaflet icon. Avoid splitting every prop.
+4. Assemble a static room mock-up with the character and existing verb/inventory
+   panel. Mark the intended floor path and interactive areas in a separate review
+   overlay. This is a layout proof, not a promise of finished navigation or animation.
+5. Deliver a self-contained HTML review containing the complete scene and close-ups
+   of the interactive objects. The owner can view HTML previews; inline chat image
+   delivery remains unreliable. Do not treat an internal render as delivery proof.
+
+This increment excludes other rooms, a full walk cycle, new story facts, dialogue,
+voice work and game-code replacement. A subsequent increment can integrate approved
+layers and produce animation once character proportions and room readability hold up.
+
+## Acceptance criteria for that increment
+
+- Original v2 stays unchanged; the proposed scene retains its colour, lighting,
+  expressive outlines and restrained door/window geometry.
+- The clean background has no baked-in Maziss or visible removal holes. His separate
+  sprite has clean transparency and convincing floor contact at the shown scale.
+- Closed/open window states align with the same frame. Catch and leaflet states
+  support the established sequence without implying extra items or story events.
+- Sofa, desk notice, catch, leaflet and strip are distinguishable in a preview at
+  gameplay size, with the verb panel and inventory visible. Owner feedback settles
+  subjective clarity; a beautiful full-size image alone is insufficient evidence.
+- The layer list states each asset&#x27;s purpose, dimensions, alignment and overlap;
+  proposed walkable space does not visibly cross furniture.
+- The character reference sheet stays consistent with the visible baseline and
+  explicitly flags unresolved design choices for owner review.
+- The HTML package includes the images, uses readable files/traversable folders,
+  and the owner confirms it opens. No dependence on a working chat image preview.
+
+## Evidence and limits
+
+Reviewed `AGENTS.md`, `agents/ROLES.md`, `docs/ART_DIRECTION.md`,
+`docs/STORY_BIBLE.md`, and the ART-001 brief in `production/agent-board.json`.
+Inspected the actual v2 image with the image viewer. Changed only this review file;
+no artwork, game assets, game code or task-board status changed. No gameplay tests
+were run, and this review does not verify animation, asset separation, playability
+or delivery through the owner&#x27;s interface.
+</pre></details></article><article><div class="tag">QA-001 · Testing director / QA</div>
+<h3>Review current prototype evidence and next-increment acceptance</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/qa_director_demo</code></p>
+<p>Distinguish completed work, documented validation and untested production claims.</p><p><strong>Deliverable:</strong> production/QA_READINESS_REVIEW.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/QA_READINESS_REVIEW.md</p><ul><li>Do not invent or rerun unrelated tests</li><li>Check documented evidence against actual current result files</li><li>State scoped recommendation and unresolved limits</li></ul></details>
+<p><strong>Result:</strong> Completed and coordinator-reviewed. Wrote QA_READINESS_REVIEW.md: existing records show 19 browser checks and 2,505 assertions; go for creative review, no-go for public release. No tests rerun.</p><details><summary>Read the worker’s report</summary><pre># QA-001 — Prototype readiness review
+
+Reviewed 17 October 2026. This is an independent evidence review, not a new test run
+or a security certification. No tests were rerun for this assignment.
+
+**Recommendation: go for owner creative review; no-go for public release.** The
+recorded checks support reviewing the existing apartment prototype. They do not
+establish readiness of the approved painted artwork as playable assets, later scenes,
+or an unrestricted public build. Public release also requires the owner&#x27;s approval.
+
+## What the evidence supports
+
+| Area | Available evidence and limit |
+| --- | --- |
+| Existing apartment interactions | `build/checks/browser-results.json` records 19 checks with an empty error list, including visible floor movement, sofa/tool/window/leaflet progression, inventory preservation, unsupported-verb feedback and the Morgrave plan. This is recorded evidence, not my observation of a fresh run. |
+| Save recovery | The browser record includes checkpoint restoration, page reload, a distinct previous backup and recovery from a corrupted primary save. It does not promise recovery of every unsaved or unsynchronised action. |
+| State model | `.local/cache/checks/model.log` reports Godot 4.6.3 and **2,505 assertions, zero failures**, matching `docs/VALIDATION.md`. The log itself does not record a process exit code or tie the run to a source revision. |
+| Browser scope | The result records Chromium `154.0.8037.57`, consistent with the validation document. No inspected result establishes Firefox, Safari, mobile or real-GPU behaviour. |
+| Controls | The documented nine-verb interface has recorded checks for several relevant behaviours. All nine buttons being present does not mean all nine have useful apartment actions: there is no NPC conversation, Give transfer or required item-to-item combination in this room. |
+| Approved visual direction | `docs/ART_DIRECTION.md` records the owner&#x27;s approval of `art/proposals/apartment-cartoon-v2.png`, including Maziss and restrained frames. It explicitly identifies this as a composition, while the playable background and character remain placeholders. No inspected test establishes integration of that artwork. |
+
+## Claims still outside this review
+
+The validation document reports resource import, startup, export, archive verification,
+repeatable setup, native save-store checks and screenshot inspection. Those claims are
+not contradicted by the two inspected result files, but those files alone do not
+independently demonstrate all of them. Neither includes a run timestamp or source
+revision, so their relationship to the latest working tree remains unproven here.
+
+Dialogue humour, clue fairness and accessibility require human playtesting. Walking
+animation, automatic approaches to objects, later scenes and in-game voice/music are
+unfinished. The accepted development-time voice sample is not in-game audio validation.
+Security, licence provenance, private-file exclusion and performance need explicit
+release checks; this review supplies no guarantee of a bug-free or unhackable game.
+The owner&#x27;s working HTML preview is the delivery route; internal rendering does not
+prove inline chat images work for the owner.
+
+## Acceptance checklist for integrating the approved art
+
+- Preserve v2 unchanged as the approved reference. Make a separate background without
+  a baked-in Maziss, plus a separately drawable character consistent with his approved
+  appearance; agree any character-design changes with the owner.
+- Preserve mostly straight door/window frames, palette, texture and lighting. Check
+  character scale, feet placement, foreground occlusion and clear walkable space.
+- Match visible interactive props to their hotspots and actual state: sofa, metal
+  strip, window catch, open/closed window and collected/uncollected paper. Decorative
+  generated details must not silently become clues or plot facts.
+- Verify legibility of objects, inventory icons, verb selection and subtitles at the
+  supported viewport sizes; confirm the room remains readable behind the interface.
+- Rerun relevant state and browser checks after integration, add visual/state checks
+  for the new assets, and record build/source identity with the results. Agree and
+  measure a target-platform loading, frame-time and memory budget before release.
+- Inspect the actual export for private recordings, caches and proposal/reference
+  assets; obtain owner creative acceptance through the working HTML preview.
+
+## Handoff
+
+**Changed:** only `production/QA_READINESS_REVIEW.md`.
+
+**Inspected:** `AGENTS.md`, `agents/ROLES.md`, QA-001 in
+`production/agent-board.json`, `docs/VALIDATION.md`, `docs/ART_DIRECTION.md`,
+`build/checks/browser-results.json` and `.local/cache/checks/model.log`.
+
+**Unresolved:** no fresh execution, asset integration, source-to-result traceability,
+target-platform/performance certification or public-release approval was established
+by this assignment.
+</pre></details></article><article><div class="tag">ART-002 · Art director / coordinator</div>
+<h3>Prepare room-only background and walking sprite atlas</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Separate approved composition into original room art and an animated character for a walking example.</p><p><strong>Deliverable:</strong> Separate walking-demo assets and a self-contained clickable preview</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: art/walking/, tools/build_walking_demo.py, docs/WALKING_DEMO.md</p><ul><li>Preserve approved room and character direction</li><li>No baked-in character remains in room background</li><li>Walking frame poses have consistent feet alignment and usable transparency</li></ul></details>
+<p><strong>Result:</strong> Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending.</p></article><article><div class="tag">TECH-001 · CTO / movement implementation</div>
+<h3>Build obstacle-aware walking example</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/walking_cto</code></p>
+<p>Implement bounded walkable geometry, collision-safe routing and natural movement in an offline HTML example.</p><p><strong>Deliverable:</strong> walking/index.template.html</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/room.json, walking/navigation.js, walking/demo.js, walking/index.template.html, tests/test_navigation.cjs</p><ul><li>Feet never cross room boundary or furniture footprints</li><li>Clicks on inaccessible areas are handled safely</li><li>Click redirection works during movement</li><li>Animate steps, perspective and acceleration; do not slide a static image</li></ul></details>
+<p><strong>Result:</strong> Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes. Owner later rejected the v1 gait; TECH-002 supersedes its animation.</p></article><article><div class="tag">QA-002 · Testing director / QA</div>
+<h3>Independently challenge the walking example</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/qa_director_demo</code></p>
+<p>Check collision, path, animation, resize and self-contained delivery evidence.</p><p><strong>Deliverable:</strong> production/QA_WALKING_REVIEW.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/QA_WALKING_REVIEW.md, tests/browser_walking.py</p><ul><li>Run meaningful traversal and invalid-click tests</li><li>Inspect actual visual result</li><li>Record limits and defects without claiming release certification</li></ul></details>
+<p><strong>Result:</strong> Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open. Owner rejected v1 naturalness; QA-003 adds actual foot-contact checks.</p><details><summary>Read the worker’s report</summary><pre># QA-002 — Walking example review
+
+**Go for owner review of this standalone walking study. Not a public-release or
+finished-animation approval.** Tested on 17 October 2026 using actual headless
+Chromium 154.0.8037.57 and the self-contained `visual-preview/maziss-walking.html`.
+The earlier Godot puzzle prototype has not been replaced or retested by this work.
+
+## Executed evidence
+
+- `node tests/test_navigation.cjs`: **9,584 assertions passed**, covering 1,025
+  clear navigation nodes, broad endpoint pairs, segment clearance and redirection.
+- `python3 tests/browser_walking.py`: **18 browser checks passed**, no page errors.
+  Ten completed traversal legs included the non-straight route from `(1030,563)` to
+  `(1460,598)` around the chest. Additional furniture, redirection and pause tests ran.
+- The browser harness independently applies Python polygon and edge-distance checks
+  to the recorded feet, rather than merely asking the implementation whether it is
+  correct. The final run retained **1,772 legal position samples**, plus 239 observed
+  animation/movement states. Observed traversal positions did not show a large jump.
+- High-wall clicks stayed rejected; a chest click adjusted to legal nearby floor.
+  Rapid destination changes preserved legal feet, and a mid-walk redirect started
+  at the actual position. Pause froze movement; resuming and a 700 ms blocked browser
+  frame did not cause a catch-up teleport within the harness&#x27;s stated bounds.
+- A real mouse click on a 650 px-wide viewport mapped correctly to room coordinates.
+  Multiple directional frames appeared during movement and the idle frame remained
+  stable after stopping.
+- Both character atlases decoded with substantial real alpha transparency, and all
+  artwork was embedded. The page issued only its initial document request, with no
+  asset or external requests afterward. This was an internal HTTP test; it does not
+  certify every browser&#x27;s local-file or workspace preview handling.
+
+Results: `build/checks/walking/browser-results.json`. Its HTML SHA-256
+`69949ac6e94b5800c234b3b55f95f5e3eece3bba63f982457fcabc2be524656a`
+matches `build/checks/walking/build-manifest.json`. The first harness run encountered
+a CSP restriction on a string polling predicate; using a function predicate fixed
+the harness without weakening the page policy or changing the demo implementation.
+
+## Visual inspection and limits
+
+I inspected the actual `idle.png`, `chest-detour.png`, `narrow-debug.png` and
+`narrow.png` screenshots in the evidence folder. Maziss is clearly visible, without
+an opaque rectangular sprite background or a duplicate character baked into the
+room. Character scale reads plausibly against the door. The room, controls and
+instructions remain visible in the narrow layout. The debug overlay shows furniture
+exclusions in the relevant painted areas; no obvious foot-through-furniture mismatch
+was visible in these sampled views.
+
+During review the coordinator identified that the original 18 px clearance allowed
+a narrow gap between the bench and chest that was implausible for the depicted body.
+Clearance increased to 32 px, and the final node and browser suites above were rerun
+on the rebuilt file; the detour now starts on the doorway side. This correction
+illustrates why geometry tests alone cannot establish visual plausibility.
+
+This is **foot-space collision avoidance**, with a 32 px clearance. It is not a full
+body collision model. The flat background cannot place foreground furniture in front
+of parts of Maziss; painted-object overlap needs depth/occlusion layers for production.
+The authored floor is a conservative subset of the visible floor, so clicks may adjust
+even where an owner might expect to stand. Owner feedback should refine that mapping.
+
+The evidence demonstrates animated movement, speed changes and obstacle routing;
+it does not establish that the animation feels natural. Generated pose consistency,
+turning, foot sliding and body sway still need the owner&#x27;s moving-image judgement.
+Static screenshot inspection cannot certify these. No claim of a tested frame rate,
+memory budget, real-GPU performance or long background-tab suspension behaviour is
+made. Firefox, Safari, mobile touch, keyboard-only interaction, screen-reader usability
+and full game integration were outside this run.
+
+## Next acceptance gates
+
+1. Owner tries the working HTML and judges gait, speed, scale and desired floor access.
+2. Refine any visible pose changes/foot sliding and add appropriate furniture occlusion.
+3. Integrate movement with game hotspots, interaction stopping distances and puzzle state,
+   then rerun the game checks; a standalone navigation result is not integration evidence.
+4. Establish actual target-browser performance and accessibility expectations before
+   any public release decision.
+
+**Changed files:** `tests/browser_walking.py` and this report only. Generated browser
+results and screenshots are under ignored `build/checks/walking/`.
+
+**Inspected:** project instructions and QA-002 brief; `walking/room.json`,
+`navigation.js`, `demo.js`, `index.template.html`; navigation tests; final HTML,
+sprite metadata, build manifest, browser result and four rendered screenshots.
+
+**Unresolved:** owner motion judgement, production animation/occlusion, platform scope,
+performance and game integration. No game code, assets, task board or other documents
+were changed by QA.
+</pre></details></article><article><div class="tag">ART-003 · Art director / coordinator</div>
+<h3>Replace rejected walking poses with a controlled articulated character</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Keep approved visual identity while correcting fixed leading leg, excessive bend and arm swing.</p><p><strong>Deliverable:</strong> Revised HTML walking review with visual gait inspection</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: art/walking/, tools/build_walking_demo.py, walking/demo.js, walking/index.template.html, docs/WALKING_DEMO.md, docs/ART_DIRECTION.md, AGENTS.md</p><ul><li>Alternating left/right contact and swing are visibly different</li><li>Mostly upright torso and restrained arms</li><li>Use HTML delivery only; do not claim the chat renderer is fixed</li></ul></details>
+<p><strong>Result:</strong> Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared.</p></article><article><div class="tag">TECH-002 · CTO / gait implementation</div>
+<h3>Implement planted-foot articulated walking and faster pace</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/gait_cto</code></p>
+<p>Drive alternating legs from travel, plant each stance foot in world space and solve knees/ankles explicitly.</p><p><strong>Deliverable:</strong> walking/gait.js</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/gait.js, tests/test_gait.cjs</p><ul><li>Opposite leg phases and alternating contacts</li><li>Stationary stance feet on straight travel</li><li>Bounded stride, swing lift and knee bend</li><li>Match stride to actual movement and handle turns/stops</li></ul></details>
+<p><strong>Result:</strong> Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride.</p></article><article><div class="tag">QA-003 · Testing director / QA</div>
+<h3>Challenge revised gait rather than just frame progression</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/qa_director_demo</code></p>
+<p>Verify actual foot alternation, planted contacts, faster pace and existing collision-safe routing.</p><p><strong>Deliverable:</strong> production/QA_WALKING_REVISION.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: tests/browser_walking.py, production/QA_WALKING_REVISION.md</p><ul><li>Check both legs, not merely changing frame indices</li><li>Measure stance drift and movement pace</li><li>Review HTML motion/contact evidence</li><li>Retain routing and delivery checks</li></ul></details>
+<p><strong>Result:</strong> Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval.</p><details><summary>Read the worker’s report</summary><pre># QA-003 — Revised gait review
+
+**Go for owner review of the revised walking study. Naturalness remains unapproved.**
+The previous QA established routing and changing images; it did not establish a
+convincing walking cycle. The owner&#x27;s criticism exposed that gap. This review checks
+the actual identities and contacts of both rendered legs, not frame-index changes.
+
+## Final build and executed checks
+
+Reviewed 17 October 2026 using Chromium 154.0.8037.57. Final HTML SHA-256:
+`211288e0b1f652b3dae35c3b008ef0337d9b30ca9e90b43b76d8c5bd2dedc98a`.
+It matches `build/checks/walking-revision/build-manifest.json` (build `b5b9e95d16ba`).
+
+- `node tests/test_gait.cjs`: **15,487 assertions passed**, including 1,570 room-route
+  poses, stance contacts, joint lengths, swing clearance and turns.
+- `node tests/test_navigation.cjs`: **9,584 assertions passed**, 1,025 navigation nodes.
+- `python3 tests/browser_walking.py`: **26 checks passed**, with **2,186 recorded legal
+  root-position samples**. Real browser traversals retain the chest detour, rejected
+  wall clicks, adjusted furniture targets, rapid redirection, scaled mouse mapping,
+  pause/resume, bounded recovery after a blocked frame and self-contained delivery.
+- Both planted and airborne boot ground projections passed the independent Python
+  polygon/32 px clearance check across the browser&#x27;s recorded poses. The rig image
+  decoded with real transparency; no external asset requests or page errors occurred.
+
+The dedicated continuous horizontal route yielded **268 rendered-pose records**:
+
+| Requirement | Measured result |
+| --- | --- |
+| Both legs genuinely change lead | Each identified leg moved both ahead of and behind the body by more than 25 px. |
+| Alternating foot contacts | Six new contacts: **left, right, left, right, left, right**. |
+| Grounded stance foot | Maximum world-contact drift **0 px**, measured separately for each leg/contact ID. |
+| Swing and joint motion | Maximum foot lift **17.02 px**; both knee positions changed relative to their hips. |
+| Brisker horizontal movement | Observed peak **413.75 scene px/s**, above the former 260 px/s ceiling. |
+| Upright torso | Pose lean remained below 2.3 degrees. This measures the rig, not every line in the painted body. |
+
+The phase screenshots briefly use the real Pause control so screenshot latency cannot
+crop a character that has already moved beyond its measured position. They preserve
+actual rendered poses, rather than manufacturing ideal poses. Resume and blocked-frame
+checks examine actual consecutive rendered positions; fixed displacement limits across
+separate automation calls were replaced because call latency is not a frame duration.
+
+## Actual visual review
+
+Inspected final `idle.png`, `chest-detour.png`, `narrow-debug.png` and the seven-pose
+`contact-sheet.png` using image viewing. The contact sheet shows distinct passing and
+wide-stride leg configurations. Boots remain visible and the upper body stays upright;
+the large arm swings from the rejected version are absent. No obvious opaque sprite
+rectangle, detached boot or severe knee seam appeared in those sampled views.
+
+The approach still looks like an articulated cutout: the upper body and arms are quite
+rigid, and knee bend is visible in the initial side-on resting pose. That may need
+further art refinement. Some narrow screenshots catch the short foot-lowering transition
+after arrival; they do not depict a certified final idle stance. Mathematical zero
+contact drift alone cannot prove that boot artwork, shading and perceived weight feel
+natural. The owner must judge the actual moving HTML before approving this gait.
+
+Horizontal pace is 350–440 scene px/s by depth. Vertical projected speed is deliberately
+foreshortened to match the shorter projected stride; it should not be described as
+350–440 px/s in every direction. This review measured horizontal pace and inspected
+the implementation&#x27;s depth scaling; it did not certify perceived cadence in all views.
+
+An independent early room-route challenge found airborne projections entering the
+clearance margin while remaining outside solid furniture. The gait worker corrected
+that before final testing. The final browser clearance check above includes both feet
+through turns. Foot-space clearance still does not supply foreground furniture layers
+or full-body collision/occlusion.
+
+## Scope and handoff
+
+Changed only `tests/browser_walking.py` and this report. Generated results, actual gait
+history, phase crops and rendered screenshots are in `build/checks/walking-revision/`.
+Inspected project instructions, QA-003 brief, gait/navigation/runtime sources and tests,
+final build manifest, browser results and rendered evidence.
+
+No approval of final naturalness, real-device performance, accessibility, other browsers,
+or integration into the Godot puzzle game is implied. HTML previews remain the owner&#x27;s
+working delivery route; these checks do not repair or certify inline chat images.
+</pre></details></article><article><div class="tag">ART-004 · Art director</div>
+<h3>Recover the earlier proportions while retaining improved leg motion</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/character_art_review</code></p>
+<p>Compare v1 character with v2 rig and specify proportion, lean, arm and boot-joint corrections.</p><p><strong>Deliverable:</strong> production/ART_PROPORTIONS_REVIEW.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/ART_PROPORTIONS_REVIEW.md</p><ul><li>Earlier character proportions are the reference, not the v2 cutout shape</li><li>Recommend measurable proportion and restrained motion targets</li><li>Identify boot continuity defects with specific joint locations</li></ul></details>
+<p><strong>Result:</strong> Compared earlier/current proportions and inspected actual corrected idle/moving captures. No gross seam defect in these frames; owner aesthetic approval pending.</p><details><summary>Read the worker’s report</summary><pre># ART-004 — Character proportion and articulation review
+
+Reviewed: original `maziss-side-atlas.png`, `maziss-depth-atlas.png`, articulated
+`maziss-rig-parts.png`, v2 idle/contact-sheet browser captures, `rig.json`,
+`demo.js` and `gait.js`. This is a visual/source review; no art, code or tests changed.
+The owner accepts the new alternating leg mechanics. Preserve them.
+
+## What changed visibly
+
+The v2 figure has an enlarged upper half, narrow lower limbs and small boots. Its
+hands hang in one baked pose. The neutral upper-body source has also removed the
+earlier slouch. These are rendering/calibration defects, not reasons to replace the
+approved identity or regenerate the whole character.
+
+Approximate measurements below use crown-to-sole height, excluding shadows. Source
+landmarks are estimates from actual images; bent poses and perspective affect them.
+
+| Feature | Earlier artwork | V2 rendering/source cause | Useful starting target |
+|---|---|---|---|
+| Crown to belt | Side roughly 45–48%; front roughly 49–50% | `.66 * .84 = .5544H` above pelvis versus `.45H` pelvis-to-ground: about 55% upper half | About 48–50% crown-to-belt and 50–52% belt-to-sole |
+| Side boot length | Roughly 20–23% figure height | `.105 * 249/170 = .154H`: about 15% | Roughly 19–21%, compare at same actual figure height |
+| Trouser width | Upper thigh roughly 10–12%, lower calf 8–10% | Side thigh renders about 9% H before opaque silhouette narrowing | Recover a little thigh fullness, avoid stretching a narrow texture into long sticks |
+| Side boot height | Roughly 14–17%, depending on lifted/tilted pose | 10.5% nominal H | About 13–15%, with a visible trouser cuff overlapping its top |
+
+Do not simply lengthen the legs without reducing the oversize upper-body ratio.
+Rebalance both halves, then compare characters at matching crown-to-sole height.
+Front/back body ratios should stay close to the side figure; retain depth foreshortening.
+
+## Attachment causes and repairs
+
+1. **Boots use the wrong joint.** Shin IK currently ends at ground minus `.018H`,
+   almost the sole. The drawn boot extends `.105H` above ground. Its actual cuff is
+   toward the heel side of the crop, whereas the renderer centres the complete
+   heel-to-toe crop on the leg. Therefore the trouser endpoint dives into the boot&#x27;s
+   lower middle and misses the cuff axis. Register an explicit source cuff/ankle
+   pivot (side approximately x=0.23–0.28, y=0.08–0.20 of the cropped boot, to refine
+   against the actual opaque opening) and a separate sole/contact pivot. Rotate both
+   together. The rendered shin endpoint should land inside that boot opening with
+   a small overlap, not at the centre of its sole. Keep world contacts planted.
+2. **Arms cannot swing independently.** Hands, sleeves and torso are baked into each
+   `body*` part. Rotating that whole image will only rock the person like a plank.
+   Separate/mask source arms at shoulder pivots, retain their painted textures and
+   overlap sleeve/torso seams. Hide the original static arms in the torso pass.
+   Opposing shoulder swings of roughly ±5–8 degrees are a starting point, with a
+   quieter far arm and relaxed slight elbow bend. A tiny hand wiggle alone will not
+   restore arm acting. No broad windmilling or detached shoulder gaps.
+3. **Upper body has nearly no acting.** Current moving torso angle is a constant
+   `direction.x * .025` (about 1.4 degrees), with zero lean at rest. Add a modest
+   persistent side-view forward slouch, initially around 5–8 degrees, then a much
+   smaller cyclic rocking contribution (roughly ±1 degree). Keep belt overlap and
+   shoulder/head relationships intact. The original source&#x27;s bent silhouette means
+   these are calibration suggestions, not universal anatomical measurements.
+4. **Vertical motion should be visible but restrained.** Keep accepted contact-driven
+   leg phases; allow a few pixels of pelvis/body rise/fall at the review scale, and
+   slight shoulder counter-rotation. Do not compensate for frozen arms by greatly
+   increasing whole-body bounce.
+
+## Review required after implementation
+
+Compare original, rejected v2 and corrected figure at equal height, on the same
+background and without debug overlays. Inspect both contact extremes and passing
+poses in left/right and depth movement. Check boot cuffs on the airborne as well as
+planted foot; inspect shoulder seams when the near arm moves away. Existing contact
+and navigation checks remain valuable, but do not certify proportions or naturalness.
+The owner must judge the revised overall appearance and motion.
+
+## Coordinator revision 3 — visual follow-up
+
+Inspected actual browser captures `/tmp/maziss-idle.png` and
+`/tmp/maziss-moving.png`, plus the revised rendering source. At their displayed
+full-scene scale, the corrected character has a visibly more balanced upper/lower
+split and fuller lower limbs. The boots have recovered substantial size and meet
+the trouser cuffs in both supplied poses; there is no obvious sole-centred attachment
+error remaining in these frames. The modest forward bend reads clearly without the
+earlier exaggerated hunch. No gross shoulder gap or duplicated static hand is apparent
+in either capture. The arms remain near the body rather than adopting a broad swing.
+
+Calibration now gives `(.52 * .84 + .45) * 1.12 = .9932` nominal visible height;
+crown-to-belt is roughly 49.3% of that height. Side boot length is about 20.5% of the
+previous nominal visible scale, consistent with the starting target. Shin rendering
+now terminates at the source-registered cuff, separate from the unchanged anatomical
+ankle/contact model. These source calculations corroborate the visible correction;
+they do not establish animation quality by themselves.
+
+No blocking art defect found in these two side-view captures. This limited review
+does not examine every swing phase, left-facing mirror or depth-view shoulder seam,
+and still frames cannot establish whether motion feels natural. Retain browser/contact
+QA and present the revised HTML to the owner for the final appearance/motion judgement.
+</pre></details></article><article><div class="tag">TECH-003 · CTO / coordinator</div>
+<h3>Correct proportions, shoulder motion and trouser-to-boot alignment</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Preserve accepted alternating gait while restoring character shape and subtle motion.</p><p><strong>Deliverable:</strong> Revised walking HTML with comparison views</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/demo.js, tools/build_walking_demo.py, art/walking/rig.json, art/walking/rig-calibration.json, docs/WALKING_DEMO.md</p><ul><li>No return to fixed leading foot or sliding</li><li>Nonzero restrained arm and torso motion with slight forward lean</li><li>Boot cuff joins the shin at its actual ankle point</li><li>Visual proportions match v1 more closely</li></ul></details>
+<p><strong>Result:</strong> Revision 3 and same-scale HTML comparison delivered. Earlier proportions approached; modest independent arm swing, slight lean and source-registered cuffs; accepted alternating gait retained.</p></article><article><div class="tag">QA-004 · Testing director / QA</div>
+<h3>Review proportions and actual rendered continuity</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/qa_director_demo</code></p>
+<p>Check gait retention plus visible proportions, arm/torso motion and cuff alignment.</p><p><strong>Deliverable:</strong> production/QA_CHARACTER_CONTINUITY.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: tests/browser_walking.py, production/QA_CHARACTER_CONTINUITY.md</p><ul><li>Inspect earlier and corrected character at matching scale</li><li>Check actual boot cuff/shin transform continuity</li><li>Measure small but nonzero arm and torso motion</li><li>Retain path/contact regression tests</li></ul></details>
+<p><strong>Result:</strong> 33 browser checks plus 15,487 gait and 9,584 navigation assertions passed. Reviewed seven actual phase images and comparisons. Go for owner review; aesthetic approval pending.</p><details><summary>Read the worker’s report</summary><pre># QA-004 — Character proportions and continuity
+
+**Go for owner review of revision 3. Aesthetic approval remains with the owner.**
+The revised renderer preserves the accepted leg mechanism while changing the painted
+upper body, arm motion and trouser-to-boot registration. This is an HTML review study;
+Godot remains the intended engine for the installed, offline desktop game.
+
+## Executed validation
+
+Tested 17 October 2026 with Chromium 154.0.8037.57:
+
+- **33 browser checks passed**, with no page errors or external asset requests.
+- **15,487 gait assertions and 9,584 navigation assertions passed** in actual Node runs.
+- Browser root-position history contained **2,163 legal samples**. Both airborne and
+  planted foot projections retained the room&#x27;s 32 px clearance through the recorded
+  traversal and turn sequence. Chest detour, invalid clicks, rapid redirection, scaled
+  pointer input, pause/resume and bounded stall recovery still passed.
+
+Actual render/gait history from the dedicated horizontal route contained 266 records:
+
+| Acceptance point | Evidence |
+| --- | --- |
+| Restrained, moving arms | Opposing rotations, both signs observed; maximum absolute rotation **5.9994°**. |
+| Modest painted torso motion | Absolute lean ranged **5.2001–6.7994°**, with a nonzero variation. The anatomical gait solver&#x27;s separate angle remains bounded too. |
+| Corrected proportions | Nominal head-to-pelvis / pelvis-to-floor division is **49.26% / 50.74%**, calculated from the renderer&#x27;s declared dimensions. |
+| Boot registration | Rendered shin endpoints and transformed boot-cuff points had **0 px** difference in sampled metrics. |
+| Retained alternating gait | Six new stance contacts: **left, right, left, right, left, right**; each identified leg crosses ahead of and behind the body. |
+| Retained foot planting and lift | Maximum same-contact world drift **0 px**; maximum swing lift **19.06 px**. |
+| Retained pace | Peak horizontal speed **413.75 scene px/s**; projected depth travel is deliberately slower. |
+
+Pause checks now include the painted torso and arm transforms, not only the root and
+IK pose. Contact screenshots use the real pause control to avoid capture-latency crop
+errors. The test permits at least five alternating contacts for this fixed-length
+route because the corrected character scale increases stride length; this actual run
+recorded six. No implementation or asset was changed by QA.
+
+Tested HTML SHA-256:
+`6a49d8d0d5a81da45b2fe91c3b35fb440208e8b830fd2cb5a867509fb02cb903`.
+It matches `build/checks/walking-revision/build-manifest.json`, build `14378f795dba`.
+Results, gait samples and screenshots are in `build/checks/walking-revision/`.
+
+## Visual inspection and qualifications
+
+Inspected the matching-camera earlier/rejected/corrected comparison, seven actual
+rendered gait phases, and the narrow front-view/debug screenshot. The current version
+has a shorter painted upper body relative to its legs than the rejected version.
+Shoulder/hand positions vary slightly through the phases. Trouser legs visually reach
+the boot shafts; no obvious detached boot, duplicate hand or gross shoulder hole was
+visible in those sampled side phases. The front-view screenshot remains readable at
+the tested narrow viewport, though it catches the short foot-settling transition.
+
+There are limits to these conclusions:
+
+- The 49/51 figure is nominal rig geometry, not a measurement of the painted silhouette
+  after rotation or a proof that the original character likeness is restored. The
+  earlier comparison faces forward while the corrected character is angled; head
+  silhouette, clothing and posture remain visibly different.
+- Zero cuff endpoint error is partly guaranteed by sharing one transformed cuff point
+  between the two draw calls. It establishes mathematical registration, not perfect
+  alignment of opaque pixels or every ankle at every possible angle. The sampled
+  screenshots provide a separate visual check, not exhaustive certification.
+- Rotating masked painted arms can still reveal small seam defects at uninspected
+  phases or directions. A full turn/stop animation review is still warranted before
+  approving the character for production.
+- Contact math does not certify naturalness, weight, appeal, frame rate, accessibility,
+  other browsers or desktop builds. Foreground occlusion and Godot interaction
+  integration remain separate work. Working HTML delivery does not fix chat images.
+
+**Changed:** `tests/browser_walking.py` and this report only.
+
+**Inspected:** `AGENTS.md`, QA-004 brief, current walking runtime and rig metadata,
+gait/navigation test outputs, final manifest and browser evidence, actual gait contact
+sheet, narrow screenshot, and `visual-preview/maziss-character-comparison.html`
+(captured as `character-comparison.png` in the evidence folder).
+
+**Unresolved:** owner approval of appearance and motion, exhaustive seam/turn review,
+production animation/occlusion, and native game integration/performance.
+</pre></details></article><article><div class="tag">TECH-004 · CTO / coordinator</div>
+<h3>First character restored; corrected leg movement only</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Use original v1 painted character and original scale/anchors, replacing only the leg movement with accepted alternating contacts.</p><p><strong>Deliverable:</strong> visual-preview/maziss-walking-v4.html</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/, tools/build_walking_demo.py, tests/browser_original_walking.py, docs/ART_DIRECTION.md, docs/WALKING_DEMO.md, visual-preview/</p><ul><li>Original head/torso/arms and their existing painted acting retained</li><li>Original boot/trouser artwork, not replacement rig</li><li>Accepted alternating planted steps and environment routing retained</li></ul></details>
+<p><strong>Result:</strong> Restored actual first-proposal atlas frames at original scale. Only legs use accepted physical gait; 21 focused browser checks pass, alternating contacts with zero measured stance drift. Upper-body source pixels retained within sparse one-level raster rounding. Owner review pending. Owner subsequently rejected the visible leg movement as unnatural; tests do not establish appearance approval.</p></article><article><div class="tag">RESEARCH-001 · Research / coordinator</div>
+<h3>Human walking references and corrected animation method</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Find actual human motion, animator-made guidance and establish access to Richard Williams material.</p><p><strong>Deliverable:</strong> docs/WALKING_REFERENCES.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: docs/WALKING_REFERENCES.md, docs/ART_DIRECTION.md, visual-preview/maziss-walking-references.html</p><ul><li>Verify reference pages and distinguish unplayed videos from read material</li><li>Confirm book access honestly</li><li>Provide optional recording instructions and HTML reference delivery</li></ul></details>
+<p><strong>Result:</strong> Read motion-capture demo explanation, two Animation Mentor articles, Adobe illustrated guide, Bloop tutorial page and publisher description. Downloaded/decoded public-domain Muybridge sequence. Full book and YouTube playback unavailable here. No runtime changes or worker delegation.</p></article><article><div class="tag">MOTION-001 · Motion analysis / CTO</div>
+<h3>Measure owner video walking poses and stride</h3><p><strong>Task status:</strong> paused</p>
+<p><strong>Actual worker:</strong> <code>/root/human_motion_analysis</code></p>
+<p>Extract actual visible human joint/contact poses, cadence and confidence from owner footage; choose clean side-view full stride and depth evidence.</p><p><strong>Deliverable:</strong> walking/reference-motion.json</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: tools/analyze_walk_references.py, walking/reference-motion.json, production/MOTION_REFERENCE_ANALYSIS.md</p><ul><li>Data derives from supplied recordings, with exact source and time span</li><li>Record uncertainty/occlusion, not fabricated joints or cadence</li><li>Do not publish personal footage or change rendering/navigation</li></ul></details>
+<p><strong>Result:</strong> Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md.</p></article><article><div class="tag">TECH-005 · CTO / coordinator</div>
+<h3>Reference-based human walk and faithful original artwork</h3><p><strong>Task status:</strong> paused</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Replace rejected free IK posing with observed human cycle, proper view projection and original character art.</p><p><strong>Deliverable:</strong> visual-preview/maziss-walking-v5.html</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: walking/, tools/build_walking_demo.py, docs/WALKING_DEMO.md, visual-preview/</p><ul><li>Use observed pose timing and knee/foot relationships</li><li>No sideways knee bend when moving in depth</li><li>Maintain original body/head/proportions and coherent boot joins</li></ul></details>
+<p><strong>Result:</strong> Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md.</p></article><article><div class="tag">QA-005 · Testing / motion review</div>
+<h3>Inspect final reference-based rendered walk</h3><p><strong>Task status:</strong> planned</p>
+<p><strong>Actual worker:</strong> <code>Not started</code></p>
+<p>Review actual side/front/back rendered cycles and path/pause regressions against supplied human footage.</p><p><strong>Deliverable:</strong> production/QA_REFERENCE_WALK.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: tests/browser_reference_walk.py, production/QA_REFERENCE_WALK.md</p><ul><li>Inspect actual phases and report visual defects candidly</li><li>Check relevant rendered geometry/contact safety</li><li>Do not treat numerical assertions as proof of naturalness</li></ul></details>
+<p><strong>Result:</strong> No completed result recorded yet.</p></article><article><div class="tag">HANDOFF-001 · Coordinator / CTO</div>
+<h3>Save source to GitHub and prepare Windows Godot handoff</h3><p><strong>Task status:</strong> running</p>
+<p><strong>Actual worker:</strong> <code>/root</code></p>
+<p>Create a clean versioned prototype checkpoint, exclude personal/generated files, provide source ZIP, Windows instructions and visible backlog.</p><p><strong>Deliverable:</strong> GitHub main checkpoint and build/maziss-opening-source.zip</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: .gitignore, README.md, .github/, docs/, tools/package_source.py, production/agent-board.json</p><ul><li>Windows owner can download/extract/import project.godot without Python or runtime internet</li><li>Personal recordings, caches, models and generated previews excluded</li><li>Document split between placeholder Godot game and unapproved painted walking study</li><li>Run appropriate checks and verify remote saved commit</li></ul></details>
+<p><strong>Result:</strong> Clean source package, Windows guide and GitHub issues1–3 prepared; Linux existing and fresh-unpacked Godot checks pass. GitHub source push is the remaining step.</p></article><article><div class="tag">QA-006 · QA / handoff audit</div>
+<h3>Independent review of source package and owner setup</h3><p><strong>Task status:</strong> completed</p>
+<p><strong>Actual worker:</strong> <code>/root/handoff_qa</code></p>
+<p>Review staged/source package content and Windows instructions for privacy exclusions, completeness and misleading claims.</p><p><strong>Deliverable:</strong> production/QA_WINDOWS_HANDOFF.md</p>
+<details><summary>Assignment and acceptance criteria</summary><p>Allowed files: production/QA_WINDOWS_HANDOFF.md</p><ul><li>Inspect actual archive manifest once generated</li><li>Review Windows instructions and current prototype limits</li><li>Report untested Windows behavior; do not claim native Windows testing</li></ul></details>
+<p><strong>Result:</strong> Independent candidate source ZIP audit passed: 94 curated files+manifest, required game/docs present, no personal recording/model/cache/preview payload. Windows instructions reviewed; native Windows run remains owner task.</p><details><summary>Read the worker’s report</summary><pre># QA-006 — Windows source handoff review
+
+Status: source handoff recommended for owner Windows review; native Windows launch
+remains unverified. Reviewed on 18 October 2026.
+
+Scope: a source checkpoint for the owner to import into Godot on Windows. This is
+not a finished game release or approval of Maziss&#x27;s animation.
+
+## Checks completed
+
+- `project.godot` names the existing `scenes/main.tscn` entry scene, uses Godot 4.6
+  features and the GL Compatibility renderer. The documented engine pin is 4.6.3.
+- The entry scene attaches `scripts/main.gd`; its SVG room/character references and
+  JSON dialogue use portable `res://` paths. No shell wrapper is required to import
+  or run the project using the Windows Godot editor.
+- Save storage uses Godot&#x27;s local `user://` location. Source inspection found no
+  HTTP client, HTTP request or process-execution calls in the game scripts.
+- Current export configuration is Web only. Importing and pressing F5 in the Windows
+  editor does not require a Windows export preset or export templates. A standalone
+  Windows executable has not been prepared or validated in this handoff.
+- The actual game currently loads vector placeholders. The richer painted artwork
+  and rejected walking studies are separate development assets/prototypes.
+- Owner footage lives outside this repository under `/workspace/attachments`.
+  Model environments and generated analysis live in ignored `.local/` and `build/`.
+- Reviewed `docs/WINDOWS_SETUP.md`, `docs/PROJECT_STATUS.md`, `docs/BACKLOG.md`, README
+  and the GitHub issue templates. Import/F5 instructions, no-Python requirement,
+  placeholder-art warning, separate rejected walking study and Windows-test limits
+  accurately describe the existing project. The suggested sofa/window interaction
+  sequence agrees with `scripts/game_state.gd`.
+
+## Actual source archive audit
+
+Inspected `build/maziss-opening-source.zip`: 9,505,699 bytes, 94 source files plus
+`SOURCE_MANIFEST.json`. Audit candidate SHA-256:
+
+`2b0a68695084b7a4504aa6c668cb86c3bfad7eae4d07154cdf5c763f3fe0b12d`
+
+This identifies the audited candidate before this report&#x27;s final update. Rebuilding
+the archive to include the updated report or board necessarily changes that hash.
+
+- All 95 paths are relative under `Maziss/`; no absolute paths, parent traversal or
+  duplicate names were found. Every source entry matches its manifest byte count
+  and SHA-256 hash.
+- Required project, scene, scripts, dialogue, SVG assets and Windows/status/backlog
+  documentation are present.
+- No personal audio/video, model-weight formats, nested archives, Python bytecode,
+  `.env` files, `.git`, `.godot`, `.local`, build output, preview directories,
+  recordings, attachments or private directories were found in the actual ZIP.
+- The private intake note containing personal-recording filenames and workspace
+  paths is excluded. The Git index contains 94 explicitly curated files.
+- The revised helper uses tracked paths only, hard exclusions, symlink rejection
+  and missing-file failure. Untracked personal files are no longer swept into the
+  source archive. This is a focused audit, not a guarantee against every possible
+  sensitive string or malicious future change.
+
+## Validation limits
+
+- Native Windows execution is unavailable in this cloud machine. Linux headless
+  import/model/startup checks cannot establish Windows graphics, input or audio
+  compatibility. The owner must perform the first Windows editor launch.
+- The coordinator reports the existing Linux `tools/check.sh` checks passed and is
+  separately validating a fresh archive extraction. QA did not rerun broad model
+  tests for documentation/packaging changes.
+- No standalone Windows executable, Windows native run, finished graphics review or
+  animation approval is implied by this handoff recommendation.
+
+No blocking archive/privacy/instruction issue was found in the audited candidate.
+Proceed with the source checkpoint and the owner&#x27;s first Windows import/play check.
+Keep the unapproved painted animation as a separate task.
+
+No source files were changed by QA; this report is the only assigned output.
+</pre></details></article><h2>Defined roles</h2><p>A defined role is a set of instructions. It does not mean another agent is running. The coordinator and liaison are currently the same assistant.</p><table><thead><tr><th>Role</th><th>Activation</th></tr></thead><tbody><tr><td>CEO / coordinator</td><td>Current assistant; also human–AI liaison</td></tr><tr><td>Art director</td><td>On demand</td></tr><tr><td>Story director</td><td>Not started for this increment</td></tr><tr><td>CTO</td><td>On demand; coordinator currently handles board tooling</td></tr><tr><td>Testing director / QA</td><td>On demand</td></tr><tr><td>Research director</td><td>Not started for this increment</td></tr><tr><td>Human–AI liaison</td><td>Current assistant; same session as coordinator</td></tr></tbody></table><h2>Observed activity</h2><ol><li><time>18 October 2026, 09:16:29 CEST</time> · <strong>HANDOFF-001</strong>: Source and clean archive import/startup plus2,505state assertions passed. QA completed archive/privacy/instruction audit. Created GitHub issues1–3 for Windows verification, motion correction and art integration.</li><li><time>18 October 2026, 09:10:02 CEST</time> · <strong>HANDOFF-001</strong>: Owner authorized GitHub/local Godot workflow and selected Windows. Read-only Git access confirms remote main still equals initial commit. Coordinator prepares baseline; independent handoff audit brief recorded.</li><li><time>18 October 2026, 09:00:25 CEST</time> · <strong>TECH-005</strong>: Recovered retained raw side tracking and wrote durable resume checkpoint after allowance pause. Native motion worker is inactive; normalized cycle and renderer still unfinished.</li><li><time>18 October 2026, 00:45:37 CEST</time> · <strong>MOTION-001</strong>: Recorded bounded motion-analysis and QA briefs before delegation. Coordinator implements original-art rendering separately.</li><li><time>18 October 2026, 00:12:32 CEST</time> · <strong>RESEARCH-001</strong>: Coordinator completed reference research after owner rejected v4. Saved linked sources/access limits, reference-only HTML and optional filming instructions. No new animation is claimed.</li><li><time>18 October 2026, 00:02:51 CEST</time> · <strong>TECH-004</strong>: Completed first-character rollback and leg-only correction. 21 browser checks passed on final HTML; source hashes confirm accepted gait/navigation unchanged and no replacement rig asset used. No worker delegation; owner aesthetic review pending.</li><li><time>18 October 2026, 00:00:49 CEST</time> · <strong>TECH-004</strong>: Owner rejected v3 appearance and requested first proposal with leg correction only. Coordinator restored original atlases; no worker started for this bounded rollback.</li><li><time>17 October 2026, 23:55:02 CEST</time> · <strong>QA-004</strong>: QA worker reported completed scope: 33 browser checks and leg/navigation regressions pass. Coordinator verified tested output hash and packaged actual pose captures. No blocking defect identified; owner decides naturalness and likeness.</li><li><time>17 October 2026, 23:53:50 CEST</time> · <strong>ART-004</strong>: Native art worker completed scoped source/proportion review and inspected two corrected browser captures. Approved reference preserved; no owner aesthetic approval claimed.</li><li><time>17 October 2026, 23:53:07 CEST</time> · <strong>TECH-003</strong>: Built revision 3: restored body/leg ratio, modest independent shoulder swing, 6 degree lean and shared boot-cuff/trouser endpoint. Preserved v1/v2 HTML and prepared same-scale HTML comparison. Native Art and QA workers are reviewing.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>QA-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>TECH-003</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:48:18 CEST</time> · <strong>ART-004</strong>: Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Owner confirmed final offline desktop target. Recorded bundled assets/local saves/no required runtime AI or server in AGENTS.md and story bible. HTML remains the interim review route.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>QA-003</strong>: Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>TECH-002</strong>: Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride.</li><li><time>17 October 2026, 23:40:29 CEST</time> · <strong>ART-003</strong>: Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared.</li><li><time>17 October 2026, 23:27:54 CEST</time> · <strong>TECH-002</strong>: Coordinator delegated actual articulated-gait implementation to /root/gait_cto; preserved rejected v1 HTML and test evidence for comparison.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>QA-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>TECH-002</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:25:02 CEST</time> · <strong>ART-003</strong>: Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Native agent status confirmed CTO and QA workers completed. Coordinator read final QA report and verified all source/output hashes against tested build 9e16a0fbb447.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>QA-002</strong>: Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>TECH-001</strong>: Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes.</li><li><time>17 October 2026, 23:15:46 CEST</time> · <strong>ART-002</strong>: Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending.</li><li><time>17 October 2026, 23:08:07 CEST</time> · <strong>TECH-001</strong>: Native status confirmed /root/walking_cto running. Coordinator is preparing separate artwork.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>QA-002</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>TECH-001</strong>: Task brief recorded; worker not started yet.</li><li><time>17 October 2026, 23:06:40 CEST</time> · <strong>ART-002</strong>: Task brief recorded; coordinator started asset work.</li><li><time>17 October 2026, 23:00:24 CEST</time> · <strong>COORD-001</strong>: Coordinator completed setup. Verified 3 task cards, 2 embedded reports, expandable details, narrow layouts and preview permissions. Both worker tasks were already confirmed completed by native status tools.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>QA-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:59:36 CEST</time> · <strong>ART-001</strong>: Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable.</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>QA-001</strong>: Native agent tool confirmed worker running: /root/qa_director_demo</li><li><time>17 October 2026, 22:58:07 CEST</time> · <strong>ART-001</strong>: Native agent tool confirmed worker running: /root/art_director_demo</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>QA-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>ART-001</strong>: Brief recorded; no worker started yet.</li><li><time>17 October 2026, 22:57:33 CEST</time> · <strong>COORD-001</strong>: Started agent workflow setup after owner request. Native status showed only /root running.</li></ol><h2>How to use the team</h2><details open><summary>Beginner workflow guide</summary><pre># Learning to use agents on Maziss
+
+## What is running?
+
+This conversation has a coordinating assistant. Native worker agents can be started
+for specific assignments. The initial board demonstration uses an Art Director worker
+and a Testing Director worker, each with a separate assignment and report file.
+
+The product interface may show delegation tool activity, but this workspace does not
+provide the coordinator with a separate user-visible agent-management screen. The
+activity board is an offline HTML snapshot we control, not a claim that such a screen
+exists. Ask “Which agents are running? Update the board” for a real tool-status check.
+The coordinator can inspect agents, send instructions and interrupt its workers using
+the available native tools. You direct those actions through this chat.
+
+## Roles versus agents
+
+A role is an instruction sheet: responsibility, context, allowed files and expected
+output. An agent is an actual model worker carrying out an assignment. A file named
+Art Director does not start a process. Different roles need not use different model
+providers or subscriptions, and they do not automatically need subordinates.
+
+Our role definitions are in agents/ROLES.md. AGENTS.md supplies shared project rules.
+Those files preserve instructions for future work, but do not create a scheduler or
+make agents work while no task is executing. Completed sessions can become unavailable;
+the next task can start a new worker with the same role and saved project context.
+
+## What you do
+
+For the next increment, you can say:
+
+“Run a small agent sprint to prepare the approved apartment art for the game. Show
+assignments before work, use at most two workers at once, and have QA review the result.”
+
+The coordinator writes bounded tasks, starts workers, records who actually ran, reviews
+their outputs and updates the HTML board. You review the visual or playable result.
+You can change direction, ask to stop a task, or request an explanation at any point.
+You do not need to install an external agent framework for this initial workflow.
+
+Useful requests:
+
+- “Which agents are running now? Update the board.”
+- “Explain this task brief before starting it.”
+- “Have the Story Director review Maziss&#x27;s dialogue for knowledge and motivation.”
+- “Ask QA to challenge the proposed acceptance criteria.”
+- “Stop the current workers and show what is complete.”
+- “Keep this increment to one worker to limit my allowance.”
+
+The board embeds worker reports and shows task IDs, objectives, file ownership,
+acceptance criteria, actual worker names, status, results and timestamps in Paris time.
+It is rebuilt by tools/build_agent_board.py from production/agent-board.json. It is
+not connected directly to runtime status. Refreshing the page will not query agents.
+
+## Method and next step
+
+Use short increments: one meaningful goal, clear acceptance criteria, implementation,
+independent review, then owner feedback. The coordinator combines CEO and liaison
+responsibilities. Activate Art, Story, CTO, QA or Research only when the task needs
+them. For a coding increment the CTO worker implements; QA checks separately.
+
+Current priorities are in [BACKLOG.md](BACKLOG.md). The reference-based walking task
+is paused and unapproved; the first Windows local run is the immediate owner check.
+Before substantial work, show named assignments, allowed files, review criteria and
+the worker limit. Future increments use feature branches and pull requests; the owner
+controls creative acceptance and merge decisions. The initial checkpoint establishes
+the existing project on main without marking unfinished art or motion as approved.
+
+## Costs and limits
+
+Native workers consume model usage and can exhaust the same allowance sooner. Parallel
+workers do not create unlimited free capacity or guarantee better work. Keep tasks
+small, avoid repeated full-context handoffs, and start with at most two workers.
+
+No paid service, external AI API, new account or always-running agent server has been
+set up. A genuinely independent background agent service would be a separate engineering
+project involving hosting, credentials, permissions, execution controls and monitoring.
+Do not add that infrastructure just to learn delegation inside this workspace.
+
+## Project memory and GitHub
+
+The approved visual starting point is art/proposals/apartment-cartoon-v2.png, recorded
+in docs/ART_DIRECTION.md and AGENTS.md. This is durable project-file memory, not a
+promise of permanent account-level ChatGPT memory. The initial source checkpoint saves
+code, role files and task records to GitHub; future local edits still need commits and
+pushes. GitHub Issues is the owner-visible backlog and pull requests are the change
+review surface. Neither starts an agent automatically. There is no automatic live
+agent/GitHub synchronization. The local HTML board remains a generated snapshot.
+</pre></details></main></html>

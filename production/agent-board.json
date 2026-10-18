@@ -1,0 +1,616 @@
+{
+  "project": "Maziss",
+  "updated_at": "2026-10-18T07:16:29.892078+00:00",
+  "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
+  "roles": [
+    {
+      "role": "CEO / coordinator",
+      "activation": "Current assistant; also human\u2013AI liaison"
+    },
+    {
+      "role": "Art director",
+      "activation": "On demand"
+    },
+    {
+      "role": "Story director",
+      "activation": "Not started for this increment"
+    },
+    {
+      "role": "CTO",
+      "activation": "On demand; coordinator currently handles board tooling"
+    },
+    {
+      "role": "Testing director / QA",
+      "activation": "On demand"
+    },
+    {
+      "role": "Research director",
+      "activation": "Not started for this increment"
+    },
+    {
+      "role": "Human\u2013AI liaison",
+      "activation": "Current assistant; same session as coordinator"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "COORD-001",
+      "role": "CEO / coordinator",
+      "title": "Set up visible agent roles and activity board",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Persist owner decisions and make real delegation understandable.",
+      "allowed_files": [
+        "AGENTS.md",
+        "agents/ROLES.md",
+        "production/agent-board.json",
+        "tools/build_agent_board.py",
+        "production/index.html",
+        "docs/AGENT_WORKFLOW.md",
+        "docs/ART_DIRECTION.md"
+      ],
+      "deliverable": "Readable HTML board and beginner workflow guide",
+      "acceptance": [
+        "Record the approved visual baseline",
+        "List actual worker assignments and evidence",
+        "Label snapshots and inactive roles honestly"
+      ],
+      "result": "Saved approved visual baseline and seven role definitions; reviewed two real worker reports; HTML board passed browser, report-expansion, narrow-layout and readability checks."
+    },
+    {
+      "id": "ART-001",
+      "role": "Art director",
+      "title": "Translate approved visual baseline into a production brief",
+      "status": "completed",
+      "agent": "/root/art_director_demo",
+      "objective": "Review approved v2 artwork and identify concrete asset work for the next increment.",
+      "allowed_files": [
+        "production/ART_BASELINE_REVIEW.md"
+      ],
+      "deliverable": "production/ART_BASELINE_REVIEW.md",
+      "acceptance": [
+        "Preserve approved style and restrained frames",
+        "Distinguish composition from background and animation assets",
+        "Give a bounded next-step asset checklist"
+      ],
+      "result": "Completed and coordinator-reviewed. Wrote ART_BASELINE_REVIEW.md: preserve approved v2; prepare separate background, Maziss and aligned interactive states. No artwork or gameplay changed."
+    },
+    {
+      "id": "QA-001",
+      "role": "Testing director / QA",
+      "title": "Review current prototype evidence and next-increment acceptance",
+      "status": "completed",
+      "agent": "/root/qa_director_demo",
+      "objective": "Distinguish completed work, documented validation and untested production claims.",
+      "allowed_files": [
+        "production/QA_READINESS_REVIEW.md"
+      ],
+      "deliverable": "production/QA_READINESS_REVIEW.md",
+      "acceptance": [
+        "Do not invent or rerun unrelated tests",
+        "Check documented evidence against actual current result files",
+        "State scoped recommendation and unresolved limits"
+      ],
+      "result": "Completed and coordinator-reviewed. Wrote QA_READINESS_REVIEW.md: existing records show 19 browser checks and 2,505 assertions; go for creative review, no-go for public release. No tests rerun."
+    },
+    {
+      "id": "ART-002",
+      "role": "Art director / coordinator",
+      "title": "Prepare room-only background and walking sprite atlas",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Separate approved composition into original room art and an animated character for a walking example.",
+      "allowed_files": [
+        "art/walking/",
+        "tools/build_walking_demo.py",
+        "docs/WALKING_DEMO.md"
+      ],
+      "deliverable": "Separate walking-demo assets and a self-contained clickable preview",
+      "acceptance": [
+        "Preserve approved room and character direction",
+        "No baked-in character remains in room background",
+        "Walking frame poses have consistent feet alignment and usable transparency"
+      ],
+      "result": "Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending."
+    },
+    {
+      "id": "TECH-001",
+      "role": "CTO / movement implementation",
+      "title": "Build obstacle-aware walking example",
+      "status": "completed",
+      "agent": "/root/walking_cto",
+      "objective": "Implement bounded walkable geometry, collision-safe routing and natural movement in an offline HTML example.",
+      "allowed_files": [
+        "walking/room.json",
+        "walking/navigation.js",
+        "walking/demo.js",
+        "walking/index.template.html",
+        "tests/test_navigation.cjs"
+      ],
+      "deliverable": "walking/index.template.html",
+      "acceptance": [
+        "Feet never cross room boundary or furniture footprints",
+        "Clicks on inaccessible areas are handled safely",
+        "Click redirection works during movement",
+        "Animate steps, perspective and acceleration; do not slide a static image"
+      ],
+      "result": "Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes. Owner later rejected the v1 gait; TECH-002 supersedes its animation."
+    },
+    {
+      "id": "QA-002",
+      "role": "Testing director / QA",
+      "title": "Independently challenge the walking example",
+      "status": "completed",
+      "agent": "/root/qa_director_demo",
+      "objective": "Check collision, path, animation, resize and self-contained delivery evidence.",
+      "allowed_files": [
+        "production/QA_WALKING_REVIEW.md",
+        "tests/browser_walking.py"
+      ],
+      "deliverable": "production/QA_WALKING_REVIEW.md",
+      "acceptance": [
+        "Run meaningful traversal and invalid-click tests",
+        "Inspect actual visual result",
+        "Record limits and defects without claiming release certification"
+      ],
+      "result": "Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open. Owner rejected v1 naturalness; QA-003 adds actual foot-contact checks."
+    },
+    {
+      "id": "ART-003",
+      "role": "Art director / coordinator",
+      "title": "Replace rejected walking poses with a controlled articulated character",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Keep approved visual identity while correcting fixed leading leg, excessive bend and arm swing.",
+      "allowed_files": [
+        "art/walking/",
+        "tools/build_walking_demo.py",
+        "walking/demo.js",
+        "walking/index.template.html",
+        "docs/WALKING_DEMO.md",
+        "docs/ART_DIRECTION.md",
+        "AGENTS.md"
+      ],
+      "deliverable": "Revised HTML walking review with visual gait inspection",
+      "acceptance": [
+        "Alternating left/right contact and swing are visibly different",
+        "Mostly upright torso and restrained arms",
+        "Use HTML delivery only; do not claim the chat renderer is fixed"
+      ],
+      "result": "Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared."
+    },
+    {
+      "id": "TECH-002",
+      "role": "CTO / gait implementation",
+      "title": "Implement planted-foot articulated walking and faster pace",
+      "status": "completed",
+      "agent": "/root/gait_cto",
+      "objective": "Drive alternating legs from travel, plant each stance foot in world space and solve knees/ankles explicitly.",
+      "allowed_files": [
+        "walking/gait.js",
+        "tests/test_gait.cjs"
+      ],
+      "deliverable": "walking/gait.js",
+      "acceptance": [
+        "Opposite leg phases and alternating contacts",
+        "Stationary stance feet on straight travel",
+        "Bounded stride, swing lift and knee bend",
+        "Match stride to actual movement and handle turns/stops"
+      ],
+      "result": "Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride."
+    },
+    {
+      "id": "QA-003",
+      "role": "Testing director / QA",
+      "title": "Challenge revised gait rather than just frame progression",
+      "status": "completed",
+      "agent": "/root/qa_director_demo",
+      "objective": "Verify actual foot alternation, planted contacts, faster pace and existing collision-safe routing.",
+      "allowed_files": [
+        "tests/browser_walking.py",
+        "production/QA_WALKING_REVISION.md"
+      ],
+      "deliverable": "production/QA_WALKING_REVISION.md",
+      "acceptance": [
+        "Check both legs, not merely changing frame indices",
+        "Measure stance drift and movement pace",
+        "Review HTML motion/contact evidence",
+        "Retain routing and delivery checks"
+      ],
+      "result": "Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval."
+    },
+    {
+      "id": "ART-004",
+      "role": "Art director",
+      "title": "Recover the earlier proportions while retaining improved leg motion",
+      "status": "completed",
+      "agent": "/root/character_art_review",
+      "objective": "Compare v1 character with v2 rig and specify proportion, lean, arm and boot-joint corrections.",
+      "allowed_files": [
+        "production/ART_PROPORTIONS_REVIEW.md"
+      ],
+      "deliverable": "production/ART_PROPORTIONS_REVIEW.md",
+      "acceptance": [
+        "Earlier character proportions are the reference, not the v2 cutout shape",
+        "Recommend measurable proportion and restrained motion targets",
+        "Identify boot continuity defects with specific joint locations"
+      ],
+      "result": "Compared earlier/current proportions and inspected actual corrected idle/moving captures. No gross seam defect in these frames; owner aesthetic approval pending."
+    },
+    {
+      "id": "TECH-003",
+      "role": "CTO / coordinator",
+      "title": "Correct proportions, shoulder motion and trouser-to-boot alignment",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Preserve accepted alternating gait while restoring character shape and subtle motion.",
+      "allowed_files": [
+        "walking/demo.js",
+        "tools/build_walking_demo.py",
+        "art/walking/rig.json",
+        "art/walking/rig-calibration.json",
+        "docs/WALKING_DEMO.md"
+      ],
+      "deliverable": "Revised walking HTML with comparison views",
+      "acceptance": [
+        "No return to fixed leading foot or sliding",
+        "Nonzero restrained arm and torso motion with slight forward lean",
+        "Boot cuff joins the shin at its actual ankle point",
+        "Visual proportions match v1 more closely"
+      ],
+      "result": "Revision 3 and same-scale HTML comparison delivered. Earlier proportions approached; modest independent arm swing, slight lean and source-registered cuffs; accepted alternating gait retained."
+    },
+    {
+      "id": "QA-004",
+      "role": "Testing director / QA",
+      "title": "Review proportions and actual rendered continuity",
+      "status": "completed",
+      "agent": "/root/qa_director_demo",
+      "objective": "Check gait retention plus visible proportions, arm/torso motion and cuff alignment.",
+      "allowed_files": [
+        "tests/browser_walking.py",
+        "production/QA_CHARACTER_CONTINUITY.md"
+      ],
+      "deliverable": "production/QA_CHARACTER_CONTINUITY.md",
+      "acceptance": [
+        "Inspect earlier and corrected character at matching scale",
+        "Check actual boot cuff/shin transform continuity",
+        "Measure small but nonzero arm and torso motion",
+        "Retain path/contact regression tests"
+      ],
+      "result": "33 browser checks plus 15,487 gait and 9,584 navigation assertions passed. Reviewed seven actual phase images and comparisons. Go for owner review; aesthetic approval pending."
+    },
+    {
+      "id": "TECH-004",
+      "role": "CTO / coordinator",
+      "title": "First character restored; corrected leg movement only",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Use original v1 painted character and original scale/anchors, replacing only the leg movement with accepted alternating contacts.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "tests/browser_original_walking.py",
+        "docs/ART_DIRECTION.md",
+        "docs/WALKING_DEMO.md",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v4.html",
+      "acceptance": [
+        "Original head/torso/arms and their existing painted acting retained",
+        "Original boot/trouser artwork, not replacement rig",
+        "Accepted alternating planted steps and environment routing retained"
+      ],
+      "result": "Restored actual first-proposal atlas frames at original scale. Only legs use accepted physical gait; 21 focused browser checks pass, alternating contacts with zero measured stance drift. Upper-body source pixels retained within sparse one-level raster rounding. Owner review pending. Owner subsequently rejected the visible leg movement as unnatural; tests do not establish appearance approval."
+    },
+    {
+      "id": "RESEARCH-001",
+      "role": "Research / coordinator",
+      "title": "Human walking references and corrected animation method",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Find actual human motion, animator-made guidance and establish access to Richard Williams material.",
+      "allowed_files": [
+        "docs/WALKING_REFERENCES.md",
+        "docs/ART_DIRECTION.md",
+        "visual-preview/maziss-walking-references.html"
+      ],
+      "deliverable": "docs/WALKING_REFERENCES.md",
+      "acceptance": [
+        "Verify reference pages and distinguish unplayed videos from read material",
+        "Confirm book access honestly",
+        "Provide optional recording instructions and HTML reference delivery"
+      ],
+      "result": "Read motion-capture demo explanation, two Animation Mentor articles, Adobe illustrated guide, Bloop tutorial page and publisher description. Downloaded/decoded public-domain Muybridge sequence. Full book and YouTube playback unavailable here. No runtime changes or worker delegation."
+    },
+    {
+      "id": "MOTION-001",
+      "role": "Motion analysis / CTO",
+      "title": "Measure owner video walking poses and stride",
+      "status": "paused",
+      "agent": "/root/human_motion_analysis",
+      "objective": "Extract actual visible human joint/contact poses, cadence and confidence from owner footage; choose clean side-view full stride and depth evidence.",
+      "allowed_files": [
+        "tools/analyze_walk_references.py",
+        "walking/reference-motion.json",
+        "production/MOTION_REFERENCE_ANALYSIS.md"
+      ],
+      "deliverable": "walking/reference-motion.json",
+      "acceptance": [
+        "Data derives from supplied recordings, with exact source and time span",
+        "Record uncertainty/occlusion, not fabricated joints or cadence",
+        "Do not publish personal footage or change rendering/navigation"
+      ],
+      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+    },
+    {
+      "id": "TECH-005",
+      "role": "CTO / coordinator",
+      "title": "Reference-based human walk and faithful original artwork",
+      "status": "paused",
+      "agent": "/root",
+      "objective": "Replace rejected free IK posing with observed human cycle, proper view projection and original character art.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "docs/WALKING_DEMO.md",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v5.html",
+      "acceptance": [
+        "Use observed pose timing and knee/foot relationships",
+        "No sideways knee bend when moving in depth",
+        "Maintain original body/head/proportions and coherent boot joins"
+      ],
+      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+    },
+    {
+      "id": "QA-005",
+      "role": "Testing / motion review",
+      "title": "Inspect final reference-based rendered walk",
+      "status": "planned",
+      "agent": null,
+      "objective": "Review actual side/front/back rendered cycles and path/pause regressions against supplied human footage.",
+      "allowed_files": [
+        "tests/browser_reference_walk.py",
+        "production/QA_REFERENCE_WALK.md"
+      ],
+      "deliverable": "production/QA_REFERENCE_WALK.md",
+      "acceptance": [
+        "Inspect actual phases and report visual defects candidly",
+        "Check relevant rendered geometry/contact safety",
+        "Do not treat numerical assertions as proof of naturalness"
+      ],
+      "result": null
+    },
+    {
+      "id": "HANDOFF-001",
+      "role": "Coordinator / CTO",
+      "title": "Save source to GitHub and prepare Windows Godot handoff",
+      "status": "running",
+      "agent": "/root",
+      "objective": "Create a clean versioned prototype checkpoint, exclude personal/generated files, provide source ZIP, Windows instructions and visible backlog.",
+      "allowed_files": [
+        ".gitignore",
+        "README.md",
+        ".github/",
+        "docs/",
+        "tools/package_source.py",
+        "production/agent-board.json"
+      ],
+      "deliverable": "GitHub main checkpoint and build/maziss-opening-source.zip",
+      "acceptance": [
+        "Windows owner can download/extract/import project.godot without Python or runtime internet",
+        "Personal recordings, caches, models and generated previews excluded",
+        "Document split between placeholder Godot game and unapproved painted walking study",
+        "Run appropriate checks and verify remote saved commit"
+      ],
+      "result": "Clean source package, Windows guide and GitHub issues1\u20133 prepared; Linux existing and fresh-unpacked Godot checks pass. GitHub source push is the remaining step."
+    },
+    {
+      "id": "QA-006",
+      "role": "QA / handoff audit",
+      "title": "Independent review of source package and owner setup",
+      "status": "completed",
+      "agent": "/root/handoff_qa",
+      "objective": "Review staged/source package content and Windows instructions for privacy exclusions, completeness and misleading claims.",
+      "allowed_files": [
+        "production/QA_WINDOWS_HANDOFF.md"
+      ],
+      "deliverable": "production/QA_WINDOWS_HANDOFF.md",
+      "acceptance": [
+        "Inspect actual archive manifest once generated",
+        "Review Windows instructions and current prototype limits",
+        "Report untested Windows behavior; do not claim native Windows testing"
+      ],
+      "result": "Independent candidate source ZIP audit passed: 94 curated files+manifest, required game/docs present, no personal recording/model/cache/preview payload. Windows instructions reviewed; native Windows run remains owner task."
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-10-17T20:57:33+00:00",
+      "task": "COORD-001",
+      "event": "Started agent workflow setup after owner request. Native status showed only /root running."
+    },
+    {
+      "time": "2026-10-17T20:57:33+00:00",
+      "task": "ART-001",
+      "event": "Brief recorded; no worker started yet."
+    },
+    {
+      "time": "2026-10-17T20:57:33+00:00",
+      "task": "QA-001",
+      "event": "Brief recorded; no worker started yet."
+    },
+    {
+      "time": "2026-10-17T20:58:07+00:00",
+      "task": "ART-001",
+      "event": "Native agent tool confirmed worker running: /root/art_director_demo"
+    },
+    {
+      "time": "2026-10-17T20:58:07+00:00",
+      "task": "QA-001",
+      "event": "Native agent tool confirmed worker running: /root/qa_director_demo"
+    },
+    {
+      "time": "2026-10-17T20:59:36+00:00",
+      "task": "ART-001",
+      "event": "Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable."
+    },
+    {
+      "time": "2026-10-17T20:59:36+00:00",
+      "task": "QA-001",
+      "event": "Native tool confirmed worker completed. Coordinator read and accepted scoped deliverable."
+    },
+    {
+      "time": "2026-10-17T21:00:24+00:00",
+      "task": "COORD-001",
+      "event": "Coordinator completed setup. Verified 3 task cards, 2 embedded reports, expandable details, narrow layouts and preview permissions. Both worker tasks were already confirmed completed by native status tools."
+    },
+    {
+      "time": "2026-10-17T21:06:40+00:00",
+      "task": "ART-002",
+      "event": "Task brief recorded; coordinator started asset work."
+    },
+    {
+      "time": "2026-10-17T21:06:40+00:00",
+      "task": "TECH-001",
+      "event": "Task brief recorded; worker not started yet."
+    },
+    {
+      "time": "2026-10-17T21:06:40+00:00",
+      "task": "QA-002",
+      "event": "Task brief recorded; worker not started yet."
+    },
+    {
+      "time": "2026-10-17T21:08:07+00:00",
+      "task": "TECH-001",
+      "event": "Native status confirmed /root/walking_cto running. Coordinator is preparing separate artwork."
+    },
+    {
+      "time": "2026-10-17T21:15:46+00:00",
+      "task": "ART-002",
+      "event": "Prepared separate approved-style room, side-walk and front/back atlases; built self-contained HTML with real transparency and foot anchoring. Owner gait feedback pending."
+    },
+    {
+      "time": "2026-10-17T21:15:46+00:00",
+      "task": "TECH-001",
+      "event": "Implemented floor/obstacle routing and animated movement. Coordinator increased clearance to 32px after visual review; final geometry passed 9,584 assertions over 1,025 nodes."
+    },
+    {
+      "time": "2026-10-17T21:15:46+00:00",
+      "task": "QA-002",
+      "event": "Independent final QA passed 18 browser checks and validated 1,772 legal positions; build/output hashes match. Go for owner movement review; naturalness, occlusion and Godot integration remain open."
+    },
+    {
+      "time": "2026-10-17T21:15:46+00:00",
+      "task": "QA-002",
+      "event": "Native agent status confirmed CTO and QA workers completed. Coordinator read final QA report and verified all source/output hashes against tested build 9e16a0fbb447."
+    },
+    {
+      "time": "2026-10-17T21:25:02+00:00",
+      "task": "ART-003",
+      "event": "Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow."
+    },
+    {
+      "time": "2026-10-17T21:25:02+00:00",
+      "task": "TECH-002",
+      "event": "Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow."
+    },
+    {
+      "time": "2026-10-17T21:25:02+00:00",
+      "task": "QA-003",
+      "event": "Brief recorded after owner rejected the original gait as sliding, fixed-leg, excessive arm swing, too bent and too slow."
+    },
+    {
+      "time": "2026-10-17T21:27:54+00:00",
+      "task": "TECH-002",
+      "event": "Coordinator delegated actual articulated-gait implementation to /root/gait_cto; preserved rejected v1 HTML and test evidence for comparison."
+    },
+    {
+      "time": "2026-10-17T21:40:29+00:00",
+      "task": "ART-003",
+      "event": "Created upright neutral-arm rig textures, articulated rendering and HTML-only review. Preserved approved room; native chat-image delivery remains unresolved and a support report is prepared."
+    },
+    {
+      "time": "2026-10-17T21:40:29+00:00",
+      "task": "TECH-002",
+      "event": "Completed planted-foot gait with alternating physical leg contacts, bounded IK and obstacle-safe swing. 15,487 assertions passed; coordinator matched faster projected pace to stride."
+    },
+    {
+      "time": "2026-10-17T21:40:29+00:00",
+      "task": "QA-003",
+      "event": "Completed independent review: 26 browser checks, 15,487 gait and 9,584 navigation assertions; alternating left/right contacts, zero measured stance drift and 413.75 px/s peak. Naturalness still requires owner approval."
+    },
+    {
+      "time": "2026-10-17T21:40:29+00:00",
+      "task": "ART-003",
+      "event": "Owner confirmed final offline desktop target. Recorded bundled assets/local saves/no required runtime AI or server in AGENTS.md and story bible. HTML remains the interim review route."
+    },
+    {
+      "time": "2026-10-17T21:48:18+00:00",
+      "task": "ART-004",
+      "event": "Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity."
+    },
+    {
+      "time": "2026-10-17T21:48:18+00:00",
+      "task": "TECH-003",
+      "event": "Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity."
+    },
+    {
+      "time": "2026-10-17T21:48:18+00:00",
+      "task": "QA-004",
+      "event": "Brief recorded after owner accepted leg motion but rejected altered proportions, rigid upper body and boot discontinuity."
+    },
+    {
+      "time": "2026-10-17T21:53:07.459906+00:00",
+      "task": "TECH-003",
+      "event": "Built revision 3: restored body/leg ratio, modest independent shoulder swing, 6 degree lean and shared boot-cuff/trouser endpoint. Preserved v1/v2 HTML and prepared same-scale HTML comparison. Native Art and QA workers are reviewing."
+    },
+    {
+      "time": "2026-10-17T21:53:50.780275+00:00",
+      "task": "ART-004",
+      "event": "Native art worker completed scoped source/proportion review and inspected two corrected browser captures. Approved reference preserved; no owner aesthetic approval claimed."
+    },
+    {
+      "time": "2026-10-17T21:55:02.820975+00:00",
+      "task": "QA-004",
+      "event": "QA worker reported completed scope: 33 browser checks and leg/navigation regressions pass. Coordinator verified tested output hash and packaged actual pose captures. No blocking defect identified; owner decides naturalness and likeness."
+    },
+    {
+      "time": "2026-10-17T22:00:49.931774+00:00",
+      "task": "TECH-004",
+      "event": "Owner rejected v3 appearance and requested first proposal with leg correction only. Coordinator restored original atlases; no worker started for this bounded rollback."
+    },
+    {
+      "time": "2026-10-17T22:02:51.299856+00:00",
+      "task": "TECH-004",
+      "event": "Completed first-character rollback and leg-only correction. 21 browser checks passed on final HTML; source hashes confirm accepted gait/navigation unchanged and no replacement rig asset used. No worker delegation; owner aesthetic review pending."
+    },
+    {
+      "time": "2026-10-17T22:12:32.024700+00:00",
+      "task": "RESEARCH-001",
+      "event": "Coordinator completed reference research after owner rejected v4. Saved linked sources/access limits, reference-only HTML and optional filming instructions. No new animation is claimed."
+    },
+    {
+      "time": "2026-10-17T22:45:37.019993+00:00",
+      "task": "MOTION-001",
+      "event": "Recorded bounded motion-analysis and QA briefs before delegation. Coordinator implements original-art rendering separately."
+    },
+    {
+      "time": "2026-10-18T07:00:25.552515+00:00",
+      "task": "TECH-005",
+      "event": "Recovered retained raw side tracking and wrote durable resume checkpoint after allowance pause. Native motion worker is inactive; normalized cycle and renderer still unfinished."
+    },
+    {
+      "time": "2026-10-18T07:10:02.709714+00:00",
+      "task": "HANDOFF-001",
+      "event": "Owner authorized GitHub/local Godot workflow and selected Windows. Read-only Git access confirms remote main still equals initial commit. Coordinator prepares baseline; independent handoff audit brief recorded."
+    },
+    {
+      "time": "2026-10-18T07:16:29.892078+00:00",
+      "task": "HANDOFF-001",
+      "event": "Source and clean archive import/startup plus2,505state assertions passed. QA completed archive/privacy/instruction audit. Created GitHub issues1\u20133 for Windows verification, motion correction and art integration."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+.godot/
+.local/
+build/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local recordings, derived previews, credentials and private intake notes.
+/voice-preview/
+/visual-preview/
+/attachments/
+/recordings/
+/private/
+/docs/local/
+/docs/WALKING_FOOTAGE_INTAKE.md
+.env
+.env.*
+!.env.example

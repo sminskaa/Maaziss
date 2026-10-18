@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="240" viewBox="0 0 140 240">
+<defs>
+ <linearGradient id="coat" x1="0" x2="1" y2=".6"><stop stop-color="#668a7e"/><stop offset=".55" stop-color="#507368"/><stop offset="1" stop-color="#344e4c"/></linearGradient>
+ <linearGradient id="skin" x1="0" x2="1" y2=".7"><stop stop-color="#e3b786"/><stop offset="1" stop-color="#ba805e"/></linearGradient>
+ <linearGradient id="trousers" x1="0" x2="1"><stop stop-color="#6e6470"/><stop offset="1" stop-color="#474551"/></linearGradient>
+ <linearGradient id="bag" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#b68752"/><stop offset="1" stop-color="#78543d"/></linearGradient>
+</defs>
+<!-- An original, tired itinerant repairman. Transparent background, feet at y234. -->
+<ellipse cx="70" cy="233" rx="52" ry="6" fill="#252e32" opacity=".28"/>
+<!-- Slouched legs, scuffed asymmetric boots. -->
+<path d="M43 151l51-2 4 35-13 35-21-1 7-34-10 1-8 35-21-3 8-36Z" fill="url(#trousers)" stroke="#29393d" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M60 157l3 17 10 9m12-15l4 11-11 27m-33-24l-3 23" fill="none" stroke="#979084" stroke-width="2" opacity=".55"/>
+<path d="M35 207l20 3-1 15q-9 7-31 5l-7-6q3-7 17-7Z" fill="#66503e" stroke="#293437" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M65 211l20 2 6 9 18 2 3 7q-18 7-49-1Z" fill="#68533f" stroke="#293437" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M18 227q19 6 36-1m10 3q25 5 47 0" stroke="#a79877" stroke-width="2" fill="none"/>
+<path d="M35 217l11 1m-14 4l11 1m32-3l9-2m-6 6l9-2" stroke="#b7a887" stroke-width="2"/>
+<!-- Neck and a grubby undershirt. -->
+<path d="M56 69l-1 20 25 10 9-22-13-10Z" fill="url(#skin)" stroke="#493e36" stroke-width="3"/>
+<path d="M56 75l22 4-4 12-18-4Z" fill="#a76e55"/>
+<path d="M45 85l20 5 16-5 17 66-56 7Z" fill="#d5c7a0" stroke="#394640" stroke-width="3"/>
+<path d="M61 97l10 1 4 35m-20 11l31-3" stroke="#a69b7e" stroke-width="2" fill="none"/>
+<!-- Jacket and hanging arms. -->
+<path d="M47 81l-19 9-10 42 8 31 14-3 0-27 8-19-8 48 27 5-5-53 0-20Z" fill="url(#coat)" stroke="#293c3b" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M79 84l18 6 16 23 4 35-15 6-9-29 0 41-25-2 5-55Z" fill="url(#coat)" stroke="#293c3b" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M45 86l-8 22 14-2-8 10 17 27M79 89l10 20-12 2 7 11-12 23" fill="none" stroke="#a2aa89" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M28 120l-4 14 4 14m74-33l6 17m-61 23l11 3" stroke="#9ba88d" stroke-width="2" fill="none" opacity=".65"/>
+<path d="M20 151l18-3 2 10-18 4Z" fill="#718d7b" stroke="#2b403d" stroke-width="2"/>
+<path d="M24 161l12-2 4 14-5 8-8-2-5-10Z" fill="url(#skin)" stroke="#443d34" stroke-width="2.7"/>
+<path d="M29 166l3 9m2-9l3 8" stroke="#95694f" stroke-width="1.5"/>
+<path d="M104 143l14-4 4 10-15 5Z" fill="#708a79" stroke="#2b403d" stroke-width="2"/>
+<path d="M109 151l11-2 4 12-4 10-9-1-5-12Z" fill="url(#skin)" stroke="#443d34" stroke-width="2.7"/>
+<path d="M114 157l2 9m2-10l2 8" stroke="#95694f" stroke-width="1.5"/>
+<!-- Shoulder strap and overstuffed tool satchel. -->
+<path d="M85 85l10 8-42 65-11-5Z" fill="#75563b" stroke="#303e36" stroke-width="2.5"/>
+<path d="M89 93l-43 60" stroke="#bc9560" stroke-width="2"/>
+<path d="M31 145l31 0 9 36-35 8-13-17Z" fill="url(#bag)" stroke="#343c32" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M27 148l31-6 7 16-32 9Z" fill="#c09760" stroke="#394133" stroke-width="3"/>
+<path d="M44 159l9-1 4 15-9 2Z" fill="#e0bf7b" stroke="#625a3a" stroke-width="2"/>
+<path d="M39 178l16-3m-14 8l15-3M34 166l3 10" stroke="#e2b77b" stroke-width="1.8"/>
+<path d="M30 147l-2-14 6-2 3 15m15-4l-2-16 5-2 4 16" fill="#7d9690" stroke="#344540" stroke-width="2"/>
+<!-- Face: uneven, baggy eyes, an expressive nose, a crooked half-grimace. -->
+<path d="M49 27q9-17 34-8l16 17-2 22-8 15-12 7-18-3-10-14-7-16Z" fill="url(#skin)" stroke="#423d35" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M48 44q-11-6-13 4t13 16" fill="#c8936d" stroke="#423d35" stroke-width="3"/>
+<path d="M44 49q-5-2-4 4l6 3" fill="none" stroke="#9a6c50" stroke-width="1.7"/>
+<path d="M56 53l-1 15 9 8 15 1 9-7-1-14-10 8-13-2Z" fill="#7d7865" opacity=".5"/>
+<path d="M56 64l4 3m1 1l3 2m3-3l3 2m4-1l3 2m4-5l3 2m-27-9l3 1m25-5l2 2" stroke="#695e4c" stroke-width="1.3"/>
+<path d="M56 40q6-7 14-1m10-2q7-3 12 2" stroke="#64503c" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M54 45q8-7 17 0-5 8-16 5Z" fill="#efe5c7" stroke="#624c3d" stroke-width="1.8"/>
+<path d="M78 44q7-7 15 0-6 7-14 4Z" fill="#efe5c7" stroke="#624c3d" stroke-width="1.8"/>
+<ellipse cx="66" cy="45" rx="2.3" ry="3.2" fill="#394640"/>
+<ellipse cx="88" cy="44" rx="2.1" ry="3.1" fill="#394640"/>
+<path d="M56 53l12 1m12-2l9-1" stroke="#9c745a" stroke-width="2"/>
+<path d="M76 42l-1 11 13 3-3 6-12-2" fill="#ce9870" stroke="#75543d" stroke-width="2" stroke-linejoin="round"/>
+<path d="M63 65l15 2 7-3" stroke="#5a4437" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M69 70l9 1" stroke="#d5ac80" stroke-width="1.8"/>
+<!-- Uncombed hair follows a deliberately irregular silhouette. -->
+<path d="M44 48l-7-14 4-13-7-6 16 0 1-10 12 8L77 6l2 9 13-2 0 9 11 6-6 16-7-13-10-6-15 7-11-3-4 22Z" fill="#514737" stroke="#333a32" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M46 22l12 0 9-8m-7 13l15-7m8 0l8 6" fill="none" stroke="#8b7750" stroke-width="2"/>
+<path d="M43 40l7 2 0 14-5-1Z" fill="#544c3a"/>
+<path d="M88 53l8-4-4 14-5 5Z" fill="#7c7258" opacity=".5"/>
+</svg>

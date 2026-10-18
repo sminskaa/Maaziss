@@ -1,0 +1,148 @@
+{
+  "width": 1932,
+  "height": 814,
+  "start": {
+    "x": 1040,
+    "y": 690
+  },
+  "clearance": 32,
+  "gridSize": 14,
+  "maxAdjustment": 145,
+  "walkable": [
+    [
+      680,
+      525
+    ],
+    [
+      1510,
+      525
+    ],
+    [
+      1530,
+      580
+    ],
+    [
+      1730,
+      635
+    ],
+    [
+      1700,
+      690
+    ],
+    [
+      1600,
+      786
+    ],
+    [
+      475,
+      786
+    ],
+    [
+      370,
+      729
+    ],
+    [
+      310,
+      650
+    ],
+    [
+      200,
+      620
+    ],
+    [
+      200,
+      600
+    ],
+    [
+      650,
+      575
+    ]
+  ],
+  "obstacles": [
+    {
+      "name": "Bench beneath the window",
+      "polygon": [
+        [
+          1070,
+          515
+        ],
+        [
+          1220,
+          515
+        ],
+        [
+          1220,
+          550
+        ],
+        [
+          1070,
+          550
+        ]
+      ]
+    },
+    {
+      "name": "Chest beneath the window",
+      "polygon": [
+        [
+          1260,
+          520
+        ],
+        [
+          1408,
+          520
+        ],
+        [
+          1412,
+          565
+        ],
+        [
+          1262,
+          565
+        ]
+      ]
+    },
+    {
+      "name": "Jars beside the chest",
+      "polygon": [
+        [
+          1425,
+          516
+        ],
+        [
+          1498,
+          516
+        ],
+        [
+          1504,
+          559
+        ],
+        [
+          1424,
+          559
+        ]
+      ]
+    },
+    {
+      "name": "Workbench stool",
+      "polygon": [
+        [
+          1595,
+          560
+        ],
+        [
+          1690,
+          560
+        ],
+        [
+          1700,
+          617
+        ],
+        [
+          1586,
+          617
+        ]
+      ]
+    }
+  ],
+  "geometryNote": "Authored foot-space approximating the approved painting. Furniture boundaries and 32px foot clearance prevent squeezing through the narrow bench/chest gap; character bodies can overlap background surfaces normally in this single-layer 2D movement study."
+}
