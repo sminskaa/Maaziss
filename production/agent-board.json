@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T19:09:40.180735+00:00",
+  "updated_at": "2026-10-18T19:25:43.744783+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -737,6 +737,31 @@
         "No private input arrays/media in public deliverables"
       ],
       "result": "Native QA completed:26focusedchecks pass on98259839b0e0; actual32renders inspected, packed images/UVs verified,37poseBVHqueries show nohand/forearmbag intersections and noexposedpantbreakthrough. Recommendation: intermediate review only; face, tailoring and paint seams remain."
+    },
+    {
+      "id": "DELIVERY-001",
+      "role": "Coordinator / preview delivery",
+      "title": "Restore an owner-viewable painted review",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Diagnose source-view/visualization failures and supply a compact review without altering the tested character.",
+      "allowed_files": [
+        "tools/build_compact_character_review.py",
+        "AGENTS.md",
+        "docs/MEDIA_PREVIEW_REPORT.md",
+        "production/agent-board.json",
+        "production/index.html",
+        "visual-preview/",
+        "build/checks/preview-delivery/"
+      ],
+      "deliverable": "visual-preview/maziss-review-small.html",
+      "acceptance": [
+        "Actual retained model frames; no artwork/motion change",
+        "Offline video playback plus a still fallback",
+        "Owner confirms panel displays correctly",
+        "Record tested delivery route without claiming platform root cause"
+      ],
+      "result": "Owner confirmed850KB no-script/native-video HTML displays correctly; prior10\u201318MB model reviews failed while older2\u20132.5MB HTML worked. Browser playback/seeking pass with page scripting enabled/disabled. Picture-only fallback79KB. Platform root cause unknown; reusable compact builder saved. No worker spawned for this bounded repair."
     }
   ],
   "events": [
@@ -1064,6 +1089,11 @@
       "time": "2026-10-18T19:09:40.180735+00:00",
       "task": "QA-011",
       "event": "Native QA worker completed final report. Coordinator read26-pass result and actual captures. Independently checked rendered HTML32angle/mode/setting cases offline,192frames, controls, mobile overflow, zero runtime/network errors, matching output/source hashes. No finished-art or Godot integration approval claimed."
+    },
+    {
+      "time": "2026-10-18T19:25:43.744783+00:00",
+      "task": "DELIVERY-001",
+      "event": "Owner explicitly confirmed compact review displays correctly. Coordinator recorded small native-video HTML as primary delivery method, retained actual model frames and original motion/art, and saved reusable encoding helper. No platform renderer repair or official file-size limit is claimed."
     }
   ]
 }

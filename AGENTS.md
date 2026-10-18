@@ -25,6 +25,15 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   pictures or claim repository changes repair the host chat renderer.
   Use readable preview files (0644) and traversable preview folders (0755), and never
   claim chat delivery works solely because an internal browser renders it.
+- On 18 October the owner confirmed older 2–2.5 MB HTML reviews still worked,
+  while the new 10–18 MB reviews opened as source or failed in the web preview.
+  The 850 KB `visual-preview/maziss-review-small.html` successfully displayed in
+  the owner's panel. Prefer a compact review around or below 1 MB with native
+  video controls, an embedded still fallback and no required JavaScript/WebGL.
+  This is a tested workaround, not an established platform size limit or a repair
+  of the chat renderer. Keep larger live models optional. Use
+  `python3 tools/build_compact_character_review.py` after rendering the painted
+  model; it re-encodes actual retained frames without changing art or motion.
 
 ## Agent operation
 
