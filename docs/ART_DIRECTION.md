@@ -170,3 +170,15 @@ The owner authorized using the supplied FBX files for the next attempt. Modest
 cartoon exaggeration remains acceptable when motion is smooth and coherent. Work
 was paused at the owner's request before the FBX extraction/render revision was
 completed, to preserve remaining allowance. No revision 7 has been delivered.
+
+
+## FBX candidate — revision 7
+
+Work resumed at the owner's request. Three supplied FBX walks were actually imported;
+`02-walkforward.fbx` supplies independent left/right joint trajectories for this
+candidate. The original PNGs and character proportions are retained. Runtime masks,
+continuous trouser skinning, camera-depth arm order, neutral planted boots and small
+orphan-fragment cleanup address the five reported rendering defects. The 3D reference
+is retargeted into 2D original drawings, so turning, depth views and planted-foot
+travel remain limited. See WALKING_DEMO.md and production/QA_FBX_WALK.md. Revision 7
+is a new review candidate, not owner-approved animation or Godot integration.

@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T09:22:55.967158+00:00",
+  "updated_at": "2026-10-18T13:17:03.015332+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -489,7 +489,7 @@
       "id": "MOTION-002",
       "role": "FBX motion extraction / CTO",
       "title": "Inspect provided FBX walks and extract continuous skeleton reference",
-      "status": "paused",
+      "status": "completed",
       "agent": "/root/fbx_motion_extract",
       "objective": "Select an ordinary human walk from owner files, inspect skeleton/timing, normalize a loop and retain 3D joint/foot rotation data for camera projection.",
       "allowed_files": [
@@ -505,13 +505,13 @@
         "Keep raw FBX and derived animation data private until reuse rights known",
         "No edits to renderer or other worker files"
       ],
-      "result": "Worker started, then explicitly interrupted after owner requested allowance pause. No completed extraction/helper/report was present at checkpoint; inspect any worker checkpoint on resume."
+      "result": "Imported three ordinary FBX candidates; selected 02-walkforward.fbx frames 234\u2013269, a bilateral 1.166667-second loop. Extracted both legs/arms and foot rotation; fixed-size retarget required. Helper/report complete; raw/derived data retained privately."
     },
     {
       "id": "TECH-007",
       "role": "CTO / art integration coordinator",
       "title": "FBX-driven walk and coherent painted body-part rendering",
-      "status": "paused",
+      "status": "completed",
       "agent": "/root",
       "objective": "Use actual FBX motion while fixing upward neutral boots, sideways front boots, far-arm draw order, stray pixels and detached trouser cuff fragments.",
       "allowed_files": [
@@ -530,14 +530,14 @@
         "No ghost pieces in character silhouette",
         "Actual supplied FBX drives the motion"
       ],
-      "result": "Saved exact owner feedback and resume instructions. Rendering and FBX revision not implemented yet; original assets and all 16 FBX inputs retained."
+      "result": "Built FBX-driven revision 7 (9d7c3a14af4f) with continuous trousers, neutral planted boots, camera-layered arms and disconnected-fragment cleanup. Original PNGs unchanged. Generated interactive HTML and 32 rendered phase captures; awaits owner visual acceptance, no Godot integration."
     },
     {
       "id": "QA-008",
       "role": "Independent rendering and motion QA",
       "title": "Inspect FBX revision against five owner screenshot defects",
-      "status": "planned",
-      "agent": null,
+      "status": "completed",
+      "agent": "/root/fbx_walk_qa",
       "objective": "Independently inspect actual colored silhouettes, neutral views and walking/transition frames; verify FBX provenance and appropriate routing/control regressions.",
       "allowed_files": [
         "tests/browser_fbx_walk.py",
@@ -550,7 +550,7 @@
         "Frame/speed/pose continuity and room navigation remain reviewable",
         "Record remaining limitations and avoid naturalness guarantees"
       ],
-      "result": "Not started; wait for resumed implementation and inspectable FBX candidate."
+      "result": "Native worker completed final report and harness: 54 checks passed on frozen 9d7c3a14af4f. Inspected 52 actual transparent poses; no detached painted components. Flat idle soles, arm layers and continuous trouser joins improved. Ready for private owner review; naturalness, turning, foot sliding, Godot/Windows execution remain outside acceptance."
     }
   ],
   "events": [
@@ -803,6 +803,21 @@
       "time": "2026-10-18T09:22:55.967158+00:00",
       "task": "TECH-007",
       "event": "Owner requested immediate pause to preserve remaining allowance. Native FBX worker explicitly interrupted. Saved detailed resume checkpoint; no FBX revision or new test pass claimed."
+    },
+    {
+      "time": "2026-10-18T12:53:37.664048+00:00",
+      "task": "TECH-007",
+      "event": "Owner requested resume. No prior extraction outputs present; existing checkout/tools/16-file private manifest verified. Coordinator handles rendering; bounded FBX extraction resumes."
+    },
+    {
+      "time": "2026-10-18T13:16:12.526902+00:00",
+      "task": "TECH-007",
+      "event": "Completed revision 7 after correcting mesh seams and a resampling-induced ghost fragment. Independent QA reports 54/54 focused checks on frozen 9d7c3a14af4f, including 52 actual transparent poses. Final QA report is being saved; no owner approval or Godot integration claimed."
+    },
+    {
+      "time": "2026-10-18T13:17:03.015332+00:00",
+      "task": "QA-008",
+      "event": "Native worker completed final report and harness. Coordinator read report, verified 54/54 results and matching source/output hashes, and inspected final grey and room phase sheets. Raw/derived motion remains private; no merge or creative acceptance claimed."
     }
   ]
 }

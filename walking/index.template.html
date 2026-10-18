@@ -10,7 +10,7 @@
 </style>
 </head>
 <body><main>
-<h1>Maziss: image-guided walking — revision 6</h1>
+<h1>Maziss: FBX walking — revision 7</h1>
 <p>Click the floor. Maziss finds a route around the furniture. Click again to change his destination.</p>
 <div class="views"><div class="stage"><img id="room-fallback" src="__BACKGROUND_URL__" alt="Maziss’s room. The interactive character appears when the walking example finishes loading." style="display:block;width:100%;height:auto"><canvas style="display:none" id="room" width="1932" height="814" tabindex="0" role="application" aria-label="Maziss apartment walking study" aria-describedby="instructions status">Your browser needs canvas support for this walking example.</canvas></div><div class="stage detail"><canvas id="detail" width="360" height="540" aria-label="Live character close-up"></canvas><p>Live character close-up</p></div></div>
 <nav aria-label="Walking controls"><button id="reset" type="button">Reset position</button><button id="stand" type="button">Stand still</button><button id="pause" type="button" aria-pressed="false">Pause</button><label><input type="checkbox" id="debug">Show walkable area</label><label><input type="checkbox" id="feet">Show footsteps</label></nav>
@@ -20,8 +20,10 @@
 <noscript><p>This walking example needs JavaScript enabled in your browser.</p></noscript>
 <footer class="note">Movement study using the approved art direction. No inventory, dialogue or puzzle actions here yet. Everything needed is inside this file; no account or connection is required.</footer>
 </main>
-<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const IMAGE_MOTION=__IMAGE_MOTION_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";</script>
+<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const FBX_MOTION=__FBX_MOTION_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";</script>
 <script>__NAVIGATION_JS__</script>
 <script>__GAIT_JS__</script>
+<script>__FBX_GAIT_JS__</script>
+<script>__CHARACTER_JS__</script>
 <script>__DEMO_JS__</script>
 </body></html>

@@ -1,64 +1,44 @@
-# Resume checkpoint — FBX walk and rendering corrections
+# Walking checkpoint — FBX revision 7
 
-## Immediate status
+The owner requested resumption after the allowance pause. Revision 7 now uses an
+actual imported FBX ordinary walk and preserves the first original character art.
+Branch: `feat/reference-human-walk`; draft PR #4. Do not merge without the owner.
+The main Godot game still has placeholder graphics; this is a separate HTML study.
+Final build `9d7c3a14af4f` passed 54 focused browser/pixel checks. This establishes
+the scoped rendering/control checks, not owner acceptance of human naturalness.
 
-The owner requested a pause because allowance is nearly exhausted. Stop new motion
-work until they return. Agents do not continue indefinitely or resume automatically.
-Current branch is `feat/reference-human-walk`; draft PR #4 contains the earlier
-image-guided revision 6. The Godot game remains unchanged with placeholder art.
-The last completed HTML is `visual-preview/maziss-walking-v6.html`, build
-`cdeb00514796`; its 48 technical checks did not establish visual acceptance.
-No FBX-based revision 7 has been built or approved.
+## Review artifacts and implementation
 
-## Owner's latest feedback — must address
+- `visual-preview/maziss-walking-v7.html`: interactive room, four study directions,
+  live close-up, idle, slow playback and frame stepping.
+- `visual-preview/maziss-walking-v7-poses.html`: actual phase captures.
+- `production/FBX_MOTION_REVIEW.md`: imports, selected cycle and extraction caveats.
+- `production/QA_FBX_WALK.md`: final checks and candid visual limits.
+- `walking/fbx-gait.js`: actual bilateral joint interpolation and fixed-length retarget.
+- `walking/character-renderer.js`: runtime masks, continuous pants, depth layers,
+  flat idle boots and disconnected-fragment cleanup.
+- `docs/WALKING_DEMO.md`: controls and reproduction requirements.
 
-1. Side-view resting boots point up. Visually plant the soles.
-2. The arm farther from the camera incorrectly appears in front. Respect depth
-   ordering for every body part.
-3. Front-view resting boots lean sideways. Keep neutral boots upright and grounded.
-4. A detached ghost sliver appears ahead of Maziss. Clean source-part masks.
-5. Trouser bottom pixels detach and travel with the boot. Keep trouser cuffs part
-   of a continuous trouser leg and align the boot top underneath.
+Selected source: `02-walkforward.fbx`, frames 234–269 at 30 fps (1.166667 seconds).
+Both legs/arms were extracted independently. Idle is authored separately from the
+source T-pose and walking foot pitch. Three ordinary walks were inspected, not all16.
 
-Preserve the original character design and approved room PNG. Slight exaggeration
-is welcome if the result is smooth, coherent and recognizably human. HTML panel
-works for the owner; chat embedded images do not.
+## Retained boundaries
 
-## Inputs and retained work
+Original approved room and character PNGs are unchanged. All16 supplied FBX files
+remain outside the repository, listed by the ignored private intake. Extracted curves,
+local previews and source skeletal review are private; no redistribution licence is
+established. Public helpers/reports do not include source animation arrays. Rebuilds
+need retained private inputs, not merely a fresh public checkout.
 
-- All 16 supplied FBX files were downloaded outside the public repository. The
-  ignored `private/motion/fbx-intake.json` records names, paths, sizes and hashes.
-- Original walking videos and three image sheets remain prior references. The
-  image-only attempt is already complete; the owner now explicitly requests FBX.
-- Blender 4.3.2 and its FBX importer were previously verified available.
-- Task briefs MOTION-002, TECH-007 and QA-008 are in production/agent-board.json.
-- `/root/fbx_motion_extract` was started for MOTION-002, then interrupted on the
-  owner's pause request. At checkpoint inspection there was no completed extraction
-  helper, motion JSON or report. Do not assume an animation has been selected or
-  extracted; inspect any later worker checkpoint before doing more work.
+HTML panel delivery works for the owner; chat embedded images do not. Deliver readable
+0644 HTML files in the 0755 preview folder. Do not claim repository edits repair the
+chat renderer. No paid services, new dependencies, required runtime AI or server.
 
-## Next actions when owner resumes
+## Remaining work after owner feedback
 
-1. Check branch/status and retained inputs; read AGENTS.md and ART_DIRECTION.md.
-2. Resume bounded FBX extraction (MOTION-002). Inspect ordinary walks first:
-   `10-WalkCycle_01_MIXAMO_769.fbx`, `02-walkforward.fbx`, then slow walk. Avoid
-   running/injured/wind clips as the baseline. Actually import and inspect timing,
-   skeleton/coordinates and a clean loop. Keep raw and derived animation private
-   while provenance/reuse rights are unresolved; public helper/report can describe
-   the method without embedding motion arrays or private absolute paths.
-3. Implement revision 7 from real FBX joint trajectories, preserving original
-   cartoon proportions. Treat neutral standing separately from walking foot pitch.
-4. Fix rendering alongside motion: far arm before torso, near arm after; remove
-   detached silhouette islands; keep pants/cuffs out of boot masks. Current source
-   locations are originalLegs, originalBoot and originalUpper in walking/demo.js.
-   The present Side boot polygon includes trouser/cuff pixels, and front boots are
-   tilted by the cuff-to-sole affine transform. Inspect actual painted pixels.
-5. Start independent QA-008 after an inspectable candidate exists. Require actual
-   idle side/front/back and moving close-up review for all five screenshot defects;
-   mathematical joint equality alone is insufficient. Retain routing/controls.
-6. Deliver a new self-contained revision 7 HTML with 0644 files/0755 directory,
-   save source to the feature branch/update draft PR, and leave merge/creative
-   acceptance to the owner. Do not silently integrate into Godot.
-
-No motion work or tests beyond checkpoint/input checks were completed after the
-owner requested the pause.
+Judge actual moving playback, not only geometric test passes. Front/back foot roll,
+view switches while turning and world-space foot planting remain approximate. Further
+motion corrections should be driven by observed defects in this candidate. Only after
+creative acceptance should we integrate the art/movement into Godot. Owner approval
+and merge remain separate from scoped QA results; do not claim a finished release.
