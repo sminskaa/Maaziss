@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T13:17:03.015332+00:00",
+  "updated_at": "2026-10-18T13:56:02.742681+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -551,6 +551,51 @@
         "Record remaining limitations and avoid naturalness guarantees"
       ],
       "result": "Native worker completed final report and harness: 54 checks passed on frozen 9d7c3a14af4f. Inspected 52 actual transparent poses; no detached painted components. Flat idle soles, arm layers and continuous trouser joins improved. Ready for private owner review; naturalness, turning, foot sliding, Godot/Windows execution remain outside acceptance."
+    },
+    {
+      "id": "TECH-008",
+      "role": "Character rendering / coordinator",
+      "title": "Keep garments and equipment continuous through the FBX walk",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Preserve improved FBX gait while repairing holes, stray clothing, one-sided depth boots and apparent trouser length pulsing. Use complete item layers rather than subtractive holes.",
+      "allowed_files": [
+        "walking/",
+        "art/walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_fbx_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v8.html",
+      "acceptance": [
+        "Preserve original face/proportions and improved walk",
+        "Complete torso, bag and clothing coverage when arms move",
+        "Directional boots correctly handed",
+        "Cloth follows projected bone with no extra length oscillation"
+      ],
+      "result": "Built revision 8, frozen 5c3d7d3fcda2: complete jacket backing under original torso core, intact separate satchel, corresponding depth trouser/boot art and cloth ends on actual animated cuffs. Original face/atlases/FBX gait unchanged. Interactive HTML plus phase/part-layer review generated. Owner acceptance pending."
+    },
+    {
+      "id": "QA-009",
+      "role": "Independent character continuity QA",
+      "title": "Review moving clothing continuity and front/back projection",
+      "status": "completed",
+      "agent": "/root/clothing_continuity_qa",
+      "objective": "Diagnose reported v7 rendering defects and later inspect v8 actual moving/neutral renders, garment holes, detached fragments, directional boots and trouser geometry.",
+      "allowed_files": [
+        "tests/browser_clothing_walk.py",
+        "production/QA_CLOTHING_WALK.md",
+        "build/checks/clothing-walk/"
+      ],
+      "deliverable": "production/QA_CLOTHING_WALK.md",
+      "acceptance": [
+        "Inspect actual images and moving phase sequences, not metadata only",
+        "Check internal garment holes as well as disconnected silhouette fragments",
+        "Keep technical and creative acceptance distinct",
+        "Do not edit runtime renderer or assets"
+      ],
+      "result": "Native worker completed 44 passing checks on frozen 5c3d7d3fcda2; 100 actual whole poses and 80 isolated item captures. No sampled garment/leather holes or fragments above stated thresholds; cuff and paired-shoe pixel checks pass. Visual neck/shoulder correction confirmed. Repaired 2D rig retains some old satchel texture below rigid replacement; no naturalness, Windows or Godot acceptance claimed."
     }
   ],
   "events": [
@@ -818,6 +863,16 @@
       "time": "2026-10-18T13:17:03.015332+00:00",
       "task": "QA-008",
       "event": "Native worker completed final report and harness. Coordinator read report, verified 54/54 results and matching source/output hashes, and inspected final grey and room phase sheets. Raw/derived motion remains private; no merge or creative acceptance claimed."
+    },
+    {
+      "time": "2026-10-18T13:41:19.457674+00:00",
+      "task": "TECH-008",
+      "event": "Owner finds FBX motion much better and requests remaining garment/bag continuity, depth boot and trouser pulsing corrections. Recorded bounded coordinator and independent QA scopes."
+    },
+    {
+      "time": "2026-10-18T13:56:02.742681+00:00",
+      "task": "QA-009",
+      "event": "Native worker completed final test/report. Coordinator read report, inspected actual side/front poses and phase sheet, and verified source/output hashes and unchanged original artwork/FBX gait. 44 focused checks passed; no full navigation rerun because routing unchanged. Revision 8 ready for private owner review."
     }
   ]
 }

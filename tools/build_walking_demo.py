@@ -40,6 +40,7 @@ def main() -> None:
         '__BACKGROUND_URL__':embedded_image(ART/'apartment-background.png',False),
         '__RIG_ATLAS_URL__':embedded_image(ART/'maziss-side-atlas.png',True),
         '__DEPTH_ATLAS_URL__':embedded_image(ART/'maziss-depth-atlas.png',True),
+        '__CLOTHING_ATLAS_URL__':embedded_image(ART/'maziss-clothing-repair.png',True),
         '__NAVIGATION_JS__':(ROOT/'walking/navigation.js').read_text(),
         '__GAIT_JS__':(ROOT/'walking/image-gait.js').read_text(),
         '__DEMO_JS__':(ROOT/'walking/demo.js').read_text(),
@@ -54,7 +55,7 @@ def main() -> None:
     source_paths=['walking/room.json','walking/navigation.js','walking/image-gait.js','walking/fbx-gait.js','walking/character-renderer.js','walking/demo.js',
                   'walking/index.template.html','tools/build_walking_demo.py',
                   'art/walking/apartment-background.png','art/walking/maziss-side-atlas.png',
-                  'art/walking/maziss-depth-atlas.png', 'walking/original-sprites.json']
+                  'art/walking/maziss-depth-atlas.png','art/walking/maziss-clothing-repair.png', 'walking/original-sprites.json']
     hashes={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in source_paths}
     hashes['private/motion/fbx-motion.json']=hashlib.sha256(args.motion.read_bytes()).hexdigest()
     identity=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
@@ -64,10 +65,10 @@ def main() -> None:
     target.parent.chmod(0o755)
     target.write_text(html)
     target.chmod(0o644)
-    revision=target.parent/'maziss-walking-v7.html'
+    revision=target.parent/'maziss-walking-v8.html'
     revision.write_bytes(target.read_bytes())
     revision.chmod(0o644)
-    evidence=ROOT/'build/checks/fbx-walk'
+    evidence=ROOT/'build/checks/clothing-walk'
     evidence.mkdir(parents=True,exist_ok=True)
     (evidence/'build-manifest.json').write_text(json.dumps({'built_at':datetime.now(timezone.utc).isoformat(),'build':identity,'source_sha256':hashes,'output_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'bytes':target.stat().st_size},indent=2)+'\n')
     print(f'Created {target.relative_to(ROOT)} ({target.stat().st_size:,} bytes); build {identity[:12]}')

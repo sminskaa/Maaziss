@@ -182,3 +182,21 @@ orphan-fragment cleanup address the five reported rendering defects. The 3D refe
 is retargeted into 2D original drawings, so turning, depth views and planted-foot
 travel remain limited. See WALKING_DEMO.md and production/QA_FBX_WALK.md. Revision 7
 is a new review candidate, not owner-approved animation or Godot integration.
+
+
+## Clothing continuity correction — revision 8
+
+The owner finds the FBX walk much better and wants this motion retained. Remaining
+feedback concerns holes/stray garment fragments, disconnected clothes/bag, both
+front-view boots leaning observer-left, and front/back trouser shortening beyond
+natural movement. Each garment and item must remain a continuous object.
+
+The renderer now uses complete painted jacket backing underneath original torso
+and neck detail, plus an intact separate satchel; arms never uncover subtractive
+holes in those items. Head/face and original atlases remain unchanged. New repair
+art is documented in art/walking/CLOTHING_REPAIR.md. Each front/back leg uses its
+actual corresponding trouser and boot drawing. Cloth endpoints are the actual
+skeletal cuffs, removing the previous extra screen-space cuff displacement.
+The supplied FBX motion and timing are unchanged. This remains 2D layered animation,
+not a set of 3D garment models or cloth simulation; natural foreshortening and
+simplified turns still require visual judgement. See production/QA_CLOTHING_WALK.md.

@@ -9,7 +9,7 @@ The final product is intended to be an offline desktop Godot game.
 | In-game graphics | Original SVG placeholders; not the approved painted cartoon presentation |
 | Approved visual direction | `art/proposals/apartment-cartoon-v2.png`; retained unchanged |
 | Painted walking experiment | Separate HTML/Canvas study in `walking/`; previous revisions rejected by owner |
-| Reference-based walk | Revision 7 uses actual FBX joint trajectories with revised boots, limb layering and continuous trousers; separate HTML candidate awaits owner review |
+| Reference-based walk | Owner finds revision 7 much better; revision 8 corrects remaining garment coverage, bag continuity, paired boots and depth cuff displacement in separate HTML |
 | Voice | Development-only synthesis tool and accepted sample voice; personal recordings/models/audio excluded; no in-game speech |
 | World/story | Owner-established facts in STORY_BIBLE.md; opening puzzle in OPENING.md |
 | Later scenes/cutscene | Not implemented |

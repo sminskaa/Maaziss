@@ -3,7 +3,7 @@
   const canvas=document.getElementById('room'),ctx=canvas.getContext('2d');
   const detail=document.getElementById('detail'),detailContext=detail.getContext('2d');
   const status=document.getElementById('status'),pauseButton=document.getElementById('pause');
-  const nav=new MazissNavigation.Navigation(ROOM),background=new Image(),atlas=new Image(),depthAtlas=new Image();
+  const nav=new MazissNavigation.Navigation(ROOM),background=new Image(),atlas=new Image(),depthAtlas=new Image(),clothingAtlas=new Image();
   const gait=new MazissFbxGait.Gait(FBX_MOTION);
   let painted=null;
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -108,9 +108,10 @@
   });
   document.addEventListener('visibilitychange' ,()=>{lastTime=null;});
   window.mazissWalk={goTo,reset,nav,navigation:nav,geometry:ROOM,
+    renderPose:(context,pose,height)=>painted.draw(context,pose,height),getPainter:()=>painted,
     getState:()=>({ready,position:{...pos},speed,moving,paused,facing,direction,travel,study,pose,render:renderMetrics,target:target?{...target}:null,requested:requested?{...requested}:null,path:waypoints.map(p=>({...p})),samples:samples.map(p=>({...p})),commands:commands.map(p=>({...p}))}),
     getGaitSamples:()=>JSON.parse(JSON.stringify(gaitSamples))};
-  let loaded=0;function load(){if(++loaded===3){painted=new MazissPaintedCharacter.Character(atlas,depthAtlas);ready=true;pose=gait.getPose();document.getElementById('room-fallback').hidden=true;document.getElementById('room-fallback').style.display='none';canvas.style.display='block';say('Ready. Click an open patch of floor.');}}
-  background.onload=atlas.onload=depthAtlas.onload=load;background.onerror=atlas.onerror=depthAtlas.onerror=()=>say('The embedded artwork could not be loaded. Please report this preview error.');
-  background.src=BACKGROUND_URL;atlas.src=ATLAS_URL;depthAtlas.src=DEPTH_ATLAS_URL;requestAnimationFrame(tick);
+  let loaded=0;function load(){if(++loaded===4){painted=new MazissPaintedCharacter.Character(atlas,depthAtlas,clothingAtlas);ready=true;pose=gait.getPose();document.getElementById('room-fallback').hidden=true;document.getElementById('room-fallback').style.display='none';canvas.style.display='block';say('Ready. Click an open patch of floor.');}}
+  background.onload=atlas.onload=depthAtlas.onload=clothingAtlas.onload=load;background.onerror=atlas.onerror=depthAtlas.onerror=clothingAtlas.onerror=()=>say('The embedded artwork could not be loaded. Please report this preview error.');
+  background.src=BACKGROUND_URL;atlas.src=ATLAS_URL;depthAtlas.src=DEPTH_ATLAS_URL;clothingAtlas.src=CLOTHING_ATLAS_URL;requestAnimationFrame(tick);
 })();
