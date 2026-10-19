@@ -91,7 +91,7 @@ with sync_playwright() as p:
     browser.close()
 
 video=OUT/'walk.mp4';fps=24/manifest['cycleSeconds']
-subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(fps),'-i',str(frames/'%04d.png'),'-c:v','libx264','-crf','29','-preset','medium','-pix_fmt','yuv420p','-movflags','+faststart','-an',str(video)],check=True)
+subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(fps),'-i',str(frames/'%04d.png'),'-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-c:v','libx264','-crf','29','-preset','medium','-pix_fmt','yuv420p','-movflags','+faststart','-an',str(video)],check=True)
 picture=lambda name:media(OUT/f'{name}.jpg','image/jpeg')
 html='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maziss — lighting and room scale</title><style>body{margin:0;background:#20282e;color:#f2e8d8;font:17px/1.5 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:20px}img,video{display:block;width:100%;height:auto;border-radius:7px}details{margin:20px 0}summary{cursor:pointer}h2{font-size:21px;margin-bottom:10px}a{color:#ffe4a3}</style></head><body><main>
 <h1>Matching Maziss to the room</h1><p>The same model and motion, with warmer room lighting, cooler window fill and drawn contours. The room artwork is unchanged.</p>

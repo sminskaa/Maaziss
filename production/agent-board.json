@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T10:44:34.232935+00:00",
+  "updated_at": "2026-10-19T15:10:59.220645+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -924,7 +924,7 @@
       "id": "STYLE-001",
       "role": "Coordinator / scene style comparison",
       "title": "Compare character-led and subtle room-led style matching",
-      "status": "running",
+      "status": "completed",
       "agent": "/root",
       "objective": "Compare character-led and subtle room-led style matching. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
       "allowed_files": [
@@ -944,13 +944,13 @@
         "Compact offline HTML near/below1MB",
         "Scope limitations and compare unchanged baseline honestly"
       ],
-      "result": null
+      "result": "Recovered completed27actual lighting renders and finished actual Art/QA scene-scale review. Compact633890-byte HTML passes offline desktop/mobile and retained-source checks. Newowner cutawayroomhandled separately; earlier approvedroom unchanged."
     },
     {
       "id": "ART-008",
       "role": "Art director / actual character rendering",
       "title": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines",
-      "status": "running",
+      "status": "completed",
       "agent": "/root/art_style_match",
       "objective": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
       "allowed_files": [
@@ -966,13 +966,13 @@
         "Compact offline HTML near/below1MB",
         "Scope limitations and compare unchanged baseline honestly"
       ],
-      "result": null
+      "result": "Actual original/baseline/new room composites and scale guide reviewed; palette/contours improve and size is plausible. Face, hands, painted wear and real shadow remain unfinished. production/ART_STYLE_MATCH.md."
     },
     {
       "id": "QA-014",
       "role": "Independent rendered style QA",
       "title": "Compare actual images against original character and room, including identity, light, colour and continuity",
-      "status": "running",
+      "status": "completed",
       "agent": "/root/style_qa",
       "objective": "Compare actual images against original character and room, including identity, light, colour and continuity. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
       "allowed_files": [
@@ -988,7 +988,73 @@
         "Compact offline HTML near/below1MB",
         "Scope limitations and compare unchanged baseline honestly"
       ],
-      "result": null
+      "result": "Resumed interrupted final review: actual24-frame contact sheet, five native video moments, desktop/mobile comparisons and source hashes verified. Compact633890-byte review passes offline. Suitable lighting/scale study only. production/QA_STYLE_MATCH.md."
+    },
+    {
+      "id": "ROOM-REF-001",
+      "role": "Coordinator / room viewport preparation",
+      "title": "Reframe supplied cutaway room into a16:9 game background",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Owner supplied a dimensional room image and clarified16:9. Remove white surround and pointed lower floor, preserve painted room identity/layout, compare actual edit with input.",
+      "allowed_files": [
+        "build/checks/room-cutaway/",
+        "visual-preview/",
+        "docs/STYLE_MATCH_STUDY.md",
+        "production/",
+        "tools/build_room_reference_review.py"
+      ],
+      "deliverable": "visual-preview/maziss-room-16x9.html",
+      "acceptance": [
+        "16:9 rectangular artwork without character",
+        "Door/window mostlystraight and sofa/window/workbench recognizable",
+        "No white surround or projecting bottom tip",
+        "Original room and supplied-model assets unchanged",
+        "Actual edited-image review, compact HTML delivery"
+      ],
+      "result": "Generated separate16:9 image-assisted reframing proposal, preserved generatedsource, encoded1600\u00d7900JPG and541572-byte offline HTML/download. ActualArt/QA reviewed; framing/details vary fromearlierroom, notliteralpixelcropor3Dmesh. Newviewscale/navigation integration remains open."
+    },
+    {
+      "id": "ART-009",
+      "role": "Art director / room reframing review",
+      "title": "Inspect actual16:9 room proposal and compare recognizable painted room",
+      "status": "completed",
+      "agent": "/root/art_style_match",
+      "objective": "Owner supplied cutaway room image and confirmed16:9. Root edits image with imagegen; inspect actual result and prior approvedroom, furniture identity/layout, warm/coolstyle andnocharacter. Rootcompares inlineinput; independent reviewers state scope honestly.",
+      "allowed_files": [
+        "production/ART_ROOM_REFRAME.md",
+        "build/checks/room-cutaway/art/"
+      ],
+      "deliverable": "production/ART_ROOM_REFRAME.md",
+      "acceptance": [
+        "Open actual output image, not code alone",
+        "Recognize sofa/door/window/workbench and overall light/style",
+        "Check no white surround or bottom tip, no character",
+        "State visible reframing/redrawing changes and2Dvs3D limits",
+        "QA checksactual offline compactimage/download andsourcepreservation"
+      ],
+      "result": "Opened actual output PNG/JPG and approvedroom references. Recognizable furniture, straightframes, paintedwarm/coolstyle; nocharacter/white/tip. Noted redraw/edge changes andlimitedinputcomparison. Suitableownerreviewonly. production/ART_ROOM_REFRAME.md."
+    },
+    {
+      "id": "QA-015",
+      "role": "Independent room image/delivery QA",
+      "title": "Inspect actual16:9 room proposal and compare recognizable painted room",
+      "status": "completed",
+      "agent": "/root/style_qa",
+      "objective": "Owner supplied cutaway room image and confirmed16:9. Root edits image with imagegen; inspect actual result and prior approvedroom, furniture identity/layout, warm/coolstyle andnocharacter. Rootcompares inlineinput; independent reviewers state scope honestly.",
+      "allowed_files": [
+        "production/QA_ROOM_REFRAME.md",
+        "build/checks/room-cutaway/qa/"
+      ],
+      "deliverable": "production/QA_ROOM_REFRAME.md",
+      "acceptance": [
+        "Open actual output image, not code alone",
+        "Recognize sofa/door/window/workbench and overall light/style",
+        "Check no white surround or bottom tip, no character",
+        "State visible reframing/redrawing changes and2Dvs3D limits",
+        "QA checksactual offline compactimage/download andsourcepreservation"
+      ],
+      "result": "Opened actualroomimage andbrowsercaptures; desktop/mobile offline image/display/nativeJPGdownload verified1600\u00d7900, noerrors/network/scripts/overflow. Sourceart/model/motionunchanged. No3Droom ornewscalecertification. production/QA_ROOM_REFRAME.md."
     }
   ],
   "events": [
@@ -1371,6 +1437,26 @@
       "time": "2026-10-19T10:44:34.232935+00:00",
       "task": "STYLE-001",
       "event": "Owner requests clean room reference for possible3Dmodeling and stresses character proportions during room movement. Coordinator delivered a642530-byte offline room image/download page; original1932\u00d7814PNG unchanged. QA verifies actual reference screenshot. Character style test continues; room redesign held while owner prepares possible model. Fixed camera/room lights and foot-anchor perspective scale are explicit requirements."
+    },
+    {
+      "time": "2026-10-19T15:02:28.892590+00:00",
+      "task": "STYLE-001",
+      "event": "Owner reset allowance and resumed. Character captures and633890-byte final comparison survived. Coordinator resumes interrupted final actual-scene/scale QA, not a new modeling or room-redesign iteration; art and source models remain unchanged."
+    },
+    {
+      "time": "2026-10-19T15:04:12.041139+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Owner supplied a cutaway room image, then clarified rectangular16:9 output. Coordinator prepares a separate image-edit proposal; this remains2Dreference artwork, not a received3Dmesh."
+    },
+    {
+      "time": "2026-10-19T15:07:24.658716+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Imagegen completed separate reframing proposal. SourcegeneratedPNG preservedprivately; mainsofa/door/window/desk recognizable. Coordinator requests bounded actual-image Art/QA before finaldelivery; priorlightingstudy reviewcompleted."
+    },
+    {
+      "time": "2026-10-19T15:10:59.220645+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Actual Art and independent QA completed newroomreview.541572-byte HTML and1600\u00d7900nativeJPGdownload verifiedoffline. Sourceart/model/motionunchanged; outputisaseparateimageassistedreframe. Characterfloor/camera/obstaclealignmenttothisnewviewremainsnextintegrationstep. Workersfinished."
     }
   ]
 }

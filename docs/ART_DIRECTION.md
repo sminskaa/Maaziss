@@ -252,3 +252,20 @@ adult facial likeness, hair/hands, inked detail and painterly clothing remain wo
 Original drawings are unchanged and remain the artistic target. See
 SUPPLIED_CHARACTER_STUDY.md and the scoped Art/QA reports. The compact review is
 `visual-preview/maziss-rebuilt-review.html`; the playable Godot room is unchanged.
+
+## Lighting and room-scale comparison
+
+The owner prefers the supplied-sculpt method. A separate actual Blender look test
+uses diffuse toon shading, warm interior key light, cool window fill and thin brown
+contours, with fixed camera/lights as the character changes heading. Art and QA
+reviewed actual room comparisons, scale placements and sampled walking images;
+the palette/contours improve coherence, while adult face likeness, hands, wear,
+deep teal jacket detail and real room shadows remain incomplete. This is a visual
+target, not an implemented Godot toon material or replacement art approval.
+
+The owner also supplied a dimensional cutaway room image and explicitly selected a
+16:9 rectangular view, removing the lower pointed floor. A separate image-assisted
+reframing proposal preserves recognizable furnishings and warm/cool painted style.
+It has not replaced the earlier approved room and does not supply actual room
+geometry. The floor/camera and character scale need calibration to the new image
+before movement is integrated. See STYLE_MATCH_STUDY.md and the room review reports.

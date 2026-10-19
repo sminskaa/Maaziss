@@ -51,6 +51,12 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   A clean room reference was supplied for possible owner-provided 3D modeling.
   Keep movement scale tied to the floor/camera perspective and fixed body
   proportions; never normalize every animation frame to its bounding box.
+- The owner supplied a dimensional cutaway room image and clarified a16:9 game
+  viewport. A separate image-assisted reframe removes the white surround and
+  pointed lower floor; `visual-preview/maziss-room-16x9.html` includes a JPG
+  download. This is a proposal, not a replacement approval or a room mesh.
+  Recalibrate floor, camera, furniture obstacles and character size for this view;
+  do not copy the prior room's screen coordinates unchanged.
 
 ## Agent operation
 
