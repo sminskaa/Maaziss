@@ -20,6 +20,10 @@ Actual-source research and a proposed one-stool trial are in
 `ROOM_INTERACTION_RESEARCH.md`. Research is complete; no stool asset or new visual
 approval is claimed. Art and QA must inspect the same actual changed imagery and
 jointly recommend proceeding; intact backgrounds after object movement are a gate.
+Latest clarification: sitting furniture must be actual visible 3D geometry, not
+flat sprites or hidden proxies alone. The research notes now include checked
+Meshy/Tripo free-plan limits, TripoSR CPU support and its currently failing demo.
+No service was given private art and no model generation was performed.
 
 - Repo: `/workspace/Maaziss`; branch: `feat/reference-human-walk`.
 - Draft PR: https://github.com/sminskaa/Maaziss/pull/4; no merge approval.

@@ -13,6 +13,14 @@ selected geometry for contact/depth. A full new 3D room is not necessary to test
 one stool. Some props can remain layered 2D images; turning doors, a pulled-out
 stool and handheld items benefit from actual complete geometry. Choose per action.
 
+Owner clarification: furniture Maziss physically sits on must be an **actual
+visible 3D model**, not a flat furniture sprite with Maziss posing in front of it.
+The current sofa study has only hidden contact proxies and is not the completed
+solution for that requirement. For stool/sofa, build seat, legs/base, back/arms
+where applicable, thickness and hidden surfaces; use geometry for foreground
+occlusion, contact and shadows. Decorative background can remain painted.
+The proposed stool trial therefore requires a complete mesh, not a billboard.
+
 For each movable object, author two assets: a complete background showing what
 was covered, and a separate prop. The clean background must remove the old object
 **and its baked shadow**. Removing pixels or placing a model over the existing
@@ -150,3 +158,49 @@ assets before use. No site or AI was given private models in this research pass.
 Research and the full owner backlog are saved. No stool was extracted, modeled,
 rendered or visually approved during this documentation pass. Resume from
 `SESSION_HANDOFF.md`, then implement only the bounded trial when appropriate.
+
+## Follow-up: AI assistance and hosted services actually checked
+
+Owner asks how models will be created and specifically requests online AI options.
+Checked official current pages on 19 October 2026; snapshots/fetch results are in
+`build/checks/room-interactions/research/services/`. Prices and quotas can change.
+
+| Option | Observed access and limits | Project decision |
+| --- | --- | --- |
+| Blender, already installed | Direct CPU mesh construction with Python, rounded/beveled forms, UV painting and GLB export; no hosted account needed. | First stool attempt: construct an editable seat and complete legs/braces to match the source, inspect the shape, then paint. This is an available method, not a demonstrated matching stool yet. |
+| [Meshy pricing](https://www.meshy.ai/pricing) | Page lists 100 monthly free credits, 10 Meshy 6 Lite model downloads/month and CC BY 4.0 commercial use with attribution. Its comparison marks free-plan API access unavailable. | Possible web-based candidate generator. A free website account is distinct from an accessible free API; do not claim automatic integration here. Any export/feature limit needs checking on the actual generation. |
+| [Meshy terms](https://www.meshy.ai/terms-of-use) | Section 3.2 states free outputs belong to Meshy and are licensed to the customer under CC BY 4.0. Section 2.9 permits non-Enterprise input/output use for training unless otherwise agreed. Paid plans offer privacy options. | Owner's private art is not assumed confidential on a free plan. No account, upload, key, payment or generation submitted. Recheck terms and the owner's private-asset constraints before choosing this route. |
+| [Tripo hosted pricing](https://www.tripo3d.ai/pricing) | Free plan lists 200 monthly credits, public models, non-commercial use and limited exports; paid tiers list private/commercial use. [Terms](https://www.tripo3d.ai/terms), section 5.2.1, also assign broad rights over free-user input/output. | Not selected for zero-budget game production assets under the observed free plan. Distinct from the MIT-licensed TripoSR code. No upload or inference performed. |
+| [TripoSR local](https://github.com/VAST-AI-Research/TripoSR) | Existing MIT code/weights documentation; inspected official `run.py` explicitly selects CPU when CUDA is unavailable. Supports texture baking. Runtime and quality on this CPU are unmeasured. | Possible local AI-assisted volume proposal if manual stool modeling fails. No weight download or installation this pass. Absence of a CUDA GPU here is a practical limitation, not a claim that local CPU execution is impossible. |
+| [TripoSR public demo](https://huggingface.co/spaces/stabilityai/TripoSR) | Hugging Face's Space metadata reported `RUNTIME_ERROR`; direct app configuration returned HTTP 503 during this check. | Currently unusable in this check; do not promise a functioning free online generator from its README alone. Recheck later if needed. |
+
+[Meshy API documentation](https://docs.meshy.ai/en/api) describes REST tasks and
+API-key management, but no key or account is configured in this workspace. A
+guessed older endpoint and an initial Tripo terms URL returned 404; the official
+linked API overview and `/terms` pages were then accessed. Documentation and site
+claims are recorded as such; none of these services produced a tested mesh here.
+
+### Actual model-to-contact pipeline
+
+1. Use the stool's visible proportions/design as reference; build full geometry in
+   Blender, or import an AI-generated base mesh if that route is later selected.
+2. Repair shape, hidden surfaces, scale, pivots and UVs; add coherent cartoon wood,
+   wear and lighting. AI geometry still needs these checks.
+3. Render a turntable and the room camera view before animation. A suitable model
+   must remain recognizable from sides and behind and have a solid seat surface.
+4. Place it in the matched camera/room coordinates. Set the seat-top landmark,
+   floor height, leg room and hand targets against the actual model. Author the
+   approach, turn, weight shift, descent and settle; a collision shape alone does
+   not automatically create believable sitting or cushion deformation.
+5. Render model and Maziss together so furniture genuinely occludes body parts,
+   with appropriate contact shadows. Add modest cushion compression only after
+   rigid contact is convincing. The painted original stool/sofa must be removed
+   from the clean background to avoid a double image.
+6. Art and independent QA judge the same actual multi-angle views and complete
+   motion for support, penetration, floating boots, style and intact background.
+   Do not claim success based on a model file, collider or scripted pose alone.
+
+No third-party service or AI assistant is silently available merely because it has
+a website. This environment can use exposed tools and permitted HTTP APIs; account
+or paid API access is not assumed. The offline game will contain exported assets,
+never a dependency on any hosted generator. Character animation remains paused.

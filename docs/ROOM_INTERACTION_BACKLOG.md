@@ -75,5 +75,10 @@ replacement-at-rest and moved views plus motion in compact HTML. Do not add Mazi
 sitting/writing or rebuild other props in this first trial. Art + QA must accept
 the background continuity and replacement before proceeding to more interactions.
 
+Owner clarification: the stool and sofa Maziss sits on need visible **3D geometry**,
+not a flat furniture sprite beneath a posed character. Hidden contact proxies alone
+do not meet the finished interaction requirement. Check actual seat/body contact,
+complete furniture shape and real foreground occlusion before adding acting.
+
 Research and the step-by-step trial brief: `ROOM_INTERACTION_RESEARCH.md`.
 Current pause and private asset continuity: `SESSION_HANDOFF.md`.

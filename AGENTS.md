@@ -119,3 +119,7 @@ background, separate object and correct shadow/depth layers. Art and QA must
 inspect the same actual before/during/after output and jointly recommend each
 visual change. No holes, duplicated objects, old shadows or painted remnants.
 Do not mark the new requirements done merely because notes or code exist.
+For furniture Maziss sits on, the owner explicitly requires visible complete 3D
+models; a flat sprite and hidden seat proxy alone are insufficient. Fit actual
+body/seat/foot contacts and inspect the combined rendered motion. Updated external
+AI/service findings and access limits are in the room interaction research notes.

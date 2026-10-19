@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T18:53:18.334004+02:00",
+  "updated_at": "2026-10-19T19:01:52.703224+02:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -1154,7 +1154,7 @@
         "Require joint Art/QA inspection of actual output, not code-only approval.",
         "Save a restartable checkpoint; no new paid service, model upload or unapproved character animation."
       ],
-      "result": "Saved complete backlog and research using official Blender/Krita/Godot and TripoSR sources. Documented licenses/hardware and untested services. Proposed one-stool proof with shared Art/QA visual gate. No stool asset, external inference, new render or visual approval claimed; no worker agents started."
+      "result": "Saved complete backlog and research using official Blender/Krita/Godot and TripoSR sources. Documented licenses/hardware and untested services. Proposed one-stool proof with shared Art/QA visual gate. No stool asset, external inference, new render or visual approval claimed; no worker agents started. Follow-up checked current Meshy/Tripo pricing and terms, Meshy API docs, local TripoSR CPU support and live demo status. Meshy free API unavailable, Tripo free non-commercial, TripoSR demo failing at check time. No generation/upload performed. Owner requires complete visible 3D sitting furniture."
     },
     {
       "id": "STOOL-001",
@@ -1177,7 +1177,8 @@
         "Replacement at original position matches camera, scale, cartoon colour, texture and contours.",
         "Small movement preserves complete geometry, contact shadow and desk foreground depth.",
         "Art and QA both inspect the same actual before/during/after images and playback; no code-only pass.",
-        "Record exact evidence, open issues and owner review status; do not expand to other objects before this gate."
+        "Record exact evidence, open issues and owner review status; do not expand to other objects before this gate.",
+        "Use complete visible 3D furniture geometry; a flat sprite or hidden contact proxy alone does not meet the owner requirement."
       ],
       "result": null
     }
@@ -1607,6 +1608,11 @@
       "time": "2026-10-19T18:53:18.334004+02:00",
       "task": "ROOM-RSCH-001",
       "event": "Owner provided full future art/interaction list and requested targeted free-tool research with small iterations. Coordinator saved role assignments, actual-source research and a planned stool-only proof. No worker agents started or visual asset approved; character animation remains paused. Art/QA must inspect actual changed images jointly."
+    },
+    {
+      "time": "2026-10-19T19:01:52.703224+02:00",
+      "task": "ROOM-RSCH-001",
+      "event": "Owner clarifies furniture must have visible complete 3D geometry for convincing contact. Saved actual hosted-service research and a model-to-contact pipeline; no new paid setup, private upload, inference or character animation. Planned stool gate strengthened accordingly."
     }
   ]
 }
