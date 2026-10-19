@@ -2,6 +2,11 @@
 
 ## Status and permission
 
+Owner clarifies this is private, non-commercial experimentation, with no
+distribution planned. Free non-commercial services are eligible for trials;
+check their specific terms. Do not reject them for hypothetical commercial use.
+No paid service is authorized; prior private-asset handling still applies.
+
 Animation is **paused**. The owner wants to use the remaining allowance to improve
 efficiency/continuity and research later art/room interactions. Resume character
 animation only when they say allowance has reset or

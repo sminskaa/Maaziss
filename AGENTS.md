@@ -6,6 +6,10 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
 
 ## Owner decisions
 
+- Current purpose: private, non-commercial experimentation with no distribution
+  planned. Do not exclude free/non-commercial tools merely because this is a game
+  project. Evaluate each service's actual terms, access and output restrictions;
+  do not assume all services permit every use. No paid service is authorized.
 - English game, zero additional budget. No paid service or new subscription.
 - Final target: a desktop game installed and running locally on the player's computer,
   fully playable offline. Godot remains the main game engine. HTML pages are review
