@@ -45,6 +45,12 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   the original file privately. The bag-side hand shares the bag's surface and is
   held quiet for this study; independent movement needs separate topology. Do not
   describe the shaded model as finished painted art or a production-ready rig.
+- The owner prefers the supplied-mesh/complete-geometry method over the earlier
+  sprite projection. Next work should match Maziss to the room's painted colours,
+  lighting and contours. Room changes should be small and separately reviewed.
+  A clean room reference was supplied for possible owner-provided 3D modeling.
+  Keep movement scale tied to the floor/camera perspective and fixed body
+  proportions; never normalize every animation frame to its bounding box.
 
 ## Agent operation
 

@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T10:20:20.729692+00:00",
+  "updated_at": "2026-10-19T10:44:34.232935+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -919,6 +919,76 @@
         "Compact preview and private-data boundaries"
       ],
       "result": "Independent 32 actual walk renders plus idle views and 50 motion samples reviewed. 13 scoped engineering checks pass; no observed disappearing clothes, repeated face, detached needles or large bag shelf in final samples. Offline native-video HTML playback passes; final Godot report hash matches. Suitable owner review only, not production readiness; report production/QA_SUPPLIED_CHARACTER.md."
+    },
+    {
+      "id": "STYLE-001",
+      "role": "Coordinator / scene style comparison",
+      "title": "Compare character-led and subtle room-led style matching",
+      "status": "running",
+      "agent": "/root",
+      "objective": "Compare character-led and subtle room-led style matching. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tools/build_style_match_review.py",
+        "docs/STYLE_MATCH_STUDY.md",
+        "docs/ART_DIRECTION.md",
+        "AGENTS.md",
+        "production/",
+        "build/checks/style-match/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-style-match.html",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": null
+    },
+    {
+      "id": "ART-008",
+      "role": "Art director / actual character rendering",
+      "title": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines",
+      "status": "running",
+      "agent": "/root/art_style_match",
+      "objective": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tools/render_character_style.py",
+        "production/ART_STYLE_MATCH.md",
+        "build/checks/style-match/character/"
+      ],
+      "deliverable": "production/ART_STYLE_MATCH.md",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": null
+    },
+    {
+      "id": "QA-014",
+      "role": "Independent rendered style QA",
+      "title": "Compare actual images against original character and room, including identity, light, colour and continuity",
+      "status": "running",
+      "agent": "/root/style_qa",
+      "objective": "Compare actual images against original character and room, including identity, light, colour and continuity. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tests/browser_style_match.py",
+        "production/QA_STYLE_MATCH.md",
+        "build/checks/style-match/qa/"
+      ],
+      "deliverable": "production/QA_STYLE_MATCH.md",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": null
     }
   ],
   "events": [
@@ -1291,6 +1361,16 @@
       "time": "2026-10-19T10:20:20.729692+00:00",
       "task": "MODEL-004",
       "event": "Coordinator integrated actual Art and QA findings and froze final eb3c9fb665f1 model. Godot imported17runtime meshes/14bones/19color surfaces with finite animated poses. Compact948310-byte native-video HTML passed offline playback; 8-angle views retained. Original approved art unchanged; models/motion/previews private. Reviewable study completed, final art and topology remain open."
+    },
+    {
+      "time": "2026-10-19T10:39:13.396917+00:00",
+      "task": "STYLE-001",
+      "event": "Owner prefers supplied-model method and requests closer character/environment style alignment, including a subtle room rendering experiment. Coordinator records separate Art rendering and independent QA scopes before delegation."
+    },
+    {
+      "time": "2026-10-19T10:44:34.232935+00:00",
+      "task": "STYLE-001",
+      "event": "Owner requests clean room reference for possible3Dmodeling and stresses character proportions during room movement. Coordinator delivered a642530-byte offline room image/download page; original1932\u00d7814PNG unchanged. QA verifies actual reference screenshot. Character style test continues; room redesign held while owner prepares possible model. Fixed camera/room lights and foot-anchor perspective scale are explicit requirements."
     }
   ]
 }
