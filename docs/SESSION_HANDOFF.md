@@ -3,7 +3,8 @@
 ## Status and permission
 
 Animation is **paused**. The owner wants to use the remaining allowance to improve
-efficiency/continuity. Resume animation only when they say allowance has reset or
+efficiency/continuity and research later art/room interactions. Resume character
+animation only when they say allowance has reset or
 explicitly authorize it. Do not restart rendering merely because a new chat opens.
 
 ## Working result and next task
@@ -13,6 +14,12 @@ offline HTML, floor clicks walk, Use on sofa approaches/turns/sits, and another
 floor click stands/walks. Actual Art/QA review passed for this first candidate.
 The next authorized animation changes, once unpaused, are deeper seating between
 the yellow and white pillows and moderately faster walking with matched gait.
+The full new owner list (blur/alpha, palette, clothing detail, facial acting and
+15 room interactions) is saved in `ROOM_INTERACTION_BACKLOG.md`, with role owners.
+Actual-source research and a proposed one-stool trial are in
+`ROOM_INTERACTION_RESEARCH.md`. Research is complete; no stool asset or new visual
+approval is claimed. Art and QA must inspect the same actual changed imagery and
+jointly recommend proceeding; intact backgrounds after object movement are a gate.
 
 - Repo: `/workspace/Maaziss`; branch: `feat/reference-human-walk`.
 - Draft PR: https://github.com/sminskaa/Maaziss/pull/4; no merge approval.

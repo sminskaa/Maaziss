@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T16:03:42.875803+00:00",
+  "updated_at": "2026-10-19T18:53:18.334004+02:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -1129,6 +1129,57 @@
         "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
       ],
       "result": "Inspected actual final browser captures and 249 source renders; 241 pose samples and 11 evaluated meshes support continuity. Initial candidate passed 30 offline interaction/resize checks. Final 978857-byte full-resolution movie review passed 23 focused checks with actual decoded-media advancement and transparent compositing. No scoped QA blocker; unfinished model detail and approximate room shadows/occlusion remain."
+    },
+    {
+      "id": "ROOM-RSCH-001",
+      "role": "Coordinator / targeted research",
+      "title": "Save owner art/interaction backlog and research coherent movable room props",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Retain all owner requests, assign role responsibilities, consult official free-tool resources and define a bounded stool trial without restarting character animation.",
+      "allowed_files": [
+        "docs/ROOM_INTERACTION_BACKLOG.md",
+        "docs/ROOM_INTERACTION_RESEARCH.md",
+        "docs/SESSION_HANDOFF.md",
+        "AGENTS.md",
+        "production/agent-board.json",
+        "production/index.html",
+        "build/checks/room-interactions/research/"
+      ],
+      "deliverable": "docs/ROOM_INTERACTION_RESEARCH.md",
+      "acceptance": [
+        "Retain every owner-requested art and room action with role responsibilities.",
+        "Cite actually accessed source documentation; distinguish capability from tested operation.",
+        "Define clean background, separate prop, shadows and foreground depth workflow.",
+        "Require joint Art/QA inspection of actual output, not code-only approval.",
+        "Save a restartable checkpoint; no new paid service, model upload or unapproved character animation."
+      ],
+      "result": "Saved complete backlog and research using official Blender/Krita/Godot and TripoSR sources. Documented licenses/hardware and untested services. Proposed one-stool proof with shared Art/QA visual gate. No stool asset, external inference, new render or visual approval claimed; no worker agents started."
+    },
+    {
+      "id": "STOOL-001",
+      "role": "Art + implementation, joint independent Art/QA review",
+      "title": "Prove one movable stool over a coherent painted room background",
+      "status": "planned",
+      "agent": null,
+      "objective": "Separate the stool, reconstruct what it hides, model/paint a complete matching prop and show original/replacement/moved states in a compact review. Only the stool; character sitting/writing comes later.",
+      "allowed_files": [
+        "tools/build_stool_study.py",
+        "build/checks/stool-study/",
+        "visual-preview/maziss-stool-study.html",
+        "production/ART_STOOL_STUDY.md",
+        "production/QA_STOOL_STUDY.md"
+      ],
+      "deliverable": "visual-preview/maziss-stool-study.html",
+      "acceptance": [
+        "Preserve original room and working character preview.",
+        "Clean stool-free background has coherent floor and desk, without old shadow or object remnants.",
+        "Replacement at original position matches camera, scale, cartoon colour, texture and contours.",
+        "Small movement preserves complete geometry, contact shadow and desk foreground depth.",
+        "Art and QA both inspect the same actual before/during/after images and playback; no code-only pass.",
+        "Record exact evidence, open issues and owner review status; do not expand to other objects before this gate."
+      ],
+      "result": null
     }
   ],
   "events": [
@@ -1551,6 +1602,11 @@
       "time": "2026-10-19T16:03:42.875803+00:00",
       "task": "SIT-001",
       "event": "Actual Art and QA workers completed. Final transparent-animation HTML passed 23 focused offline checks and actual image/media review; original 30-check navigation/resize evidence retained separately. Saving source, scoped reports and resume checkpoint on the existing draft branch. Owner creative acceptance and merge remain pending."
+    },
+    {
+      "time": "2026-10-19T18:53:18.334004+02:00",
+      "task": "ROOM-RSCH-001",
+      "event": "Owner provided full future art/interaction list and requested targeted free-tool research with small iterations. Coordinator saved role assignments, actual-source research and a planned stool-only proof. No worker agents started or visual asset approved; character animation remains paused. Art/QA must inspect actual changed images jointly."
     }
   ]
 }

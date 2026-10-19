@@ -110,3 +110,12 @@ activity board into context to discover project state.
 Animation work is paused by the owner's latest instruction until they say the
 allowance has reset or explicitly tell us to resume it. Workflow/continuity work
 may continue. See the current handoff for the pending seating/speed changes.
+
+The owner also authorized research and recorded the next art/room requirements in
+`docs/ROOM_INTERACTION_BACKLOG.md`. Read it for the complete list and role owners;
+`docs/ROOM_INTERACTION_RESEARCH.md` holds consulted sources and a proposed small
+stool-only proof. Preserve the room beneath movable props with a reconstructed
+background, separate object and correct shadow/depth layers. Art and QA must
+inspect the same actual before/during/after output and jointly recommend each
+visual change. No holes, duplicated objects, old shadows or painted remnants.
+Do not mark the new requirements done merely because notes or code exist.
