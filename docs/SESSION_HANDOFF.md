@@ -22,13 +22,30 @@ the yellow and white pillows and moderately faster walking with matched gait.
 The full new owner list (blur/alpha, palette, clothing detail, facial acting and
 15 room interactions) is saved in `ROOM_INTERACTION_BACKLOG.md`, with role owners.
 Actual-source research and a proposed one-stool trial are in
-`ROOM_INTERACTION_RESEARCH.md`. Research is complete; no stool asset or new visual
-approval is claimed. Art and QA must inspect the same actual changed imagery and
+`ROOM_INTERACTION_RESEARCH.md`. The owner then authorized one geometry-only stool
+trial. A complete model and three actual views are now saved; final Art/QA checks
+are being closed out. Art and QA must inspect the same actual changed imagery and
 jointly recommend proceeding; intact backgrounds after object movement are a gate.
 Latest clarification: sitting furniture must be actual visible 3D geometry, not
 flat sprites or hidden proxies alone. The research notes now include checked
 Meshy/Tripo free-plan limits, TripoSR CPU support and its currently failing demo.
 No service was given private art and no model generation was performed.
+
+## New stool checkpoint
+
+- Read `docs/STOOL_MODEL_STUDY.md`, `production/ART_STOOL_MODEL.md` and
+  `production/QA_STOOL_MODEL.md` for the geometry-only result and final review state.
+- Sources: `tools/build_stool_study.py`, `tools/build_stool_review.py`.
+- Private assets: `build/checks/stool-study/maziss-stool.blend`, `maziss-stool.glb`,
+  `model-manifest.json` and the three PNG views.
+- Preview: `visual-preview/maziss-stool-study.html`, 552020 bytes,
+  SHA-256 `9c1bac72668f5ca9d2b9239726a68b852cce512b7f2062e4f723012e35acc960`.
+- GLB SHA-256 `5e4754e37cbf1e4764f32c80b50e9a6e6bf365865766f4ead7d351d59c1e713c`.
+- Six solid mesh parts: seat, four legs and footrest ring; preliminary base colours
+  and UVs. A QA-found leg/seat gap was corrected, with the same three views rebuilt.
+- Do not redo research/modeling from scratch. Next shape/paint choices need owner
+  feedback. Clean background, room replacement, movement and Maziss sitting on the
+  stool are not yet implemented. Character animation is still paused.
 
 - Repo: `/workspace/Maaziss`; branch: `feat/reference-human-walk`.
 - Draft PR: https://github.com/sminskaa/Maaziss/pull/4; no merge approval.
