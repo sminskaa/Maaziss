@@ -269,3 +269,16 @@ reframing proposal preserves recognizable furnishings and warm/cool painted styl
 It has not replaced the earlier approved room and does not supply actual room
 geometry. The floor/camera and character scale need calibration to the new image
 before movement is integrated. See STYLE_MATCH_STUDY.md and the room review reports.
+
+## First fixed-cushion interaction
+
+The owner requests one clear right-hand sofa cushion, without moving the pillows.
+A separate offline interactive review now uses actual complete-model renders and
+an authored sit/stand action fitted to hidden seat/floor/back proxies. Floor clicks
+walk within the calibrated room outline; Use on the sofa approaches the fixed spot,
+turns and sits. The same world scale frames standing and seated poses. Contact
+shadows and the near arm are composited against painted scenery, rather than
+claimed as full room geometry. Inspect actual animation and room captures before
+judging contact, silhouette, perspective and cloth continuity. Pale materials,
+face/hands and joined hand/bag topology remain unfinished. See
+SOFA_INTERACTION_STUDY.md and the scoped Art/QA reports; owner approval is pending.

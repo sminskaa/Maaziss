@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T15:10:59.220645+00:00",
+  "updated_at": "2026-10-19T16:03:42.875803+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -1055,6 +1055,80 @@
         "QA checksactual offline compactimage/download andsourcepreservation"
       ],
       "result": "Opened actualroomimage andbrowsercaptures; desktop/mobile offline image/display/nativeJPGdownload verified1600\u00d7900, noerrors/network/scripts/overflow. Sourceart/model/motionunchanged. No3Droom ornewscalecertification. production/QA_ROOM_REFRAME.md."
+    },
+    {
+      "id": "SIT-001",
+      "role": "Coordinator / sofa interaction integration",
+      "title": "Build the first interactive floor-walking and Use-sofa sitting review",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Fit the current actual rig to one fixed clear right cushion, using authored motion and invisible seat/floor proxies; provide floor walking and Use on sofa in the latest 16:9 painted room.",
+      "allowed_files": [
+        "tools/render_sofa_sit.py",
+        "tools/build_sofa_sit_review.py",
+        "docs/",
+        "production/",
+        "build/checks/sofa-sit/",
+        "visual-preview/",
+        "tools/sofa_interaction.js",
+        "AGENTS.md"
+      ],
+      "deliverable": "visual-preview/maziss-sofa-sit.html",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Built compact offline interactive floor walking and fixed-cushion sitting: Use sofa approaches, turns and sits; floor click stands and walks. Final delivery SHA256 9b2230c333c0e68f1e104c9ab591f605410bc7ace023ed85d6c938a519956a21, 978857 bytes. Actual Art and independent QA recommend first owner review. Original art/model/walk remain unchanged; main Godot game integration and final polish remain separate."
+    },
+    {
+      "id": "ART-010",
+      "role": "Art director / sitting pose and rendered review",
+      "title": "Author coherent human sitting pose on current fixed-length rig, inspect actual character and final sofa composites against original character and room.",
+      "status": "completed",
+      "agent": "/root/sofa_pose_art",
+      "objective": "Author coherent human sitting pose on current fixed-length rig, inspect actual character and final sofa composites against original character and room.",
+      "allowed_files": [
+        "tools/character_sitting_pose.py",
+        "production/ART_SOFA_SIT.md",
+        "build/checks/sofa-sit/art/"
+      ],
+      "deliverable": "production/ART_SOFA_SIT.md",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Authored fixed-length sitting poses and inspected actual neutral, toon and final interactive captures. Clear cushion, stable silhouette and plausible contact in sampled states; suitable for owner review. Pale materials, face/hands and fused bag-side arm remain unfinished."
+    },
+    {
+      "id": "QA-016",
+      "role": "Independent interaction / rendered QA",
+      "title": "Inspect actual final sit-down frames for scale, knees, boots, pelvis/cushion contact, bag/arm overlap and stable figure continuity; verify compact offline playback and sources.",
+      "status": "completed",
+      "agent": "/root/sofa_interaction_qa",
+      "objective": "Inspect actual final sit-down frames for scale, knees, boots, pelvis/cushion contact, bag/arm overlap and stable figure continuity; verify compact offline playback and sources.",
+      "allowed_files": [
+        "tests/browser_sofa_sit.py",
+        "production/QA_SOFA_SIT.md",
+        "build/checks/sofa-sit/qa/"
+      ],
+      "deliverable": "production/QA_SOFA_SIT.md",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Inspected actual final browser captures and 249 source renders; 241 pose samples and 11 evaluated meshes support continuity. Initial candidate passed 30 offline interaction/resize checks. Final 978857-byte full-resolution movie review passed 23 focused checks with actual decoded-media advancement and transparent compositing. No scoped QA blocker; unfinished model detail and approximate room shadows/occlusion remain."
     }
   ],
   "events": [
@@ -1457,6 +1531,26 @@
       "time": "2026-10-19T15:10:59.220645+00:00",
       "task": "ROOM-REF-001",
       "event": "Actual Art and independent QA completed newroomreview.541572-byte HTML and1600\u00d7900nativeJPGdownload verifiedoffline. Sourceart/model/motionunchanged; outputisaseparateimageassistedreframe. Characterfloor/camera/obstaclealignmenttothisnewviewremainsnextintegrationstep. Workersfinished."
+    },
+    {
+      "time": "2026-10-19T15:29:40.519926+00:00",
+      "task": "SIT-001",
+      "event": "Owner accepts progress and requests first sofa-sitting interaction. Record bounded actual-rig pose, integration and independent rendered QA assignments; preserve currentart/model/walk source and use latest16:9room."
+    },
+    {
+      "time": "2026-10-19T15:32:41.953500+00:00",
+      "task": "SIT-001",
+      "event": "Ownerclarifiesonefixedno-pillowseatwith3Dseat/contactproxyandinteractivefloorwalk/Use-sofasitting. CoordinatorwillbuildanofflineCanvasreviewusingactualrenderedanimationassetsandfloorobstaclenavigation; fullGodotroomintegrationremainseparate."
+    },
+    {
+      "time": "2026-10-19T16:02:22.089146+00:00",
+      "task": "SIT-001",
+      "event": "Final full-resolution transparent animation replaces the soft packed sprites; walking uses a broad contact cue instead of detached rest-foot shadows. Art opened final seated, lowering and walking browser captures. Offline QA focused rerun passed 23 checks; its report is being finalized. Models and original artwork remain unchanged."
+    },
+    {
+      "time": "2026-10-19T16:03:42.875803+00:00",
+      "task": "SIT-001",
+      "event": "Actual Art and QA workers completed. Final transparent-animation HTML passed 23 focused offline checks and actual image/media review; original 30-check navigation/resize evidence retained separately. Saving source, scoped reports and resume checkpoint on the existing draft branch. Owner creative acceptance and merge remain pending."
     }
   ]
 }

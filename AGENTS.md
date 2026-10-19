@@ -57,6 +57,13 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   download. This is a proposal, not a replacement approval or a room mesh.
   Recalibrate floor, camera, furniture obstacles and character size for this view;
   do not copy the prior room's screen coordinates unchanged.
+- The owner requested an interactive first sofa action: click floor to walk,
+  select Use and click the sofa to sit on one fixed clear right cushion, away
+  from the pillows. Clicking floor afterward stands and walks. A separate fitted
+  seat/floor proxy and actual rendered model poses support the compact offline
+  `visual-preview/maziss-sofa-sit.html` study. Preserve the room and pillows;
+  see `docs/SOFA_INTERACTION_STUDY.md` and actual Art/QA evidence. This is not
+  yet an interaction installed in the main Godot game.
 
 ## Agent operation
 
