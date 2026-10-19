@@ -1,0 +1,40 @@
+# Current session handoff
+
+## Status and permission
+
+Animation is **paused**. The owner wants to use the remaining allowance to improve
+efficiency/continuity. Resume animation only when they say allowance has reset or
+explicitly authorize it. Do not restart rendering merely because a new chat opens.
+
+## Working result and next task
+
+The owner says the interactive sofa study is on the right track. In the compact
+offline HTML, floor clicks walk, Use on sofa approaches/turns/sits, and another
+floor click stands/walks. Actual Art/QA review passed for this first candidate.
+The next authorized animation changes, once unpaused, are deeper seating between
+the yellow and white pillows and moderately faster walking with matched gait.
+
+- Repo: `/workspace/Maaziss`; branch: `feat/reference-human-walk`.
+- Draft PR: https://github.com/sminskaa/Maaziss/pull/4; no merge approval.
+- Preview: `visual-preview/maziss-sofa-sit.html` (private/ignored).
+- Detailed task/assets/source map: `docs/RESUME_SOFA_INTERACTION.md`.
+- Preserve supplied geometry, original artwork and working preview. Final target:
+  offline desktop Godot; HTML is a review prototype. Inline chat images fail.
+
+## Efficient restart
+
+1. Read this file and applicable project instructions. Check branch/worktree status
+   and required private assets before claiming the previous state is available.
+2. Read only task-relevant source/report sections. Do not reprocess the entire chat,
+   old experiments, generated board, base64 HTML, recordings or every reference.
+3. Work on one bounded visible change. Reuse valid renders/evidence; verify changed
+   behavior and actual images. Keep required Art/QA review, with focused briefs and
+   selected files rather than full-history agent handoffs where tools permit.
+4. At a checkpoint, save source and a brief handoff: current result, pending request,
+   relevant paths, remaining issues and authorization state. Update this file in
+   place; do not grow it into a transcript.
+
+The same workspace or private asset backup is needed after a restart: Git alone
+does not retain the supplied models, derived motion and generated previews.
+Context shortening does not replenish usage allowance or guarantee a saving of a
+specific amount. Automatic compaction may already shorten a long visible chat.

@@ -1,5 +1,7 @@
 # Resume the sofa interaction
 
+Read `docs/SESSION_HANDOFF.md` first for current pause/authorization status.
+
 Owner feedback on 19 October 2026: the current interaction is on the right track.
 Before further animation work, the owner asked about reducing context usage and
 continuing after a reset. This handoff records the next changes; they are not yet

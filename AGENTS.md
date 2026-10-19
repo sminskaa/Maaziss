@@ -96,3 +96,17 @@ The HTML activity board is a generated snapshot, not live monitoring. Its timest
 and activity log must make that clear. `python3 tools/build_agent_board.py` rebuilds
 it from the registry; it cannot independently query native agent runtime status.
 Do not create pretend director activity, unearned test passes or fabricated research.
+
+## Session continuity and allowance
+
+Start from `docs/SESSION_HANDOFF.md`, then read only relevant sources and required
+project guidance. Keep that handoff short and current at checkpoints; detailed
+evidence belongs in linked reports. Prefer bounded tasks, concise updates, targeted
+searches and compact tool output. Give workers focused briefs and relevant file
+paths instead of the entire chat when possible. Preserve the owner's actual-image
+Art/QA review requirements. Do not read embedded-media HTML or the full generated
+activity board into context to discover project state.
+
+Animation work is paused by the owner's latest instruction until they say the
+allowance has reset or explicitly tell us to resume it. Workflow/continuity work
+may continue. See the current handoff for the pending seating/speed changes.
