@@ -82,3 +82,8 @@ complete furniture shape and real foreground occlusion before adding acting.
 
 Research and the step-by-step trial brief: `ROOM_INTERACTION_RESEARCH.md`.
 Current pause and private asset continuity: `SESSION_HANDOFF.md`.
+
+Geometry-only substep completed separately: `STOOL_MODEL_STUDY.md` and
+`visual-preview/maziss-stool-study.html`. Art and QA recommend owner review of that
+candidate. Background reconstruction, in-room replacement and movement remain
+pending; the broader trial above is not marked complete by a standalone model.

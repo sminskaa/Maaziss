@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T19:01:52.703224+02:00",
+  "updated_at": "2026-10-19T19:16:52.204859+02:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -1159,28 +1159,66 @@
     {
       "id": "STOOL-001",
       "role": "Art + implementation, joint independent Art/QA review",
-      "title": "Prove one movable stool over a coherent painted room background",
-      "status": "planned",
-      "agent": null,
-      "objective": "Separate the stool, reconstruct what it hides, model/paint a complete matching prop and show original/replacement/moved states in a compact review. Only the stool; character sitting/writing comes later.",
+      "title": "Build and review a complete 3D stool geometry candidate",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Owner authorized the bounded geometry-only stool test: complete Blender/GLB model, actual room-camera and two extra-angle renders beside reference, compact HTML, one Art/QA review iteration. Background reconstruction, moving stool and character acting remain later.",
       "allowed_files": [
         "tools/build_stool_study.py",
+        "tools/build_stool_review.py",
         "build/checks/stool-study/",
         "visual-preview/maziss-stool-study.html",
-        "production/ART_STOOL_STUDY.md",
-        "production/QA_STOOL_STUDY.md"
+        "production/",
+        "docs/SESSION_HANDOFF.md",
+        "docs/STOOL_MODEL_STUDY.md"
       ],
       "deliverable": "visual-preview/maziss-stool-study.html",
       "acceptance": [
-        "Preserve original room and working character preview.",
-        "Clean stool-free background has coherent floor and desk, without old shadow or object remnants.",
-        "Replacement at original position matches camera, scale, cartoon colour, texture and contours.",
-        "Small movement preserves complete geometry, contact shadow and desk foreground depth.",
-        "Art and QA both inspect the same actual before/during/after images and playback; no code-only pass.",
-        "Record exact evidence, open issues and owner review status; do not expand to other objects before this gate.",
-        "Use complete visible 3D furniture geometry; a flat sprite or hidden contact proxy alone does not meet the owner requirement."
+        "Complete visible 3D seat, legs and bracing; editable Blender and exported GLB.",
+        "Save model before rendering to preserve limited-allowance work.",
+        "Actual renders from reference camera angle and two other angles beside unchanged source crop.",
+        "Art and QA inspect actual output for shape, proportions, cartoon style and geometric continuity.",
+        "Document candidate limits; no room replacement, character animation or final integration approval."
       ],
-      "result": null
+      "result": "Saved Blender and GLB with six complete solid mesh parts and three actual renders. Art and independent QA inspected corrected reference/rear/underside views; a QA-found9.35mm leg-seat gap was fixed and final import/download verified. Compact offline HTML552020bytes. Shape/material limits remain; owner review pending. Background reconstruction, room replacement and movement are not implemented."
+    },
+    {
+      "id": "ART-011",
+      "role": "Art director",
+      "title": "Review the actual geometry-only stool model study",
+      "status": "completed",
+      "agent": "/root/stool_shape_art",
+      "objective": "Inspect actual model renders beside the room reference. Judge shape, proportions and cartoon readability; identify limits without claiming room integration.",
+      "allowed_files": [
+        "production/ART_STOOL_MODEL.md",
+        "build/checks/stool-study/art/"
+      ],
+      "deliverable": "production/ART_STOOL_MODEL.md",
+      "acceptance": [
+        "Open actual reference and three rendered views, not code alone.",
+        "Report complete seat/leg/bracing visibility and concrete reference mismatch.",
+        "Give a bounded recommendation; preserve original artwork and model."
+      ],
+      "result": "Opened reference and all three actual views, then reinspected corrected attachments. Recommends owner review of geometry candidate; seat rim softness, regularity and approximate leg proportions remain. No final art or room integration approval."
+    },
+    {
+      "id": "QA-017",
+      "role": "Independent model/render QA",
+      "title": "Review the actual geometry-only stool model study",
+      "status": "completed",
+      "agent": "/root/stool_shape_qa",
+      "objective": "Inspect actual model renders beside the room reference. Judge shape, proportions and cartoon readability; identify limits without claiming room integration.",
+      "allowed_files": [
+        "production/QA_STOOL_MODEL.md",
+        "build/checks/stool-study/qa/"
+      ],
+      "deliverable": "production/QA_STOOL_MODEL.md",
+      "acceptance": [
+        "Open actual reference and three rendered views, not code alone.",
+        "Report complete seat/leg/bracing visibility and concrete reference mismatch.",
+        "Give a bounded recommendation; preserve original artwork and model."
+      ],
+      "result": "Actual-image review, independent GLB import and offline desktop/mobile HTML/download checks passed for the corrected geometry-only candidate. Six UV meshes, finite geometry, no zero-area polygons; initial leg-seat gap fixed. No Godot, room replacement or character contact claim."
     }
   ],
   "events": [
@@ -1613,6 +1651,21 @@
       "time": "2026-10-19T19:01:52.703224+02:00",
       "task": "ROOM-RSCH-001",
       "event": "Owner clarifies furniture must have visible complete 3D geometry for convincing contact. Saved actual hosted-service research and a model-to-contact pipeline; no new paid setup, private upload, inference or character animation. Planned stool gate strengthened accordingly."
+    },
+    {
+      "time": "2026-10-19T19:08:27.983562+02:00",
+      "task": "STOOL-001",
+      "event": "Owner authorized one geometry-only stool modeling/review iteration using remaining allowance. Coordinator builds and saves actual mesh; scoped Art and QA reviews planned. Character animation stays paused; no clean-background or room movement claim."
+    },
+    {
+      "time": "2026-10-19T19:12:24.642158+02:00",
+      "task": "STOOL-001",
+      "event": "Complete 6-part stool model saved as Blender and GLB before rendering. Three actual CPU renders and compact 552420-byte offline review are ready. Scoped Art and independent QA workers started with focused briefs and no full chat history; each inspects the same reference/renders."
+    },
+    {
+      "time": "2026-10-19T19:16:52.204859+02:00",
+      "task": "STOOL-001",
+      "event": "Actual Art and independent QA completed corrected-model review. Both recommend owner review of the separate geometry candidate. Final HTML552020bytes and GLB5e4754e3... saved; source/checkpoints pushed. No character animation or room image changed. Owner notified only5%remaining; work stops after this checkpoint."
     }
   ]
 }

@@ -23,13 +23,13 @@ The full new owner list (blur/alpha, palette, clothing detail, facial acting and
 15 room interactions) is saved in `ROOM_INTERACTION_BACKLOG.md`, with role owners.
 Actual-source research and a proposed one-stool trial are in
 `ROOM_INTERACTION_RESEARCH.md`. The owner then authorized one geometry-only stool
-trial. A complete model and three actual views are now saved; final Art/QA checks
-are being closed out. Art and QA must inspect the same actual changed imagery and
+trial. A complete model and three actual views are saved; actual Art and QA review
+is complete and recommends owner review of this geometry candidate. Art and QA must inspect the same actual changed imagery and
 jointly recommend proceeding; intact backgrounds after object movement are a gate.
 Latest clarification: sitting furniture must be actual visible 3D geometry, not
 flat sprites or hidden proxies alone. The research notes now include checked
 Meshy/Tripo free-plan limits, TripoSR CPU support and its currently failing demo.
-No service was given private art and no model generation was performed.
+No service was given private art and no external AI generation was submitted.
 
 ## New stool checkpoint
 
@@ -43,6 +43,9 @@ No service was given private art and no model generation was performed.
 - GLB SHA-256 `5e4754e37cbf1e4764f32c80b50e9a6e6bf365865766f4ead7d351d59c1e713c`.
 - Six solid mesh parts: seat, four legs and footrest ring; preliminary base colours
   and UVs. A QA-found leg/seat gap was corrected, with the same three views rebuilt.
+- Independent final GLB import and actual embedded download checks passed; both
+  reviewers opened corrected images. Rim softness, regularity and approximate leg
+  proportions remain for owner feedback; this is not final painted-art approval.
 - Do not redo research/modeling from scratch. Next shape/paint choices need owner
   feedback. Clean background, room replacement, movement and Maziss sitting on the
   stool are not yet implemented. Character animation is still paused.

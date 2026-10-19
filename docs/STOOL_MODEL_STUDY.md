@@ -47,6 +47,14 @@ with findings in `production/ART_STOOL_MODEL.md` and
 `production/QA_STOOL_MODEL.md`. Their recommendation is scoped to this geometry
 study; it cannot approve the later clean-background or sitting interaction.
 
+Both reviewers recommend showing the corrected geometry candidate to the owner.
+QA found a 9.35 mm leg/seat gap in the first export; flattening only the foot-end
+vertices preserved the upper attachments and resolved it. Independent final import
+and actual corrected underside inspection confirm this scoped fix. The compact
+552020-byte review decodes offline at desktop/mobile sizes and its actual GLB
+download matches the final model hash. Rim softness, regularity and approximate
+proportions remain visible differences from the reference, not finished-art approval.
+
 Reproduce in the same workspace with retained private room source:
 
 ```sh
