@@ -70,6 +70,10 @@ scoped results are in `production/ART_SOFA_SIT.md` and `production/QA_SOFA_SIT.m
 
 ## Resume checkpoint
 
+Latest owner feedback and next-session instructions are in
+`docs/RESUME_SOFA_INTERACTION.md` (deeper seating between the yellow and white
+pillows, plus moderately faster movement; changes pending).
+
 The private deliverable is `visual-preview/maziss-sofa-sit.html`, with its exact
 size and hash in `build/checks/sofa-sit/delivery-manifest.json`. The separate
 `sofa-sit.blend` contains the seated authoring scene and hidden seat/floor/back
