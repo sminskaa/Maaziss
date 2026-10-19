@@ -40,6 +40,11 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   repeated portrait projections. Research and the explicit allowance-pause state
   are saved in `docs/RESUME_CHARACTER_REBUILD.md`; no replacement model was built
   before that pause.
+- On 19 October the owner supplied `white_mesh.glb`. Its recognizable sculpt now
+  supports a separate rig study; see `docs/SUPPLIED_CHARACTER_STUDY.md`. Preserve
+  the original file privately. The bag-side hand shares the bag's surface and is
+  held quiet for this study; independent movement needs separate topology. Do not
+  describe the shaded model as finished painted art or a production-ready rig.
 
 ## Agent operation
 

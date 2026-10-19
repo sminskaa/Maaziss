@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T19:44:32.190443+00:00",
+  "updated_at": "2026-10-19T10:20:20.729692+00:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -848,6 +848,77 @@
         "Compact self-contained review validated"
       ],
       "result": "Not started. Owner requested immediate allowance pause; recorded brief retained for later resume."
+    },
+    {
+      "id": "MODEL-004",
+      "role": "Coordinator / supplied-model integration",
+      "title": "Inspect, fit and animate the supplied GLB as a coherent cartoon character",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Resume geometry-first rebuild using actual supplied geometry where useful. Preserve approved design and useful FBX gait, avoid screenshot projection, produce inspectable multi-angle walking renders.",
+      "allowed_files": [
+        "tools/",
+        "character3d/",
+        "docs/",
+        "production/",
+        "build/checks/supplied-character/",
+        "private/models/",
+        "visual-preview/",
+        "tests/check_supplied_character.gd",
+        "AGENTS.md"
+      ],
+      "deliverable": "visual-preview/maziss-rebuilt-review.html",
+      "acceptance": [
+        "Supplied GLB actually imported and rendered",
+        "Recognizable complete geometry from multiple angles",
+        "No sprite projection or repeated face textures",
+        "Actual rig/deformation and game-model checks",
+        "Compact owner-viewable output"
+      ],
+      "result": "Supplied sculpt retained, local cross-hand source defect repaired, 14-bone FBX rig and actual facial parts exported. Actual multi-angle renders, final hash-bound Godot import and compact 948310-byte offline HTML reviewed. Bag-side arm stays quiet; painted identity and production topology remain unfinished. See docs/SUPPLIED_CHARACTER_STUDY.md."
+    },
+    {
+      "id": "ART-007",
+      "role": "Art director / original-design reconstruction",
+      "title": "Keep supplied-model rebuild faithful to the original cartoon character",
+      "status": "completed",
+      "agent": "/root/supplied_character_art",
+      "objective": "Inspect original front/profile art and actual supplied/rebuilt model renders. Establish recognizable traits, shape proportions, clothes and facial features. Challenge generic or distorted results. Root will coordinate implementation scope after intake.",
+      "allowed_files": [
+        "production/ART_SUPPLIED_CHARACTER.md",
+        "tools/character3d_sculpt.py",
+        "build/checks/supplied-character/art/"
+      ],
+      "deliverable": "production/ART_SUPPLIED_CHARACTER.md",
+      "acceptance": [
+        "Inspect actual original references and model images",
+        "Specific front/profile/oblique likeness findings",
+        "Clothes/bag/hair and game-view readability criteria",
+        "No art-quality claim from code or numerical passes"
+      ],
+      "result": "Inspected actual intake, fitted facial closeups and corrected multi-angle walk captures; recognizable supplied-mesh rig study recommended after QA clears final forearm skinning. Not a painted-art or production approval. Report production/ART_SUPPLIED_CHARACTER.md."
+    },
+    {
+      "id": "QA-013",
+      "role": "Independent game-character / rendered QA",
+      "title": "Audit supplied mesh and actual motion against coherent game-character criteria",
+      "status": "completed",
+      "agent": "/root/supplied_character_qa",
+      "objective": "Audit actual GLB topology, rig readiness, materials, skinning and game export. Inspect actual rendered views/poses during work and final candidate, in agreement with art target. Do not infer visual success from closed meshes alone.",
+      "allowed_files": [
+        "tests/browser_supplied_character.py",
+        "production/QA_SUPPLIED_CHARACTER.md",
+        "build/checks/supplied-character/qa/"
+      ],
+      "deliverable": "production/QA_SUPPLIED_CHARACTER.md",
+      "acceptance": [
+        "Actual input and final render inspection",
+        "Readiness for animation/export with honest limits",
+        "No disappearing parts, repeated face or incorrect perspective",
+        "Clearance/grounding where applicable",
+        "Compact preview and private-data boundaries"
+      ],
+      "result": "Independent 32 actual walk renders plus idle views and 50 motion samples reviewed. 13 scoped engineering checks pass; no observed disappearing clothes, repeated face, detached needles or large bag shelf in final samples. Offline native-video HTML playback passes; final Godot report hash matches. Suitable owner review only, not production readiness; report production/QA_SUPPLIED_CHARACTER.md."
     }
   ],
   "events": [
@@ -1195,6 +1266,31 @@
       "time": "2026-10-18T19:44:32.190443+00:00",
       "task": "RESEARCH-002",
       "event": "Owner requested allowance pause. Coordinator stopped before replacement modeling, read completed native research report and saved docs/RESUME_CHARACTER_REBUILD.md with exact files, source access, implementation proposal, rejected-method guardrails and remaining tasks. Research worker completed; no modeling or QA worker was started."
+    },
+    {
+      "time": "2026-10-19T09:48:08.981121+00:00",
+      "task": "MODEL-004",
+      "event": "Owner resumed with white_mesh.glb and explicitly requested aligned Art and QA review of actual rendered output. Input saved privately: one4905-vertex mesh, no skins/animations/materials/textures. Coordinator prepares import renders before selecting integration method."
+    },
+    {
+      "time": "2026-10-19T09:48:53.489689+00:00",
+      "task": "ART-007",
+      "event": "Native tools confirmed Art and independent QA workers started with separate file ownership and explicit actual-render review criteria."
+    },
+    {
+      "time": "2026-10-19T10:02:48.785877+00:00",
+      "task": "MODEL-004",
+      "event": "Independent actual-render review found a source pinched vertex connecting hand to opposite leg and incomplete bag weighting. Coordinator reconstructs local patch, expands rigid bag envelope, uses exact foot rotation for clearance and replaces hard triangle material masks with continuous vertex colors. Art refined tired eyelids; final render review pending."
+    },
+    {
+      "time": "2026-10-19T10:12:54.312707+00:00",
+      "task": "ART-007",
+      "event": "Native Art worker completed fitted eyes and actual-image review. Earlier bag shelf/needles corrected; final forearm smooth influence under QA. Scoped owner-review recommendation only; painted finish remains unfinished."
+    },
+    {
+      "time": "2026-10-19T10:20:20.729692+00:00",
+      "task": "MODEL-004",
+      "event": "Coordinator integrated actual Art and QA findings and froze final eb3c9fb665f1 model. Godot imported17runtime meshes/14bones/19color surfaces with finite animated poses. Compact948310-byte native-video HTML passed offline playback; 8-angle views retained. Original approved art unchanged; models/motion/previews private. Reviewable study completed, final art and topology remain open."
     }
   ]
 }

@@ -1,8 +1,10 @@
 # Resume checkpoint: geometry-first Maziss rebuild
 
-Paused 18 October 2026 at the owner's explicit request to preserve allowance.
-Do not resume implementation until the owner asks. Existing research is saved;
-no replacement model, new texture set or new animation has been built this turn.
+Resumed 19 October 2026 at the owner's request with a supplied `white_mesh.glb`.
+The historical pause and proposed workflow below describe the previous checkpoint.
+The current implementation uses that recognizable supplied sculpt instead of
+rebuilding the earlier generic body. See `SUPPLIED_CHARACTER_STUDY.md` for current
+build commands, retained output, actual Art/QA findings and remaining limitations.
 
 ## Owner's current decision
 

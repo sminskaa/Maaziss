@@ -236,3 +236,19 @@ geometry to the original design. Evaluate neutral-material front/profile/oblique
 views before UV painting. Research has been saved, but the owner requested an
 allowance pause before a replacement model was built. See
 CHARACTER_REBUILD_RESEARCH.md and RESUME_CHARACTER_REBUILD.md.
+
+## Supplied-mesh reconstruction study, 19 October
+
+The owner resumed with a recognizable complete `white_mesh.glb`. The new private
+study retains that sculpt, repairs malformed cross-hand geometry, fits the FBX
+walk and adds modeled facial features plus continuous outfit colours. Actual
+eight-angle/multiple-phase reviews by Art and QA find a coherent stylized human
+without the earlier repeated portraits, disappearing pieces or stretched bag shelf
+in the checked poses. This is a reconstruction study, not a finished art approval.
+
+The bag-side arm stays quiet because a local joined hand/bag region does not yet
+support independent motion with the current rig. Separate topology/weight painting,
+adult facial likeness, hair/hands, inked detail and painterly clothing remain work.
+Original drawings are unchanged and remain the artistic target. See
+SUPPLIED_CHARACTER_STUDY.md and the scoped Art/QA reports. The compact review is
+`visual-preview/maziss-rebuilt-review.html`; the playable Godot room is unchanged.
