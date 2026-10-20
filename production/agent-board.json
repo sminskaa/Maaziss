@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T16:41:33.363474+00:00",
-  "snapshot_note": "Art and independent QA completed actual native-video review of corrected right-hand stool pull/direct sit/occupied slide/desk contact.945456-byte compact HTML ready for owner review. Source and resume notes saved; main Godot and writing remain separate.",
+  "updated_at": "2026-10-20T18:58:50.630355+00:00",
+  "snapshot_note": "Bounded owner-feedback pose proof in progress; previous animation and character art remain unapproved.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1443,6 +1443,40 @@
       "status": "completed",
       "agent": "/root/slide_resume_qa",
       "result": "177sample independent geometry/contact audits and exact final-scene binding pass. All177render hashes and11offline playback/control/layout checks plus mobile touch pass. Actual14native captures inspected; recommends owner review with initial10.34mm floor overlap/acting/hand limits."
+    },
+    {
+      "id": "ART-FEEDBACK-POSE",
+      "role": "Art director",
+      "title": "Review isolated seated turn and hand-to-desk poses",
+      "status": "running",
+      "agent": "/root/feedback_pose_art",
+      "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
+      "allowed_files": [
+        "production/ART_STOOL_FEEDBACK_POSES.md"
+      ],
+      "deliverable": "production/ART_STOOL_FEEDBACK_POSES.md",
+      "acceptance": [
+        "Inspect actual images, not only code",
+        "Separate turn order, contact and appearance limitations",
+        "Scope findings to sampled proof; owner final approval"
+      ]
+    },
+    {
+      "id": "QA-FEEDBACK-POSE",
+      "role": "Testing director / QA",
+      "title": "Review isolated seated turn and hand-to-desk poses",
+      "status": "running",
+      "agent": "/root/feedback_pose_qa",
+      "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
+      "allowed_files": [
+        "production/QA_STOOL_FEEDBACK_POSES.md"
+      ],
+      "deliverable": "production/QA_STOOL_FEEDBACK_POSES.md",
+      "acceptance": [
+        "Inspect actual images, not only code",
+        "Separate turn order, contact and appearance limitations",
+        "Scope findings to sampled proof; owner final approval"
+      ]
     }
   ],
   "events": [

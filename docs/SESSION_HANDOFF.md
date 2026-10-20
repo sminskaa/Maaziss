@@ -1,5 +1,31 @@
 # Current session handoff
 
+## Allowance checkpoint: owner-feedback pose proof in progress
+
+User said to prepare the pose test, then warned 10% allowance remains. New source:
+`tools/stool_feedback_pose.py`, `tools/render_stool_feedback_test.py`,
+`tools/build_stool_feedback_review.py`. Originals are not modified. Isolated
+two-test study, not full animation: right foot → left foot → torso/head; separate
+desk reach. Current test B proposes a more upright posture and body/stool 28cm
+farther from desk than old scene, requiring visible owner review of this spacing.
+Left hand/thigh weight bleed was found and corrected only in private study copy
+using established free-arm region with shoulder blend; rest geometry unchanged.
+Independent QA verified preservation. Earlier reach candidates failed real
+triangle/forearm desk checks and Art found exaggerated arms. Those are NOT passes.
+Latest 20Hz whole-study hand/forearm weighted-vertex probe has zero slab hits;
+this alone is insufficient. Independent 200Hz triangle audit and visual review
+must establish latest status. Native workers: `/root/feedback_pose_qa` owns
+`production/QA_STOOL_FEEDBACK_POSES.md`, `/root/feedback_pose_art` owns
+`production/ART_STOOL_FEEDBACK_POSES.md`; they were asked to save honest checkpoints.
+Evidence under `build/checks/stool-feedback/`. `probe-scene.blend` has current
+binding; older `pose-test.blend`/images may be stale: check poseSHA256 in manifest
+against source before using. Full current 18-still render started, log
+`/tmp/stool-feedback-render.log`; renderer has OIDN disabled (build lacks support).
+Build compact review only after successful current render using
+`python3 tools/build_stool_feedback_review.py`. Intended output:
+`visual-preview/maziss-stool-pose-test.html`. Do not call it ready before actual
+Art/QA image review, or claim fluid motion/Godot/full action is demonstrated.
+
 ## Latest owner feedback received: apply two corrections
 
 Read `docs/STOOL_DIRECTION_DECISIONS.md`. Exact uploaded feedback is retained at
