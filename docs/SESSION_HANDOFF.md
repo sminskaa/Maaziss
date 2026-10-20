@@ -1,5 +1,16 @@
 # Current session handoff
 
+## Latest owner feedback received: apply two corrections
+
+Read `docs/STOOL_DIRECTION_DECISIONS.md`. Exact uploaded feedback is retained at
+`private/directions/stool-storyboard-feedback-original.json`. Owner agreed with
+beats 1/2/3/5. Beat 4: after sitting, right foot moves screen-right under desk,
+then left foot, THEN torso/head turn toward desk (screen right). Beat 6: neither
+hand may cross the desk during the reach, not just at the endpoint. No further
+owner input is needed to apply these directions. Next bounded proof is actual
+posed/intermediate visual samples of those two transitions, not another complete
+animation. Existing character appearance and motion are still unapproved.
+
 ## Latest: owner supplied a full stool-action direction file
 
 Original saved privately at `private/directions/seat-at-desk-original.json`.
