@@ -1,5 +1,9 @@
 # ART-016 — revised right-hand stool action
 
+**Final recommendation: ready for owner review.** Actual corrected room keys,
+unobscured palms and final offline native movie have been inspected. This is a
+scoped Art recommendation, not owner approval or main Godot integration.
+
 20 October 2026. Resumed the saved 8.8-second action and existing independent
 right-arm/bag candidate. No model reconstruction or additional research. The source
 character remains the private prepared candidate SHA-256
@@ -99,3 +103,42 @@ Art recommends proceeding to the full continuous render once independent QA
 clears this frozen geometry. This is a key-stage recommendation; actual native
 movie playback, motion/transition judgment, and final Art recommendation remain
 pending. No owner approval is inferred.
+
+
+## Final actual native-movie review
+
+Final saved scene SHA-256:
+`f239b41c1657d351534ee46e31f07b9eb890759697c6ce16e02ec8eb547fe12a`.
+Pose remains the frozen `95f60d2…` source above. The final compact HTML is
+`visual-preview/maziss-stool-slide.html`, 945,456 bytes, SHA-256
+`8ebd75f67a8c947177db035e2607a5b9a5052f8993987c3465eece1a60de9928`.
+Its actual movie SHA-256 is
+`da0cb564c952ce1a7f670326031c8d9a754730bc2ed2d053187aee3d617058d3`.
+The movie contains the 177 authored 20 fps frames plus an endpoint hold, with a
+native duration of 9.85 seconds.
+
+Ran `art-resume/watch-clip.py` with system Chromium in an offline context. Clicked
+Use then the stool hotspot and allowed continuous native video playback through
+its endpoint. The run captured 36 advancing actual browser video images from
+0.00–9.72 seconds and reached `ended=true` at 9.85 seconds with readyState 4.
+Evidence: `native-playback-review.json`, `playback-00.png` through
+`playback-35.png`, and `native-playback-sheet.jpg`. Opened the complete advancing
+sheet and full-room approach, occupied-slide and endpoint browser captures. Also
+expanded and opened the final HTML's actual alternate desktop-palm diagnostic;
+its browser capture is `native-palm-details.png`.
+
+The full action reads as a right-hand pull from the stool's left side, one short
+direct boarding transfer, a supported occupied slide and a forward hand transfer
+to the desk. The stool and seated body move together. The elbows settle close to
+the torso instead of projecting sideways. The continuous satchel remains
+recognizable. No circling shuffles, visible boot/stool pass-through, duplicated
+stool, painted remnant, background hole or detached bag/arm was observed in this
+native playback evidence. The real room occludes some final hand detail; the
+alternate view confirms the coarse existing hand forms are close to support.
+
+Art recommends this bounded stool-action candidate for owner review. No further
+source change is needed for this increment. The inherited approach-floor overlap
+remains measured at approximately 10.3 mm and the source hand/finger detail is
+preliminary. Naturalism, final artistic approval, writing animation and main Godot
+integration remain separate. QA's independent release/control recommendation is
+recorded in its own report; this Art review is not a general defect-free claim.

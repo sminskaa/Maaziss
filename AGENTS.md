@@ -133,3 +133,14 @@ repaired room plate. `docs/STOOL_INTERACTION_STUDY.md` and the final Art/QA repo
 record its scoped approval for owner review and remaining approach boot-floor
 overlap. Its compact HTML plays one authored action; main Godot integration and
 other room actions remain separate. Original artwork/models are preserved.
+
+The owner rejected the circling/shuffle boarding candidate and requested an
+anatomical right-hand pull, short direct sit, occupied stool slide toward the desk
+and both hands resting on the desktop. `docs/STOOL_SLIDE_STUDY.md` records that
+separate revision. Its privately prepared `character-right-arm.blend` has an
+independent closed right arm and continuous satchel; the original supplied rig
+still has its earlier joined-hand limitation and must remain unchanged. Use the
+prepared model for this action. Fitted desk/item geometry supplies depth/contact
+while retaining the painted artwork. Verify actual evaluated surfaces with the
+shared renderer pose function; bone tips alone cannot establish boot roll or palm
+contact. All new private models/renders/previews remain excluded from Git.

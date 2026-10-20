@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T16:31:12.226408+00:00",
-  "snapshot_note": "Resumed contact corrections saved. Art and QA actual-key gates pass; full177frame stool pull/sit/occupied-slide/desktop-contact render running. Final playback pending.",
+  "updated_at": "2026-10-20T16:41:33.363474+00:00",
+  "snapshot_note": "Art and independent QA completed actual native-video review of corrected right-hand stool pull/direct sit/occupied slide/desk contact.945456-byte compact HTML ready for owner review. Source and resume notes saved; main Godot and writing remain separate.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1384,9 +1384,9 @@
         "Seated character and stool slide together, finish both hands on desk",
         "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
       ],
-      "status": "paused",
+      "status": "superseded",
       "agent": "/root/right_arm_art",
-      "result": "Allowance interruption; saved model, contact draft and actual-key audits. Remaining pull boot/seat and midpull bag contact prevent final pass."
+      "result": "Prepared model and provisional actual-key/contact evidence preserved; allowance interrupted final correction. Continued and superseded by ART-016 / QA-022 final reports."
     },
     {
       "id": "QA-021",
@@ -1403,9 +1403,9 @@
         "Seated character and stool slide together, finish both hands on desk",
         "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
       ],
-      "status": "paused",
+      "status": "superseded",
       "agent": "/root/stool_desk_qa",
-      "result": "Allowance interruption; saved model, contact draft and actual-key audits. Remaining pull boot/seat and midpull bag contact prevent final pass."
+      "result": "Prepared model and provisional actual-key/contact evidence preserved; allowance interrupted final correction. Continued and superseded by ART-016 / QA-022 final reports."
     },
     {
       "id": "ART-016",
@@ -1422,9 +1422,9 @@
         "Verify actual surfaces during pull, occupied slide and both palms on desk",
         "Inspect actual room images and continuous native motion, disclose limits"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "agent": "/root/slide_contact_art",
-      "result": "Corrected actual room keys and unobscured hands reviewed. Independent177sample contact/clearance checks pass; full177frame render in progress. Final native playback gate pending."
+      "result": "Actual corrected room and exposed-hand images plus36native playback captures inspected. Right-hand pull/direct boarding/occupied slide/relaxed desk endpoint coherent. Recommends owner review; coarse hands and approach floor limit disclosed."
     },
     {
       "id": "QA-022",
@@ -1440,9 +1440,9 @@
         "Verify actual surfaces during pull, occupied slide and both palms on desk",
         "Inspect actual room images and continuous native motion, disclose limits"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "agent": "/root/slide_resume_qa",
-      "result": "Corrected actual room keys and unobscured hands reviewed. Independent177sample contact/clearance checks pass; full177frame render in progress. Final native playback gate pending."
+      "result": "177sample independent geometry/contact audits and exact final-scene binding pass. All177render hashes and11offline playback/control/layout checks plus mobile touch pass. Actual14native captures inspected; recommends owner review with initial10.34mm floor overlap/acting/hand limits."
     }
   ],
   "events": [
@@ -1930,6 +1930,11 @@
       "time": "2026-10-20T16:31:12.226408+00:00",
       "task": "ART-016 / QA-022",
       "event": "Resumed contact corrections saved. Art and QA actual-key gates pass; full177frame stool pull/sit/occupied-slide/desktop-contact render running. Final playback pending."
+    },
+    {
+      "time": "2026-10-20T16:41:33.363474+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Art and independent QA completed actual native-video review of corrected right-hand stool pull/direct sit/occupied slide/desk contact.945456-byte compact HTML ready for owner review. Source and resume notes saved; main Godot and writing remain separate."
     }
   ]
 }

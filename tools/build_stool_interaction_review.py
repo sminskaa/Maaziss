@@ -51,6 +51,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--keys',action='store_true')
     parser.add_argument('--output',type=Path,default=OUT)
     parser.add_argument('--html',type=Path,default=ROOT/'visual-preview/maziss-stool-interaction.html')
+    parser.add_argument('--contact-view',type=Path,help='Optional actual alternate-camera hand contact image')
     args=parser.parse_args();OUT=args.output.resolve()
     m=json.loads((OUT/('key-manifest.json' if args.keys else 'render-manifest.json')).read_text())
     assert digest(ROOT/m.get('poseScriptPath','tools/stool_interaction_pose.py'))==m['poseScriptSHA256']
@@ -102,6 +103,10 @@ Object.defineProperty(window,'stoolReview',{value:Object.freeze({snapshot:()=>({
         template=template.replace("Maziss approaches, pulls it toward himself, steps around the back of the stool and sits facing the desk.",m["reviewDescription"])
     if m.get('deskGeometry'):
         template=template.replace('Surface detail, the mitten-like free hand and joined bag-side hand remain unfinished.', 'The right arm moves independently of the satchel. Fitted 3D desk and object volumes provide contact and depth while retaining the painted appearance. Surface detail and hand shapes remain unfinished.')
+    if args.contact_view:
+        contact=jpeg(Image.open(args.contact_view),width=640,quality=74)
+        proof='<details><summary>Alternate view: both hands at the desktop</summary><img src="'+contact+'" alt="Actual alternate-camera render showing both rounded hands supported at the desk"><p>This diagnostic view uses a plain desk surface to expose hand contact. The room view retains the painted artwork. Hand and finger detail is still preliminary.</p></details>'
+        template=template.replace('<p><small>First desk-stool interaction study.',proof+'<p><small>First desk-stool interaction study.')
     for crf in (33,36,39):
         movie=OUT/'desk-stool-action.webm'
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(m['fps']),'-i',str(frames/'frame-%03d.png'),'-vf','tpad=stop_mode=clone:stop_duration=1','-c:v','libvpx-vp9','-b:v','0','-crf',str(crf),'-row-mt','1','-threads','4','-pix_fmt','yuv420p','-an',str(movie)],check=True)
@@ -111,6 +116,7 @@ Object.defineProperty(window,'stoolReview',{value:Object.freeze({snapshot:()=>({
     target=args.html.resolve()
     target.write_text(html);target.chmod(0o644);target.parent.chmod(0o755)
     report={'htmlBytes':target.stat().st_size,'htmlSHA256':digest(target),
+            'contactViewSHA256':digest(args.contact_view) if args.contact_view else None,
             'movieSHA256':digest(movie),'movieCRF':crf,'renderManifestSHA256':digest(OUT/'render-manifest.json'),
             'cleanRoomSHA256':digest(OUT/'room-clean.png'),'sourceRoomSHA256':digest(SOURCE),
             'scope':m['scope'],'renders':len(m['renders']),'nativeVideoSize':[1120,630],

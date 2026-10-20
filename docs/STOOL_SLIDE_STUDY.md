@@ -32,6 +32,15 @@ the frozen pose SHA-256 is
 `95f60d2ef89f423a123c696d809495e0ca6026c41e5cac500cac07708b82c2ec`.
 All original models/painting remain untouched.
 
+## Compact review
+
+`visual-preview/maziss-stool-slide.html` is945456bytes, SHA-256
+`8ebd75f67a8c947177db035e2607a5b9a5052f8993987c3465eece1a60de9928`.
+Select **Use**, then the highlighted stool. Native video controls also work.
+The9.85second clip includes177actualframes and a one-second held endpoint.
+An optional alternate-camera image exposes both hands over the support surface;
+it is a diagnostic view, not a replacement room/art style.
+
 ## Current review gate
 
 Art and QA inspected the actual corrected room keys and a separate unobscured
@@ -44,8 +53,10 @@ The initial approach has a measured10.34mm boot-floor overlap; that inherited
 walking-quality limitation remains disclosed. This is sampled evidence, not
 runtime collision/cloth certification.
 
-Full native motion and offline controls remain a final gate until the compact
-review is packaged. See `production/ART_STOOL_SLIDE_FINAL.md` and
+Full native motion and offline controls now pass: Art inspected36advancing
+playback captures and QA inspected14native movie views. All177frame hashes and
+source/scene binding checks pass;11offline Chromium checks plus touch start/reset
+pass. Both reviewers recommend owner review, not finished-art approval. See `production/ART_STOOL_SLIDE_FINAL.md` and
 `production/QA_STOOL_SLIDE_FINAL.md` for current exact evidence and scope. Historical
 failed probes remain recorded separately; an earlier in-memory test's stale rig
 inverse/missing boot roll was fixed rather than treated as a visual pass.
@@ -54,7 +65,7 @@ inverse/missing boot roll was fixed rather than treated as a visual pass.
 
 ```sh
 blender -b --python tools/render_stool_interaction.py -- --pose-module stool_slide_pose --source-blend build/checks/stool-slide/character-right-arm.blend --output build/checks/stool-slide --resume
-python3 tools/build_stool_interaction_review.py --output build/checks/stool-slide --html visual-preview/maziss-stool-slide.html
+python3 tools/build_stool_interaction_review.py --output build/checks/stool-slide --html visual-preview/maziss-stool-slide.html --contact-view build/checks/stool-slide/art-resume/corrected-final-palm-contact.png
 ```
 
 The retained generated clean-background patch must already exist in that folder.

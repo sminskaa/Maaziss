@@ -95,3 +95,8 @@ integration, stool return, writing or approval of the rest of the room backlog.
 A separate owner-directed ROOM-05 revision passes around the stool and ends
 facing the writing desk: `STOOL_DESK_FACING_STUDY.md`. It does not complete the
 pen/paper writing or other desk-equipment interactions.
+
+The later corrected ROOM-05 candidate replaces circling with a right-hand pull,
+short direct sit, occupied slide and desktop hand support: `STOOL_SLIDE_STUDY.md`
+and `visual-preview/maziss-stool-slide.html`. Final Art/QA actual-output gates pass
+for owner review; writing, pen/paper use and main Godot integration remain open.
