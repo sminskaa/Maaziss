@@ -1,5 +1,41 @@
 # Current session handoff
 
+## Current owner direction: visual-method reset and first directing tool
+
+The owner asked how to provide interactive directions. A small standalone tool
+now exists: `visual-preview/maziss-director.html` (684,806 bytes, embedded images,
+offline). Source: `tools/director_board/`, builder: `tools/build_director_board.py`.
+It supports start/destination placement and dragging, route points, final-facing
+arrows, marker scale, numbered comments, action intent, undo, JSON save/open and
+marked PNG export with comment text. Optional local-video timed comments exist.
+Actual browser checks passed via `tools/check_director_board.py`; evidence is in
+`build/checks/director-board/`. Desktop and exported image were visually inspected.
+The painted marker is an existing reference, not new approved animation or a model.
+No gameplay, collision, perspective scaling, poses or Godot integration are claimed.
+Next: owner opens the compact HTML panel and shares one saved direction file to
+verify that spatial intent can be communicated. Host delivery is not yet confirmed.
+The owner asked whether to raise reasoning from Medium: Medium is sufficient for
+this tool; High may help later difficult model/animation work, with no guarantee.
+
+Latest clarification: the current animation and 3D appearance are both unapproved;
+the model remains a usable but substantially unfinished resource. Drastic method
+changes are welcome. Do not depend on the owner providing more motion videos.
+The owner explicitly requires interactive visual direction because text alone is
+insufficient. Include a minimal HTML staging/annotation board in the first phase
+alongside appearance feasibility; defer a full pose/timeline editor. Then prove
+short motion and actual engine/contact behaviour. The tool does not fix likeness.
+
+The owner says the visual results are not acceptable and requests an action plan
+based on `private/briefs/CODEX_GAME_DIRECTOR_BRIEF.md`. Read
+`docs/VISUAL_WORKFLOW_PROPOSAL.md` first. Existing work/resources are preserved.
+Only the first room and Maziss are in scope until appearance, motion, interactions
+and speech meet owner expectations. Original drawings and story remain the targets;
+Discworld II is the closest reference. Do not default to more stool-polish work.
+The follow-up request prompted the bounded direction-board implementation above.
+The broader rendering architecture, rig rebuild, game integration and stable
+agent-rule changes remain proposals requiring agreement.
+Prior technical/QA recommendations below are not owner creative approval.
+
 ## Latest result: right-hand stool pull and occupied slide
 
 Owner rejected circling/shuffles and requested a right-hand pull from the stool's
