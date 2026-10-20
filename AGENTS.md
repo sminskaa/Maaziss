@@ -111,9 +111,10 @@ paths instead of the entire chat when possible. Preserve the owner's actual-imag
 Art/QA review requirements. Do not read embedded-media HTML or the full generated
 activity board into context to discover project state.
 
-Animation work is paused by the owner's latest instruction until they say the
-allowance has reset or explicitly tell us to resume it. Workflow/continuity work
-may continue. See the current handoff for the pending seating/speed changes.
+The owner paused animation during low-allowance research, then explicitly
+authorized the desk-stool approach/pull/sit action. Follow the latest scoped task
+and current handoff; do not treat the old pause as blocking already-authorized
+stool work. Other queued seating/speed and room changes retain their backlog state.
 
 The owner also authorized research and recorded the next art/room requirements in
 `docs/ROOM_INTERACTION_BACKLOG.md`. Read it for the complete list and role owners;
@@ -127,3 +128,8 @@ For furniture Maziss sits on, the owner explicitly requires visible complete 3D
 models; a flat sprite and hidden seat proxy alone are insufficient. Fit actual
 body/seat/foot contacts and inspect the combined rendered motion. Updated external
 AI/service findings and access limits are in the room interaction research notes.
+The desk-stool candidate now uses actual character/stool geometry and a local
+repaired room plate. `docs/STOOL_INTERACTION_STUDY.md` and the final Art/QA reports
+record its scoped approval for owner review and remaining approach boot-floor
+overlap. Its compact HTML plays one authored action; main Godot integration and
+other room actions remain separate. Original artwork/models are preserved.

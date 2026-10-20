@@ -1,6 +1,6 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-19T19:16:52.204859+02:00",
+  "updated_at": "2026-10-20T09:42:52.627701+02:00",
   "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
   "roles": [
     {
@@ -1219,6 +1219,119 @@
         "Give a bounded recommendation; preserve original artwork and model."
       ],
       "result": "Actual-image review, independent GLB import and offline desktop/mobile HTML/download checks passed for the corrected geometry-only candidate. Six UV meshes, finite geometry, no zero-area polygons; initial leg-seat gap fixed. No Godot, room replacement or character contact claim."
+    },
+    {
+      "id": "STOOL-002",
+      "role": "Coordinator / 3D room interaction",
+      "title": "Place actual stool in room, author clean background and integrate approach/pull/sit",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Place actual stool in room, author clean background and integrate approach/pull/sit. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "tools/render_stool_interaction.py",
+        "tools/build_stool_interaction_review.py",
+        "build/checks/stool-interaction/",
+        "visual-preview/maziss-stool-interaction.html",
+        "docs/",
+        "production/"
+      ],
+      "deliverable": "docs/STOOL_INTERACTION_STUDY.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Complete actual3D desk-stool approach/pull/sit candidate delivered as930920-byte offline HTML, SHA25629e45f1274caf82099af98cd29aa6e91a865aa0cdd14e8bb5d4ad67dcb8e6f24. Original painted stool/shadow locally replaced with intact background. All157actual frames retained, editable baked scene saved. Final Art/QA recommend owner review; inherited approach bootfloor overlap1.633cm and acting/material polish remain. Main Godot unchanged."
+    },
+    {
+      "id": "ART-012",
+      "role": "Art / contact motion author",
+      "title": "Author world-space approach/reach/pull/reposition/sit targets on actual rig and inspect combined room renders",
+      "status": "completed",
+      "agent": "/root/stool_pull_pose",
+      "objective": "Author world-space approach/reach/pull/reposition/sit targets on actual rig and inspect combined room renders. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "tools/stool_interaction_pose.py",
+        "production/ART_STOOL_INTERACTION.md",
+        "build/checks/stool-interaction/art/"
+      ],
+      "deliverable": "production/ART_STOOL_INTERACTION.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Authored world-space pose and validated numeric contacts; reviewed staged actual images and corrected sitting yaw, foot interpolation and oversized align step. Final full-motion review transferred after allowance interruption to ART-013."
+    },
+    {
+      "id": "QA-018",
+      "role": "Independent rendered interaction QA",
+      "title": "Inspect same actual sequence and clean background; verify stool contact, continuity and offline delivery",
+      "status": "completed",
+      "agent": "/root/stool_room_qa",
+      "objective": "Inspect same actual sequence and clean background; verify stool contact, continuity and offline delivery. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "production/QA_STOOL_INTERACTION.md",
+        "build/checks/stool-interaction/qa/"
+      ],
+      "deliverable": "production/QA_STOOL_INTERACTION.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Inspected staged actual backgrounds/contact images and audited scene. Found boot sole twist floor issue; correction authored afterward. Final fixed-scene/full-motion verification transferred after allowance interruption to QA-019. Historical report is provisional, not final approval."
+    },
+    {
+      "id": "ART-013",
+      "role": "Art / final rendered action review",
+      "title": "Review completed stool-pull-sit sequence after allowance resume",
+      "status": "completed",
+      "agent": "/root/stool_final_art",
+      "objective": "Inspect actual final sequence against room/character references, confirm corrected turn/foot contact and intact vacated background. Do not redo modeling/research.",
+      "allowed_files": [
+        "production/ART_STOOL_FINAL.md",
+        "build/checks/stool-interaction/art-final/"
+      ],
+      "deliverable": "production/ART_STOOL_FINAL.md",
+      "acceptance": [
+        "Open actual final start/contact/pull/turn/seated images and native video moments.",
+        "Confirm no old stool/hole, coherent scale and continuous garments.",
+        "Judge natural sequence, free-hand/rim contact and supported seating.",
+        "QA independently verifies final floor/mesh and offline Use-click playback, video decode, reset and compact delivery.",
+        "Record final artifact hash and limits; no main Godot integration or final art approval claim."
+      ],
+      "result": "Opened8final room composites, original/repaired crops and20native playback captures through8.85sec. Pull, compactturn and supported angled sitting read coherently; no new scoped blocker. Recommends owner review, with stiff/deep preparation, limited seat visibility and unfinished palette/hands/textures retained as caveats."
+    },
+    {
+      "id": "QA-019",
+      "role": "Independent final scene / offline interaction QA",
+      "title": "Review completed stool-pull-sit sequence after allowance resume",
+      "status": "completed",
+      "agent": "/root/stool_final_qa",
+      "objective": "Inspect actual final sequence against room/character references, confirm corrected turn/foot contact and intact vacated background. Do not redo modeling/research.",
+      "allowed_files": [
+        "production/QA_STOOL_FINAL.md",
+        "build/checks/stool-interaction/qa-final/"
+      ],
+      "deliverable": "production/QA_STOOL_FINAL.md",
+      "acceptance": [
+        "Open actual final start/contact/pull/turn/seated images and native video moments.",
+        "Confirm no old stool/hole, coherent scale and continuous garments.",
+        "Judge natural sequence, free-hand/rim contact and supported seating.",
+        "QA independently verifies final floor/mesh and offline Use-click playback, video decode, reset and compact delivery.",
+        "Record final artifact hash and limits; no main Godot integration or final art approval claim."
+      ],
+      "result": "Independent157-sample finite scene audit,157render hashes and11offline Chromium checks passed. Actual decoded video advances through all7phases; Use/hotspot, endpoint, reset/repeat/mobile work with no pageerrors/external requests. Corrected pivot clearance passes; inherited approach bootfloor intrusion up to1.633cm explicitly remains. Recommends first owner review, not final art or Godot approval."
     }
   ],
   "events": [
@@ -1666,6 +1779,21 @@
       "time": "2026-10-19T19:16:52.204859+02:00",
       "task": "STOOL-001",
       "event": "Actual Art and independent QA completed corrected-model review. Both recommend owner review of the separate geometry candidate. Final HTML552020bytes and GLB5e4754e3... saved; source/checkpoints pushed. No character animation or room image changed. Owner notified only5%remaining; work stops after this checkpoint."
+    },
+    {
+      "time": "2026-10-19T23:46:44.976332+02:00",
+      "task": "STOOL-002",
+      "event": "Owner requests actual stool replacement in room and Maziss pulling it toward himself then sitting. This explicitly authorizes scoped character motion again. Coordinator will stage a complete 3D interaction and repair the original painted-stool region; Art authoring and independent QA assignments recorded before delegation."
+    },
+    {
+      "time": "2026-10-20T09:35:48.438058+02:00",
+      "task": "STOOL-002",
+      "event": "Resumed after allowance reset. All157 actual frames completed and retained; packaging underway. Original workers are unavailable, so final Art/QA roles receive bounded continuation briefs and existing evidence instead of redoing authoring."
+    },
+    {
+      "time": "2026-10-20T09:42:52.627701+02:00",
+      "task": "STOOL-002",
+      "event": "Final actual-image/native-playback Art and QA reviews complete after resume. Both recommend owner review of930920-byte Use-stool action; independent checks disclose small inherited approach floor overlap. Saving source, final reports and compact resume handoff; private models/renders/plate/video/HTML stay excluded from Git. Owner creative approval and merge pending."
     }
   ]
 }

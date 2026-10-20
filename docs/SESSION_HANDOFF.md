@@ -1,76 +1,64 @@
 # Current session handoff
 
-## Status and permission
+## Current result
 
-Owner clarifies this is private, non-commercial experimentation, with no
-distribution planned. Free non-commercial services are eligible for trials;
-check their specific terms. Do not reject them for hypothetical commercial use.
-No paid service is authorized; prior private-asset handling still applies.
+The owner authorized placing the actual 3D stool in the room, having Maziss
+approach, pull it toward himself and sit. This first authored action is complete
+and awaits owner creative review. The previous low-allowance animation pause does
+not block this explicitly authorized increment.
 
-Animation is **paused**. The owner wants to use the remaining allowance to improve
-efficiency/continuity and research later art/room interactions. Resume character
-animation only when they say allowance has reset or
-explicitly authorize it. Do not restart rendering merely because a new chat opens.
+- Review: `visual-preview/maziss-stool-interaction.html`, 930920 bytes, SHA-256
+  `29e45f1274caf82099af98cd29aa6e91a865aa0cdd14e8bb5d4ad67dcb8e6f24`.
+- Select **Use**, click the highlighted stool, then inspect the full sequence.
+  Reset restores its beginning; native video controls also work.
+- Actual character and six-part stool are rendered together over a locally repaired
+  room plate. The old painted stool/shadow is removed without editing the original.
+- 157 actual frames at20fps; 8.85-second native clip includes one-second final hold.
+  This is one authored HTML review action, not a free walking/physics controller or
+  main Godot integration. Earlier sofa and geometry-only previews remain intact.
 
-## Working result and next task
+## Evidence and limits
 
-The owner says the interactive sofa study is on the right track. In the compact
-offline HTML, floor clicks walk, Use on sofa approaches/turns/sits, and another
-floor click stands/walks. Actual Art/QA review passed for this first candidate.
-The next authorized animation changes, once unpaused, are deeper seating between
-the yellow and white pillows and moderately faster walking with matched gait.
-The full new owner list (blur/alpha, palette, clothing detail, facial acting and
-15 room interactions) is saved in `ROOM_INTERACTION_BACKLOG.md`, with role owners.
-Actual-source research and a proposed one-stool trial are in
-`ROOM_INTERACTION_RESEARCH.md`. The owner then authorized one geometry-only stool
-trial. A complete model and three actual views are saved; actual Art and QA review
-is complete and recommends owner review of this geometry candidate. Art and QA must inspect the same actual changed imagery and
-jointly recommend proceeding; intact backgrounds after object movement are a gate.
-Latest clarification: sitting furniture must be actual visible 3D geometry, not
-flat sprites or hidden proxies alone. The research notes now include checked
-Meshy/Tripo free-plan limits, TripoSR CPU support and its currently failing demo.
-No service was given private art and no external AI generation was submitted.
+Read `docs/STOOL_INTERACTION_STUDY.md`, `production/ART_STOOL_FINAL.md` and
+`production/QA_STOOL_FINAL.md`. Both reviewers opened actual images/native playback
+and recommend owner review. QA passed11 offline playback/control/mobile checks,
+all157 render hashes and the independent baked-scene audit. A small inherited
+approach boot/floor overlap remains (up to1.633cm at1.05s). Preparation/acting,
+mitten-like grip, palette and texture detail remain first-pass limitations.
+Earlier provisional reports retain the corrected yaw/step/sole defect history.
 
-## New stool checkpoint
+## Files to resume from
 
-- Read `docs/STOOL_MODEL_STUDY.md`, `production/ART_STOOL_MODEL.md` and
-  `production/QA_STOOL_MODEL.md` for the geometry-only result and final review state.
-- Sources: `tools/build_stool_study.py`, `tools/build_stool_review.py`.
-- Private assets: `build/checks/stool-study/maziss-stool.blend`, `maziss-stool.glb`,
-  `model-manifest.json` and the three PNG views.
-- Preview: `visual-preview/maziss-stool-study.html`, 552020 bytes,
-  SHA-256 `9c1bac72668f5ca9d2b9239726a68b852cce512b7f2062e4f723012e35acc960`.
-- GLB SHA-256 `5e4754e37cbf1e4764f32c80b50e9a6e6bf365865766f4ead7d351d59c1e713c`.
-- Six solid mesh parts: seat, four legs and footrest ring; preliminary base colours
-  and UVs. A QA-found leg/seat gap was corrected, with the same three views rebuilt.
-- Independent final GLB import and actual embedded download checks passed; both
-  reviewers opened corrected images. Rim softness, regularity and approximate leg
-  proportions remain for owner feedback; this is not final painted-art approval.
-- Do not redo research/modeling from scratch. Next shape/paint choices need owner
-  feedback. Clean background, room replacement, movement and Maziss sitting on the
-  stool are not yet implemented. Character animation is still paused.
+- Repo `/workspace/Maaziss`; branch `feat/reference-human-walk`; draft PR #4:
+  https://github.com/sminskaa/Maaziss/pull/4. No merge approval.
+- Sources: `tools/stool_interaction_pose.py`, `tools/render_stool_interaction.py`,
+  `tools/build_stool_interaction_review.py`.
+- Private scene/frames/video/clean plate/manifests:
+  `build/checks/stool-interaction/`, including `stool-interaction.blend`.
+- Private character rig/motion: `build/checks/supplied-character/`.
+- Private stool model: `build/checks/stool-study/maziss-stool.blend` and `.glb`.
+- Private original room: `build/checks/room-cutaway/room-reframed-source.png`.
+- Model-only reference review: `visual-preview/maziss-stool-study.html`.
 
-- Repo: `/workspace/Maaziss`; branch: `feat/reference-human-walk`.
-- Draft PR: https://github.com/sminskaa/Maaziss/pull/4; no merge approval.
-- Preview: `visual-preview/maziss-sofa-sit.html` (private/ignored).
-- Detailed task/assets/source map: `docs/RESUME_SOFA_INTERACTION.md`.
-- Preserve supplied geometry, original artwork and working preview. Final target:
-  offline desktop Godot; HTML is a review prototype. Inline chat images fail.
+Do not redo completed modeling/research or rerender valid output without a reason.
+Keep private models, owner media and generated previews excluded from Git. A fresh
+workspace needs private assets restored; a public repository clone alone cannot
+reproduce the reviews. Exact sources/provenance are in private manifests.
 
-## Efficient restart
+## Remaining owner requests and working preferences
 
-1. Read this file and applicable project instructions. Check branch/worktree status
-   and required private assets before claiming the previous state is available.
-2. Read only task-relevant source/report sections. Do not reprocess the entire chat,
-   old experiments, generated board, base64 HTML, recordings or every reference.
-3. Work on one bounded visible change. Reuse valid renders/evidence; verify changed
-   behavior and actual images. Keep required Art/QA review, with focused briefs and
-   selected files rather than full-history agent handoffs where tools permit.
-4. At a checkpoint, save source and a brief handoff: current result, pending request,
-   relevant paths, remaining issues and authorization state. Update this file in
-   place; do not grow it into a transcript.
+`docs/ROOM_INTERACTION_BACKLOG.md` retains blur/alpha, palette, clothing texture,
+facial acting and15room interactions. Earlier deeper sofa seating between yellow
+and white pillows and moderately faster walking remain queued. Next increment
+should follow owner feedback, one bounded visible change at a time.
 
-The same workspace or private asset backup is needed after a restart: Git alone
-does not retain the supplied models, derived motion and generated previews.
-Context shortening does not replenish usage allowance or guarantee a saving of a
-specific amount. Automatic compaction may already shorten a long visible chat.
+This is private, non-commercial experimentation, with no distribution planned and
+no additional paid tools authorized. Free non-commercial services are eligible
+subject to their actual terms; none generated this stool model. Final technical
+direction remains offline desktop Godot. Inline chat images fail for the owner;
+compact self-contained HTML works. Art and QA must inspect actual output together.
+
+Start with this handoff, applicable project rules and relevant files only. Preserve
+checkpoints before allowance runs out; avoid replaying the entire chat or reading
+embedded-media HTML/generated board into context. Compaction is distinct from
+usage allowance and does not replenish it.

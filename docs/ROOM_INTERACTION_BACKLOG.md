@@ -85,5 +85,9 @@ Current pause and private asset continuity: `SESSION_HANDOFF.md`.
 
 Geometry-only substep completed separately: `STOOL_MODEL_STUDY.md` and
 `visual-preview/maziss-stool-study.html`. Art and QA recommend owner review of that
-candidate. Background reconstruction, in-room replacement and movement remain
-pending; the broader trial above is not marked complete by a standalone model.
+candidate. A subsequent first ROOM-05 action candidate now repairs the background,
+replaces the stool with actual geometry, and shows Maziss approaching, pulling and
+sitting: `STOOL_INTERACTION_STUDY.md` / `visual-preview/maziss-stool-interaction.html`.
+Final Art and QA recommend owner review; approach boot-floor overlap and acting/
+paint polish remain. This is one authored offline review action, not main-Godot
+integration, stool return, writing or approval of the rest of the room backlog.
