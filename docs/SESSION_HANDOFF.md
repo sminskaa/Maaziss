@@ -1,6 +1,16 @@
 # Current session handoff
 
-## Latest desk-facing stool revision (20 October)
+## Active owner correction: right-hand pull and occupied stool slide
+
+Owner rejects the circling shuffles below. Follow `docs/STOOL_SLIDE_CHECKPOINT.md`:
+right-hand pull from stool's left, compact sit, right-hand grip seat top, slide
+occupied stool toward desk and finish both hands on desk. No writing yet.
+Art is separating the fused right arm/bag; coordinator authors new action and desk
+support geometry; QA prepares independent actual-output review. Source and private
+checkpoints are saved as work proceeds. Earlier HTML is preserved, not the revised
+result. Do not mark this request done until actual motion/contact review.
+
+## Previous desk-facing stool revision (20 October)
 
 The owner liked the first stool action and requested passing around its back,
 then sitting toward the far-right desk for eventual writing. This separate

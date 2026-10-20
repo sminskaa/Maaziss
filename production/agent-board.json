@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T08:51:20.304016+00:00",
-  "snapshot_note": "Both actual Art and QA workers completed revised desk-facing stool review. Compact918447-byte HTML ready for owner review; writing/mainGodot remain separate, cautious circling pace and inherited approach floor overlap disclosed.",
+  "updated_at": "2026-10-20T08:58:29.487075+00:00",
+  "snapshot_note": "Owner rejected circling shuffles. New bounded work: independently usable right arm, short boarding, occupied stool slide and final desk contact; save durable checkpoints.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1367,6 +1367,45 @@
       ],
       "title": "Independently inspect actual revised frames and playback",
       "result": "231scene samples/renderhashes,92exactprefixrenderhashes and11offlineplayback/control/mobilechecks pass. Actual boot/stool surface check detected no crossing; inherited approachflooroverlap1.633cm remains. Recommends owner review."
+    },
+    {
+      "id": "ART-015",
+      "role": "Character Art / rig preparation",
+      "title": "Separate right pulling arm from bag without losing sculpt identity",
+      "objective": "Separate right pulling arm from bag without losing sculpt identity",
+      "allowed_files": [
+        "tools/prepare_stool_right_arm.py",
+        "production/ART_STOOL_RIGHT_HAND.md"
+      ],
+      "deliverable": "production/ART_STOOL_RIGHT_HAND.md",
+      "acceptance": [
+        "Inspect actual before/after character and motion renders",
+        "No circling shuffles; anatomical right hand pulls and grips stool",
+        "Seated character and stool slide together, finish both hands on desk",
+        "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
+      ],
+      "status": "in_progress",
+      "agent": "/root/right_arm_art",
+      "result": null
+    },
+    {
+      "id": "QA-021",
+      "role": "Independent interaction QA",
+      "title": "Review right-hand pull, compact sitting, occupied stool slide and desk contact",
+      "objective": "Review right-hand pull, compact sitting, occupied stool slide and desk contact",
+      "allowed_files": [
+        "production/QA_STOOL_SLIDE.md"
+      ],
+      "deliverable": "production/QA_STOOL_SLIDE.md",
+      "acceptance": [
+        "Inspect actual before/after character and motion renders",
+        "No circling shuffles; anatomical right hand pulls and grips stool",
+        "Seated character and stool slide together, finish both hands on desk",
+        "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
+      ],
+      "status": "in_progress",
+      "agent": "/root/stool_desk_qa",
+      "result": null
     }
   ],
   "events": [
@@ -1839,6 +1878,11 @@
       "time": "2026-10-20T08:51:20.304016+00:00",
       "task": "ART-014 / QA-020",
       "event": "Completed231actualframes with92verifiedunchangedprefixframes. Art inspected25nativeplaybackcaptures; QA passed11offlinechecks plus actualscene/bootclearance/framehashaudits. Bothrecommendownerreview of rear-side boarding and desk-facing endpoint. Source and privateartifacts preserved; owner creative approval pending."
+    },
+    {
+      "time": "2026-10-20T08:58:29.487075+00:00",
+      "task": "ART-015 / QA-021",
+      "event": "Owner rejected circling shuffles. New bounded work: independently usable right arm, short boarding, occupied stool slide and final desk contact; save durable checkpoints."
     }
   ]
 }

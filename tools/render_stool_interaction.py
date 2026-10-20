@@ -33,10 +33,11 @@ def digest(path):
 
 
 def main():
-    global OUT, state_at, DURATION, FPS
+    global OUT, SOURCE, state_at, DURATION, FPS
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",type=Path,default=OUT)
     parser.add_argument("--pose-module",default="stool_interaction_pose")
+    parser.add_argument("--source-blend",type=Path,default=SOURCE)
     parser.add_argument('--keys',action='store_true')
     parser.add_argument('--only',type=float,nargs='*')
     parser.add_argument('--size',type=int,default=448)
@@ -47,6 +48,7 @@ def main():
                         help='Prior render manifest paired with art/prefix-equivalence.json')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     OUT=args.output.resolve(); OUT.mkdir(parents=True,exist_ok=True)
+    SOURCE=args.source_blend.resolve()
     module=importlib.import_module(args.pose_module)
     state_at,DURATION,FPS=module.state_at,module.DURATION,module.FPS
     pose_path=Path(module.__file__).resolve()
@@ -110,6 +112,11 @@ def main():
     camera.location=target+Vector((0,-5,5*math.tan(math.radians(23))))
     camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler()
     scene.camera=camera
+    desk_geometry=None
+    if getattr(module,"DESK_GEOMETRY",False):
+        from stool_desk_geometry import build as build_desk
+        desk_geometry=build_desk(scene)
+        dependencies["tools/stool_desk_geometry.py"]=digest(ROOT/"tools/stool_desk_geometry.py")
     scene.render.fps=FPS;scene.frame_start=1;scene.frame_end=round(DURATION*FPS)+1
     for bone in rig.pose.bones:
         bone.rotation_mode='QUATERNION'
@@ -153,11 +160,15 @@ def main():
             for point in curve.keyframe_points:point.interpolation='LINEAR'
     scene.frame_set(1);bpy.context.view_layer.update()
     ground=world_to_camera_view(scene,camera,Vector((0,0,0)))
-    manifest={'sourceBlendSHA256':digest(SOURCE),'stoolBlendSHA256':digest(STOOL),
+    manifest={'sourceBlendPath':str(SOURCE.relative_to(ROOT)), 'sourceBlendSHA256':digest(SOURCE),'stoolBlendSHA256':digest(STOOL),
               'poseScriptSHA256':pose_sha,
               'poseDependencies':dependencies,
               'poseScriptPath':str(pose_path.relative_to(ROOT)),
               'phaseBoundaries':getattr(module,'PHASE_BOUNDARIES',None),
+              'deskGeometry':desk_geometry,
+              'contactSpecification':getattr(module,'CONTACT_SPECIFICATION',None),
+              'reviewDescription':getattr(module,'REVIEW_DESCRIPTION',None),
+              'finalLabel':getattr(module,'FINAL_LABEL','Seated facing the desk'),
               'rendererSHA256':digest(Path(__file__)), 'width':args.size,'height':args.size,
               'samples':args.samples,
               'orthoScale':2.9,'cameraPosition':list(camera.location),'cameraTarget':list(target),
