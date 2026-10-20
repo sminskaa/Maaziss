@@ -1,5 +1,23 @@
 # Current session handoff
 
+## Latest: owner supplied a full stool-action direction file
+
+Original saved privately at `private/directions/seat-at-desk-original.json`.
+It contains six ordered annotations: turn/approach, right-hand grip, pull back,
+turn upper-right/sit then face right, occupied forward slide with right-foot desk
+occlusion, both hands on desktop. One file for the action is appropriate; do not
+require the owner to resend six files or provide more motion footage.
+`visual-preview/maziss-stool-storyboard.html` is a compact six-beat interpretation
+review with numbered contact/location diagrams, original notes, per-beat intent
+agreement/corrections and one feedback export. Builder:
+`tools/build_stool_direction_storyboard.py`. It is NOT posed character output;
+painting/stool are unchanged. No animation, size or contact approval is implied.
+Chromium checks covered six cards, persistence/export, mobile width and JS errors;
+actual desktop capture inspected at `build/checks/stool-storyboard/desktop.png`.
+Next: owner reviews this interpretation. After corrections, show a bounded posed
+visual proof, rather than making the whole animation or treating annotations as
+exact 3D/hip/hand solutions. Final character appearance is still unapproved.
+
 ## Current owner direction: visual-method reset and first directing tool
 
 The owner asked how to provide interactive directions. A small standalone tool
