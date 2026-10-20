@@ -73,3 +73,9 @@ python3 tools/build_stool_interaction_review.py --output build/checks/stool-slid
 Wait for source and scene freeze before auditing; never compare an older bake
 with a newer pose module. Main deliverable will be
 `visual-preview/maziss-stool-slide.html` only after full-motion/contact review.
+
+## Later allowance-resume checkpoint
+
+Current corrected implementation and render-resume instructions now live in
+`STOOL_SLIDE_STUDY.md`. Its final Art/QA reports supersede the provisional contact
+HOLD history above once their actual-output gates complete.

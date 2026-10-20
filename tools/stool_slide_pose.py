@@ -17,7 +17,13 @@ PHASE_BOUNDARIES=((1.6,'Approach the left side'),(2.4,'Right hand takes the seat
  (8.8,'Rest both hands on the desk'))
 START=Vector((-1.6,-.7,0))
 APPROACH=Vector((-.32,.55,0))
-PULL_ROOT=Vector((-.34,.52,0))
+PULL_ROOT=Vector((-.44,.52,0))
+# One planted adjustment clears the near stool leg without adding a shuffle.
+PULL_FOOT_OFFSET=Vector((.29,.04,0))
+# A small mid-pull rise keeps the satchel clear; root compensation retains reach.
+PULL_HEIGHT_BUMP=.018
+PULL_ROOT_BUMP=Vector((-.02,0,0))
+RELEASE_ROOT=Vector((-.25,.50,0))
 STOOL_PULLED=Vector((-.24,.20,0))
 SLIDE=Vector((.26,-.18,0))
 YAW=135.
@@ -42,7 +48,7 @@ CONTACT_SPECIFICATION={'pullInterval':[2.4,3.4],'pullGrip':list(PULL_GRIP),
  'landmarkNote':'Bone tips are above support; independently inspect evaluated skin contact.'} 
 
 
-def arm(out,side,tip,direction,amount=1):
+def arm(out,side,tip,direction,amount=1,elbow_drop=0):
     upper,lower,hand=(side+x for x in ('UpperArm','ForeArm','Hand'))
     shoulder=out[upper][0];old_wrist,old_tip=out[hand]
     direction=direction.normalized();desired=tip-direction*b.LENGTHS[hand]
@@ -54,7 +60,7 @@ def arm(out,side,tip,direction,amount=1):
     if (wrist-shoulder).length<minimum:
         wrist=shoulder+(wrist-shoulder).normalized()*minimum
     sign=1 if side=='Left' else -1
-    pole=b._q(YAW)@Vector((sign*.7,.30,-.15))
+    pole=b._q(YAW)@Vector((sign*.7,.30,-.15)).lerp(Vector((sign*.12,.05,-.8)),elbow_drop)
     elbow=_elbow(shoulder,wrist,b.LENGTHS[upper],b.LENGTHS[lower],pole)
     handdir=(old_tip-old_wrist).normalized().lerp(direction,amount).normalized()
     out[upper]=(shoulder,elbow);out[lower]=(elbow,wrist)
@@ -68,14 +74,14 @@ def seated(root,feet,lean=15):
 def state_at(seconds):
     t=max(0.,min(DURATION,float(seconds)));stool=Vector((0,0,0));yaw=YAW
     initial=b._feet(APPROACH,YAW)
-    pulled={side:tuple(p+Vector((.24,0,0)) if side=='Right' else p.copy() for p in pair) for side,pair in initial.items()}
+    pulled={side:tuple(p+PULL_FOOT_OFFSET if side=='Right' else p.copy() for p in pair) for side,pair in initial.items()}
     planted={side:tuple(STAND+b._q(YAW)@(p+Vector((.07 if side=='Left' else -.07,-.04,0))) for p in b.REST[side+'Foot']) for side in ('Left','Right')}
     seated_feet={}
     for side,sign in (('Left',1),('Right',-1)):
         ankle=STOOL_PULLED+b._q(YAW)@Vector((sign*.29,-.44,.225))
         seated_feet[side]=(ankle,ankle+b._q(YAW)@(b.REST[side+'Foot'][1]-b.REST[side+'Foot'][0]))
     if t<1.6:
-        u=t/1.6;s=b._ease(u);root=START.lerp(APPROACH,s)
+        u=t/1.6;s=b._ease(u);root=START.lerp(APPROACH,s)+Vector((-.15,.18,0))*math.sin(math.pi*u)**2
         travel_yaw=math.degrees(math.atan2(APPROACH.x-START.x,-(APPROACH.y-START.y)))
         yaw=travel_yaw+(YAW-travel_yaw)*b._ease((u-.65)/.35)
         out=b._posture(root,yaw)
@@ -86,16 +92,16 @@ def state_at(seconds):
         phase='approach'
     elif t<2.4:
         u=b._ease((t-1.6)/.8);root=APPROACH.copy()
-        out=b._posture(root,YAW,.91-.30*u,20*u)
+        out=b._posture(root,YAW,.91-.202*u,0)
         arm(out,'Right',PULL_GRIP,Vector((0,0,-1)),u);phase='right_reach'
     elif t<3.4:
-        raw=t-2.4;u=b._ease((raw-.22)/.78);foot_u=b._ease(raw/.32);stool=STOOL_PULLED*u;root=APPROACH.lerp(PULL_ROOT,u)
+        raw=t-2.4;u=b._ease((raw-.22)/.78);foot_u=b._ease(raw/.32);stool=STOOL_PULLED*u;root=APPROACH.lerp(PULL_ROOT,u)+PULL_ROOT_BUMP*math.sin(math.pi*u)
         feet={side:tuple(a.lerp(c,foot_u)+Vector((0,0,.075*math.sin(math.pi*min(1.,raw/.32))**2 if side=='Right' else 0)) for a,c in zip(initial[side],pulled[side])) for side in ('Left','Right')}
-        out=b._posture(root,YAW,.61,20,feet=feet)
+        out=b._posture(root,YAW,.708+.015*u+PULL_HEIGHT_BUMP*math.sin(math.pi*u),0,feet=feet)
         arm(out,'Right',stool+PULL_GRIP,Vector((0,0,-1)));phase='right_pull'
     elif t<3.8:
-        u=b._ease((t-3.4)/.4);stool=STOOL_PULLED.copy();root=PULL_ROOT.copy()
-        out=b._posture(root,YAW,.61+.22*u,20*(1-u),feet=pulled)
+        u=b._ease((t-3.4)/.4);stool=STOOL_PULLED.copy();root=PULL_ROOT.lerp(RELEASE_ROOT,u)
+        out=b._posture(root,YAW,.723+.107*u,0,feet=pulled)
         arm(out,'Right',stool+PULL_GRIP,Vector((0,0,-1)),1-u);phase='release'
     elif t<4.7:
         u=(t-3.8)/.9
@@ -104,7 +110,7 @@ def state_at(seconds):
             if v<ramp:return (v/2-ramp/(2*math.pi)*math.sin(math.pi*v/ramp))/(1-ramp)
             if v>1-ramp:return 1-path_progress(1-v)
             return (v-ramp/2)/(1-ramp)
-        s=path_progress(u);root=PULL_ROOT.lerp(STAND,s);stool=STOOL_PULLED.copy()
+        s=path_progress(u);root=RELEASE_ROOT.lerp(STAND,s);stool=STOOL_PULLED.copy()
         feet=b._step_feet(pulled,planted,u,lead='Right')
         out=b._posture(root,YAW,.83+.055*s-.03*math.sin(math.pi*u)**2,feet=feet)
         phase='compact_step'
@@ -131,7 +137,8 @@ def state_at(seconds):
         forward=b._q(YAW)@Vector((0,-1,0));raw=(t-7.4)/1.4
         for side in ('Left','Right'):
             old_wrist,old_tip=out[side+'Hand'];old_direction=(old_tip-old_wrist).normalized()
-            lifted=old_tip+Vector((0,0,.46))+b._q(YAW)@Vector((.18 if side=='Left' else -.18,0,0));above=DESK_HANDS[side]+Vector((0,0,.10))
+            lift_offset=Vector((0,-.24,0)) if side=='Left' else Vector((-.18,-.12,0))
+            lifted=old_tip+Vector((0,0,.46))+b._q(YAW)@lift_offset;above=DESK_HANDS[side]+Vector((0,0,.10))
             if raw<.30:
                 tip=old_tip.lerp(lifted,b._ease(raw/.30));direction=old_direction
             elif raw<.75:
@@ -139,7 +146,7 @@ def state_at(seconds):
                 direction=old_direction.lerp(forward,progress).normalized()
             else:
                 tip=above.lerp(DESK_HANDS[side],b._ease((raw-.75)/.25));direction=forward
-            arm(out,side,tip,direction)
+            arm(out,side,tip,direction,elbow_drop=b._ease(raw/.75))
         phase='desktop_reach' if t<DURATION else 'hands_on_desk'
     return {'targets':{name:{'head':list(a),'tail':list(c)} for name,(a,c) in out.items()},
       'stool_position':list(stool),'phase':phase,'root':{'position':list(root),'yaw_degrees':yaw},'seconds':t}

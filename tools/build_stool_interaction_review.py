@@ -100,6 +100,8 @@ Object.defineProperty(window,'stoolReview',{value:Object.freeze({snapshot:()=>({
         template=template.replace(old,'function phase(t){return '+cases+'}')
     if m.get("reviewDescription"):
         template=template.replace("Maziss approaches, pulls it toward himself, steps around the back of the stool and sits facing the desk.",m["reviewDescription"])
+    if m.get('deskGeometry'):
+        template=template.replace('Surface detail, the mitten-like free hand and joined bag-side hand remain unfinished.', 'The right arm moves independently of the satchel. Fitted 3D desk and object volumes provide contact and depth while retaining the painted appearance. Surface detail and hand shapes remain unfinished.')
     for crf in (33,36,39):
         movie=OUT/'desk-stool-action.webm'
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(m['fps']),'-i',str(frames/'frame-%03d.png'),'-vf','tpad=stop_mode=clone:stop_duration=1','-c:v','libvpx-vp9','-b:v','0','-crf',str(crf),'-row-mt','1','-threads','4','-pix_fmt','yuv420p','-an',str(movie)],check=True)

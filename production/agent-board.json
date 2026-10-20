@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T08:58:29.487075+00:00",
-  "snapshot_note": "Owner rejected circling shuffles. New bounded work: independently usable right arm, short boarding, occupied stool slide and final desk contact; save durable checkpoints.",
+  "updated_at": "2026-10-20T16:31:12.226408+00:00",
+  "snapshot_note": "Resumed contact corrections saved. Art and QA actual-key gates pass; full177frame stool pull/sit/occupied-slide/desktop-contact render running. Final playback pending.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1384,9 +1384,9 @@
         "Seated character and stool slide together, finish both hands on desk",
         "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
       ],
-      "status": "in_progress",
+      "status": "paused",
       "agent": "/root/right_arm_art",
-      "result": null
+      "result": "Allowance interruption; saved model, contact draft and actual-key audits. Remaining pull boot/seat and midpull bag contact prevent final pass."
     },
     {
       "id": "QA-021",
@@ -1403,9 +1403,46 @@
         "Seated character and stool slide together, finish both hands on desk",
         "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
       ],
-      "status": "in_progress",
+      "status": "paused",
       "agent": "/root/stool_desk_qa",
-      "result": null
+      "result": "Allowance interruption; saved model, contact draft and actual-key audits. Remaining pull boot/seat and midpull bag contact prevent final pass."
+    },
+    {
+      "id": "ART-016",
+      "role": "Art / contact authoring",
+      "title": "Resolve saved midpull bag and right boot contact with compact natural motion",
+      "objective": "Resolve saved midpull bag and right boot contact with compact natural motion",
+      "allowed_files": [
+        "tools/stool_slide_pose.py",
+        "production/ART_STOOL_SLIDE_FINAL.md"
+      ],
+      "deliverable": "production/ART_STOOL_SLIDE_FINAL.md",
+      "acceptance": [
+        "Preserve short direct boarding and right-hand pull",
+        "Verify actual surfaces during pull, occupied slide and both palms on desk",
+        "Inspect actual room images and continuous native motion, disclose limits"
+      ],
+      "status": "in_progress",
+      "agent": "/root/slide_contact_art",
+      "result": "Corrected actual room keys and unobscured hands reviewed. Independent177sample contact/clearance checks pass; full177frame render in progress. Final native playback gate pending."
+    },
+    {
+      "id": "QA-022",
+      "role": "Independent final interaction QA",
+      "title": "Audit corrected stool slide actual geometry, images and offline playback",
+      "objective": "Audit corrected stool slide actual geometry, images and offline playback",
+      "allowed_files": [
+        "production/QA_STOOL_SLIDE_FINAL.md"
+      ],
+      "deliverable": "production/QA_STOOL_SLIDE_FINAL.md",
+      "acceptance": [
+        "Preserve short direct boarding and right-hand pull",
+        "Verify actual surfaces during pull, occupied slide and both palms on desk",
+        "Inspect actual room images and continuous native motion, disclose limits"
+      ],
+      "status": "in_progress",
+      "agent": "/root/slide_resume_qa",
+      "result": "Corrected actual room keys and unobscured hands reviewed. Independent177sample contact/clearance checks pass; full177frame render in progress. Final native playback gate pending."
     }
   ],
   "events": [
@@ -1883,6 +1920,16 @@
       "time": "2026-10-20T08:58:29.487075+00:00",
       "task": "ART-015 / QA-021",
       "event": "Owner rejected circling shuffles. New bounded work: independently usable right arm, short boarding, occupied stool slide and final desk contact; save durable checkpoints."
+    },
+    {
+      "time": "2026-10-20T16:17:38.688191+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Owner resumes after allowance reset. Continue saved contact draft; no modeling or research restart. Remaining right boot leg3 and midpull bag seat contacts before full render."
+    },
+    {
+      "time": "2026-10-20T16:31:12.226408+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Resumed contact corrections saved. Art and QA actual-key gates pass; full177frame stool pull/sit/occupied-slide/desktop-contact render running. Final playback pending."
     }
   ]
 }

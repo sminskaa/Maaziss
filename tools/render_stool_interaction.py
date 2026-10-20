@@ -32,6 +32,30 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def apply_sample(rig,actor,stool,sample,gait_phases=('approach',)):
+    """Apply the same world pose and planted-sole roll in renders and probes."""
+    position=Vector(sample['root']['position'])
+    heading=Quaternion((0,0,1),math.radians(sample['root']['yaw_degrees']))
+    local={name:{end:list(heading.inverted()@(Vector(point)-position))
+                 for end,point in pair.items()} for name,pair in sample['targets'].items()}
+    # Bone direction alone cannot encode twist about a near-vertical spine.
+    # The real root carries heading; bones receive only actor-local poses.
+    actor.location=position;actor.rotation_quaternion=heading
+    pose(rig,local)
+    if sample['phase'] not in gait_phases:
+        # Head/tail direction does not specify roll. During a planted pivot,
+        # preserve the entire sole's orientation with an exact Z rotation.
+        for side in ('Left','Right'):
+            name=side+'Foot';bone=rig.data.bones[name]
+            a=Vector(local[name]['head']);b=Vector(local[name]['tail'])
+            original=bone.tail_local-bone.head_local;direction=b-a
+            angle=math.atan2(direction.y,direction.x)-math.atan2(original.y,original.x)
+            rotation=Quaternion((0,0,1),angle)@bone.matrix_local.to_quaternion()
+            rig.pose.bones[name].matrix=Matrix.LocRotScale(a,rotation,Vector((1,1,1)))
+            bpy.context.view_layer.update()
+    stool.location=sample['stool_position']
+
+
 def main():
     global OUT, SOURCE, state_at, DURATION, FPS
     parser=argparse.ArgumentParser()
@@ -39,6 +63,7 @@ def main():
     parser.add_argument("--pose-module",default="stool_interaction_pose")
     parser.add_argument("--source-blend",type=Path,default=SOURCE)
     parser.add_argument('--keys',action='store_true')
+    parser.add_argument('--resume',action='store_true',help='Reuse hash-verified frames from an interrupted identical full render')
     parser.add_argument('--only',type=float,nargs='*')
     parser.add_argument('--size',type=int,default=448)
     parser.add_argument('--samples',type=int,default=32)
@@ -49,11 +74,25 @@ def main():
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     OUT=args.output.resolve(); OUT.mkdir(parents=True,exist_ok=True)
     SOURCE=args.source_blend.resolve()
+    resume_path=OUT/'render-manifest.json'
+    retained_resume=resume_path.read_bytes() if args.resume and resume_path.exists() else None
+    if args.resume and (args.keys or args.only):
+        parser.error('--resume applies to the full sequence only')
     module=importlib.import_module(args.pose_module)
     state_at,DURATION,FPS=module.state_at,module.DURATION,module.FPS
     pose_path=Path(module.__file__).resolve()
     pose_sha=digest(pose_path)
     dependencies={"tools/stool_interaction_pose.py":digest(ROOT/"tools/stool_interaction_pose.py")} if args.pose_module!="stool_interaction_pose" else {}
+    if getattr(module,'DESK_GEOMETRY',False):
+        dependencies['tools/stool_desk_geometry.py']=digest(ROOT/'tools/stool_desk_geometry.py')
+    if retained_resume is not None:
+        old=json.loads(retained_resume)
+        expected={'sourceBlendSHA256':digest(SOURCE),'stoolBlendSHA256':digest(STOOL),
+                  'poseScriptSHA256':pose_sha,'poseDependencies':dependencies,
+                  'rendererSHA256':digest(Path(__file__)),'width':args.size,'height':args.size,
+                  'samples':args.samples,'fps':FPS,'duration':DURATION}
+        for field,value in expected.items():
+            assert old[field]==value, 'Cannot resume changed render: '+field
     bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
     rig=bpy.data.objects['MazissRig'];rig.animation_data_clear()
     body=bpy.data.objects['Maziss supplied sculpt']
@@ -121,26 +160,7 @@ def main():
     for bone in rig.pose.bones:
         bone.rotation_mode='QUATERNION'
     def apply(sample):
-        position=Vector(sample['root']['position'])
-        heading=Quaternion((0,0,1),math.radians(sample['root']['yaw_degrees']))
-        local={name:{end:list(heading.inverted()@(Vector(point)-position))
-                     for end,point in pair.items()} for name,pair in sample['targets'].items()}
-        # Bone direction alone cannot encode twist about a near-vertical spine.
-        # The real root carries heading; bones receive only actor-local poses.
-        actor.location=position;actor.rotation_quaternion=heading
-        pose(rig,local)
-        if sample['phase'] not in getattr(module,'GAIT_PHASES',('approach',)):
-            # Head/tail direction does not specify roll. During a planted pivot,
-            # preserve the entire sole's orientation with an exact Z rotation.
-            for side in ('Left','Right'):
-                name=side+'Foot';bone=rig.data.bones[name]
-                a=Vector(local[name]['head']);b=Vector(local[name]['tail'])
-                original=bone.tail_local-bone.head_local;direction=b-a
-                angle=math.atan2(direction.y,direction.x)-math.atan2(original.y,original.x)
-                rotation=Quaternion((0,0,1),angle)@bone.matrix_local.to_quaternion()
-                rig.pose.bones[name].matrix=Matrix.LocRotScale(a,rotation,Vector((1,1,1)))
-                bpy.context.view_layer.update()
-        stool.location=sample['stool_position']
+        apply_sample(rig,actor,stool,sample,getattr(module,'GAIT_PHASES',('approach',)))
     # Bake one editable action and the stool track before expensive rendering.
     states=[]
     for number in range(scene.frame_end):
@@ -176,10 +196,22 @@ def main():
               'roomFloorAnchor':[1445,744],'roomPixelsPerMetre':200,
               'fps':FPS,'duration':DURATION,'states':states,'renders':[],
               'realGeometry':['supplied character rig','six-part stool','floor shadow catcher'],
-              'scope':'One authored approach/pull/sit action over a repaired painted background'}
+              'scope':getattr(module,'REVIEW_DESCRIPTION','One authored approach/pull/sit action over a repaired painted background')}
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'stool-interaction.blend'))
     manifest['sceneSHA256']=digest(OUT/'stool-interaction.blend')
     file=OUT/('key-manifest.json' if args.keys or args.only else 'render-manifest.json')
+    resume_rows={}
+    if retained_resume is not None:
+        old=json.loads(retained_resume)
+        for field in ('sourceBlendSHA256','stoolBlendSHA256','poseScriptSHA256','poseDependencies','rendererSHA256','width','height','samples','cameraPosition','cameraTarget','fps','duration','states','deskGeometry'):
+            assert old[field]==manifest[field], 'Cannot resume changed render: '+field
+        prior_sha=hashlib.sha256(retained_resume).hexdigest()
+        (OUT/('resume-from-'+prior_sha[:12]+'.json')).write_bytes(retained_resume)
+        for row in old['renders']:
+            frame_path=OUT/row['name']
+            if frame_path.is_file() and digest(frame_path)==row['sha256']:
+                resume_rows[round(row['seconds']*FPS)]=dict(row,resumedFromManifestSHA256=prior_sha)
+        manifest['resumedFromManifestSHA256']=prior_sha
     file.write_text(json.dumps(manifest,indent=2)+'\n')
     times=args.only if args.only else list(module.KEY_TIMES) if args.keys else [n/FPS for n in range(scene.frame_end)]
     previous={}
@@ -202,12 +234,13 @@ def main():
             if r['seconds']<proof['untilSecondsExclusive'] and digest(source)==r['sha256']:
                 if source.resolve()!=(OUT/r['name']).resolve():shutil.copy2(source,OUT/r['name'])
                 previous[round(r['seconds']*FPS)]=dict(r,reusedFromPoseScriptSHA256=old['poseScriptSHA256'],prefixEquivalenceSHA256=digest(OUT/'art/prefix-equivalence.json'))
+    previous.update(resume_rows)
     for t in times:
         number=round(t*FPS);scene.frame_set(number+1)
         if number in previous:
             manifest['renders'].append(previous[number])
             file.write_text(json.dumps(manifest,indent=2)+'\n')
-            print('REUSED UNCHANGED APPROACH',number,flush=True)
+            print('REUSED VERIFIED FRAME',number,flush=True)
             continue
         # Exact authored target at each sampled frame; no frame-bound resizing.
         sample=state_at(number/FPS);apply(sample)

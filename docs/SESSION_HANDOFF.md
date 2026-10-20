@@ -1,14 +1,28 @@
 # Current session handoff
 
-## Active owner correction: right-hand pull and occupied stool slide
+## Active right-hand stool slide (allowance resume)
 
-Owner rejects the circling shuffles below. Follow `docs/STOOL_SLIDE_CHECKPOINT.md`:
-right-hand pull from stool's left, compact sit, right-hand grip seat top, slide
-occupied stool toward desk and finish both hands on desk. No writing yet.
-Art is separating the fused right arm/bag; coordinator authors new action and desk
-support geometry; QA prepares independent actual-output review. Source and private
-checkpoints are saved as work proceeds. Earlier HTML is preserved, not the revised
-result. Do not mark this request done until actual motion/contact review.
+Owner rejects circling shuffles. Current authoring implements right-hand pull
+from the stool's left, compact sitting, right seat grip and an occupied stool
+slide, ending with both rounded hands on the desktop. No writing yet.
+
+- Read `docs/STOOL_SLIDE_STUDY.md` for current method/reproduction; old construction
+  history is `docs/STOOL_SLIDE_CHECKPOINT.md`.
+- Prepared independent arm/bag model and fitted desk/brace/item support geometry
+  are saved. Current frozen pose SHA95f60d2ef89f423a123c696d809495e0ca6026c41e5cac500cac07708b82c2ec.
+- Full177frame32sample render now running; progress/log/scene in
+  `build/checks/stool-slide/` (`render-manifest.json`, `full-render.log`).
+  Resume with the exact command in the study; verifiedframes survive interruption.
+- Art ART-016 `/root/slide_contact_art` and QA QA-022 `/root/slide_resume_qa`
+  inspected actual corrected keys and unobscured hands.177sample independent
+  contact/clearance gate passes, including zero detected boot/furniture crossings.
+  Final scene f239b41c1657d351534ee46e31f07b9eb890759697c6ce16e02ec8eb547fe12a
+  is exactly geometry-equivalent across177samples to audited keybake e3df556… .
+- Final native movie/control gate PENDING until rendering/packaging completes.
+  Target `visual-preview/maziss-stool-slide.html`; do not call it delivered early.
+- Final reports: `production/ART_STOOL_SLIDE_FINAL.md` and
+  `production/QA_STOOL_SLIDE_FINAL.md`. Initial10.34mm floor overlap and coarse
+  hands/materials remain polish limitations. Owner creative acceptance separate.
 
 ## Previous desk-facing stool revision (20 October)
 

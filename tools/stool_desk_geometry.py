@@ -42,7 +42,11 @@ def build(scene):
     obj.visible_shadow=False;obj.visible_diffuse=False;obj.visible_glossy=False;objects.append(obj)
     # Cabinet/far support are behind the active stool/hand approach corridor.
     box('Desk / right cabinet',world_at((1610,725),.40),(.42,.60,.80))
-    box('Desk / far leg',world_at((1414,631),.40),(.085,.10,.80))
+    # The visible left support is a diagonal brace, not a vertical post in
+    # the chair's knee space. Fit its actual painted top/base landmarks.
+    a=Vector(world_at((1405,545),.87));c=Vector(world_at((1365,646),.04))
+    brace=box('Desk / painted diagonal brace',(a+c)/2,(.070,.060,(a-c).length))
+    brace.rotation_euler=(a-c).to_track_quat('Z','Y').to_euler()
     box('Desk item / radio housing',world_at((1580,517),1.15),(.36,.22,.43))
     # Thin paper remains painted; this is its separately addressable support plane.
     paper=box('Desk item / paper',world_at((1500,551),.932),(.29,.22,.004))

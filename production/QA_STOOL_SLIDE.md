@@ -51,3 +51,25 @@ Raised endpoint hands no longer put the >80% Hand-weighted selections below the 
 ## Audit synchronization checkpoint
 
 A later provisional audit caught another active bake transition while the coordinator revised the foot arc/IK. Its scene/source snapshots differ and it is not final evidence; no contact or clearance verdict is based on that mixed run. Retained `*-first-key.json` and `*-revised-key.json` preserve the earlier coherent candidates. Wait for the coordinator's explicit frozen-key completion before the next audit. Final motion and offline controls remain pending.
+
+## Latest frozen key review
+
+Scene `03c70d1e39cf07b6a2c432aabe8838c0e85ca72ee5b5a52bc83a9aa14214ef28`, pose `bac5d4ba04791d8b7912fa047e20814b38a7ffa919f810582ae56679be877761`: opened seven actual room keys at 1.4, 2.8, 4.1, 4.4, 6.3, 8.1 and 8.8 s, combined in `qa/frozen-keys-room-sheet.jpg`. This restaging makes the boarding visibly shorter and more direct; recognizable body, bag and complete stool stay coherent in these samples. The clean room patch remains intact. The end faces the real writing desk, though the body/desk hide much of the palms. At 8.1 s the Left arm visibly raises sideways before reaching the desk; continuous movie/unobscured hand view is still required to judge that transfer.
+
+The independent frozen-scene audit has 177 finite samples, maximum world-joint discrepancy 0.0000034518 m and body minimum −0.0095900 m. Seat-marker and held Right-grip bone invariants pass numerical tolerance. Actual grasp wrapping/skin fit remains an image/surface gate rather than a bone-target pass.
+
+**Remaining clearance HOLD:** 2,891 boot/stool crossing triangle pairs remain at 1.1–1.2 s and 3.05–4.05 s, all involving Right boot versus leg 3, leg 4 or the bracing ring. Later slide/end surfaces clear this sampled check. The same frozen-bake boot check against the fitted desk finds 2,733 edge-crossing pairs with `Desk / far leg`, across 1.3–5.5 s; none against the cabinet/tabletop. The far-leg proxy's fit to the painting should be verified before changing motion solely to avoid it.
+
+Earlier nearest-normal “inside” distances depend on mesh winding and must not be treated as certified penetration depth. Surface-edge intersections establish the crossing finding independently. The auditor is being strengthened with orientation-independent ray parity for actual closed-surface inside distances. No final pass is made.
+
+The orientation-independent closed-mesh ray-parity rerun confirms the latest frozen candidate has a Right boot vertex 0.0177123 m inside stool leg 3 at 3.25 s and a Left boot vertex 0.0422587 m inside the fitted desk far leg at 5.1 s. These supersede the winding-dependent distance interpretation for this candidate. The triangle-crossing counts and final scene hash remain unchanged. Coordinator notified audit complete; source may now change for correction.
+
+## Corrected desk-fit / nearly clear candidate
+
+Scene `8326324040b6b14f230e61d7528505b2d7690435d03af3144892d359d15a4837`, pose `f5587773c688b89ba87930abae01e012501d2483d6d817fb9e27fcee68670799`: all 177 samples finite, max baked joint error 0.0000035899 m. Current approach floor minimum is −0.0103431 m at 1.1 s, LeftFoot. Contact invariants remain within numerical tolerance.
+
+The formerly invented far leg is replaced by the fitted actual painted diagonal brace. Whole-clip boot/desk-proxy check now detects **zero** crossing pairs, with nearest sampled boot vertex 0.0817403 m from the brace. This resolves the earlier proxy crossing finding for this fitted geometry.
+
+Opened eight current actual room keys (1.15, 2.8, 3.25, 4.1, 5.1, 6.3, 8.1, 8.8 s), saved as `qa/final-keys-room-sheet.jpg`. The short direct boarding and supported seated endpoint read coherently; the Left arm now reaches forward at 8.1 s rather than lifting sideways. Clean background, character/bag continuity and complete stool remain intact in these samples. Unobscured final palms and actual full movie remain pending.
+
+**Still HOLD:** Right boot/leg 3 crossings remain from 3.05 through 3.85 s, 434 triangle edge pairs total. Ray parity confirms a boot vertex 0.0151973 m inside leg 3 at 3.2 s. Approach and all samples from 4.0 s onward now clear the boot/stool test. Root notified to correct this last pull-foot interval before full-motion gate. Exact evidence archived in `qa/*-832632.json`.
