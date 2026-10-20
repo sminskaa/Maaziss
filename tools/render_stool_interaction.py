@@ -7,6 +7,8 @@ blender -b --python tools/render_stool_interaction.py
 from pathlib import Path
 import argparse
 import hashlib
+import importlib
+import shutil
 import json
 import math
 import sys
@@ -31,7 +33,10 @@ def digest(path):
 
 
 def main():
+    global OUT, state_at, DURATION, FPS
     parser=argparse.ArgumentParser()
+    parser.add_argument("--output",type=Path,default=OUT)
+    parser.add_argument("--pose-module",default="stool_interaction_pose")
     parser.add_argument('--keys',action='store_true')
     parser.add_argument('--only',type=float,nargs='*')
     parser.add_argument('--size',type=int,default=448)
@@ -41,7 +46,12 @@ def main():
     parser.add_argument('--reuse-verified-prefix',type=Path,
                         help='Prior render manifest paired with art/prefix-equivalence.json')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
-    OUT.mkdir(exist_ok=True)
+    OUT=args.output.resolve(); OUT.mkdir(parents=True,exist_ok=True)
+    module=importlib.import_module(args.pose_module)
+    state_at,DURATION,FPS=module.state_at,module.DURATION,module.FPS
+    pose_path=Path(module.__file__).resolve()
+    pose_sha=digest(pose_path)
+    dependencies={"tools/stool_interaction_pose.py":digest(ROOT/"tools/stool_interaction_pose.py")} if args.pose_module!="stool_interaction_pose" else {}
     bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
     rig=bpy.data.objects['MazissRig'];rig.animation_data_clear()
     body=bpy.data.objects['Maziss supplied sculpt']
@@ -112,7 +122,7 @@ def main():
         # The real root carries heading; bones receive only actor-local poses.
         actor.location=position;actor.rotation_quaternion=heading
         pose(rig,local)
-        if sample['phase']!='approach':
+        if sample['phase'] not in getattr(module,'GAIT_PHASES',('approach',)):
             # Head/tail direction does not specify roll. During a planted pivot,
             # preserve the entire sole's orientation with an exact Z rotation.
             for side in ('Left','Right'):
@@ -144,7 +154,10 @@ def main():
     scene.frame_set(1);bpy.context.view_layer.update()
     ground=world_to_camera_view(scene,camera,Vector((0,0,0)))
     manifest={'sourceBlendSHA256':digest(SOURCE),'stoolBlendSHA256':digest(STOOL),
-              'poseScriptSHA256':digest(ROOT/'tools/stool_interaction_pose.py'),
+              'poseScriptSHA256':pose_sha,
+              'poseDependencies':dependencies,
+              'poseScriptPath':str(pose_path.relative_to(ROOT)),
+              'phaseBoundaries':getattr(module,'PHASE_BOUNDARIES',None),
               'rendererSHA256':digest(Path(__file__)), 'width':args.size,'height':args.size,
               'samples':args.samples,
               'orthoScale':2.9,'cameraPosition':list(camera.location),'cameraTarget':list(target),
@@ -157,7 +170,7 @@ def main():
     manifest['sceneSHA256']=digest(OUT/'stool-interaction.blend')
     file=OUT/('key-manifest.json' if args.keys or args.only else 'render-manifest.json')
     file.write_text(json.dumps(manifest,indent=2)+'\n')
-    times=args.only if args.only else [0,1.2,2.5,3.25,4,5.2,5.8,6.8,7.8] if args.keys else [n/FPS for n in range(scene.frame_end)]
+    times=args.only if args.only else list(module.KEY_TIMES) if args.keys else [n/FPS for n in range(scene.frame_end)]
     previous={}
     if args.reuse_approach_before_foot_fix:
         old=json.loads((OUT/'render-before-foot-roll.json').read_text())
@@ -173,10 +186,11 @@ def main():
         assert proof['exactStateEqual'] and proof['sampleCount']>=460
         for field in ('sourceBlendSHA256','stoolBlendSHA256','width','height','samples','cameraPosition','cameraTarget','fps'):
             assert old[field]==manifest[field], 'Incompatible prefix render: '+field
-        previous={round(r['seconds']*FPS):dict(r,reusedFromPoseScriptSHA256=old['poseScriptSHA256'],
-                                             prefixEquivalenceSHA256=digest(OUT/'art/prefix-equivalence.json'))
-                  for r in old['renders'] if r['seconds']<proof['untilSecondsExclusive']
-                  and digest(OUT/r['name'])==r['sha256']}
+        for r in old['renders']:
+            source=args.reuse_verified_prefix.parent/r['name']
+            if r['seconds']<proof['untilSecondsExclusive'] and digest(source)==r['sha256']:
+                if source.resolve()!=(OUT/r['name']).resolve():shutil.copy2(source,OUT/r['name'])
+                previous[round(r['seconds']*FPS)]=dict(r,reusedFromPoseScriptSHA256=old['poseScriptSHA256'],prefixEquivalenceSHA256=digest(OUT/'art/prefix-equivalence.json'))
     for t in times:
         number=round(t*FPS);scene.frame_set(number+1)
         if number in previous:
@@ -198,6 +212,8 @@ def main():
                                     'sha256':digest(OUT/name)})
         file.write_text(json.dumps(manifest,indent=2)+'\n')
         print('CAPTURE',name,sample['phase'],flush=True)
+    assert digest(pose_path)==pose_sha, 'Pose source changed during render'
+    assert all(digest(ROOT/path)==sha for path,sha in dependencies.items()), 'Pose dependency changed during render'
     assert digest(SOURCE)==manifest['sourceBlendSHA256']
     assert digest(STOOL)==manifest['stoolBlendSHA256']
     print('COMPLETE',len(manifest['renders']),flush=True)

@@ -47,10 +47,14 @@ def clean_background():
 
 
 def main():
+    global OUT
     parser=argparse.ArgumentParser();parser.add_argument('--keys',action='store_true')
-    args=parser.parse_args()
+    parser.add_argument('--output',type=Path,default=OUT)
+    parser.add_argument('--html',type=Path,default=ROOT/'visual-preview/maziss-stool-interaction.html')
+    args=parser.parse_args();OUT=args.output.resolve()
     m=json.loads((OUT/('key-manifest.json' if args.keys else 'render-manifest.json')).read_text())
-    assert digest(ROOT/'tools/stool_interaction_pose.py')==m['poseScriptSHA256']
+    assert digest(ROOT/m.get('poseScriptPath','tools/stool_interaction_pose.py'))==m['poseScriptSHA256']
+    assert all(digest(ROOT/path)==sha for path,sha in m.get('poseDependencies',{}).items())
     background=clean_background().convert('RGBA')
     scale=m['roomPixelsPerMetre']/(m['height']/m['orthoScale'])
     offset=tuple(round(m['roomFloorAnchor'][i]-m['groundPixel'][i]*scale) for i in (0,1))
@@ -89,13 +93,18 @@ document.querySelector('#reset').onclick=()=>{video.pause();video.currentTime=0;
 function phase(t){return t<1.2?'Approaching the desk':t<2.5?'Reaching for the stool':t<4?'Pulling the stool':t<4.6?'Releasing the stool':t<5.8?'Moving into position':t<7.8?'Sitting down':'Seated'}
 video.addEventListener('timeupdate',()=>{if(!hotspot.hidden)return;if(video.currentTime>0)status.textContent=phase(video.currentTime)});
 Object.defineProperty(window,'stoolReview',{value:Object.freeze({snapshot:()=>({time:video.currentTime,duration:video.duration,paused:video.paused,ended:video.ended,readyState:video.readyState,phase:phase(video.currentTime),useSelected:use.getAttribute('aria-pressed')==='true',hotspotVisible:!hotspot.hidden})})});</script></main></html>'''
+    if m.get('phaseBoundaries'):
+        template=template.replace('pulls it toward himself and sits.', 'pulls it toward himself, steps around the back of the stool and sits facing the desk.')
+        old=template[template.index('function phase(t)'):template.index("\nvideo.addEventListener")]
+        cases=':'.join('t<'+str(end)+'?'+json.dumps(label) for end,label in m['phaseBoundaries'])+':'+json.dumps('Seated facing the desk')
+        template=template.replace(old,'function phase(t){return '+cases+'}')
     for crf in (33,36,39):
         movie=OUT/'desk-stool-action.webm'
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(m['fps']),'-i',str(frames/'frame-%03d.png'),'-vf','tpad=stop_mode=clone:stop_duration=1','-c:v','libvpx-vp9','-b:v','0','-crf',str(crf),'-row-mt','1','-threads','4','-pix_fmt','yuv420p','-an',str(movie)],check=True)
         html=template.replace('__POSTER__',jpeg(first,width=1120,quality=72)).replace('__MOVIE__',uri(movie.read_bytes(),'video/webm')).replace('__ORIGINAL__',jpeg(original,width=260,quality=88)).replace('__CLEAN__',jpeg(repaired,width=260,quality=88)).replace('__STILL__',jpeg(last,width=960,quality=73))
         print('PACK',crf,len(html.encode()),flush=True)
         if len(html.encode())<1_000_000:break
-    target=ROOT/'visual-preview/maziss-stool-interaction.html'
+    target=args.html.resolve()
     target.write_text(html);target.chmod(0o644);target.parent.chmod(0o755)
     report={'htmlBytes':target.stat().st_size,'htmlSHA256':digest(target),
             'movieSHA256':digest(movie),'movieCRF':crf,'renderManifestSHA256':digest(OUT/'render-manifest.json'),

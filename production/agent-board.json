@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T09:42:52.627701+02:00",
-  "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
+  "updated_at": "2026-10-20T08:51:20.304016+00:00",
+  "snapshot_note": "Both actual Art and QA workers completed revised desk-facing stool review. Compact918447-byte HTML ready for owner review; writing/mainGodot remain separate, cautious circling pace and inherited approach floor overlap disclosed.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1332,6 +1332,41 @@
         "Record final artifact hash and limits; no main Godot integration or final art approval claim."
       ],
       "result": "Independent157-sample finite scene audit,157render hashes and11offline Chromium checks passed. Actual decoded video advances through all7phases; Use/hotspot, endpoint, reset/repeat/mobile work with no pageerrors/external requests. Corrected pivot clearance passes; inherited approach bootfloor intrusion up to1.633cm explicitly remains. Recommends first owner review, not final art or Godot approval."
+    },
+    {
+      "id": "ART-014",
+      "role": "Art",
+      "objective": "Author smooth rear-side stool boarding and desk-facing sitting; preserve first4.6 seconds. Inspect actual keyframes.",
+      "allowed_files": [
+        "tools/stool_desk_pose.py",
+        "production/ART_STOOL_DESK.md"
+      ],
+      "deliverable": "production/ART_STOOL_DESK.md",
+      "status": "completed",
+      "agent": "/root/stool_desk_art",
+      "acceptance": [
+        "Rear-side boarding and final desk-facing pose readable in actual images",
+        "No new holes or furniture penetration; original assets preserved"
+      ],
+      "title": "Author smooth rear-side stool boarding and desk-facing sitting",
+      "result": "Inspected8actualroomkeys and25native playback captures; recommends owner review of coherent supported desk-facing sitting. Cautious paired-shuffle pacing remains polish."
+    },
+    {
+      "id": "QA-020",
+      "role": "QA",
+      "objective": "Independently inspect actual revised frames and playback; audit continuity, seat contact, heading and path clearance.",
+      "allowed_files": [
+        "production/QA_STOOL_DESK.md"
+      ],
+      "deliverable": "production/QA_STOOL_DESK.md",
+      "status": "completed",
+      "agent": "/root/stool_desk_qa",
+      "acceptance": [
+        "Rear-side boarding and final desk-facing pose readable in actual images",
+        "No new holes or furniture penetration; original assets preserved"
+      ],
+      "title": "Independently inspect actual revised frames and playback",
+      "result": "231scene samples/renderhashes,92exactprefixrenderhashes and11offlineplayback/control/mobilechecks pass. Actual boot/stool surface check detected no crossing; inherited approachflooroverlap1.633cm remains. Recommends owner review."
     }
   ],
   "events": [
@@ -1794,6 +1829,16 @@
       "time": "2026-10-20T09:42:52.627701+02:00",
       "task": "STOOL-002",
       "event": "Final actual-image/native-playback Art and QA reviews complete after resume. Both recommend owner review of930920-byte Use-stool action; independent checks disclose small inherited approach floor overlap. Saving source, final reports and compact resume handoff; private models/renders/plate/video/HTML stay excluded from Git. Owner creative approval and merge pending."
+    },
+    {
+      "time": "2026-10-20T08:37:17.261005+00:00",
+      "task": "ART-014",
+      "event": "Owner requests rear-side boarding and sitting toward desk. Registered bounded Art authoring and independent QA review; coordinator owns rendering and packaging."
+    },
+    {
+      "time": "2026-10-20T08:51:20.304016+00:00",
+      "task": "ART-014 / QA-020",
+      "event": "Completed231actualframes with92verifiedunchangedprefixframes. Art inspected25nativeplaybackcaptures; QA passed11offlinechecks plus actualscene/bootclearance/framehashaudits. Bothrecommendownerreview of rear-side boarding and desk-facing endpoint. Source and privateartifacts preserved; owner creative approval pending."
     }
   ]
 }

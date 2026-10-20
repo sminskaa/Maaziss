@@ -98,3 +98,9 @@ are hidden in these commands. Source/model/pose/render/frame hashes and output
 placement live in the private manifests. Explicit reuse flags require retained
 prior manifests and, for changed pose definitions, the exact prefix-equivalence
 proof; regular reproduction works without those caches.
+
+## Subsequent owner-directed revision
+
+The owner requested boarding around the back and sitting toward the desk after
+reviewing this first candidate. `STOOL_DESK_FACING_STUDY.md` records the separate
+revision. This original preview, poses and private assets remain intact.

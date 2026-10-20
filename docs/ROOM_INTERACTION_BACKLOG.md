@@ -91,3 +91,7 @@ sitting: `STOOL_INTERACTION_STUDY.md` / `visual-preview/maziss-stool-interaction
 Final Art and QA recommend owner review; approach boot-floor overlap and acting/
 paint polish remain. This is one authored offline review action, not main-Godot
 integration, stool return, writing or approval of the rest of the room backlog.
+
+A separate owner-directed ROOM-05 revision passes around the stool and ends
+facing the writing desk: `STOOL_DESK_FACING_STUDY.md`. It does not complete the
+pen/paper writing or other desk-equipment interactions.
