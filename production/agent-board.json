@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-20T18:58:50.630355+00:00",
-  "snapshot_note": "Bounded owner-feedback pose proof in progress; previous animation and character art remain unapproved.",
+  "updated_at": "2026-10-21T13:54:40.933148+00:00",
+  "snapshot_note": "Resumed pose review saved: foot sequence preserved and sampled desk clearance passes. Art/QA inspected actual current frames. Hands, sleeve and relaxed contact remain unfinished; owner direction review pending.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -1448,7 +1448,7 @@
       "id": "ART-FEEDBACK-POSE",
       "role": "Art director",
       "title": "Review isolated seated turn and hand-to-desk poses",
-      "status": "running",
+      "status": "completed",
       "agent": "/root/feedback_pose_art",
       "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
       "allowed_files": [
@@ -1459,13 +1459,14 @@
         "Inspect actual images, not only code",
         "Separate turn order, contact and appearance limitations",
         "Scope findings to sampled proof; owner final approval"
-      ]
+      ],
+      "result": "Historical checkpoint review complete; A sequence reviewable; old B held for sleeve crossings and arm flare. Superseded by resumed reports, not owner approval."
     },
     {
       "id": "QA-FEEDBACK-POSE",
       "role": "Testing director / QA",
       "title": "Review isolated seated turn and hand-to-desk poses",
-      "status": "running",
+      "status": "completed",
       "agent": "/root/feedback_pose_qa",
       "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
       "allowed_files": [
@@ -1476,7 +1477,42 @@
         "Inspect actual images, not only code",
         "Separate turn order, contact and appearance limitations",
         "Scope findings to sampled proof; owner final approval"
-      ]
+      ],
+      "result": "Historical checkpoint review complete; A sequence reviewable; old B held for sleeve crossings and arm flare. Superseded by resumed reports, not owner approval."
+    },
+    {
+      "id": "QA-REACH-RESUME",
+      "role": "Testing director / QA",
+      "status": "completed",
+      "agent": "/root/reach_resume_qa",
+      "objective": "Independently review corrected desk reach after saved HOLD; inspect actual geometry and renders. Preserve foot ordering.",
+      "allowed_files": [
+        "production/QA_REACH_RESUME.md"
+      ],
+      "deliverable": "production/QA_REACH_RESUME.md",
+      "acceptance": [
+        "Actual image review",
+        "No full clearance from vertex-only checks",
+        "Natural elbow/palm direction; no artistic approval assumed"
+      ],
+      "result": "Actual nine-pair image and hash check complete;600samples200Hz inclusive Hand/ForeArm+historical patch clear; A targets and rest geometry preserved. Relaxed contact/art remain HOLD."
+    },
+    {
+      "id": "ART-REACH-RESUME",
+      "role": "Art director",
+      "status": "completed",
+      "agent": "/root/reach_resume_art",
+      "objective": "Independently review corrected desk reach after saved HOLD; inspect actual geometry and renders. Preserve foot ordering.",
+      "allowed_files": [
+        "production/ART_REACH_RESUME.md"
+      ],
+      "deliverable": "production/ART_REACH_RESUME.md",
+      "acceptance": [
+        "Actual image review",
+        "No full clearance from vertex-only checks",
+        "Natural elbow/palm direction; no artistic approval assumed"
+      ],
+      "result": "Actual nine-pair image review complete. Reduced backward flare; limited direction study reviewable. Curled hands, stretched sleeve, likeness and fluid motion remain unfinished."
     }
   ],
   "events": [

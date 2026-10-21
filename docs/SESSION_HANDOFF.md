@@ -1,144 +1,69 @@
 # Current session handoff
 
-## Allowance checkpoint: owner-feedback pose proof in progress
+## Current scope and owner direction
 
-User said to prepare the pose test, then warned 10% allowance remains. New source:
-`tools/stool_feedback_pose.py`, `tools/render_stool_feedback_test.py`,
-`tools/build_stool_feedback_review.py`. Originals are not modified. Isolated
-two-test study, not full animation: right foot → left foot → torso/head; separate
-desk reach. Current test B proposes a more upright posture and body/stool 28cm
-farther from desk than old scene, requiring visible owner review of this spacing.
-Left hand/thigh weight bleed was found and corrected only in private study copy
-using established free-arm region with shoulder blend; rest geometry unchanged.
-Independent QA verified preservation. Earlier reach candidates failed real
-triangle/forearm desk checks and Art found exaggerated arms. Those are NOT passes.
-Latest 20Hz whole-study hand/forearm weighted-vertex probe has zero slab hits;
-this alone is insufficient. Independent 200Hz triangle audit and visual review
-must establish latest status. Native workers: `/root/feedback_pose_qa` owns
-`production/QA_STOOL_FEEDBACK_POSES.md`, `/root/feedback_pose_art` owns
-`production/ART_STOOL_FEEDBACK_POSES.md`; they were asked to save honest checkpoints.
-Evidence under `build/checks/stool-feedback/`. `probe-scene.blend` has current
-binding; older `pose-test.blend`/images may be stale: check poseSHA256 in manifest
-against source before using. Full current 18-still render started, log
-`/tmp/stool-feedback-render.log`; renderer has OIDN disabled (build lacks support).
-Build compact review only after successful current render using
-`python3 tools/build_stool_feedback_review.py`. Intended output:
-`visual-preview/maziss-stool-pose-test.html`. Do not call it ready before actual
-Art/QA image review, or claim fluid motion/Godot/full action is demonstrated.
+Work only on the first room and Maziss. Original room/character drawings and story
+remain targets; Discworld II is closest presentation reference. All old resources
+are preserved. Existing character3D appearance and full animation are unapproved.
+The owner should direct through simple HTML tools, not Blender or reference-video
+recording. Final game is offline desktop Godot; HTML studies are separate reviews.
+See docs/VISUAL_WORKFLOW_PROPOSAL.md and docs/STOOL_DIRECTION_DECISIONS.md.
 
-## Latest owner feedback received: apply two corrections
+## Latest result: resumed pose proof, 21 October
 
-Read `docs/STOOL_DIRECTION_DECISIONS.md`. Exact uploaded feedback is retained at
-`private/directions/stool-storyboard-feedback-original.json`. Owner agreed with
-beats 1/2/3/5. Beat 4: after sitting, right foot moves screen-right under desk,
-then left foot, THEN torso/head turn toward desk (screen right). Beat 6: neither
-hand may cross the desk during the reach, not just at the endpoint. No further
-owner input is needed to apply these directions. Next bounded proof is actual
-posed/intermediate visual samples of those two transitions, not another complete
-animation. Existing character appearance and motion are still unapproved.
+Compact current review: visual-preview/maziss-stool-pose-review-v2.html
+(889,796 bytes). Original drawing included separately as appearance target.
+Owner can save one pose-feedback JSON for both isolated tests. This is sparse
+actual posed renders, NOT continuous animation, full stool action or Godot work.
 
-## Latest: owner supplied a full stool-action direction file
+A: right foot → left foot → torso/head turn. Exact old targets preserved across
+121 samples0–3s. B: revised lap gather/lift in front of chest, constant anatomical
+elbow pole, wider feathered cuff binding. Initial backward flare reduced.
+Candidate B sits more upright, body/stool setback40cm vs old source, as an explicit
+fitting proposal; no owner agreement on changed spacing assumed. Hands target
+x=.30m. Surface check clears hands AND sleeve patch, including inclusive regions.
 
-Original saved privately at `private/directions/seat-at-desk-original.json`.
-It contains six ordered annotations: turn/approach, right-hand grip, pull back,
-turn upper-right/sit then face right, occupied forward slide with right-foot desk
-occlusion, both hands on desktop. One file for the action is appropriate; do not
-require the owner to resend six files or provide more motion footage.
-`visual-preview/maziss-stool-storyboard.html` is a compact six-beat interpretation
-review with numbered contact/location diagrams, original notes, per-beat intent
-agreement/corrections and one feedback export. Builder:
-`tools/build_stool_direction_storyboard.py`. It is NOT posed character output;
-painting/stool are unchanged. No animation, size or contact approval is implied.
-Chromium checks covered six cards, persistence/export, mobile width and JS errors;
-actual desktop capture inspected at `build/checks/stool-storyboard/desktop.png`.
-Next: owner reviews this interpretation. After corrections, show a bounded posed
-visual proof, rather than making the whole animation or treating annotations as
-exact 3D/hip/hand solutions. Final character appearance is still unapproved.
+Independent QA: 600 samples3.005–6.000s at200Hz; >.65 Hand/ForeArm incident,
+inclusive any>1e-8 Hand/ForeArm and all3historically failing triangles: ZERO
+sampled desk-slab intersections. All14bone lengths/rest geometry unchanged.
+Scope is fitted slab/surface samples, not continuous physics/all body/prop checks.
+Both Art and QA opened actual current room/diagnostic images. All18PNG hashes
+match manifest. Browser checks:19imagesload, feedback save/reload/export, mobile
+width, noJSerrors. Host chat delivery still requires owner to open the link.
 
-## Current owner direction: visual-method reset and first directing tool
+Remaining explicit HOLD: curled mitten/hooked hands, far triangular sleeve panel
+and exact relaxed palm rest (~4.925mm gap). No production art/contact approval.
+Do not ask owner to rediscover these known model defects or polish a full sequence.
+Next after direction review: local proper sleeve/hand deformation/shape work, then
+actual pose+sampled surface verification before expanding animation. Preserve A.
+A volume-preserving skin/corrective-smoothing experiment did NOT solve the sleeve
+and was NOT integrated; saved under build/checks/stool-feedback/deformation-experiment.
 
-The owner asked how to provide interactive directions. A small standalone tool
-now exists: `visual-preview/maziss-director.html` (684,806 bytes, embedded images,
-offline). Source: `tools/director_board/`, builder: `tools/build_director_board.py`.
-It supports start/destination placement and dragging, route points, final-facing
-arrows, marker scale, numbered comments, action intent, undo, JSON save/open and
-marked PNG export with comment text. Optional local-video timed comments exist.
-Actual browser checks passed via `tools/check_director_board.py`; evidence is in
-`build/checks/director-board/`. Desktop and exported image were visually inspected.
-The painted marker is an existing reference, not new approved animation or a model.
-No gameplay, collision, perspective scaling, poses or Godot integration are claimed.
-Next: owner opens the compact HTML panel and shares one saved direction file to
-verify that spatial intent can be communicated. Host delivery is not yet confirmed.
-The owner asked whether to raise reasoning from Medium: Medium is sufficient for
-this tool; High may help later difficult model/animation work, with no guarantee.
+## Reproduction and evidence
 
-Latest clarification: the current animation and 3D appearance are both unapproved;
-the model remains a usable but substantially unfinished resource. Drastic method
-changes are welcome. Do not depend on the owner providing more motion videos.
-The owner explicitly requires interactive visual direction because text alone is
-insufficient. Include a minimal HTML staging/annotation board in the first phase
-alongside appearance feasibility; defer a full pose/timeline editor. Then prove
-short motion and actual engine/contact behaviour. The tool does not fix likeness.
+Source: tools/stool_feedback_pose.py, tools/render_stool_feedback_test.py,
+tools/build_stool_feedback_review.py. Blender4.3.2; OIDN unsupported, disabled.
+Run renderer -- --probe-only for bound probe; normal for9room+9diagnostic keys;
+-- --preview renders only2poses and must not be packaged as complete review.
+Builder verifies complete9+9manifest, pose hash and every rendered image hash.
 
-The owner says the visual results are not acceptable and requests an action plan
-based on `private/briefs/CODEX_GAME_DIRECTOR_BRIEF.md`. Read
-`docs/VISUAL_WORKFLOW_PROPOSAL.md` first. Existing work/resources are preserved.
-Only the first room and Maziss are in scope until appearance, motion, interactions
-and speech meet owner expectations. Original drawings and story remain the targets;
-Discworld II is the closest reference. Do not default to more stool-polish work.
-The follow-up request prompted the bounded direction-board implementation above.
-The broader rendering architecture, rig rebuild, game integration and stable
-agent-rule changes remain proposals requiring agreement.
-Prior technical/QA recommendations below are not owner creative approval.
+Current pose SHA bfc3114daf95ff99e1c371e4e7fe4b98dcca78ff35419f8e5275908cae5280dd.
+Audited probe SHA413ec64d47198287bd88a05a5f860b17a9fc455d59e42dd6427ed08b9d1fb8f1.
+Reports: production/QA_REACH_RESUME.md and production/ART_REACH_RESUME.md.
+Actual renders/scene/manifest/contactsheet: build/checks/stool-feedback/.
+Audited source preserved in qa-resume/clearance-bfc3114d/.
+Prior failed checkpoint archived build/checks/stool-feedback-checkpoint-20261020/;
+original prepared/source models remain build/checks/stool-slide/ (unchanged).
+Full previous handoff retained docs/archive/SESSION_HANDOFF_20261020.md.
+Private assets excluded from Git: a source commit is not a complete asset backup.
 
-## Latest result: right-hand stool pull and occupied slide
+## Directing workflow already tested by owner
 
-Owner rejected circling/shuffles and requested a right-hand pull from the stool's
-left, short direct sit, right seat grip, occupied slide toward desk and hands
-resting on the desktop. This corrected candidate is complete for owner review.
-
-- Review: `visual-preview/maziss-stool-slide.html`,945456bytes, SHA-256
-  `8ebd75f67a8c947177db035e2607a5b9a5052f8993987c3465eece1a60de9928`.
-  Select **Use**, click stool. Native controls/reset work. Optional details show
-  actual both-hand contact from an alternate diagnostic camera.
--177actualframes20fps;9.85-second native movie includes one-second held endpoint.
-- Art ART-016 and QA QA-022 inspected actual room keys, exposed hand surfaces and
-  continuous native playback. Final reports: `production/ART_STOOL_SLIDE_FINAL.md`
-  and `production/QA_STOOL_SLIDE_FINAL.md`. Both recommend owner review.
--177sample finite/contact/boot-furniture/bag-seat checks pass within stated scope;
- 11offline playback/control/mobile-layout checks plus mobile touch start/reset pass.
-  Original10.34mm approach floor overlap, coarse hands and stiff acting remain.
-- No writing, arbitrary navigation, full runtime physics or main Godot integration
-  is claimed. This remains one authored HTML action for an offline desktop game.
-
-## Source / private continuity
-
-Read `docs/STOOL_SLIDE_STUDY.md` for method and exact render/pack/resume commands.
-Sources: `tools/stool_slide_pose.py`, `prepare_stool_right_arm.py`,
-`stool_desk_geometry.py`, `render_stool_interaction.py`, and review packer.
-Frozen pose SHA95f60d2ef89f423a123c696d809495e0ca6026c41e5cac500cac07708b82c2ec.
-Private scene/frames/movie/models/manifests: `build/checks/stool-slide/`.
-The prepared independent arm/bag model stays separate from the unchanged original
-supplied rig. All177finalscene frames exactly match independently audited geometry.
-Interrupted full renders support hash-verified `--resume` before packaging.
-
-Repository `/workspace/Maaziss`, branch `feat/reference-human-walk`, draft PR #4:
-https://github.com/sminskaa/Maaziss/pull/4. No merge or owner creative approval.
-Original rig/motion: `build/checks/supplied-character/`; stool model:
-`build/checks/stool-study/`; room: `build/checks/room-cutaway/`.
-Private assets and generated reviews are ignored by Git; a fresh public clone
-alone cannot reproduce them. Preserve/restore those local files when changing
-workspace. Earlier reviews remain intact; old contact HOLD reports are history,
-superseded by the two final reports above.
-
-## Next work
-
-Follow owner feedback one visible increment at a time. Remaining blur/palette,
-clothing textures, face acting, faster movement, deeper sofa sitting and room
-interactions remain in `docs/ROOM_INTERACTION_BACKLOG.md`. Writing/pen/paper and
-independently movable textured desk props are separate future work.
-
-Private noncommercial experimentation, no additional budget. Final target remains
-offline desktop Godot. Inline chat images fail; compact standalone HTML works.
-Read this handoff and relevant sources only; do not replay the whole chat or read
-embedded media/generated board into context. Art and QA must inspect actual output.
+visual-preview/maziss-director.html places start/destination/path/facing and notes;
+static painted marker is only direction aid. Owner uploaded one full action file,
+retained private/directions/seat-at-desk-original.json. Storyboard at
+visual-preview/maziss-stool-storyboard.html. Owner feedback retained privately:
+private/directions/stool-storyboard-feedback-original.json. Beats1/2/3/5 intention
+agreed;4requires rightfoot thenleft thenbody;6no hand throughdesk. This pose proof
+addresses only4/6. Clicking reachable floor must eventually pathfind/walk normally;
+the owner will not author every possible click. Current game still placeholders.

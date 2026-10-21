@@ -60,18 +60,18 @@ def state_at(seconds):
         phase='right_foot' if t<.65 else 'left_foot' if t<1.45 else 'torso_turn' if t<2.4 else 'turn_hold'
     else:
         # Separate final-desk-position test; no intervening slide is claimed.
-        shift=old.SLIDE+Vector((-.28,0,0));feet={s:tuple(v+shift for v in pair) for s,pair in FINAL_FEET.items()}
+        shift=old.SLIDE+Vector((-.40,0,0));feet={s:tuple(v+shift for v in pair) for s,pair in FINAL_FEET.items()}
         yaw=FINAL_YAW;root,out=seated(yaw,feet,shift,lean=5);stool=old.STOOL_PULLED+shift
         raw=(t-3.)/3.
         for side in ('Left','Right'):
             wrist,tip=out[side+'Hand'];direction=(tip-wrist).normalized()
             # Lift vertically on the character side of the desk before traversing
             # the leading edge. Real evaluated skin clearance is checked separately.
-            target=Vector((.38,.25,.994)) if side=='Left' else Vector((.38,-.16,.994))
-            withdrawn=tip.copy();withdrawn.x=-.22 if side=='Left' else tip.x-.03
-            lifted=withdrawn.copy();lifted.z=1.10;above=target+Vector((0,0,.10))
+            target=Vector((.30,.25,.994)) if side=='Left' else Vector((.30,-.16,.994))
+            withdrawn=Vector((-.06,.12 if side=='Left' else -.17,.64))
+            lifted=withdrawn.copy();lifted.z=1.06;above=target+Vector((0,0,.10))
             if raw<.23:
-                u=b._ease(raw/.23);desired=tip.lerp(withdrawn,u);aim=direction;phase='withdraw_below_edge'
+                u=b._ease(raw/.23);desired=tip.lerp(withdrawn,u);aim=direction;phase='gather_from_lap'
             elif raw<.5:
                 u=b._ease((raw-.23)/.27);desired=withdrawn.lerp(lifted,u);aim=direction.lerp(Vector((1,0,0)),u).normalized();phase='lift_outside_edge'
             elif raw<.83:
@@ -81,7 +81,9 @@ def state_at(seconds):
             old.arm(out,side,desired,aim,elbow_drop=0)
             shoulder=out[side+'UpperArm'][0];wrist=out[side+'Hand'][0]
             sign=1 if side=='Left' else -1
-            pole=Vector((-.4,sign*.25,-1)).lerp(Vector((0,sign*.25,1)),b._ease((raw-.54)/.16))
+            # One anatomical elbow side throughout: avoid the previous pole flip,
+            # which swung the arms backward and lifted the elbows unnaturally.
+            pole=Vector((0,sign,-.08))
             elbow=old._elbow(shoulder,wrist,b.LENGTHS[side+'UpperArm'],b.LENGTHS[side+'ForeArm'],pole)
             out[side+'UpperArm']=(shoulder,elbow);out[side+'ForeArm']=(elbow,wrist)
     return {'targets':{n:{'head':list(a),'tail':list(c)} for n,(a,c) in out.items()},'stool_position':list(stool),'root':{'position':list(root),'yaw_degrees':yaw},'phase':phase,'seconds':t}

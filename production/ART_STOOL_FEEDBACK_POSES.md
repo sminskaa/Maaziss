@@ -1,81 +1,93 @@
 # ART-FEEDBACK-POSE — actual-image review
 
-Status: HOLD — revision checkpoint; no final aesthetic or clearance pass.
-20 October 2026.
-Reviewer scope: two isolated posed studies of the owner's corrected beat 4 and
-beat 6. This is not approval of the existing character art, full stool action,
-timing, contacts or Godot integration. The owner retains creative approval.
+**Result: A is useful for limited owner direction review; B remains HOLD.**
+20 October 2026. No final aesthetic, complete-clearance, contact or motion approval.
+The owner retains creative authority. Existing character art remains unfinished
+and unapproved; this is two isolated posed studies, not the full stool action or
+Godot integration.
 
-## Evidence inspected — earlier candidate, now superseded
+## Current evidence inspected
 
-Actual `build/checks/stool-feedback/pose-*.png` captures at 0, .65, 1.45, 2.4,
-3.05, 3.7, 4.0, 4.5, 5.4 and 6 seconds; actual alternate-camera
-`diagnostic-*.png` captures at the same times except 4.0. ART made private
-contact sheets and foot crops under `build/checks/stool-feedback/art/`.
-The diagnostic camera shows the real character/stool and fitted opaque neutral
-desk geometry; the plain desk material is evidence for depth, not replacement
-room art. Frozen pose source SHA-256 from manifest:
-`fa7e88c873d41654d1398318b71f5882a4e10e0242b6d31e83705c1b3cf23b67`.
-Original target compared directly: `art/proposals/apartment-cartoon-v2.png` and
-`art/walking/maziss-side-atlas.png`.
+ART opened the actual final `build/checks/stool-feedback/review-contact-sheet.jpg`:
+all nine paired room composites and opaque-desk diagnostic captures, A1–A4 and
+B1–B5. ART also opened current full-resolution `diagnostic-450.png`,
+`diagnostic-600.png` and `room-600.jpg`. Current source SHA-256 from manifest:
+`5c809b5247a61f1cac43230e6976d2c8ebda0569c76af6131b7de6676e29b64d`.
+The neutral diagnostic desk is real fitted geometry for depth inspection, not
+replacement painted room art. The current room composites show the same poses
+against the actual painted room.
 
-## Observations of the earlier candidate
+An earlier candidate was separately inspected at all rendered key samples and
+compared directly with `art/proposals/apartment-cartoon-v2.png` and
+`art/walking/maziss-side-atlas.png`. Earlier private ART contact sheets/crops in
+`build/checks/stool-feedback/art/` are **superseded**; they retain the earlier
+`fa7e88…` candidate and must not be mistaken for current evidence.
 
-- Beat 4: the boot nearest the camera (anatomical right in this staging) moves
-  visibly toward screen right from 000 to 065. The farther left boot becomes
-  separately visible by 145. The upper body retains its earlier diagonal/back
-  facing through those foot samples and turns to the right-facing profile by
-  240. These sampled changes communicate the requested right, left, then
-  torso/head order more clearly than a simultaneous swivel. Sparse stills do
-  not alone certify all intervening motion or the floor contacts.
-- Beat 6: 370 keeps the hands behind/outside the front desk edge; 450 visibly
-  lifts both arms clear; 540 carries the hands forward above the surface; 600
-  lowers them to the desk. I see no desk crossing in those inspected pictures.
-  This is sampled visual evidence; dense evaluated-surface inspection belongs
-  to the separate QA report.
-- The hand route has a substantial acting defect at 450: the elbows flare
-  backward/out to the sides and the palms turn up, with one hand beside the
-  back of the head. It reads as an exaggerated backward arm flourish rather
-  than a comfortable lift and reach. Safe clearance does not establish a
-  plausible pose, and I do not recommend this as finished reach choreography.
-- At 600 the near hand is a thick rounded mitten/fist rather than a readable
-  relaxed palm with fingers resting on the desk. The far hand is substantially
-  hidden by the fitted desktop prop in this camera, so the picture cannot
-  establish its detailed resting contact. The desk-height and upper-body
-  relationship read as a cramped forward lean.
-- The bag and its upper opening change into a conspicuous angular, stretched
-  silhouette during the arm lift (especially 450). Broad cuff/hand shapes and
-  shoulder folds also look coarse. These need artistic attention independently
-  of desk collision results.
+## A — ordered feet, then torso/head
 
-## Original-drawing mismatch
+A1–A2 visibly moves the near/anatomical-right boot toward screen right while the
+upper body remains diagonal/back-facing. A2–A3 then brings the far/left boot into
+its separate position while the upper body retains that facing. A3–A4 turns the
+torso and head to the right-facing profile. This makes the requested right,
+left, then torso/head order readable in the room as well as the diagnostic view.
+The seated body remains associated with the same visible stool.
 
-The staging character retains the teal jacket, ochre shirt, brown satchel and
-boots, but does not reproduce the original's adult angular face, expressive
-brows/eyes, nose/jaw profile, purposeful hair locks or drawn hand anatomy.
-The simple smooth jacket lacks the original's tailoring, pockets, wear and
-painted texture; boots lack drawn laces and material detail. The current hair
-is noisy/spiky, hands are bulky and the lighting/render texture is soft/grainy
-beside the room's deliberate painted contours. Those remain appearance work,
-not an incidental limitation resolved by this pose test.
+Recommend these four poses for **limited direction review**. Sparse stills do not
+establish the quality of every in-between, precise foot grounding or comfortable
+seated mechanics. They do not approve the model or complete action.
 
-## Revision checkpoint and recommendation
+## B — hand approach remains blocked
 
-The coordinator revised the hand route and isolated the inherited hand/thigh skin
-weight defect after this image review. QA reported wrist/forearm intersections in
-intermediate revisions. The pictures/hash documented above therefore do **not**
-represent the current reach source and cannot establish its clearance or acting.
-The current revision had not been rendered for ART inspection at this checkpoint;
-the attempted full render encountered unavailable OpenImageDenoiser support and
-was being retried without it. No room composite has yet been inspected by ART.
+- B1–B2 separates the below-edge withdrawal from the lift. B3 then lifts outside
+  the edge, B4 brings the hands forward above the tabletop and B5 lowers them.
+  The broad intended route is more explicit than the previous candidate.
+- **B3 still has an unnatural backward/outward flare.** At full-resolution 450,
+  the visible forearm turns back beside the bag and the oversized upturned palm
+  faces outward. The pose reads as a sideways/rearward gesture rather than a
+  relaxed lift toward work. The earlier hand-near-head extreme is reduced, but
+  this is not finished reach choreography.
+- **B4–B5 keep the elbows conspicuously high and out.** The arms arch over the
+  desk and the thick hands remain curved/mitten-like; they do not read as relaxed
+  palms and fingers resting on the surface. The current alternate camera exposes
+  both hands better than the earlier candidate, which is useful evidence.
+- The tabletop hides enough boundary surface that room images alone cannot
+  establish absence of intersection. QA's current evaluated-triangle review
+  reports three remaining left torso/sleeve-to-arm boundary triangles entering
+  the slab late in placement. ART does not override that failure because the
+  small overlap is difficult to see in the room composition.
+- QA also reports core hand clearance at the endpoint of approximately 4.925 mm
+  above the tabletop. Clearance is not resting contact. The rendered thick,
+  curved hand silhouettes do not supply convincing palm contact either.
+- The bag remains a coarse, angular hanging shape with stretched-looking folds
+  during the arm poses. This is an appearance/deformation concern separate from
+  the desk-intersection test.
 
-HOLD the revised hand reach: no final aesthetic or clearance pass. Preserve the
-useful ordered-foot direction evidence, but do not treat that as approval of
-interpolation, character appearance or the complete action. A subsequent review
-must inspect the new actual reach images and room composites with their frozen
-source hash, alongside QA's evaluated-surface evidence, before changing this
-recommendation. No further polish or full sequence is authorized by this report.
+Next bounded correction: repair the left sleeve/torso boundary deformation,
+then lower and guide the elbows forward with a readable palm-down hand shape
+and a real relaxed tabletop endpoint. Recheck the whole resulting route against
+actual evaluated surfaces and actual room images. Do not hide the failing skin
+triangles with narrower weight filters. This is a correction brief, not approval
+of a particular new lift pose; no further iteration was performed by ART.
 
-Files changed by ART: this report only; private image contact sheets/crops under
-`build/checks/stool-feedback/art/`. No code, model, room artwork or original drawing
-was changed by ART.
+## Original-drawing mismatch and room fit
+
+The room preserves the painted setting, but the current smooth, pale, softly
+shaded character remains visibly separate from its deliberate warm/cool colours,
+ink contours and textured surfaces. Teal jacket, ochre shirt, brown satchel and
+boots communicate the costume; they do not reproduce the original's adult angular
+face, expressive brows/eyes, nose/jaw profile, purposeful hair locks or drawn hand
+anatomy. The jacket lacks the original's tailoring, pockets, wear and texture;
+boots lack laces and material detail. No likeness or finished-room-coherence pass
+is claimed. These are substantive appearance tasks, not solved by pose ordering.
+
+## Scope and changes
+
+Recommend A only for owner feedback on the corrected ordering. Hold B for both
+remaining deformation/contact defects and unnatural arm acting. Do not present
+this as a finished full action, motion-timing pass or production-art approval.
+The transition between A and B is a separate test cut to the desk position; an
+occupied slide was not authored or reviewed here.
+
+ART changed this report only and created earlier private image sheets/crops.
+No code, model, original artwork, full sequence or Godot content was changed.
+Companion evidence: `production/QA_STOOL_FEEDBACK_POSES.md`.
