@@ -1495,7 +1495,8 @@
         "No full clearance from vertex-only checks",
         "Natural elbow/palm direction; no artistic approval assumed"
       ],
-      "result": "Actual nine-pair image and hash check complete;600samples200Hz inclusive Hand/ForeArm+historical patch clear; A targets and rest geometry preserved. Relaxed contact/art remain HOLD."
+      "result": "Actual nine-pair image and hash check complete;600samples200Hz inclusive Hand/ForeArm+historical patch clear; A targets and rest geometry preserved. Relaxed contact/art remain HOLD.",
+      "title": "Review desk reach after allowance reset"
     },
     {
       "id": "ART-REACH-RESUME",
@@ -1512,7 +1513,8 @@
         "No full clearance from vertex-only checks",
         "Natural elbow/palm direction; no artistic approval assumed"
       ],
-      "result": "Actual nine-pair image review complete. Reduced backward flare; limited direction study reviewable. Curled hands, stretched sleeve, likeness and fluid motion remain unfinished."
+      "result": "Actual nine-pair image review complete. Reduced backward flare; limited direction study reviewable. Curled hands, stretched sleeve, likeness and fluid motion remain unfinished.",
+      "title": "Review desk reach after allowance reset"
     }
   ],
   "events": [
