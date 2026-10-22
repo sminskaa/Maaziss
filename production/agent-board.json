@@ -1,7 +1,7 @@
 {
   "project": "Maziss",
-  "updated_at": "2026-10-18T07:17:04.445048+00:00",
-  "snapshot_note": "Manually updated from actual agent-tool observations. This is a snapshot, not live monitoring.",
+  "updated_at": "2026-10-21T13:54:40.933148+00:00",
+  "snapshot_note": "Resumed pose review saved: foot sequence preserved and sampled desk clearance passes. Art/QA inspected actual current frames. Hands, sleeve and relaxed contact remain unfinished; owner direction review pending.",
   "roles": [
     {
       "role": "CEO / coordinator",
@@ -327,8 +327,8 @@
       "id": "MOTION-001",
       "role": "Motion analysis / CTO",
       "title": "Measure owner video walking poses and stride",
-      "status": "paused",
-      "agent": "/root/human_motion_analysis",
+      "status": "completed",
+      "agent": "/root/reference_cycle",
       "objective": "Extract actual visible human joint/contact poses, cadence and confidence from owner footage; choose clean side-view full stride and depth evidence.",
       "allowed_files": [
         "tools/analyze_walk_references.py",
@@ -341,13 +341,13 @@
         "Record uncertainty/occlusion, not fabricated joints or cadence",
         "Do not publish personal footage or change rendering/navigation"
       ],
-      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+      "result": "Finished25closed phase samples from observed near-leg stride1.2\u20132.6s at30fps. Timing/knee/foot relationships measured; farleg half-cycle reconstruction and oblique-camera/footpitch uncertainty explicitly documented."
     },
     {
       "id": "TECH-005",
       "role": "CTO / coordinator",
       "title": "Reference-based human walk and faithful original artwork",
-      "status": "paused",
+      "status": "completed",
       "agent": "/root",
       "objective": "Replace rejected free IK posing with observed human cycle, proper view projection and original character art.",
       "allowed_files": [
@@ -362,14 +362,14 @@
         "No sideways knee bend when moving in depth",
         "Maintain original body/head/proportions and coherent boot joins"
       ],
-      "result": "Paused at owner request due allowance. Raw side tracking and analysis environment retained; no new animation implemented. Resume details: docs/RESUME_WALKING.md."
+      "result": "Built revision 5 from the measured near-leg stride, sagittal projection and original character atlas. Fixed opposite-direction turning and registered actual painted side soles to planted contacts. Four-view/slow/frame-step review and 32-pose HTML delivered. Godot unchanged; owner creative review pending. Owner subsequently rejected revision 5 for jerks, sudden knee extension and resting foot alignment."
     },
     {
       "id": "QA-005",
       "role": "Testing / motion review",
       "title": "Inspect final reference-based rendered walk",
-      "status": "planned",
-      "agent": null,
+      "status": "completed",
+      "agent": "/root/reference_walk_qa",
       "objective": "Review actual side/front/back rendered cycles and path/pause regressions against supplied human footage.",
       "allowed_files": [
         "tests/browser_reference_walk.py",
@@ -381,7 +381,7 @@
         "Check relevant rendered geometry/contact safety",
         "Do not treat numerical assertions as proof of naturalness"
       ],
-      "result": null
+      "result": "Independent final build 56d1b9cb1e56: 62 browser checks pass, zero failures/errors, 2,398 legal root substeps, six alternating contacts, zero logical/painted forefoot drift in straight travel. Actual four-view poses inspected; front/back boot roll and torso weight transfer remain limited. Ready for owner review, not aesthetic approval."
     },
     {
       "id": "HANDOFF-001",
@@ -424,6 +424,1097 @@
         "Report untested Windows behavior; do not claim native Windows testing"
       ],
       "result": "Independent candidate source ZIP audit passed: 94 curated files+manifest, required game/docs present, no personal recording/model/cache/preview payload. Windows instructions reviewed; native Windows run remains owner task."
+    },
+    {
+      "id": "ART-005",
+      "role": "Art / motion reference review",
+      "title": "Image-only human walking brief",
+      "status": "completed",
+      "agent": "/root/image_walk_advisor",
+      "objective": "Interpret the three supplied motion sheets without opening FBX/video; identify useful poses and biomechanics limits for a fluid adult walk.",
+      "allowed_files": [
+        "production/IMAGE_WALK_BRIEF.md"
+      ],
+      "deliverable": "production/IMAGE_WALK_BRIEF.md",
+      "acceptance": [
+        "Distinguish running or exaggerated poses from normal walking",
+        "Define contact/down/passing/up sequencing and planted-foot relationships",
+        "Preserve first Maziss design; document timing cannot be measured from static sheets"
+      ],
+      "result": "Reviewed three static sheets: useful silhouettes but not measured timing; first is running, adult sheets have ground/length inconsistencies. Identified near-extension IK clamp and later painted-boot adjustment as snap risks. Wrote bounded keypose/contact brief; no FBX/video opened."
+    },
+    {
+      "id": "TECH-006",
+      "role": "CTO / coordinator",
+      "title": "Smooth image-guided walk, neutral alignment and starts/stops",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Build an image-only candidate before using the newly uploaded FBX files, correcting discontinuous knees/feet and initial/ending pose.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_image_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v6.html",
+      "acceptance": [
+        "Neutral ankles sit beneath pelvis without teleporting when starting/stopping",
+        "Continuous swing, contact roll and knee extension",
+        "Retain original design and safe room routes",
+        "No use of FBX or video data in this candidate"
+      ],
+      "result": "Built image-only revision 6 from qualitative sheets with authored smooth contact curves, shared painted-cuff IK, neutral alignment and start/stop recovery. Added live close-up and Stand still; interrupted settling retains current torso/arm weight. Final build cdeb00514796; original PNGs unchanged. No FBX/video imported; owner comparison pending; Godot unchanged."
+    },
+    {
+      "id": "QA-007",
+      "role": "Independent motion QA",
+      "title": "Review rendered image-guided walking and transition continuity",
+      "status": "completed",
+      "agent": "/root/image_walk_qa",
+      "objective": "Inspect actual rendered cycle and start/stop motion, challenge naturalness claims, test relevant regressions.",
+      "allowed_files": [
+        "tests/browser_image_walk.py",
+        "production/QA_IMAGE_WALK.md"
+      ],
+      "deliverable": "production/QA_IMAGE_WALK.md",
+      "acceptance": [
+        "Inspect normal/slow side and depth poses, no abrupt knee extension or neutral misalignment",
+        "Check phase/transition continuity and geometry under timing variation",
+        "Report limitations; numeric checks do not approve motion"
+      ],
+      "result": "Independent final review: 48 checks pass, zero failures/errors. Actual directional, start/settle and detail frames inspected. Peak knee speed 374 degrees/s versus 567 provisional; flat stance drift 0.00245 pixels. Resume and mode-switch regression checks pass. Depth/turning limitations remain; ready for owner comparison, not creative approval."
+    },
+    {
+      "id": "MOTION-002",
+      "role": "FBX motion extraction / CTO",
+      "title": "Inspect provided FBX walks and extract continuous skeleton reference",
+      "status": "completed",
+      "agent": "/root/fbx_motion_extract",
+      "objective": "Select an ordinary human walk from owner files, inspect skeleton/timing, normalize a loop and retain 3D joint/foot rotation data for camera projection.",
+      "allowed_files": [
+        "tools/extract_fbx_walk.py",
+        "private/motion/",
+        "build/checks/fbx-motion/",
+        "production/FBX_MOTION_REVIEW.md"
+      ],
+      "deliverable": "production/FBX_MOTION_REVIEW.md",
+      "acceptance": [
+        "Actually import the supplied FBX files and document selected source/hash/frame span",
+        "Preserve original temporal continuity; no invented measured motion",
+        "Keep raw FBX and derived animation data private until reuse rights known",
+        "No edits to renderer or other worker files"
+      ],
+      "result": "Imported three ordinary FBX candidates; selected 02-walkforward.fbx frames 234\u2013269, a bilateral 1.166667-second loop. Extracted both legs/arms and foot rotation; fixed-size retarget required. Helper/report complete; raw/derived data retained privately."
+    },
+    {
+      "id": "TECH-007",
+      "role": "CTO / art integration coordinator",
+      "title": "FBX-driven walk and coherent painted body-part rendering",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Use actual FBX motion while fixing upward neutral boots, sideways front boots, far-arm draw order, stray pixels and detached trouser cuff fragments.",
+      "allowed_files": [
+        "walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_fbx_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v7.html",
+      "acceptance": [
+        "Original character design retained",
+        "Neutral boots visually planted in side/front views",
+        "Far arm and far leg remain behind body from camera perspective",
+        "Trouser remains connected, boot mask contains no detached trouser fragments",
+        "No ghost pieces in character silhouette",
+        "Actual supplied FBX drives the motion"
+      ],
+      "result": "Built FBX-driven revision 7 (9d7c3a14af4f) with continuous trousers, neutral planted boots, camera-layered arms and disconnected-fragment cleanup. Original PNGs unchanged. Generated interactive HTML and 32 rendered phase captures; awaits owner visual acceptance, no Godot integration."
+    },
+    {
+      "id": "QA-008",
+      "role": "Independent rendering and motion QA",
+      "title": "Inspect FBX revision against five owner screenshot defects",
+      "status": "completed",
+      "agent": "/root/fbx_walk_qa",
+      "objective": "Independently inspect actual colored silhouettes, neutral views and walking/transition frames; verify FBX provenance and appropriate routing/control regressions.",
+      "allowed_files": [
+        "tests/browser_fbx_walk.py",
+        "production/QA_FBX_WALK.md"
+      ],
+      "deliverable": "production/QA_FBX_WALK.md",
+      "acceptance": [
+        "Inspect actual boot bottoms and pant seam, not just mathematical joints",
+        "Check far-arm occlusion and stray disconnected pixels",
+        "Frame/speed/pose continuity and room navigation remain reviewable",
+        "Record remaining limitations and avoid naturalness guarantees"
+      ],
+      "result": "Native worker completed final report and harness: 54 checks passed on frozen 9d7c3a14af4f. Inspected 52 actual transparent poses; no detached painted components. Flat idle soles, arm layers and continuous trouser joins improved. Ready for private owner review; naturalness, turning, foot sliding, Godot/Windows execution remain outside acceptance."
+    },
+    {
+      "id": "TECH-008",
+      "role": "Character rendering / coordinator",
+      "title": "Keep garments and equipment continuous through the FBX walk",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Preserve improved FBX gait while repairing holes, stray clothing, one-sided depth boots and apparent trouser length pulsing. Use complete item layers rather than subtractive holes.",
+      "allowed_files": [
+        "walking/",
+        "art/walking/",
+        "tools/build_walking_demo.py",
+        "tools/capture_fbx_walk.py",
+        "docs/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-walking-v8.html",
+      "acceptance": [
+        "Preserve original face/proportions and improved walk",
+        "Complete torso, bag and clothing coverage when arms move",
+        "Directional boots correctly handed",
+        "Cloth follows projected bone with no extra length oscillation"
+      ],
+      "result": "Built revision 8, frozen 5c3d7d3fcda2: complete jacket backing under original torso core, intact separate satchel, corresponding depth trouser/boot art and cloth ends on actual animated cuffs. Original face/atlases/FBX gait unchanged. Interactive HTML plus phase/part-layer review generated. Owner acceptance pending."
+    },
+    {
+      "id": "QA-009",
+      "role": "Independent character continuity QA",
+      "title": "Review moving clothing continuity and front/back projection",
+      "status": "completed",
+      "agent": "/root/clothing_continuity_qa",
+      "objective": "Diagnose reported v7 rendering defects and later inspect v8 actual moving/neutral renders, garment holes, detached fragments, directional boots and trouser geometry.",
+      "allowed_files": [
+        "tests/browser_clothing_walk.py",
+        "production/QA_CLOTHING_WALK.md",
+        "build/checks/clothing-walk/"
+      ],
+      "deliverable": "production/QA_CLOTHING_WALK.md",
+      "acceptance": [
+        "Inspect actual images and moving phase sequences, not metadata only",
+        "Check internal garment holes as well as disconnected silhouette fragments",
+        "Keep technical and creative acceptance distinct",
+        "Do not edit runtime renderer or assets"
+      ],
+      "result": "Native worker completed 44 passing checks on frozen 5c3d7d3fcda2; 100 actual whole poses and 80 isolated item captures. No sampled garment/leather holes or fragments above stated thresholds; cuff and paired-shoe pixel checks pass. Visual neck/shoulder correction confirmed. Repaired 2D rig retains some old satchel texture below rigid replacement; no naturalness, Windows or Godot acceptance claimed."
+    },
+    {
+      "id": "TECH-009",
+      "role": "3D character / coordinator",
+      "title": "Replace cutout-only construction with a complete 3D rig study",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Build complete view-independent head/face/equipment geometry, integrate worker body and garment rig, retarget existing bilateral FBX and deliver offline HTML inspection. Preserve all approved painted assets; no claim of finished visual match.",
+      "allowed_files": [
+        "tools/build_character_3d.py",
+        "tools/build_character_3d_preview.py",
+        "character3d/",
+        "docs/",
+        "build/checks/character3d/",
+        "visual-preview/",
+        "tools/capture_character_3d.py"
+      ],
+      "deliverable": "visual-preview/maziss-3d-study.html",
+      "acceptance": [
+        "Actual complete geometry, no disappearing cutouts",
+        "Camera handles front/back overlap via depth",
+        "Original approved style remains baseline; new model explicitly a construction study",
+        "FBX retarget and inspectable per-item visibility",
+        "No raw/private motion published"
+      ],
+      "result": "Completed construction study 62773eacf060 with 138 closed meshes / 37,876 vertices on 14 bones: complete head, face, anatomy, clothing, equipment, surface-fitted strap and actual FBX retarget. Offline model inspector plus 224 rendered frames across eight angles. Saved animated Blender file loads. Preliminary face/tailoring and waist fit remain; approved painted assets and Godot unchanged."
+    },
+    {
+      "id": "MODEL-001",
+      "role": "3D modeling / rigging worker",
+      "title": "Construct closed body segments and complete garment meshes",
+      "status": "completed",
+      "agent": "/root/model_body_rig",
+      "objective": "Build a Blender Python module with separate closed limbs/torso and continuous skinned jacket/shirt/trousers/belt/boots. Use shared anatomically coherent bones and well-covered joints; avoid literal disconnected floating flat cutouts.",
+      "allowed_files": [
+        "tools/character3d_body.py",
+        "production/MODEL_3D_BODY.md",
+        "build/checks/character3d/"
+      ],
+      "deliverable": "tools/character3d_body.py",
+      "acceptance": [
+        "Actual closed 3D meshes and armature weights",
+        "Distinct upper/lower arms/hands/legs/feet and individual clothes",
+        "Garments continue across elbows/knees/hips",
+        "No edits to coordinator head/preview files"
+      ],
+      "result": "Native worker completed 22 connected closed skinned anatomy/garment meshes, 27,118 vertices. Actual phase render isolated/fixed thigh skin breakthrough with garment-matched weights and covered-cap clearance. No geometry hidden. Source/report completed; complete-model QA remains separate."
+    },
+    {
+      "id": "QA-010",
+      "role": "Independent 3D continuity QA",
+      "title": "Review all-angle construction, visibility and walking",
+      "status": "completed",
+      "agent": "/root/complete_model_qa",
+      "objective": "Review generated model/actual rendered angles and animation, material/object presence, hidden-surface depth and interface; distinguish continuity from final art quality.",
+      "allowed_files": [
+        "tests/browser_character3d.py",
+        "production/QA_CHARACTER_3D.md",
+        "build/checks/character3d/qa/"
+      ],
+      "deliverable": "production/QA_CHARACTER_3D.md",
+      "acceptance": [
+        "Actual renders across angles and poses",
+        "Body/clothing independent object visibility controls",
+        "Candid modeling and style limitations",
+        "No private motion arrays in public files"
+      ],
+      "result": "Native worker completed final report on frozen 62773eacf060: 32 checks passed, zero failures, 138 closed objects, 24 finite posed-geometry samples, 32 actual walking renders and four anatomy views. Correct camera overlap and improved rear strap inspected. Ready for construction review; shoulder/waist fit, finished art and Windows/Godot performance remain unapproved."
+    },
+    {
+      "id": "ART-006",
+      "role": "Character art / coordinator",
+      "title": "Map the approved painted drawings onto smoother complete geometry",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Research and implement a multi-view reference-texture art pass with a closer face, smoother forms, clothing details and room comparison. Preserve approved original PNGs and FBX cycle. Correct fit rather than claim topology proves appearance.",
+      "allowed_files": [
+        "tools/build_character_3d.py",
+        "tools/character3d_textures.py",
+        "tools/build_character_3d_preview.py",
+        "tools/capture_character_3d.py",
+        "character3d/",
+        "docs/",
+        "visual-preview/",
+        "tools/capture_painted_character.py",
+        "art/walking/maziss-clean-garment-reference.png",
+        "art/walking/PAINTED_3D_REFERENCES.md",
+        "README.md"
+      ],
+      "deliverable": "visual-preview/maziss-painted-3d.html",
+      "acceptance": [
+        "Actual original drawings used as surface textures, not just solid colors",
+        "Face/proportions and wardrobe move toward original cartoon design",
+        "Multi-angle actual renders including approved room",
+        "Candid comparison and remaining limits"
+      ],
+      "result": "Intermediate original-art mapping study98259839b0e0 completed. Real UVs/packed paintings, rounded forms, corrected trouser registration and sampled bag clearance. Rendered HTML has192actualframes/eightangles with original-drawing comparison. Face/shoulder/pigment seams remain; owner review required before final character acceptance."
+    },
+    {
+      "id": "MODEL-002",
+      "role": "Geometry / rig fitting",
+      "title": "Smooth the rig and repair hand/bag and knee/cloth intersections",
+      "status": "completed",
+      "agent": "/root/painted_geometry_fit",
+      "objective": "Make complete geometry visibly smoother, merge facial lumps into a coherent face, reduce protruding eyes, improve hands/clothing details, match underbody weights and ensure hand/forearm clears intact bag with fixed-length IK. Follow-up after actual painted renders: round angular jacket shoulder peaks and hair tuft silhouette while retaining rig/UV registration; geometry only.",
+      "allowed_files": [
+        "tools/character3d_body.py",
+        "tools/character3d_fit.py",
+        "production/CHARACTER_FIT_REVIEW.md",
+        "build/checks/painted-character/"
+      ],
+      "deliverable": "tools/character3d_fit.py",
+      "acceptance": [
+        "Closed weighted meshes retained",
+        "No hand/bag intersection in sampled poses or idle; no hiding geometry",
+        "Shin and pant weight transitions fit correctly through knees",
+        "Smooth forms and original cartoon proportions guide change",
+        "Report actual fit evidence and limits"
+      ],
+      "result": "Rounded complete meshes and matched trouser/shin skinning. Worker verified145,468vertices, all closed/connected/skinned; idle plus36samples show zero hand/forearm-vs-bag/tool intersections. Final painted registration is separately under QA."
+    },
+    {
+      "id": "QA-011",
+      "role": "Independent painted character QA",
+      "title": "Inspect reference-textured character against style and continuity feedback",
+      "status": "completed",
+      "agent": "/root/painted_character_qa",
+      "objective": "Review actual final rendered angles in room and neutral stage, collisions/pants continuity and texture attachment. Avoid art-quality claims from numerical passes.",
+      "allowed_files": [
+        "tests/browser_painted_character.py",
+        "production/QA_PAINTED_CHARACTER.md",
+        "build/checks/painted-character/qa/"
+      ],
+      "deliverable": "production/QA_PAINTED_CHARACTER.md",
+      "acceptance": [
+        "Inspect actual model at multiple phases/views",
+        "Check true hand/bag clearance and source image mapping",
+        "Distinguish moved-toward-style from finished likeness",
+        "No private input arrays/media in public deliverables"
+      ],
+      "result": "Native QA completed:26focusedchecks pass on98259839b0e0; actual32renders inspected, packed images/UVs verified,37poseBVHqueries show nohand/forearmbag intersections and noexposedpantbreakthrough. Recommendation: intermediate review only; face, tailoring and paint seams remain."
+    },
+    {
+      "id": "DELIVERY-001",
+      "role": "Coordinator / preview delivery",
+      "title": "Restore an owner-viewable painted review",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Diagnose source-view/visualization failures and supply a compact review without altering the tested character.",
+      "allowed_files": [
+        "tools/build_compact_character_review.py",
+        "AGENTS.md",
+        "docs/MEDIA_PREVIEW_REPORT.md",
+        "production/agent-board.json",
+        "production/index.html",
+        "visual-preview/",
+        "build/checks/preview-delivery/"
+      ],
+      "deliverable": "visual-preview/maziss-review-small.html",
+      "acceptance": [
+        "Actual retained model frames; no artwork/motion change",
+        "Offline video playback plus a still fallback",
+        "Owner confirms panel displays correctly",
+        "Record tested delivery route without claiming platform root cause"
+      ],
+      "result": "Owner confirmed850KB no-script/native-video HTML displays correctly; prior10\u201318MB model reviews failed while older2\u20132.5MB HTML worked. Browser playback/seeking pass with page scripting enabled/disabled. Picture-only fallback79KB. Platform root cause unknown; reusable compact builder saved. No worker spawned for this bounded repair."
+    },
+    {
+      "id": "RESEARCH-002",
+      "role": "Coordinator / character workflow research",
+      "title": "Replace failed sprite projection with reference-based modeling",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Read actual modeling-from-concept, topology, UV and stylized shading resources; identify source of distortions; choose a geometry-first method and build a new honest candidate.",
+      "allowed_files": [
+        "docs/",
+        "tools/",
+        "character3d/",
+        "production/",
+        "visual-preview/",
+        "build/checks/character-rebuild/"
+      ],
+      "deliverable": "docs/CHARACTER_REBUILD_RESEARCH.md",
+      "acceptance": [
+        "Link sources actually accessed and distinguish availability limits",
+        "Stop full-character screenshot projections",
+        "Fit face/silhouette/proportions before surface detail",
+        "Retain original approved art and accepted motion"
+      ],
+      "result": "Read actual official Blender reference-image, mirror, retopology, UV, shading and Studio overview resources plus topology guidance. Saved new geometry-first method and exact resume checkpoint. Owner requested pause before replacement modeling; no new model/animation claimed."
+    },
+    {
+      "id": "RESEARCH-003",
+      "role": "Free tool / license and compute research",
+      "title": "Evaluate free image-to-3D and character-modeling tools",
+      "status": "completed",
+      "agent": "/root/free_character_tools",
+      "objective": "Review official repositories and licenses for tools that might convert concept art into usable complete characters; check real local CPU/GPU feasibility and identify suitable free modeling aids. No paid cloud services, training runs or model-weight downloads.",
+      "allowed_files": [
+        "production/FREE_CHARACTER_TOOLS_RESEARCH.md",
+        "build/checks/character-rebuild/research/"
+      ],
+      "deliverable": "production/FREE_CHARACTER_TOOLS_RESEARCH.md",
+      "acceptance": [
+        "Official URLs and actual access evidence",
+        "Separate code license/model license/service pricing",
+        "Check available hardware and operational prerequisites",
+        "Recommend feasible workflow without promising likeness from generic reconstructions"
+      ],
+      "result": "Native research worker completed nine-tool official-source/license/hardware report,20successfulfetches. Blender usable; MPFB/TripoSR optional, GPU/gated/restricted-license tools unsuitable as prerequisites. No installs, weight downloads, accounts or paid use."
+    },
+    {
+      "id": "MODEL-003",
+      "role": "Character sculpt / geometry",
+      "title": "Reconstruct Maziss\u2019s recognizable forms from original front and profile drawings",
+      "status": "paused",
+      "agent": null,
+      "objective": "After method research, model a coherent face, measured proportions and designed hair silhouette rather than wrapping screenshots; keep movement rig unchanged.",
+      "allowed_files": [
+        "tools/character3d_sculpt.py",
+        "production/CHARACTER_SCULPT_REVIEW.md",
+        "build/checks/character-rebuild/"
+      ],
+      "deliverable": "tools/character3d_sculpt.py",
+      "acceptance": [
+        "Actual original-art landmarks guide geometry",
+        "No projected portrait or repeated face textures",
+        "Front/side/three-quarter actual renders inspected",
+        "Motion reference and original PNGs preserved"
+      ],
+      "result": "Not started. Owner requested immediate allowance pause; recorded brief retained for later resume."
+    },
+    {
+      "id": "QA-012",
+      "role": "Independent shape and delivery review",
+      "title": "Inspect rebuilt character against the approved design and rejected mapping",
+      "status": "paused",
+      "agent": null,
+      "objective": "Review actual geometry in front/profile/oblique views and walking; inspect continuity and compare recognizable traits; validate compact delivery.",
+      "allowed_files": [
+        "tests/browser_rebuilt_character.py",
+        "production/QA_REBUILT_CHARACTER.md",
+        "build/checks/character-rebuild/qa/"
+      ],
+      "deliverable": "production/QA_REBUILT_CHARACTER.md",
+      "acceptance": [
+        "Actual new geometry without screenshot projection",
+        "Candid likeness/silhouette findings",
+        "Preserved timing and proper camera overlap",
+        "Compact self-contained review validated"
+      ],
+      "result": "Not started. Owner requested immediate allowance pause; recorded brief retained for later resume."
+    },
+    {
+      "id": "MODEL-004",
+      "role": "Coordinator / supplied-model integration",
+      "title": "Inspect, fit and animate the supplied GLB as a coherent cartoon character",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Resume geometry-first rebuild using actual supplied geometry where useful. Preserve approved design and useful FBX gait, avoid screenshot projection, produce inspectable multi-angle walking renders.",
+      "allowed_files": [
+        "tools/",
+        "character3d/",
+        "docs/",
+        "production/",
+        "build/checks/supplied-character/",
+        "private/models/",
+        "visual-preview/",
+        "tests/check_supplied_character.gd",
+        "AGENTS.md"
+      ],
+      "deliverable": "visual-preview/maziss-rebuilt-review.html",
+      "acceptance": [
+        "Supplied GLB actually imported and rendered",
+        "Recognizable complete geometry from multiple angles",
+        "No sprite projection or repeated face textures",
+        "Actual rig/deformation and game-model checks",
+        "Compact owner-viewable output"
+      ],
+      "result": "Supplied sculpt retained, local cross-hand source defect repaired, 14-bone FBX rig and actual facial parts exported. Actual multi-angle renders, final hash-bound Godot import and compact 948310-byte offline HTML reviewed. Bag-side arm stays quiet; painted identity and production topology remain unfinished. See docs/SUPPLIED_CHARACTER_STUDY.md."
+    },
+    {
+      "id": "ART-007",
+      "role": "Art director / original-design reconstruction",
+      "title": "Keep supplied-model rebuild faithful to the original cartoon character",
+      "status": "completed",
+      "agent": "/root/supplied_character_art",
+      "objective": "Inspect original front/profile art and actual supplied/rebuilt model renders. Establish recognizable traits, shape proportions, clothes and facial features. Challenge generic or distorted results. Root will coordinate implementation scope after intake.",
+      "allowed_files": [
+        "production/ART_SUPPLIED_CHARACTER.md",
+        "tools/character3d_sculpt.py",
+        "build/checks/supplied-character/art/"
+      ],
+      "deliverable": "production/ART_SUPPLIED_CHARACTER.md",
+      "acceptance": [
+        "Inspect actual original references and model images",
+        "Specific front/profile/oblique likeness findings",
+        "Clothes/bag/hair and game-view readability criteria",
+        "No art-quality claim from code or numerical passes"
+      ],
+      "result": "Inspected actual intake, fitted facial closeups and corrected multi-angle walk captures; recognizable supplied-mesh rig study recommended after QA clears final forearm skinning. Not a painted-art or production approval. Report production/ART_SUPPLIED_CHARACTER.md."
+    },
+    {
+      "id": "QA-013",
+      "role": "Independent game-character / rendered QA",
+      "title": "Audit supplied mesh and actual motion against coherent game-character criteria",
+      "status": "completed",
+      "agent": "/root/supplied_character_qa",
+      "objective": "Audit actual GLB topology, rig readiness, materials, skinning and game export. Inspect actual rendered views/poses during work and final candidate, in agreement with art target. Do not infer visual success from closed meshes alone.",
+      "allowed_files": [
+        "tests/browser_supplied_character.py",
+        "production/QA_SUPPLIED_CHARACTER.md",
+        "build/checks/supplied-character/qa/"
+      ],
+      "deliverable": "production/QA_SUPPLIED_CHARACTER.md",
+      "acceptance": [
+        "Actual input and final render inspection",
+        "Readiness for animation/export with honest limits",
+        "No disappearing parts, repeated face or incorrect perspective",
+        "Clearance/grounding where applicable",
+        "Compact preview and private-data boundaries"
+      ],
+      "result": "Independent 32 actual walk renders plus idle views and 50 motion samples reviewed. 13 scoped engineering checks pass; no observed disappearing clothes, repeated face, detached needles or large bag shelf in final samples. Offline native-video HTML playback passes; final Godot report hash matches. Suitable owner review only, not production readiness; report production/QA_SUPPLIED_CHARACTER.md."
+    },
+    {
+      "id": "STYLE-001",
+      "role": "Coordinator / scene style comparison",
+      "title": "Compare character-led and subtle room-led style matching",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Compare character-led and subtle room-led style matching. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tools/build_style_match_review.py",
+        "docs/STYLE_MATCH_STUDY.md",
+        "docs/ART_DIRECTION.md",
+        "AGENTS.md",
+        "production/",
+        "build/checks/style-match/",
+        "visual-preview/"
+      ],
+      "deliverable": "visual-preview/maziss-style-match.html",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": "Recovered completed27actual lighting renders and finished actual Art/QA scene-scale review. Compact633890-byte HTML passes offline desktop/mobile and retained-source checks. Newowner cutawayroomhandled separately; earlier approvedroom unchanged."
+    },
+    {
+      "id": "ART-008",
+      "role": "Art director / actual character rendering",
+      "title": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines",
+      "status": "completed",
+      "agent": "/root/art_style_match",
+      "objective": "Render current rig with cartoon shading, room-matched warm/cool light and restrained outlines. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tools/render_character_style.py",
+        "production/ART_STYLE_MATCH.md",
+        "build/checks/style-match/character/"
+      ],
+      "deliverable": "production/ART_STYLE_MATCH.md",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": "Actual original/baseline/new room composites and scale guide reviewed; palette/contours improve and size is plausible. Face, hands, painted wear and real shadow remain unfinished. production/ART_STYLE_MATCH.md."
+    },
+    {
+      "id": "QA-014",
+      "role": "Independent rendered style QA",
+      "title": "Compare actual images against original character and room, including identity, light, colour and continuity",
+      "status": "completed",
+      "agent": "/root/style_qa",
+      "objective": "Compare actual images against original character and room, including identity, light, colour and continuity. Preserve the supplied rig/motion and original approved art; inspect actual output images. No finished-game claim.",
+      "allowed_files": [
+        "tests/browser_style_match.py",
+        "production/QA_STYLE_MATCH.md",
+        "build/checks/style-match/qa/"
+      ],
+      "deliverable": "production/QA_STYLE_MATCH.md",
+      "acceptance": [
+        "Open actual original and candidate images, not code alone",
+        "Retain recognizable cartoon identity and coherent colours/shadows",
+        "Subtle room proposal preserves layout and mostly straight frames",
+        "Compact offline HTML near/below1MB",
+        "Scope limitations and compare unchanged baseline honestly"
+      ],
+      "result": "Resumed interrupted final review: actual24-frame contact sheet, five native video moments, desktop/mobile comparisons and source hashes verified. Compact633890-byte review passes offline. Suitable lighting/scale study only. production/QA_STYLE_MATCH.md."
+    },
+    {
+      "id": "ROOM-REF-001",
+      "role": "Coordinator / room viewport preparation",
+      "title": "Reframe supplied cutaway room into a16:9 game background",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Owner supplied a dimensional room image and clarified16:9. Remove white surround and pointed lower floor, preserve painted room identity/layout, compare actual edit with input.",
+      "allowed_files": [
+        "build/checks/room-cutaway/",
+        "visual-preview/",
+        "docs/STYLE_MATCH_STUDY.md",
+        "production/",
+        "tools/build_room_reference_review.py"
+      ],
+      "deliverable": "visual-preview/maziss-room-16x9.html",
+      "acceptance": [
+        "16:9 rectangular artwork without character",
+        "Door/window mostlystraight and sofa/window/workbench recognizable",
+        "No white surround or projecting bottom tip",
+        "Original room and supplied-model assets unchanged",
+        "Actual edited-image review, compact HTML delivery"
+      ],
+      "result": "Generated separate16:9 image-assisted reframing proposal, preserved generatedsource, encoded1600\u00d7900JPG and541572-byte offline HTML/download. ActualArt/QA reviewed; framing/details vary fromearlierroom, notliteralpixelcropor3Dmesh. Newviewscale/navigation integration remains open."
+    },
+    {
+      "id": "ART-009",
+      "role": "Art director / room reframing review",
+      "title": "Inspect actual16:9 room proposal and compare recognizable painted room",
+      "status": "completed",
+      "agent": "/root/art_style_match",
+      "objective": "Owner supplied cutaway room image and confirmed16:9. Root edits image with imagegen; inspect actual result and prior approvedroom, furniture identity/layout, warm/coolstyle andnocharacter. Rootcompares inlineinput; independent reviewers state scope honestly.",
+      "allowed_files": [
+        "production/ART_ROOM_REFRAME.md",
+        "build/checks/room-cutaway/art/"
+      ],
+      "deliverable": "production/ART_ROOM_REFRAME.md",
+      "acceptance": [
+        "Open actual output image, not code alone",
+        "Recognize sofa/door/window/workbench and overall light/style",
+        "Check no white surround or bottom tip, no character",
+        "State visible reframing/redrawing changes and2Dvs3D limits",
+        "QA checksactual offline compactimage/download andsourcepreservation"
+      ],
+      "result": "Opened actual output PNG/JPG and approvedroom references. Recognizable furniture, straightframes, paintedwarm/coolstyle; nocharacter/white/tip. Noted redraw/edge changes andlimitedinputcomparison. Suitableownerreviewonly. production/ART_ROOM_REFRAME.md."
+    },
+    {
+      "id": "QA-015",
+      "role": "Independent room image/delivery QA",
+      "title": "Inspect actual16:9 room proposal and compare recognizable painted room",
+      "status": "completed",
+      "agent": "/root/style_qa",
+      "objective": "Owner supplied cutaway room image and confirmed16:9. Root edits image with imagegen; inspect actual result and prior approvedroom, furniture identity/layout, warm/coolstyle andnocharacter. Rootcompares inlineinput; independent reviewers state scope honestly.",
+      "allowed_files": [
+        "production/QA_ROOM_REFRAME.md",
+        "build/checks/room-cutaway/qa/"
+      ],
+      "deliverable": "production/QA_ROOM_REFRAME.md",
+      "acceptance": [
+        "Open actual output image, not code alone",
+        "Recognize sofa/door/window/workbench and overall light/style",
+        "Check no white surround or bottom tip, no character",
+        "State visible reframing/redrawing changes and2Dvs3D limits",
+        "QA checksactual offline compactimage/download andsourcepreservation"
+      ],
+      "result": "Opened actualroomimage andbrowsercaptures; desktop/mobile offline image/display/nativeJPGdownload verified1600\u00d7900, noerrors/network/scripts/overflow. Sourceart/model/motionunchanged. No3Droom ornewscalecertification. production/QA_ROOM_REFRAME.md."
+    },
+    {
+      "id": "SIT-001",
+      "role": "Coordinator / sofa interaction integration",
+      "title": "Build the first interactive floor-walking and Use-sofa sitting review",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Fit the current actual rig to one fixed clear right cushion, using authored motion and invisible seat/floor proxies; provide floor walking and Use on sofa in the latest 16:9 painted room.",
+      "allowed_files": [
+        "tools/render_sofa_sit.py",
+        "tools/build_sofa_sit_review.py",
+        "docs/",
+        "production/",
+        "build/checks/sofa-sit/",
+        "visual-preview/",
+        "tools/sofa_interaction.js",
+        "AGENTS.md"
+      ],
+      "deliverable": "visual-preview/maziss-sofa-sit.html",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Built compact offline interactive floor walking and fixed-cushion sitting: Use sofa approaches, turns and sits; floor click stands and walks. Final delivery SHA256 9b2230c333c0e68f1e104c9ab591f605410bc7ace023ed85d6c938a519956a21, 978857 bytes. Actual Art and independent QA recommend first owner review. Original art/model/walk remain unchanged; main Godot game integration and final polish remain separate."
+    },
+    {
+      "id": "ART-010",
+      "role": "Art director / sitting pose and rendered review",
+      "title": "Author coherent human sitting pose on current fixed-length rig, inspect actual character and final sofa composites against original character and room.",
+      "status": "completed",
+      "agent": "/root/sofa_pose_art",
+      "objective": "Author coherent human sitting pose on current fixed-length rig, inspect actual character and final sofa composites against original character and room.",
+      "allowed_files": [
+        "tools/character_sitting_pose.py",
+        "production/ART_SOFA_SIT.md",
+        "build/checks/sofa-sit/art/"
+      ],
+      "deliverable": "production/ART_SOFA_SIT.md",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Authored fixed-length sitting poses and inspected actual neutral, toon and final interactive captures. Clear cushion, stable silhouette and plausible contact in sampled states; suitable for owner review. Pale materials, face/hands and fused bag-side arm remain unfinished."
+    },
+    {
+      "id": "QA-016",
+      "role": "Independent interaction / rendered QA",
+      "title": "Inspect actual final sit-down frames for scale, knees, boots, pelvis/cushion contact, bag/arm overlap and stable figure continuity; verify compact offline playback and sources.",
+      "status": "completed",
+      "agent": "/root/sofa_interaction_qa",
+      "objective": "Inspect actual final sit-down frames for scale, knees, boots, pelvis/cushion contact, bag/arm overlap and stable figure continuity; verify compact offline playback and sources.",
+      "allowed_files": [
+        "tests/browser_sofa_sit.py",
+        "production/QA_SOFA_SIT.md",
+        "build/checks/sofa-sit/qa/"
+      ],
+      "deliverable": "production/QA_SOFA_SIT.md",
+      "acceptance": [
+        "Inspect actual current-model renders against character and room references.",
+        "Keep a recognizable continuous character and the cartoon room style.",
+        "Show a coherent bend, descent and settle without sudden limb flips.",
+        "Fit hips to the clear cushion and boots to the floor.",
+        "Preserve camera depth order, body proportions and the untouched pillows.",
+        "Deliver a compact offline interactive HTML review with an embedded still and documented limits."
+      ],
+      "result": "Inspected actual final browser captures and 249 source renders; 241 pose samples and 11 evaluated meshes support continuity. Initial candidate passed 30 offline interaction/resize checks. Final 978857-byte full-resolution movie review passed 23 focused checks with actual decoded-media advancement and transparent compositing. No scoped QA blocker; unfinished model detail and approximate room shadows/occlusion remain."
+    },
+    {
+      "id": "ROOM-RSCH-001",
+      "role": "Coordinator / targeted research",
+      "title": "Save owner art/interaction backlog and research coherent movable room props",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Retain all owner requests, assign role responsibilities, consult official free-tool resources and define a bounded stool trial without restarting character animation.",
+      "allowed_files": [
+        "docs/ROOM_INTERACTION_BACKLOG.md",
+        "docs/ROOM_INTERACTION_RESEARCH.md",
+        "docs/SESSION_HANDOFF.md",
+        "AGENTS.md",
+        "production/agent-board.json",
+        "production/index.html",
+        "build/checks/room-interactions/research/"
+      ],
+      "deliverable": "docs/ROOM_INTERACTION_RESEARCH.md",
+      "acceptance": [
+        "Retain every owner-requested art and room action with role responsibilities.",
+        "Cite actually accessed source documentation; distinguish capability from tested operation.",
+        "Define clean background, separate prop, shadows and foreground depth workflow.",
+        "Require joint Art/QA inspection of actual output, not code-only approval.",
+        "Save a restartable checkpoint; no new paid service, model upload or unapproved character animation."
+      ],
+      "result": "Saved complete backlog and research using official Blender/Krita/Godot and TripoSR sources. Documented licenses/hardware and untested services. Proposed one-stool proof with shared Art/QA visual gate. No stool asset, external inference, new render or visual approval claimed; no worker agents started. Follow-up checked current Meshy/Tripo pricing and terms, Meshy API docs, local TripoSR CPU support and live demo status. Meshy free API unavailable, Tripo free non-commercial, TripoSR demo failing at check time. No generation/upload performed. Owner requires complete visible 3D sitting furniture."
+    },
+    {
+      "id": "STOOL-001",
+      "role": "Art + implementation, joint independent Art/QA review",
+      "title": "Build and review a complete 3D stool geometry candidate",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Owner authorized the bounded geometry-only stool test: complete Blender/GLB model, actual room-camera and two extra-angle renders beside reference, compact HTML, one Art/QA review iteration. Background reconstruction, moving stool and character acting remain later.",
+      "allowed_files": [
+        "tools/build_stool_study.py",
+        "tools/build_stool_review.py",
+        "build/checks/stool-study/",
+        "visual-preview/maziss-stool-study.html",
+        "production/",
+        "docs/SESSION_HANDOFF.md",
+        "docs/STOOL_MODEL_STUDY.md"
+      ],
+      "deliverable": "visual-preview/maziss-stool-study.html",
+      "acceptance": [
+        "Complete visible 3D seat, legs and bracing; editable Blender and exported GLB.",
+        "Save model before rendering to preserve limited-allowance work.",
+        "Actual renders from reference camera angle and two other angles beside unchanged source crop.",
+        "Art and QA inspect actual output for shape, proportions, cartoon style and geometric continuity.",
+        "Document candidate limits; no room replacement, character animation or final integration approval."
+      ],
+      "result": "Saved Blender and GLB with six complete solid mesh parts and three actual renders. Art and independent QA inspected corrected reference/rear/underside views; a QA-found9.35mm leg-seat gap was fixed and final import/download verified. Compact offline HTML552020bytes. Shape/material limits remain; owner review pending. Background reconstruction, room replacement and movement are not implemented."
+    },
+    {
+      "id": "ART-011",
+      "role": "Art director",
+      "title": "Review the actual geometry-only stool model study",
+      "status": "completed",
+      "agent": "/root/stool_shape_art",
+      "objective": "Inspect actual model renders beside the room reference. Judge shape, proportions and cartoon readability; identify limits without claiming room integration.",
+      "allowed_files": [
+        "production/ART_STOOL_MODEL.md",
+        "build/checks/stool-study/art/"
+      ],
+      "deliverable": "production/ART_STOOL_MODEL.md",
+      "acceptance": [
+        "Open actual reference and three rendered views, not code alone.",
+        "Report complete seat/leg/bracing visibility and concrete reference mismatch.",
+        "Give a bounded recommendation; preserve original artwork and model."
+      ],
+      "result": "Opened reference and all three actual views, then reinspected corrected attachments. Recommends owner review of geometry candidate; seat rim softness, regularity and approximate leg proportions remain. No final art or room integration approval."
+    },
+    {
+      "id": "QA-017",
+      "role": "Independent model/render QA",
+      "title": "Review the actual geometry-only stool model study",
+      "status": "completed",
+      "agent": "/root/stool_shape_qa",
+      "objective": "Inspect actual model renders beside the room reference. Judge shape, proportions and cartoon readability; identify limits without claiming room integration.",
+      "allowed_files": [
+        "production/QA_STOOL_MODEL.md",
+        "build/checks/stool-study/qa/"
+      ],
+      "deliverable": "production/QA_STOOL_MODEL.md",
+      "acceptance": [
+        "Open actual reference and three rendered views, not code alone.",
+        "Report complete seat/leg/bracing visibility and concrete reference mismatch.",
+        "Give a bounded recommendation; preserve original artwork and model."
+      ],
+      "result": "Actual-image review, independent GLB import and offline desktop/mobile HTML/download checks passed for the corrected geometry-only candidate. Six UV meshes, finite geometry, no zero-area polygons; initial leg-seat gap fixed. No Godot, room replacement or character contact claim."
+    },
+    {
+      "id": "STOOL-002",
+      "role": "Coordinator / 3D room interaction",
+      "title": "Place actual stool in room, author clean background and integrate approach/pull/sit",
+      "status": "completed",
+      "agent": "/root",
+      "objective": "Place actual stool in room, author clean background and integrate approach/pull/sit. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "tools/render_stool_interaction.py",
+        "tools/build_stool_interaction_review.py",
+        "build/checks/stool-interaction/",
+        "visual-preview/maziss-stool-interaction.html",
+        "docs/",
+        "production/"
+      ],
+      "deliverable": "docs/STOOL_INTERACTION_STUDY.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Complete actual3D desk-stool approach/pull/sit candidate delivered as930920-byte offline HTML, SHA25629e45f1274caf82099af98cd29aa6e91a865aa0cdd14e8bb5d4ad67dcb8e6f24. Original painted stool/shadow locally replaced with intact background. All157actual frames retained, editable baked scene saved. Final Art/QA recommend owner review; inherited approach bootfloor overlap1.633cm and acting/material polish remain. Main Godot unchanged."
+    },
+    {
+      "id": "ART-012",
+      "role": "Art / contact motion author",
+      "title": "Author world-space approach/reach/pull/reposition/sit targets on actual rig and inspect combined room renders",
+      "status": "completed",
+      "agent": "/root/stool_pull_pose",
+      "objective": "Author world-space approach/reach/pull/reposition/sit targets on actual rig and inspect combined room renders. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "tools/stool_interaction_pose.py",
+        "production/ART_STOOL_INTERACTION.md",
+        "build/checks/stool-interaction/art/"
+      ],
+      "deliverable": "production/ART_STOOL_INTERACTION.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Authored world-space pose and validated numeric contacts; reviewed staged actual images and corrected sitting yaw, foot interpolation and oversized align step. Final full-motion review transferred after allowance interruption to ART-013."
+    },
+    {
+      "id": "QA-018",
+      "role": "Independent rendered interaction QA",
+      "title": "Inspect same actual sequence and clean background; verify stool contact, continuity and offline delivery",
+      "status": "completed",
+      "agent": "/root/stool_room_qa",
+      "objective": "Inspect same actual sequence and clean background; verify stool contact, continuity and offline delivery. One bounded interaction, original source assets preserved.",
+      "allowed_files": [
+        "production/QA_STOOL_INTERACTION.md",
+        "build/checks/stool-interaction/qa/"
+      ],
+      "deliverable": "production/QA_STOOL_INTERACTION.md",
+      "acceptance": [
+        "Stool is actual visible complete geometry, not a flat sprite.",
+        "Remove painted stool/shadow with a coherent repaired background.",
+        "Show natural approach, physical hand/stool pull contact, release and supported sitting.",
+        "Preserve proportions, original artwork and known joined bag-hand geometry.",
+        "Art and QA open actual before/during/after output; no code-only visual pass.",
+        "Compact offline HTML action preview and reproducible private scene/checkpoint."
+      ],
+      "result": "Inspected staged actual backgrounds/contact images and audited scene. Found boot sole twist floor issue; correction authored afterward. Final fixed-scene/full-motion verification transferred after allowance interruption to QA-019. Historical report is provisional, not final approval."
+    },
+    {
+      "id": "ART-013",
+      "role": "Art / final rendered action review",
+      "title": "Review completed stool-pull-sit sequence after allowance resume",
+      "status": "completed",
+      "agent": "/root/stool_final_art",
+      "objective": "Inspect actual final sequence against room/character references, confirm corrected turn/foot contact and intact vacated background. Do not redo modeling/research.",
+      "allowed_files": [
+        "production/ART_STOOL_FINAL.md",
+        "build/checks/stool-interaction/art-final/"
+      ],
+      "deliverable": "production/ART_STOOL_FINAL.md",
+      "acceptance": [
+        "Open actual final start/contact/pull/turn/seated images and native video moments.",
+        "Confirm no old stool/hole, coherent scale and continuous garments.",
+        "Judge natural sequence, free-hand/rim contact and supported seating.",
+        "QA independently verifies final floor/mesh and offline Use-click playback, video decode, reset and compact delivery.",
+        "Record final artifact hash and limits; no main Godot integration or final art approval claim."
+      ],
+      "result": "Opened8final room composites, original/repaired crops and20native playback captures through8.85sec. Pull, compactturn and supported angled sitting read coherently; no new scoped blocker. Recommends owner review, with stiff/deep preparation, limited seat visibility and unfinished palette/hands/textures retained as caveats."
+    },
+    {
+      "id": "QA-019",
+      "role": "Independent final scene / offline interaction QA",
+      "title": "Review completed stool-pull-sit sequence after allowance resume",
+      "status": "completed",
+      "agent": "/root/stool_final_qa",
+      "objective": "Inspect actual final sequence against room/character references, confirm corrected turn/foot contact and intact vacated background. Do not redo modeling/research.",
+      "allowed_files": [
+        "production/QA_STOOL_FINAL.md",
+        "build/checks/stool-interaction/qa-final/"
+      ],
+      "deliverable": "production/QA_STOOL_FINAL.md",
+      "acceptance": [
+        "Open actual final start/contact/pull/turn/seated images and native video moments.",
+        "Confirm no old stool/hole, coherent scale and continuous garments.",
+        "Judge natural sequence, free-hand/rim contact and supported seating.",
+        "QA independently verifies final floor/mesh and offline Use-click playback, video decode, reset and compact delivery.",
+        "Record final artifact hash and limits; no main Godot integration or final art approval claim."
+      ],
+      "result": "Independent157-sample finite scene audit,157render hashes and11offline Chromium checks passed. Actual decoded video advances through all7phases; Use/hotspot, endpoint, reset/repeat/mobile work with no pageerrors/external requests. Corrected pivot clearance passes; inherited approach bootfloor intrusion up to1.633cm explicitly remains. Recommends first owner review, not final art or Godot approval."
+    },
+    {
+      "id": "ART-014",
+      "role": "Art",
+      "objective": "Author smooth rear-side stool boarding and desk-facing sitting; preserve first4.6 seconds. Inspect actual keyframes.",
+      "allowed_files": [
+        "tools/stool_desk_pose.py",
+        "production/ART_STOOL_DESK.md"
+      ],
+      "deliverable": "production/ART_STOOL_DESK.md",
+      "status": "completed",
+      "agent": "/root/stool_desk_art",
+      "acceptance": [
+        "Rear-side boarding and final desk-facing pose readable in actual images",
+        "No new holes or furniture penetration; original assets preserved"
+      ],
+      "title": "Author smooth rear-side stool boarding and desk-facing sitting",
+      "result": "Inspected8actualroomkeys and25native playback captures; recommends owner review of coherent supported desk-facing sitting. Cautious paired-shuffle pacing remains polish."
+    },
+    {
+      "id": "QA-020",
+      "role": "QA",
+      "objective": "Independently inspect actual revised frames and playback; audit continuity, seat contact, heading and path clearance.",
+      "allowed_files": [
+        "production/QA_STOOL_DESK.md"
+      ],
+      "deliverable": "production/QA_STOOL_DESK.md",
+      "status": "completed",
+      "agent": "/root/stool_desk_qa",
+      "acceptance": [
+        "Rear-side boarding and final desk-facing pose readable in actual images",
+        "No new holes or furniture penetration; original assets preserved"
+      ],
+      "title": "Independently inspect actual revised frames and playback",
+      "result": "231scene samples/renderhashes,92exactprefixrenderhashes and11offlineplayback/control/mobilechecks pass. Actual boot/stool surface check detected no crossing; inherited approachflooroverlap1.633cm remains. Recommends owner review."
+    },
+    {
+      "id": "ART-015",
+      "role": "Character Art / rig preparation",
+      "title": "Separate right pulling arm from bag without losing sculpt identity",
+      "objective": "Separate right pulling arm from bag without losing sculpt identity",
+      "allowed_files": [
+        "tools/prepare_stool_right_arm.py",
+        "production/ART_STOOL_RIGHT_HAND.md"
+      ],
+      "deliverable": "production/ART_STOOL_RIGHT_HAND.md",
+      "acceptance": [
+        "Inspect actual before/after character and motion renders",
+        "No circling shuffles; anatomical right hand pulls and grips stool",
+        "Seated character and stool slide together, finish both hands on desk",
+        "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
+      ],
+      "status": "superseded",
+      "agent": "/root/right_arm_art",
+      "result": "Prepared model and provisional actual-key/contact evidence preserved; allowance interrupted final correction. Continued and superseded by ART-016 / QA-022 final reports."
+    },
+    {
+      "id": "QA-021",
+      "role": "Independent interaction QA",
+      "title": "Review right-hand pull, compact sitting, occupied stool slide and desk contact",
+      "objective": "Review right-hand pull, compact sitting, occupied stool slide and desk contact",
+      "allowed_files": [
+        "production/QA_STOOL_SLIDE.md"
+      ],
+      "deliverable": "production/QA_STOOL_SLIDE.md",
+      "acceptance": [
+        "Inspect actual before/after character and motion renders",
+        "No circling shuffles; anatomical right hand pulls and grips stool",
+        "Seated character and stool slide together, finish both hands on desk",
+        "Continuous garments/bag, no holes/duplicate assets or gross contact errors"
+      ],
+      "status": "superseded",
+      "agent": "/root/stool_desk_qa",
+      "result": "Prepared model and provisional actual-key/contact evidence preserved; allowance interrupted final correction. Continued and superseded by ART-016 / QA-022 final reports."
+    },
+    {
+      "id": "ART-016",
+      "role": "Art / contact authoring",
+      "title": "Resolve saved midpull bag and right boot contact with compact natural motion",
+      "objective": "Resolve saved midpull bag and right boot contact with compact natural motion",
+      "allowed_files": [
+        "tools/stool_slide_pose.py",
+        "production/ART_STOOL_SLIDE_FINAL.md"
+      ],
+      "deliverable": "production/ART_STOOL_SLIDE_FINAL.md",
+      "acceptance": [
+        "Preserve short direct boarding and right-hand pull",
+        "Verify actual surfaces during pull, occupied slide and both palms on desk",
+        "Inspect actual room images and continuous native motion, disclose limits"
+      ],
+      "status": "completed",
+      "agent": "/root/slide_contact_art",
+      "result": "Actual corrected room and exposed-hand images plus36native playback captures inspected. Right-hand pull/direct boarding/occupied slide/relaxed desk endpoint coherent. Recommends owner review; coarse hands and approach floor limit disclosed."
+    },
+    {
+      "id": "QA-022",
+      "role": "Independent final interaction QA",
+      "title": "Audit corrected stool slide actual geometry, images and offline playback",
+      "objective": "Audit corrected stool slide actual geometry, images and offline playback",
+      "allowed_files": [
+        "production/QA_STOOL_SLIDE_FINAL.md"
+      ],
+      "deliverable": "production/QA_STOOL_SLIDE_FINAL.md",
+      "acceptance": [
+        "Preserve short direct boarding and right-hand pull",
+        "Verify actual surfaces during pull, occupied slide and both palms on desk",
+        "Inspect actual room images and continuous native motion, disclose limits"
+      ],
+      "status": "completed",
+      "agent": "/root/slide_resume_qa",
+      "result": "177sample independent geometry/contact audits and exact final-scene binding pass. All177render hashes and11offline playback/control/layout checks plus mobile touch pass. Actual14native captures inspected; recommends owner review with initial10.34mm floor overlap/acting/hand limits."
+    },
+    {
+      "id": "ART-FEEDBACK-POSE",
+      "role": "Art director",
+      "title": "Review isolated seated turn and hand-to-desk poses",
+      "status": "completed",
+      "agent": "/root/feedback_pose_art",
+      "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
+      "allowed_files": [
+        "production/ART_STOOL_FEEDBACK_POSES.md"
+      ],
+      "deliverable": "production/ART_STOOL_FEEDBACK_POSES.md",
+      "acceptance": [
+        "Inspect actual images, not only code",
+        "Separate turn order, contact and appearance limitations",
+        "Scope findings to sampled proof; owner final approval"
+      ],
+      "result": "Historical checkpoint review complete; A sequence reviewable; old B held for sleeve crossings and arm flare. Superseded by resumed reports, not owner approval."
+    },
+    {
+      "id": "QA-FEEDBACK-POSE",
+      "role": "Testing director / QA",
+      "title": "Review isolated seated turn and hand-to-desk poses",
+      "status": "completed",
+      "agent": "/root/feedback_pose_qa",
+      "objective": "Inspect actual rendered poses against owner foot ordering and no hand/desk penetration. Model appearance remains unfinished.",
+      "allowed_files": [
+        "production/QA_STOOL_FEEDBACK_POSES.md"
+      ],
+      "deliverable": "production/QA_STOOL_FEEDBACK_POSES.md",
+      "acceptance": [
+        "Inspect actual images, not only code",
+        "Separate turn order, contact and appearance limitations",
+        "Scope findings to sampled proof; owner final approval"
+      ],
+      "result": "Historical checkpoint review complete; A sequence reviewable; old B held for sleeve crossings and arm flare. Superseded by resumed reports, not owner approval."
+    },
+    {
+      "id": "QA-REACH-RESUME",
+      "role": "Testing director / QA",
+      "status": "completed",
+      "agent": "/root/reach_resume_qa",
+      "objective": "Independently review corrected desk reach after saved HOLD; inspect actual geometry and renders. Preserve foot ordering.",
+      "allowed_files": [
+        "production/QA_REACH_RESUME.md"
+      ],
+      "deliverable": "production/QA_REACH_RESUME.md",
+      "acceptance": [
+        "Actual image review",
+        "No full clearance from vertex-only checks",
+        "Natural elbow/palm direction; no artistic approval assumed"
+      ],
+      "result": "Actual nine-pair image and hash check complete;600samples200Hz inclusive Hand/ForeArm+historical patch clear; A targets and rest geometry preserved. Relaxed contact/art remain HOLD.",
+      "title": "Review desk reach after allowance reset"
+    },
+    {
+      "id": "ART-REACH-RESUME",
+      "role": "Art director",
+      "status": "completed",
+      "agent": "/root/reach_resume_art",
+      "objective": "Independently review corrected desk reach after saved HOLD; inspect actual geometry and renders. Preserve foot ordering.",
+      "allowed_files": [
+        "production/ART_REACH_RESUME.md"
+      ],
+      "deliverable": "production/ART_REACH_RESUME.md",
+      "acceptance": [
+        "Actual image review",
+        "No full clearance from vertex-only checks",
+        "Natural elbow/palm direction; no artistic approval assumed"
+      ],
+      "result": "Actual nine-pair image review complete. Reduced backward flare; limited direction study reviewable. Curled hands, stretched sleeve, likeness and fluid motion remain unfinished.",
+      "title": "Review desk reach after allowance reset"
     }
   ],
   "events": [
@@ -616,6 +1707,306 @@
       "time": "2026-10-18T07:17:04.445048+00:00",
       "task": "HANDOFF-001",
       "event": "Git push succeeded and GitHub API confirmed source checkpoint832a3d4 on main. Owner can inspect code/downloadZIP and track issues1\u20133. Final metadata completion follows; no finished-game release or animation approval."
+    },
+    {
+      "time": "2026-10-18T07:49:09.371839+00:00",
+      "task": "TECH-005",
+      "event": "Owner confirmed Windows editor project opens and resumed movement correction. Three private videos/raw tracking verified present. Feature branch selected; motion-analysis and QA scopes remain separate."
+    },
+    {
+      "time": "2026-10-18T08:01:15.335496+00:00",
+      "task": "MOTION-001",
+      "event": "Motion worker completed analysis/helper/report. Coordinator is integrating reference-driven sagittal projection and original painted character rendering, with independent QA prepared."
+    },
+    {
+      "time": "2026-10-18T08:11:27.958153+00:00",
+      "task": "QA-005",
+      "event": "Native QA worker confirmed active on bounded review. Candidate56d1b9cb1e56 frozen after visible forefoot registration correction; coordinator is producing actual-pose HTML."
+    },
+    {
+      "time": "2026-10-18T08:16:28.281110+00:00",
+      "task": "QA-005",
+      "event": "Native QA worker completed scoped review and finalized report. Coordinator read results and inspected 32 actual rendered poses. Final frozen source/output hashes match; only idle numerical tolerance changed after subpixel trig-rounding diagnosis. Personal footage remains excluded."
+    },
+    {
+      "time": "2026-10-18T08:16:28.281110+00:00",
+      "task": "TECH-005",
+      "event": "Revision 5 completed for owner HTML review on feat/reference-human-walk. Original art preserved. No Godot integration, owner approval or merge claimed."
+    },
+    {
+      "time": "2026-10-18T08:46:24.728254+00:00",
+      "task": "TECH-006",
+      "event": "Owner completed reference intake: three image sheets and16FBX files. Next candidate is explicitly images-only; FBX files saved outside repository and remain unopened. Coordinator owns implementation; bounded art and independent QA briefs recorded."
+    },
+    {
+      "time": "2026-10-18T08:53:08.818067+00:00",
+      "task": "ART-005",
+      "event": "Native art/motion worker completed brief. Owner clarified modest cartoon exaggeration is welcome if fluid, coherent and recognizably human. Coordinator is building an image-only version; no raw media parsed."
+    },
+    {
+      "time": "2026-10-18T09:03:44.526131+00:00",
+      "task": "QA-007",
+      "event": "Native worker completed independent final review on frozen0eb839b17586. Coordinator inspected actual32phase sheet and read report. Visual caveats retained; numerical checks do not establish naturalness. No FBX/video imported."
+    },
+    {
+      "time": "2026-10-18T09:03:44.526131+00:00",
+      "task": "TECH-006",
+      "event": "Completed image-only HTML candidate with live close-up and explicit recovery to rest. FBX comparison remains deferred as owner requested. No Godot art integration or owner approval/merge claimed."
+    },
+    {
+      "time": "2026-10-18T09:07:34.199731+00:00",
+      "task": "QA-007",
+      "event": "After a concrete resume-weight discontinuity was found and corrected, native QA repeated affected validation on cdeb00514796: 48 checks passed, sources frozen. Final rendered captures refreshed. This supersedes the earlier candidate for delivery; owner approval remains pending."
+    },
+    {
+      "time": "2026-10-18T09:21:20.949506+00:00",
+      "task": "TECH-007",
+      "event": "Owner reported five visible defects in revision6 and authorized FBX comparison. Bounded extraction and QA tasks recorded. Coordinator owns rendering; original image assets preserved."
+    },
+    {
+      "time": "2026-10-18T09:22:55.967158+00:00",
+      "task": "TECH-007",
+      "event": "Owner requested immediate pause to preserve remaining allowance. Native FBX worker explicitly interrupted. Saved detailed resume checkpoint; no FBX revision or new test pass claimed."
+    },
+    {
+      "time": "2026-10-18T12:53:37.664048+00:00",
+      "task": "TECH-007",
+      "event": "Owner requested resume. No prior extraction outputs present; existing checkout/tools/16-file private manifest verified. Coordinator handles rendering; bounded FBX extraction resumes."
+    },
+    {
+      "time": "2026-10-18T13:16:12.526902+00:00",
+      "task": "TECH-007",
+      "event": "Completed revision 7 after correcting mesh seams and a resampling-induced ghost fragment. Independent QA reports 54/54 focused checks on frozen 9d7c3a14af4f, including 52 actual transparent poses. Final QA report is being saved; no owner approval or Godot integration claimed."
+    },
+    {
+      "time": "2026-10-18T13:17:03.015332+00:00",
+      "task": "QA-008",
+      "event": "Native worker completed final report and harness. Coordinator read report, verified 54/54 results and matching source/output hashes, and inspected final grey and room phase sheets. Raw/derived motion remains private; no merge or creative acceptance claimed."
+    },
+    {
+      "time": "2026-10-18T13:41:19.457674+00:00",
+      "task": "TECH-008",
+      "event": "Owner finds FBX motion much better and requests remaining garment/bag continuity, depth boot and trouser pulsing corrections. Recorded bounded coordinator and independent QA scopes."
+    },
+    {
+      "time": "2026-10-18T13:56:02.742681+00:00",
+      "task": "QA-009",
+      "event": "Native worker completed final test/report. Coordinator read report, inspected actual side/front poses and phase sheet, and verified source/output hashes and unchanged original artwork/FBX gait. 44 focused checks passed; no full navigation rerun because routing unchanged. Revision 8 ready for private owner review."
+    },
+    {
+      "time": "2026-10-18T14:42:57.891157+00:00",
+      "task": "TECH-009",
+      "event": "Owner requests independently complete anatomy and garments from every angle after repeated cutout discontinuities. Coordinator begins complete 3D construction study; original painted look retained as target, not claimed matched by first model."
+    },
+    {
+      "time": "2026-10-18T18:16:18.904250+00:00",
+      "task": "TECH-009",
+      "event": "Resumed after owner allowance reset. Existing final tests and rendered film had completed despite interrupted reporting. Read actual32-pass result and inspected final images. Corrected concrete strap burial by raycasting outer clothing; new frozen62773eacf060 under scoped independent QA, film regenerated."
+    },
+    {
+      "time": "2026-10-18T18:20:09.321357+00:00",
+      "task": "QA-010",
+      "event": "Native worker completed final 32-pass report on 62773eacf060. Coordinator read findings, inspected actual renders, verified original art/runtime hashes and saved animated Blender model. Rendered 224-frame HTML checked across 24 angle/mode cases offline with no errors or network requests. Ready for owner construction review, not visual replacement or merge approval."
+    },
+    {
+      "time": "2026-10-18T18:38:17.161072+00:00",
+      "task": "ART-006",
+      "event": "Owner accepts general motion but reports hand/bag intersection, disappearing pant fragments and angular style mismatch. Requested actual original drawings on smoother reference-based geometry; recorded geometry and independent QA scopes."
+    },
+    {
+      "time": "2026-10-18T18:47:39.788454+00:00",
+      "task": "MODEL-002",
+      "event": "Native geometry worker completed; coordinator read hand/bag and knee-weight report. Hook integrated into painted candidate. Final textured appearance is not yet checked."
+    },
+    {
+      "time": "2026-10-18T18:49:13.134081+00:00",
+      "task": "MODEL-002",
+      "event": "Coordinator inspected actual painted renders and found angular shoulder peaks and oversized pointed tufts. Recording bounded geometry polish follow-up before restarting same worker."
+    },
+    {
+      "time": "2026-10-18T18:51:48.312027+00:00",
+      "task": "MODEL-002",
+      "event": "Native worker completed silhouette polish and reran geometry/37-pose clearance. Coordinator integrated packed images and real UV layers in Blender plus matching browser painting coordinates. QA brief already recorded; candidate under visual inspection."
+    },
+    {
+      "time": "2026-10-18T18:52:08.924878+00:00",
+      "task": "QA-011",
+      "event": "Native tool confirmed /root/painted_character_qa started. Scope: actual painted renders, texture/UV integrity, sampled garment/collision evidence and candid visual limitations."
+    },
+    {
+      "time": "2026-10-18T19:06:03.653536+00:00",
+      "task": "ART-006",
+      "event": "Actual rendered inspection and independent QA found projection artifacts and missing authoring UVs. Coordinator corrected shared category stamping, seated head, shortened tools, constrained cloth registration and removed discontinuous head UV jumps. Frozen98259839b0e0 is under final QA and actual-frame recapture; likeness remains an intermediate study."
+    },
+    {
+      "time": "2026-10-18T19:09:40.180735+00:00",
+      "task": "QA-011",
+      "event": "Native QA worker completed final report. Coordinator read26-pass result and actual captures. Independently checked rendered HTML32angle/mode/setting cases offline,192frames, controls, mobile overflow, zero runtime/network errors, matching output/source hashes. No finished-art or Godot integration approval claimed."
+    },
+    {
+      "time": "2026-10-18T19:25:43.744783+00:00",
+      "task": "DELIVERY-001",
+      "event": "Owner explicitly confirmed compact review displays correctly. Coordinator recorded small native-video HTML as primary delivery method, retained actual model frames and original motion/art, and saved reusable encoding helper. No platform renderer repair or official file-size limit is claimed."
+    },
+    {
+      "time": "2026-10-18T19:38:51.960110+00:00",
+      "task": "RESEARCH-002",
+      "event": "Owner rejected painted projection candidate as unrecognizable and distorted. Coordinator acknowledged method failure and starts external research before a geometry-first rebuild; bounded free-tool research scope recorded."
+    },
+    {
+      "time": "2026-10-18T19:39:21.624564+00:00",
+      "task": "RESEARCH-003",
+      "event": "Native tool confirmed /root/free_character_tools started official-source tool/license/hardware research. No modeling worker started before workflow research."
+    },
+    {
+      "time": "2026-10-18T19:44:32.190443+00:00",
+      "task": "RESEARCH-002",
+      "event": "Owner requested allowance pause. Coordinator stopped before replacement modeling, read completed native research report and saved docs/RESUME_CHARACTER_REBUILD.md with exact files, source access, implementation proposal, rejected-method guardrails and remaining tasks. Research worker completed; no modeling or QA worker was started."
+    },
+    {
+      "time": "2026-10-19T09:48:08.981121+00:00",
+      "task": "MODEL-004",
+      "event": "Owner resumed with white_mesh.glb and explicitly requested aligned Art and QA review of actual rendered output. Input saved privately: one4905-vertex mesh, no skins/animations/materials/textures. Coordinator prepares import renders before selecting integration method."
+    },
+    {
+      "time": "2026-10-19T09:48:53.489689+00:00",
+      "task": "ART-007",
+      "event": "Native tools confirmed Art and independent QA workers started with separate file ownership and explicit actual-render review criteria."
+    },
+    {
+      "time": "2026-10-19T10:02:48.785877+00:00",
+      "task": "MODEL-004",
+      "event": "Independent actual-render review found a source pinched vertex connecting hand to opposite leg and incomplete bag weighting. Coordinator reconstructs local patch, expands rigid bag envelope, uses exact foot rotation for clearance and replaces hard triangle material masks with continuous vertex colors. Art refined tired eyelids; final render review pending."
+    },
+    {
+      "time": "2026-10-19T10:12:54.312707+00:00",
+      "task": "ART-007",
+      "event": "Native Art worker completed fitted eyes and actual-image review. Earlier bag shelf/needles corrected; final forearm smooth influence under QA. Scoped owner-review recommendation only; painted finish remains unfinished."
+    },
+    {
+      "time": "2026-10-19T10:20:20.729692+00:00",
+      "task": "MODEL-004",
+      "event": "Coordinator integrated actual Art and QA findings and froze final eb3c9fb665f1 model. Godot imported17runtime meshes/14bones/19color surfaces with finite animated poses. Compact948310-byte native-video HTML passed offline playback; 8-angle views retained. Original approved art unchanged; models/motion/previews private. Reviewable study completed, final art and topology remain open."
+    },
+    {
+      "time": "2026-10-19T10:39:13.396917+00:00",
+      "task": "STYLE-001",
+      "event": "Owner prefers supplied-model method and requests closer character/environment style alignment, including a subtle room rendering experiment. Coordinator records separate Art rendering and independent QA scopes before delegation."
+    },
+    {
+      "time": "2026-10-19T10:44:34.232935+00:00",
+      "task": "STYLE-001",
+      "event": "Owner requests clean room reference for possible3Dmodeling and stresses character proportions during room movement. Coordinator delivered a642530-byte offline room image/download page; original1932\u00d7814PNG unchanged. QA verifies actual reference screenshot. Character style test continues; room redesign held while owner prepares possible model. Fixed camera/room lights and foot-anchor perspective scale are explicit requirements."
+    },
+    {
+      "time": "2026-10-19T15:02:28.892590+00:00",
+      "task": "STYLE-001",
+      "event": "Owner reset allowance and resumed. Character captures and633890-byte final comparison survived. Coordinator resumes interrupted final actual-scene/scale QA, not a new modeling or room-redesign iteration; art and source models remain unchanged."
+    },
+    {
+      "time": "2026-10-19T15:04:12.041139+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Owner supplied a cutaway room image, then clarified rectangular16:9 output. Coordinator prepares a separate image-edit proposal; this remains2Dreference artwork, not a received3Dmesh."
+    },
+    {
+      "time": "2026-10-19T15:07:24.658716+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Imagegen completed separate reframing proposal. SourcegeneratedPNG preservedprivately; mainsofa/door/window/desk recognizable. Coordinator requests bounded actual-image Art/QA before finaldelivery; priorlightingstudy reviewcompleted."
+    },
+    {
+      "time": "2026-10-19T15:10:59.220645+00:00",
+      "task": "ROOM-REF-001",
+      "event": "Actual Art and independent QA completed newroomreview.541572-byte HTML and1600\u00d7900nativeJPGdownload verifiedoffline. Sourceart/model/motionunchanged; outputisaseparateimageassistedreframe. Characterfloor/camera/obstaclealignmenttothisnewviewremainsnextintegrationstep. Workersfinished."
+    },
+    {
+      "time": "2026-10-19T15:29:40.519926+00:00",
+      "task": "SIT-001",
+      "event": "Owner accepts progress and requests first sofa-sitting interaction. Record bounded actual-rig pose, integration and independent rendered QA assignments; preserve currentart/model/walk source and use latest16:9room."
+    },
+    {
+      "time": "2026-10-19T15:32:41.953500+00:00",
+      "task": "SIT-001",
+      "event": "Ownerclarifiesonefixedno-pillowseatwith3Dseat/contactproxyandinteractivefloorwalk/Use-sofasitting. CoordinatorwillbuildanofflineCanvasreviewusingactualrenderedanimationassetsandfloorobstaclenavigation; fullGodotroomintegrationremainseparate."
+    },
+    {
+      "time": "2026-10-19T16:02:22.089146+00:00",
+      "task": "SIT-001",
+      "event": "Final full-resolution transparent animation replaces the soft packed sprites; walking uses a broad contact cue instead of detached rest-foot shadows. Art opened final seated, lowering and walking browser captures. Offline QA focused rerun passed 23 checks; its report is being finalized. Models and original artwork remain unchanged."
+    },
+    {
+      "time": "2026-10-19T16:03:42.875803+00:00",
+      "task": "SIT-001",
+      "event": "Actual Art and QA workers completed. Final transparent-animation HTML passed 23 focused offline checks and actual image/media review; original 30-check navigation/resize evidence retained separately. Saving source, scoped reports and resume checkpoint on the existing draft branch. Owner creative acceptance and merge remain pending."
+    },
+    {
+      "time": "2026-10-19T18:53:18.334004+02:00",
+      "task": "ROOM-RSCH-001",
+      "event": "Owner provided full future art/interaction list and requested targeted free-tool research with small iterations. Coordinator saved role assignments, actual-source research and a planned stool-only proof. No worker agents started or visual asset approved; character animation remains paused. Art/QA must inspect actual changed images jointly."
+    },
+    {
+      "time": "2026-10-19T19:01:52.703224+02:00",
+      "task": "ROOM-RSCH-001",
+      "event": "Owner clarifies furniture must have visible complete 3D geometry for convincing contact. Saved actual hosted-service research and a model-to-contact pipeline; no new paid setup, private upload, inference or character animation. Planned stool gate strengthened accordingly."
+    },
+    {
+      "time": "2026-10-19T19:08:27.983562+02:00",
+      "task": "STOOL-001",
+      "event": "Owner authorized one geometry-only stool modeling/review iteration using remaining allowance. Coordinator builds and saves actual mesh; scoped Art and QA reviews planned. Character animation stays paused; no clean-background or room movement claim."
+    },
+    {
+      "time": "2026-10-19T19:12:24.642158+02:00",
+      "task": "STOOL-001",
+      "event": "Complete 6-part stool model saved as Blender and GLB before rendering. Three actual CPU renders and compact 552420-byte offline review are ready. Scoped Art and independent QA workers started with focused briefs and no full chat history; each inspects the same reference/renders."
+    },
+    {
+      "time": "2026-10-19T19:16:52.204859+02:00",
+      "task": "STOOL-001",
+      "event": "Actual Art and independent QA completed corrected-model review. Both recommend owner review of the separate geometry candidate. Final HTML552020bytes and GLB5e4754e3... saved; source/checkpoints pushed. No character animation or room image changed. Owner notified only5%remaining; work stops after this checkpoint."
+    },
+    {
+      "time": "2026-10-19T23:46:44.976332+02:00",
+      "task": "STOOL-002",
+      "event": "Owner requests actual stool replacement in room and Maziss pulling it toward himself then sitting. This explicitly authorizes scoped character motion again. Coordinator will stage a complete 3D interaction and repair the original painted-stool region; Art authoring and independent QA assignments recorded before delegation."
+    },
+    {
+      "time": "2026-10-20T09:35:48.438058+02:00",
+      "task": "STOOL-002",
+      "event": "Resumed after allowance reset. All157 actual frames completed and retained; packaging underway. Original workers are unavailable, so final Art/QA roles receive bounded continuation briefs and existing evidence instead of redoing authoring."
+    },
+    {
+      "time": "2026-10-20T09:42:52.627701+02:00",
+      "task": "STOOL-002",
+      "event": "Final actual-image/native-playback Art and QA reviews complete after resume. Both recommend owner review of930920-byte Use-stool action; independent checks disclose small inherited approach floor overlap. Saving source, final reports and compact resume handoff; private models/renders/plate/video/HTML stay excluded from Git. Owner creative approval and merge pending."
+    },
+    {
+      "time": "2026-10-20T08:37:17.261005+00:00",
+      "task": "ART-014",
+      "event": "Owner requests rear-side boarding and sitting toward desk. Registered bounded Art authoring and independent QA review; coordinator owns rendering and packaging."
+    },
+    {
+      "time": "2026-10-20T08:51:20.304016+00:00",
+      "task": "ART-014 / QA-020",
+      "event": "Completed231actualframes with92verifiedunchangedprefixframes. Art inspected25nativeplaybackcaptures; QA passed11offlinechecks plus actualscene/bootclearance/framehashaudits. Bothrecommendownerreview of rear-side boarding and desk-facing endpoint. Source and privateartifacts preserved; owner creative approval pending."
+    },
+    {
+      "time": "2026-10-20T08:58:29.487075+00:00",
+      "task": "ART-015 / QA-021",
+      "event": "Owner rejected circling shuffles. New bounded work: independently usable right arm, short boarding, occupied stool slide and final desk contact; save durable checkpoints."
+    },
+    {
+      "time": "2026-10-20T16:17:38.688191+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Owner resumes after allowance reset. Continue saved contact draft; no modeling or research restart. Remaining right boot leg3 and midpull bag seat contacts before full render."
+    },
+    {
+      "time": "2026-10-20T16:31:12.226408+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Resumed contact corrections saved. Art and QA actual-key gates pass; full177frame stool pull/sit/occupied-slide/desktop-contact render running. Final playback pending."
+    },
+    {
+      "time": "2026-10-20T16:41:33.363474+00:00",
+      "task": "ART-016 / QA-022",
+      "event": "Art and independent QA completed actual native-video review of corrected right-hand stool pull/direct sit/occupied slide/desk contact.945456-byte compact HTML ready for owner review. Source and resume notes saved; main Godot and writing remain separate."
     }
   ]
 }

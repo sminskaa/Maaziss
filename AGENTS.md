@@ -6,6 +6,10 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
 
 ## Owner decisions
 
+- Current purpose: private, non-commercial experimentation with no distribution
+  planned. Do not exclude free/non-commercial tools merely because this is a game
+  project. Evaluate each service's actual terms, access and output restrictions;
+  do not assume all services permit every use. No paid service is authorized.
 - English game, zero additional budget. No paid service or new subscription.
 - Final target: a desktop game installed and running locally on the player's computer,
   fully playable offline. Godot remains the main game engine. HTML pages are review
@@ -25,6 +29,45 @@ worktree without a specific need or request. Read `docs/STORY_BIBLE.md` and
   pictures or claim repository changes repair the host chat renderer.
   Use readable preview files (0644) and traversable preview folders (0755), and never
   claim chat delivery works solely because an internal browser renders it.
+- On 18 October the owner confirmed older 2–2.5 MB HTML reviews still worked,
+  while the new 10–18 MB reviews opened as source or failed in the web preview.
+  The 850 KB `visual-preview/maziss-review-small.html` successfully displayed in
+  the owner's panel. Prefer a compact review around or below 1 MB with native
+  video controls, an embedded still fallback and no required JavaScript/WebGL.
+  This is a tested workaround, not an established platform size limit or a repair
+  of the chat renderer. Keep larger live models optional. Use
+  `python3 tools/build_compact_character_review.py` after rendering the painted
+  model; it re-encodes actual retained frames without changing art or motion.
+- The owner rejected the latest whole-sprite projection as distorted and
+  unrecognizable. Preserve the original drawings and useful existing3D motion;
+  reconstruct the recognizable shapes before UV painting. Do not keep patching
+  repeated portrait projections. Research and the explicit allowance-pause state
+  are saved in `docs/RESUME_CHARACTER_REBUILD.md`; no replacement model was built
+  before that pause.
+- On 19 October the owner supplied `white_mesh.glb`. Its recognizable sculpt now
+  supports a separate rig study; see `docs/SUPPLIED_CHARACTER_STUDY.md`. Preserve
+  the original file privately. The bag-side hand shares the bag's surface and is
+  held quiet for this study; independent movement needs separate topology. Do not
+  describe the shaded model as finished painted art or a production-ready rig.
+- The owner prefers the supplied-mesh/complete-geometry method over the earlier
+  sprite projection. Next work should match Maziss to the room's painted colours,
+  lighting and contours. Room changes should be small and separately reviewed.
+  A clean room reference was supplied for possible owner-provided 3D modeling.
+  Keep movement scale tied to the floor/camera perspective and fixed body
+  proportions; never normalize every animation frame to its bounding box.
+- The owner supplied a dimensional cutaway room image and clarified a16:9 game
+  viewport. A separate image-assisted reframe removes the white surround and
+  pointed lower floor; `visual-preview/maziss-room-16x9.html` includes a JPG
+  download. This is a proposal, not a replacement approval or a room mesh.
+  Recalibrate floor, camera, furniture obstacles and character size for this view;
+  do not copy the prior room's screen coordinates unchanged.
+- The owner requested an interactive first sofa action: click floor to walk,
+  select Use and click the sofa to sit on one fixed clear right cushion, away
+  from the pillows. Clicking floor afterward stands and walks. A separate fitted
+  seat/floor proxy and actual rendered model poses support the compact offline
+  `visual-preview/maziss-sofa-sit.html` study. Preserve the room and pillows;
+  see `docs/SOFA_INTERACTION_STUDY.md` and actual Art/QA evidence. This is not
+  yet an interaction installed in the main Godot game.
 
 ## Agent operation
 
@@ -57,3 +100,47 @@ The HTML activity board is a generated snapshot, not live monitoring. Its timest
 and activity log must make that clear. `python3 tools/build_agent_board.py` rebuilds
 it from the registry; it cannot independently query native agent runtime status.
 Do not create pretend director activity, unearned test passes or fabricated research.
+
+## Session continuity and allowance
+
+Start from `docs/SESSION_HANDOFF.md`, then read only relevant sources and required
+project guidance. Keep that handoff short and current at checkpoints; detailed
+evidence belongs in linked reports. Prefer bounded tasks, concise updates, targeted
+searches and compact tool output. Give workers focused briefs and relevant file
+paths instead of the entire chat when possible. Preserve the owner's actual-image
+Art/QA review requirements. Do not read embedded-media HTML or the full generated
+activity board into context to discover project state.
+
+The owner paused animation during low-allowance research, then explicitly
+authorized the desk-stool approach/pull/sit action. Follow the latest scoped task
+and current handoff; do not treat the old pause as blocking already-authorized
+stool work. Other queued seating/speed and room changes retain their backlog state.
+
+The owner also authorized research and recorded the next art/room requirements in
+`docs/ROOM_INTERACTION_BACKLOG.md`. Read it for the complete list and role owners;
+`docs/ROOM_INTERACTION_RESEARCH.md` holds consulted sources and a proposed small
+stool-only proof. Preserve the room beneath movable props with a reconstructed
+background, separate object and correct shadow/depth layers. Art and QA must
+inspect the same actual before/during/after output and jointly recommend each
+visual change. No holes, duplicated objects, old shadows or painted remnants.
+Do not mark the new requirements done merely because notes or code exist.
+For furniture Maziss sits on, the owner explicitly requires visible complete 3D
+models; a flat sprite and hidden seat proxy alone are insufficient. Fit actual
+body/seat/foot contacts and inspect the combined rendered motion. Updated external
+AI/service findings and access limits are in the room interaction research notes.
+The desk-stool candidate now uses actual character/stool geometry and a local
+repaired room plate. `docs/STOOL_INTERACTION_STUDY.md` and the final Art/QA reports
+record its scoped approval for owner review and remaining approach boot-floor
+overlap. Its compact HTML plays one authored action; main Godot integration and
+other room actions remain separate. Original artwork/models are preserved.
+
+The owner rejected the circling/shuffle boarding candidate and requested an
+anatomical right-hand pull, short direct sit, occupied stool slide toward the desk
+and both hands resting on the desktop. `docs/STOOL_SLIDE_STUDY.md` records that
+separate revision. Its privately prepared `character-right-arm.blend` has an
+independent closed right arm and continuous satchel; the original supplied rig
+still has its earlier joined-hand limitation and must remain unchanged. Use the
+prepared model for this action. Fitted desk/item geometry supplies depth/contact
+while retaining the painted artwork. Verify actual evaluated surfaces with the
+shared renderer pose function; bone tips alone cannot establish boot roll or palm
+contact. All new private models/renders/previews remain excluded from Git.

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "method": "Authored image-guided adult walk; not motion capture or an exact tracing",
+  "sources": [
+    "Owner image: 12 cartoon boy running poses; identifies running exaggeration to avoid",
+    "Owner image: two rows of woman side-view poses; qualitative limb/contact reference",
+    "Owner image: two rows of man side-view poses; qualitative limb/contact reference"
+  ],
+  "used_fbx": false,
+  "used_video_tracking": false,
+  "source_images_embedded": false,
+  "timing_note": "Static sheets do not specify timing. These timings and proportions are authored, not measurements from the pictures.",
+  "cycle_seconds": 1.08,
+  "stride_height_ratio": 0.5,
+  "stance_fraction": 0.6,
+  "swing_clearance_height_ratio": 0.035,
+  "source_foot": {
+    "height": 421,
+    "cuff": [
+      326,
+      373
+    ],
+    "heel": [
+      326,
+      430
+    ],
+    "ball": [
+      380,
+      417
+    ],
+    "neutral_rotation_radians": 0.23624526071843754
+  },
+  "key_poses": [
+    {
+      "phase": 0.0,
+      "name": "heel contact",
+      "roll_degrees": -12
+    },
+    {
+      "phase": 0.12,
+      "name": "weight accepted, sole down",
+      "roll_degrees": 0
+    },
+    {
+      "phase": 0.25,
+      "name": "passing",
+      "roll_degrees": 0
+    },
+    {
+      "phase": 0.4,
+      "name": "rise begins",
+      "roll_degrees": 0
+    },
+    {
+      "phase": 0.6,
+      "name": "toe leaves ground",
+      "roll_degrees": 32
+    },
+    {
+      "phase": 0.76,
+      "name": "swing passing",
+      "roll_degrees": 8
+    },
+    {
+      "phase": 0.9,
+      "name": "leg extends gradually",
+      "roll_degrees": -8
+    },
+    {
+      "phase": 1.0,
+      "name": "next heel contact",
+      "roll_degrees": -12
+    }
+  ],
+  "swing_lift_note": "Early swing rise followed by a longer smooth descent; foot support padding is interpolated separately while airborne."
+}

@@ -6,20 +6,24 @@
 <title>Maziss — revised walking</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#171721;color:#f2e3c6;font:16px/1.5 system-ui,sans-serif}main{max-width:1500px;margin:auto;padding:22px}h1{font-size:25px;margin:0 0 5px}p{margin:5px 0 14px;color:#d1c6b8}.stage{border:1px solid #7b6250;border-radius:9px;overflow:hidden;background:#28202a;box-shadow:0 15px 45px #0006}canvas{display:block;width:100%;height:auto;cursor:crosshair;touch-action:manipulation}canvas:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #ffcf70;outline-offset:3px}nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:15px 0}button{font:inherit;border:1px solid #897050;border-radius:5px;background:#342a2c;color:#fff0ce;padding:8px 14px;cursor:pointer}label{display:flex;gap:8px;align-items:center}input{width:18px;height:18px}#status{min-height:1.5em;color:#ffda93}.note{font-size:14px;color:#aaa6aa}footer{border-top:1px solid #44404a;margin-top:15px;padding-top:12px}kbd{background:#34303a;padding:1px 5px;border-radius:3px}@media(max-width:600px){main{padding:12px}h1{font-size:21px}}
+.views{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}.detail canvas{cursor:default}.detail p{text-align:center;margin:8px}@media(max-width:1000px){.views{grid-template-columns:1fr}.detail{max-width:300px}}
 </style>
 </head>
 <body><main>
-<h1>Maziss: first character with corrected legs — revision 4</h1>
+<h1>Maziss: clothing continuity — revision 8</h1>
 <p>Click the floor. Maziss finds a route around the furniture. Click again to change his destination.</p>
-<div class="stage"><img id="room-fallback" src="__BACKGROUND_URL__" alt="Maziss’s room. The interactive character appears when the walking example finishes loading." style="display:block;width:100%;height:auto"><canvas style="display:none" id="room" width="1932" height="814" tabindex="0" role="application" aria-label="Maziss apartment walking study" aria-describedby="instructions status">Your browser needs canvas support for this walking example.</canvas></div>
-<nav aria-label="Walking controls"><button id="reset" type="button">Reset position</button><button id="pause" type="button" aria-pressed="false">Pause</button><label><input type="checkbox" id="debug">Show walkable area</label><label><input type="checkbox" id="feet">Show footsteps</label></nav>
+<div class="views"><div class="stage"><img id="room-fallback" src="__BACKGROUND_URL__" alt="Maziss’s room. The interactive character appears when the walking example finishes loading." style="display:block;width:100%;height:auto"><canvas style="display:none" id="room" width="1932" height="814" tabindex="0" role="application" aria-label="Maziss apartment walking study" aria-describedby="instructions status">Your browser needs canvas support for this walking example.</canvas></div><div class="stage detail"><canvas id="detail" width="360" height="540" aria-label="Live character close-up"></canvas><p>Live character close-up</p></div></div>
+<nav aria-label="Walking controls"><button id="reset" type="button">Reset position</button><button id="stand" type="button">Stand still</button><button id="pause" type="button" aria-pressed="false">Pause</button><label><input type="checkbox" id="debug">Show walkable area</label><label><input type="checkbox" id="feet">Show footsteps</label></nav>
+<nav aria-label="Animation review"><label><input type="checkbox" id="study">Walk cycle study</label><button data-view="left">Left</button><button data-view="right">Right</button><button data-view="front">Toward camera</button><button data-view="back">Away from camera</button><button id="step">Next frame</button><label>Playback <select id="playback"><option value="1">Normal</option><option value="0.5">Half speed</option><option value="0.25">Quarter speed</option></select></label></nav>
 <p id="status" role="status" aria-live="polite">Loading the walking example… If this message remains, open this HTML file in your browser.</p>
 <p id="instructions" class="note">Keyboard: focus the room, then use arrow keys to choose a nearby destination. <kbd>Home</kbd> resets, <kbd>Esc</kbd> stops, and <kbd>Space</kbd> pauses. A gold ring marks the destination; a dotted link means a click was adjusted to reachable floor.</p>
 <noscript><p>This walking example needs JavaScript enabled in your browser.</p></noscript>
 <footer class="note">Movement study using the approved art direction. No inventory, dialogue or puzzle actions here yet. Everything needed is inside this file; no account or connection is required.</footer>
 </main>
-<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";</script>
+<script>const ROOM=__ROOM_DATA__;const SPRITES=__RIG_DATA__;const FBX_MOTION=__FBX_MOTION_DATA__;const BACKGROUND_URL=document.getElementById('room-fallback').src;const ATLAS_URL="__RIG_ATLAS_URL__";const DEPTH_ATLAS_URL="__DEPTH_ATLAS_URL__";const CLOTHING_ATLAS_URL="__CLOTHING_ATLAS_URL__";</script>
 <script>__NAVIGATION_JS__</script>
 <script>__GAIT_JS__</script>
+<script>__FBX_GAIT_JS__</script>
+<script>__CHARACTER_JS__</script>
 <script>__DEMO_JS__</script>
 </body></html>

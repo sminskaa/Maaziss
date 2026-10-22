@@ -1,5 +1,33 @@
 # Embedded-media delivery report for ChatGPT/Codex support
 
+## Confirmed compact HTML workaround — 18 October 2026
+
+The owner reported that the new painted model review opened as literal HTML
+source, while the separate web preview displayed a generic visualization error.
+They confirmed older HTML reviews still displayed correctly. The new files were
+about 10 MB (rendered frames) and 18 MB (live model), compared with roughly
+2–2.5 MB for earlier working construction reviews. File size or content
+compatibility is a hypothesis; the host's actual error and limit are unknown.
+
+A compact alternative now packages the same verified rendered frames into a
+307 KB H.264 video, with an embedded still comparison and native media controls.
+The complete HTML is 850,346 bytes and requires no page scripts or WebGL. The
+owner explicitly confirmed that this version displays correctly. This establishes
+a working delivery route, not a repair of the platform's image renderer.
+
+Current local review: `visual-preview/maziss-review-small.html`. A separate
+image-only fallback, `visual-preview/maziss-review-picture.html`, is 79,016 bytes.
+`python3 tools/build_compact_character_review.py` reproduces the compact video
+review from retained `maziss-painted-rendered.html` frames. It needs installed
+Playwright/Chromium and FFmpeg. Generated reviews and intermediate frames remain
+private and ignored; original character art and motion are unchanged.
+
+Browser checks confirmed video playback and seeking with page JavaScript enabled
+and disabled, plus offline still decoding. These checks are separate from the
+owner's successful panel check. Prefer compact reviews near or below 1 MB for
+future delivery, while treating that target as a tested practice rather than an
+official maximum. Larger live models can remain optional inspection artifacts.
+
 ## Observed behaviour
 
 In this Codex conversation, images posted by the assistant appear as placeholders or

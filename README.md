@@ -9,8 +9,8 @@ No Python or AI tool is required to play through the Godot editor.
 
 This is an unfinished source checkpoint. The playable Godot room still uses SVG
 placeholder art. The approved painted artwork and separate HTML walking experiment
-are not integrated; the owner rejected the previous walking animation and the
-video-based correction is paused. See [current status](docs/PROJECT_STATUS.md),
+are not integrated; the previous walking animation was rejected and the
+complete 3D construction study is under review. See [current status](docs/PROJECT_STATUS.md),
 [planned work](docs/BACKLOG.md), and [how agents are assigned](docs/AGENT_WORKFLOW.md).
 
 Feature requests and bugs belong in [GitHub Issues](https://github.com/sminskaa/Maaziss/issues).
@@ -114,8 +114,22 @@ reads only its own game's saved JSON in IndexedDB; no test API is shipped in the
 ## Click-to-walk art example
 
 Generated HTML previews are local review artifacts and are not committed or packaged.
-To rebuild the separate movement study on a development machine with Python and
-Pillow, run `python3 tools/build_walking_demo.py`, then open
-`visual-preview/maziss-walking.html`. Its rejected animation remains a development
-reference, not an approved replacement for the Godot game. See
+To rebuild revision 8, retain the private extracted FBX motion data and use Python
+and Pillow: `python3 tools/build_walking_demo.py`. Open
+`visual-preview/maziss-walking.html`. This candidate awaits visual review and is not
+an approved replacement for the Godot game. Raw references and derived motion are
+not part of the public checkout. See
 [WALKING_DEMO.md](docs/WALKING_DEMO.md) for controls, scope and limitations.
+
+
+## Complete 3D character construction study
+
+The authoring experiment builds complete body, clothing and equipment geometry
+instead of continuing to patch cutout images. A first painted pass now registers
+the original drawings onto smoother surfaces, with separate clean jacket art and
+sampled hand/bag clearance. Face likeness, seams and tailoring remain unfinished;
+the approved painted cartoon style remains the target. See
+[CHARACTER_3D_STUDY.md](docs/CHARACTER_3D_STUDY.md) for build steps, private motion
+requirements and scope, and [CHARACTER_PAINT_WORKFLOW.md](docs/CHARACTER_PAINT_WORKFLOW.md)
+for the painting approach and free learning resources. Generated model/preview files
+are excluded from Git.
